@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CEO Message | 800 Retail - Al Ameen Group</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#09090B',
+            accent: '#C20E1A',
+            neutralDark: '#18181B',
+            neutralLight: '#FFFFFF'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white text-zinc-900 min-h-screen flex flex-col pt-20">
+
+  <!-- Shared Header Placeholder -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- Page Banner -->
+  <section class="py-24 bg-zinc-50 border-b border-zinc-200 text-center">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 space-y-4">
+      <h1 class="text-4xl sm:text-5xl font-black text-zinc-950 tracking-tight font-display">Leadership Message</h1>
+      <p class="text-zinc-500 text-sm max-w-xl mx-auto font-light">A message from our Chief Executive Officer on engineering standards and brand execution.</p>
+    </div>
+  </section>
+
+  <!-- CEO Quote Details -->
+  <section class="py-32 bg-white">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 grid grid-cols-1 lg:grid-cols-12 gap-20">
+      
+      <!-- CEO Image & Player Column (4 cols) -->
+      <div class="lg:col-span-4 space-y-8">
+        <div class="relative rounded overflow-hidden border border-zinc-200 shadow-lg">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800" alt="Muhammed Manaf" class="w-full h-[400px] object-cover object-top">
+          <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/85 to-transparent">
+            <h3 class="text-lg font-bold text-white font-display">Muhammed Manaf</h3>
+            <p class="text-xs text-red-500 font-semibold tracking-wider uppercase mt-1">Chief Executive Officer</p>
+          </div>
+        </div>
+
+        <!-- Audio Player Panel -->
+        <div class="p-6 bg-zinc-50 rounded border border-zinc-200 space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-zinc-500">Play Audio Briefing</span>
+            <i class="fas fa-volume-up text-red-700"></i>
+          </div>
+          <div class="flex items-center space-x-4">
+            <button id="play-audio-btn" class="w-10 h-10 rounded-full bg-red-700 hover:bg-red-800 text-white flex items-center justify-center transition cursor-pointer">
+              <i class="fas fa-play" id="audio-icon"></i>
+            </button>
+            <div class="flex-1">
+              <div class="h-1.5 w-full bg-zinc-200 rounded-full overflow-hidden relative">
+                <div class="absolute left-0 top-0 h-full bg-red-700 w-0" id="audio-progress"></div>
+              </div>
+              <div class="flex justify-between text-[9px] text-zinc-400 mt-1 font-semibold">
+                <span id="audio-current">0:00</span>
+                <span>2:15</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CEO Text Content Column (8 cols) -->
+      <div class="lg:col-span-8 space-y-8">
+        <!-- Prominent Quote Callout -->
+        <div class="border-l-4 border-red-700 pl-6 py-2">
+          <h2 class="text-2xl sm:text-3xl font-black text-zinc-950 leading-snug font-display italic">
+            &ldquo;For us, the significance of a project lies not in its size, but in its meaning and the impact it has on our clients.&rdquo;
+          </h2>
+        </div>
+
+        <!-- Narrative -->
+        <div class="text-zinc-650 text-sm leading-relaxed space-y-6 font-light">
+          <p>
+            Welcome to 800 Retail. Since our inception under the Al Ameen Group banner in 2004, our philosophy has been rooted in building a strong local organization that cross-shares global best practices while delivering functional, modular, and sustainable retail environments.
+          </p>
+          <p>
+            We are deeply grateful for the trust our clients place in us, and we focus on turning your vision into reality&mdash;creating inspiring retail spaces that provide comfort, pride, and joy. 
+          </p>
+          <p>
+            Operating from our central 300,000 sq. ft. manufacturing plant in Umm Al Quwain, UAE, we ensure our homegrown solutions represent excellence through our &ldquo;Made in UAE&rdquo; unified mark. We believe in prefab, modular, and contemporary structures that optimize layout efficiency and consumer flow.
+          </p>
+          <p>
+            The true measure of our success is the smile on a client&rsquo;s face upon completion of a project. That feeling is more valuable to us than any milestone or award. We look forward to executing your retail rollout concepts with absolute precision.
+          </p>
+        </div>
+
+        <!-- Signed Closing -->
+        <div class="pt-8 border-t border-zinc-200 flex items-center justify-between">
+          <div>
+            <div class="font-display font-bold text-zinc-950 text-base">Muhammed Manaf</div>
+            <div class="text-xs text-zinc-400 mt-1">Chief Executive Officer, 800 Retail</div>
+          </div>
+          <div class="text-zinc-300 text-3xl font-serif italic tracking-widest opacity-60">
+            M. Manaf
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Shared Footer Placeholder -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Global scripts -->
+  <script type="module" src="../assets/js/main.js"></script>
+
+  <!-- CEO specific audio player script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const playBtn = document.getElementById("play-audio-btn");
+      const icon = document.getElementById("audio-icon");
+      const progress = document.getElementById("audio-progress");
+      const current = document.getElementById("audio-current");
+      
+      let isPlaying = false;
+      let interval;
+      let seconds = 0;
+
+      if (playBtn) {
+        playBtn.addEventListener("click", () => {
+          isPlaying = !isPlaying;
+          if (isPlaying) {
+            icon.classList.remove("fa-play");
+            icon.classList.add("fa-pause");
+            
+            interval = setInterval(() => {
+              seconds++;
+              if (seconds > 135) { // 2 mins 15 secs
+                clearInterval(interval);
+                seconds = 0;
+                isPlaying = false;
+                icon.classList.remove("fa-pause");
+                icon.classList.add("fa-play");
+                progress.style.width = "0%";
+                current.textContent = "0:00";
+              } else {
+                const percent = (seconds / 135) * 100;
+                progress.style.width = percent + "%";
+                const mins = Math.floor(seconds / 60);
+                const secs = seconds % 60;
+                current.textContent = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+              }
+            }, 1000);
+          } else {
+            icon.classList.remove("fa-pause");
+            icon.classList.add("fa-play");
+            clearInterval(interval);
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

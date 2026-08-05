@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects Portfolio | 800 Retail Solutions - Al Ameen Group</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#09090B',
+            accent: '#C20E1A',
+            neutralDark: '#18181B',
+            neutralLight: '#FFFFFF'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white text-zinc-900 min-h-screen flex flex-col pt-20">
+
+  <!-- Shared Header Placeholder -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- Page Banner -->
+  <section class="py-24 bg-zinc-50 border-b border-zinc-200 text-center">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 space-y-4">
+      <h1 class="text-4xl sm:text-5xl font-black text-zinc-950 tracking-tight font-display">Reference Gallery</h1>
+      <p class="text-zinc-500 text-sm max-w-xl mx-auto font-light">Explore built commercial outlets, visual merchandising renders, and walk-through case studies.</p>
+    </div>
+  </section>
+
+  <!-- Gallery Controls & Masonry Section -->
+  <section class="py-32 bg-white flex-1">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 space-y-12">
+      
+      <!-- Filter Controls Bar -->
+      <div class="p-6 bg-zinc-50 rounded border border-zinc-200 space-y-6 shadow-sm">
+        
+        <!-- Filter Row 1: Industry -->
+        <div class="space-y-3">
+          <h4 class="text-[10px] font-extrabold text-zinc-400 uppercase tracking-widest font-display flex items-center space-x-1.5">
+            <i class="fas fa-tags text-red-700"></i>
+            <span>Filter by Industry</span>
+          </h4>
+          <div class="flex flex-wrap gap-2" id="filter-industry-buttons">
+            <!-- Dynamic button filters -->
+          </div>
+        </div>
+
+        <!-- Filter Row 2: Media Type & Location -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="space-y-3">
+            <h4 class="text-[10px] font-extrabold text-zinc-400 uppercase tracking-widest font-display flex items-center space-x-1.5">
+              <i class="fas fa-photo-video text-red-700"></i>
+              <span>Filter by Media</span>
+            </h4>
+            <div class="flex flex-wrap gap-2" id="filter-media-buttons">
+              <!-- Dynamic media filters -->
+            </div>
+          </div>
+
+          <div class="space-y-3">
+            <h4 class="text-[10px] font-extrabold text-zinc-400 uppercase tracking-widest font-display flex items-center space-x-1.5">
+              <i class="fas fa-map-marker-alt text-red-700"></i>
+              <span>Filter by Location</span>
+            </h4>
+            <div class="flex flex-wrap gap-2" id="filter-location-buttons">
+              <!-- Dynamic location filters -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Projects Grid Output -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12" id="projects-grid">
+        <!-- Loaded from data-scraper.js -->
+      </div>
+
+      <!-- Empty State UI -->
+      <div id="projects-empty-state" class="hidden">
+        <div class="empty-state">
+          <i class="fas fa-folder-open empty-state-icon text-red-700"></i>
+          <h3 class="text-lg font-bold text-zinc-950 font-display mb-1">No Projects Found</h3>
+          <p class="text-xs text-zinc-500 mb-6 max-w-sm font-light">Try resetting filters to view all case studies.</p>
+          <button id="clear-gallery-filters" class="px-5 py-2.5 bg-red-700 hover:bg-red-800 text-white rounded font-bold text-xs transition duration-200 cursor-pointer">
+            Reset Filters
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Native Lightbox Overlay -->
+  <div id="gallery-lightbox" class="lightbox">
+    <button id="lightbox-close" class="absolute top-6 right-6 text-white hover:text-red-500 text-2xl focus:outline-none cursor-pointer">
+      <i class="fas fa-times"></i>
+    </button>
+    
+    <div class="lightbox-content text-center space-y-4">
+      <img id="lightbox-img" src="" alt="Zoomed Project" class="lightbox-img">
+      <div>
+        <h3 id="lightbox-title" class="text-lg font-bold text-white font-display">Project Title</h3>
+        <p id="lightbox-location" class="text-xs text-red-500 font-semibold uppercase tracking-wider mt-1">Location details</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shared Footer Placeholder -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Global scripts -->
+  <script type="module" src="../assets/js/main.js"></script>
+
+  <!-- Filtering and Lightbox gallery module -->
+  <script type="module">
+    import { projectsPortfolio } from '../assets/js/data-scraper.js';
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const grid = document.getElementById("projects-grid");
+      const emptyState = document.getElementById("projects-empty-state");
+      
+      const indContainer = document.getElementById("filter-industry-buttons");
+      const medContainer = document.getElementById("filter-media-buttons");
+      const locContainer = document.getElementById("filter-location-buttons");
+      
+      const resetBtn = document.getElementById("clear-gallery-filters");
+
+      let activeIndustry = "ALL";
+      let activeMedia = "ALL";
+      let activeLocation = "ALL";
+
+      const industries = [...new Set(projectsPortfolio.map(p => p.category))];
+      const mediaTypes = [...new Set(projectsPortfolio.map(p => p.mediaType))];
+      const locations = [...new Set(projectsPortfolio.map(p => p.location.split(',')[1]?.trim() || p.location))];
+
+      const renderFilterControls = () => {
+        // Industry Buttons
+        indContainer.innerHTML = `
+          <button class="filter-btn px-4 py-2 text-xs font-semibold rounded transition duration-200 cursor-pointer shadow-sm ${
+            activeIndustry === "ALL" ? "bg-red-700 text-white font-bold" : "bg-white border border-zinc-200 text-zinc-650 hover:border-red-700/50"
+          }" data-type="industry" data-val="ALL">All Industries</button>
+        ` + industries.map(ind => `
+          <button class="filter-btn px-4 py-2 text-xs font-semibold rounded transition duration-200 cursor-pointer shadow-sm ${
+            activeIndustry === ind ? "bg-red-700 text-white font-bold" : "bg-white border border-zinc-200 text-zinc-650 hover:border-red-700/50"
+          }" data-type="industry" data-val="${ind}">${ind}</button>
+        `).join('');
+
+        // Media Buttons
+        medContainer.innerHTML = `
+          <button class="filter-btn px-4 py-2 text-xs font-semibold rounded transition duration-200 cursor-pointer shadow-sm ${
+            activeMedia === "ALL" ? "bg-red-700 text-white font-bold" : "bg-white border border-zinc-200 text-zinc-650 hover:border-red-700/50"
+          }" data-type="media" data-val="ALL">All Media</button>
+        ` + mediaTypes.map(med => `
+          <button class="filter-btn px-4 py-2 text-xs font-semibold rounded transition duration-200 cursor-pointer shadow-sm ${
+            activeMedia === med ? "bg-red-700 text-white font-bold" : "bg-white border border-zinc-200 text-zinc-650 hover:border-red-700/50"
+          }" data-type="media" data-val="${med}">${med}</button>
+        `).join('');
+
+        // Location Buttons
+        locContainer.innerHTML = `
+          <button class="filter-btn px-4 py-2 text-xs font-semibold rounded transition duration-200 cursor-pointer shadow-sm ${
+            activeLocation === "ALL" ? "bg-red-700 text-white font-bold" : "bg-white border border-zinc-200 text-zinc-650 hover:border-red-700/50"
+          }" data-type="location" data-val="ALL">All Locations</button>
+        ` + locations.map(loc => `
+          <button class="filter-btn px-4 py-2 text-xs font-semibold rounded transition duration-200 cursor-pointer shadow-sm ${
+            activeLocation === loc ? "bg-red-700 text-white font-bold" : "bg-white border border-zinc-200 text-zinc-650 hover:border-red-700/50"
+          }" data-type="location" data-val="${loc}">${loc}</button>
+        `).join('');
+
+        document.querySelectorAll(".filter-btn").forEach(btn => {
+          btn.addEventListener("click", (e) => {
+            const type = e.target.getAttribute("data-type");
+            const val = e.target.getAttribute("data-val");
+
+            if (type === "industry") activeIndustry = val;
+            if (type === "media") activeMedia = val;
+            if (type === "location") activeLocation = val;
+
+            updateGallery();
+          });
+        });
+      };
+
+      const renderProjectsGrid = (projects) => {
+        if (projects.length === 0) {
+          grid.innerHTML = "";
+          emptyState.classList.remove("hidden");
+          return;
+        }
+
+        emptyState.classList.add("hidden");
+        grid.innerHTML = projects.map(proj => `
+          <div class="card-industrial rounded flex flex-col justify-between overflow-hidden group shadow-sm bg-white border border-zinc-200">
+            <div class="zoom-container h-60 w-full relative border-b border-zinc-100">
+              <img src="${proj.image}" alt="${proj.title}" class="zoom-image w-full h-full object-cover">
+              <span class="absolute top-3 left-3 px-2 py-0.5 bg-white/95 text-red-700 border border-red-100 rounded text-[9px] font-extrabold uppercase tracking-wider shadow-sm">${proj.mediaType}</span>
+              
+              <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all duration-300 backdrop-blur-[1px]">
+                <button class="zoom-btn w-12 h-12 rounded-full bg-red-700 text-white flex items-center justify-center text-sm shadow-xl hover:scale-105 transition cursor-pointer" data-img="${proj.image}" data-title="${proj.title}" data-loc="${proj.location}">
+                  <i class="fas fa-expand-alt"></i>
+                </button>
+              </div>
+            </div>
+            
+            <div class="p-6 space-y-4">
+              <div class="flex items-center justify-between text-[10px] text-zinc-400 font-bold uppercase tracking-wider">
+                <span><i class="fas fa-map-marker-alt text-red-700 mr-1.5"></i>${proj.location}</span>
+                <span>${proj.category}</span>
+              </div>
+              <h3 class="text-base font-bold text-zinc-950 font-display tracking-tight">${proj.title}</h3>
+              <p class="text-[11px] text-zinc-500 leading-relaxed font-light">${proj.description}</p>
+              
+              <div class="flex flex-wrap gap-1.5 pt-3.5 border-t border-zinc-200">
+                ${proj.tags.map(t => `<span class="px-2 py-0.5 bg-zinc-50 border border-zinc-200 text-[8px] font-bold text-zinc-500 rounded uppercase tracking-widest">${t}</span>`).join('')}
+              </div>
+            </div>
+          </div>
+        `).join('');
+
+        grid.querySelectorAll(".zoom-btn").forEach(btn => {
+          btn.addEventListener("click", (e) => {
+            const el = e.currentTarget;
+            openLightbox(
+              el.getAttribute("data-img"),
+              el.getAttribute("data-title"),
+              el.getAttribute("data-loc")
+            );
+          });
+        });
+      };
+
+      const updateGallery = () => {
+        const filtered = projectsPortfolio.filter(proj => {
+          const matchInd = activeIndustry === "ALL" || proj.category === activeIndustry;
+          const matchMed = activeMedia === "ALL" || proj.mediaType === activeMedia;
+          
+          const locPart = proj.location.split(',')[1]?.trim() || proj.location;
+          const matchLoc = activeLocation === "ALL" || locPart === activeLocation;
+          
+          return matchInd && matchMed && matchLoc;
+        });
+
+        renderProjectsGrid(filtered);
+        renderFilterControls();
+      };
+
+      const resetFilters = () => {
+        activeIndustry = "ALL";
+        activeMedia = "ALL";
+        activeLocation = "ALL";
+        updateGallery();
+      };
+
+      if (resetBtn) resetBtn.addEventListener("click", resetFilters);
+
+      // --- LIGHTBOX CODE ---
+      const lightbox = document.getElementById("gallery-lightbox");
+      const lImg = document.getElementById("lightbox-img");
+      const lTitle = document.getElementById("lightbox-title");
+      const lLoc = document.getElementById("lightbox-location");
+      const lClose = document.getElementById("lightbox-close");
+
+      const openLightbox = (imgSrc, title, location) => {
+        lImg.src = imgSrc;
+        lTitle.textContent = title;
+        lLoc.textContent = location;
+
+        lightbox.classList.add("active");
+        document.body.style.overflow = "hidden";
+      };
+
+      const closeLightbox = () => {
+        lightbox.classList.remove("active");
+        document.body.style.overflow = "";
+      };
+
+      if (lClose) lClose.addEventListener("click", closeLightbox);
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+
+      updateGallery();
+    });
+  </script>
+</body>
+</html>

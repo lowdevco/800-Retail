@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact & RFQ | 800 Retail - Al Ameen Group</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#09090B',
+            accent: '#C20E1A',
+            neutralDark: '#18181B',
+            neutralLight: '#FFFFFF'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white text-zinc-900 min-h-screen flex flex-col pt-20">
+
+  <!-- Shared Header Placeholder -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- Page Banner -->
+  <section class="py-24 bg-zinc-50 border-b border-zinc-200 text-center">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 space-y-4">
+      <h1 class="text-4xl sm:text-5xl font-black text-zinc-950 tracking-tight font-display">Contact & Quote Estimation</h1>
+      <p class="text-zinc-500 text-sm max-w-xl mx-auto font-light">Get in touch with our regional estimating divisions or submit a structured project brief online.</p>
+    </div>
+  </section>
+
+  <!-- Split Panel Section -->
+  <section class="py-32 bg-white flex-1">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 grid grid-cols-1 lg:grid-cols-12 gap-16">
+      
+      <!-- Contact Cards & Maps Column (5 columns) -->
+      <div class="lg:col-span-5 space-y-8">
+        <h2 class="text-xl font-bold text-zinc-950 font-display flex items-center space-x-2">
+          <i class="fas fa-map-marked-alt text-red-700"></i>
+          <span>Global Offices</span>
+        </h2>
+
+        <!-- Address Tab System -->
+        <div class="space-y-6">
+          <!-- Card 1: UAE UAQ -->
+          <div class="p-6 bg-zinc-50 rounded border border-red-700/30 space-y-3 shadow-sm" id="address-card-uae">
+            <div class="flex items-center justify-between">
+              <h3 class="text-sm font-bold text-zinc-950 font-display">Umm Al Quwain Facility (HQ)</h3>
+              <span class="px-2 py-0.5 bg-red-50 text-red-700 border border-red-100 rounded text-[9px] font-bold uppercase shadow-sm">Central Plant</span>
+            </div>
+            <p class="text-xs text-zinc-650 leading-relaxed font-light"><i class="fas fa-map-marker-alt text-red-700 mr-2"></i> Plot 23, Industrial Area, Umm Al Quwain, UAE (Al Ameen Industries LLC)</p>
+            <p class="text-xs text-zinc-650 font-light"><i class="fas fa-phone-alt text-red-700 mr-2"></i> +971 (6) 766-8800</p>
+            
+            <div class="h-28 w-full bg-zinc-200 border border-zinc-300 rounded overflow-hidden mt-3 relative shadow-sm">
+              <iframe class="w-full h-full grayscale opacity-80" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115160.85292415175!2d55.5186088!3d25.5413149!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ef5ff03328e35cf%3A0xc47e30d1b9138efb!2sUmm%20Al%20Quwain!5e0!3m2!1sen!2sae!4v1700000000000" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+          </div>
+
+          <!-- Card 2: KSA Riyadh -->
+          <div class="p-6 bg-zinc-50 rounded border border-zinc-200 space-y-3 shadow-sm" id="address-card-ksa">
+            <div class="flex items-center justify-between">
+              <h3 class="text-sm font-bold text-zinc-950 font-display">Riyadh Operations Hub</h3>
+              <span class="px-2 py-0.5 bg-zinc-100 text-zinc-600 border border-zinc-200 rounded text-[9px] font-bold uppercase shadow-sm">Saudi Arabia</span>
+            </div>
+            <p class="text-xs text-zinc-650 leading-relaxed font-light"><i class="fas fa-map-marker-alt text-red-700 mr-2"></i> Office 302, Al Malaz Commercial Center, Riyadh, KSA</p>
+            <p class="text-xs text-zinc-650 font-light"><i class="fas fa-phone-alt text-red-700 mr-2"></i> +966 (11) 456-7890</p>
+            
+            <div class="h-28 w-full bg-zinc-200 border border-zinc-300 rounded overflow-hidden mt-3 relative shadow-sm">
+              <iframe class="w-full h-full grayscale opacity-80" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115982.72120015507!2d46.7385806!3d24.6877309!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03890d48939b%3A0x608c02f1a6ec711a!2sAl%20Malaz%2C%20Riyadh%20Saudi%20Arabia!5e0!3m2!1sen!2sae!4v1700000000001" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+          </div>
+
+          <!-- Card 3: China Foshan -->
+          <div class="p-6 bg-zinc-50 rounded border border-zinc-200 space-y-3 shadow-sm" id="address-card-china">
+            <div class="flex items-center justify-between">
+              <h3 class="text-sm font-bold text-zinc-950 font-display">Foshan Logistics Center</h3>
+              <span class="px-2 py-0.5 bg-zinc-100 text-zinc-600 border border-zinc-200 rounded text-[9px] font-bold uppercase shadow-sm">China Sourcing</span>
+            </div>
+            <p class="text-xs text-zinc-650 leading-relaxed font-light"><i class="fas fa-map-marker-alt text-red-700 mr-2"></i> Block B, Chancheng Industrial Area, Foshan, Guangdong, China</p>
+            <p class="text-xs text-zinc-650 font-light"><i class="fas fa-phone-alt text-red-700 mr-2"></i> +86 (757) 8321-4567</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Multi-Step Form Column (7 columns) -->
+      <div class="lg:col-span-7 bg-zinc-50 p-8 rounded border border-zinc-200 flex flex-col justify-between spinner-container shadow-sm" id="rfq-container">
+        
+        <!-- Spinner Overlay -->
+        <div id="rfq-spinner" class="spinner-overlay">
+          <div class="loading-spinner"></div>
+        </div>
+
+        <div id="rfq-form-body" class="space-y-6">
+          <!-- Step badges -->
+          <div class="flex items-center justify-between border-b border-zinc-200 pb-6">
+            <h3 class="text-lg font-bold text-zinc-950 font-display">B2B Quote Request</h3>
+            
+            <div class="flex items-center space-x-2">
+              <span class="form-step-badge active text-xs font-bold" id="badge-1">1</span>
+              <span class="h-0.5 w-6 bg-zinc-300" id="line-1"></span>
+              <span class="form-step-badge bg-white border border-zinc-200 text-zinc-400 text-xs font-bold" id="badge-2">2</span>
+              <span class="h-0.5 w-6 bg-zinc-300" id="line-2"></span>
+              <span class="form-step-badge bg-white border border-zinc-200 text-zinc-400 text-xs font-bold" id="badge-3">3</span>
+            </div>
+          </div>
+
+          <!-- Step Panels -->
+          <form id="rfq-form" class="space-y-6 text-xs">
+            
+            <!-- Step 1 Panel: Project Specs -->
+            <div id="step-panel-1" class="space-y-4">
+              <div class="space-y-2">
+                <label class="block font-bold text-zinc-950 uppercase tracking-wider font-display">Select Fitout Division</label>
+                <select id="rfq-project-type" class="w-full p-3 bg-white border border-zinc-200 rounded text-zinc-800 focus:outline-none focus:border-red-700">
+                  <option value="Joinery">Joinery & Custom Woodwork</option>
+                  <option value="Metalwork">Precision Metal & Structural Steel</option>
+                  <option value="LED">LED Displays & Digital Signage</option>
+                  <option value="Acrylic">Acrylic & Solid Surface Fabrication</option>
+                  <option value="Fitout">Turnkey Interior Fitout</option>
+                  <option value="MEP">MEP Engineering Services</option>
+                  <option value="Lighting">Architectural Lighting & Lightboxes</option>
+                </select>
+              </div>
+
+              <div class="space-y-3 pt-3">
+                <label class="block font-bold text-zinc-950 uppercase tracking-wider font-display">Store Area (Sq. Ft.)</label>
+                <div class="flex items-center space-x-6">
+                  <input type="range" id="rfq-area-slider" min="500" max="50000" step="500" value="5000" class="flex-1 accent-red-700">
+                  <div class="w-28 p-2 bg-white border border-zinc-200 rounded text-center text-zinc-800 font-bold font-display" id="rfq-area-display">5,000 sq ft</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 2 Panel: Contact Info -->
+            <div id="step-panel-2" class="space-y-4 hidden">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="space-y-2">
+                  <label class="block font-bold text-zinc-950 uppercase tracking-wider font-display">Company Name *</label>
+                  <input type="text" id="rfq-company" placeholder="e.g. Retail Brands Ltd." required class="w-full p-3 bg-white border border-zinc-200 rounded text-zinc-800 focus:outline-none focus:border-red-700">
+                </div>
+                <div class="space-y-2">
+                  <label class="block font-bold text-zinc-950 uppercase tracking-wider font-display">Contact Person *</label>
+                  <input type="text" id="rfq-person" placeholder="Full Name" required class="w-full p-3 bg-white border border-zinc-200 rounded text-zinc-800 focus:outline-none focus:border-red-700">
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="space-y-2">
+                  <label class="block font-bold text-zinc-950 uppercase tracking-wider font-display">Email Address *</label>
+                  <input type="email" id="rfq-email" placeholder="name@company.com" required class="w-full p-3 bg-white border border-zinc-200 rounded text-zinc-800 focus:outline-none focus:border-red-700">
+                </div>
+                <div class="space-y-2">
+                  <label class="block font-bold text-zinc-950 uppercase tracking-wider font-display">Phone Number *</label>
+                  <input type="tel" id="rfq-phone" placeholder="e.g. +971 50 123 4567" required class="w-full p-3 bg-white border border-zinc-200 rounded text-zinc-800 focus:outline-none focus:border-red-700">
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 3 Panel: Blueprints & Files -->
+            <div id="step-panel-3" class="space-y-4 hidden">
+              <div class="space-y-2">
+                <label class="block font-bold text-zinc-950 uppercase tracking-wider font-display">Store Location</label>
+                <select id="rfq-location" class="w-full p-3 bg-white border border-zinc-200 rounded text-zinc-800 focus:outline-none focus:border-red-700">
+                  <option value="Dubai Mall, UAE">Dubai Mall, UAE</option>
+                  <option value="Mall of the Emirates, UAE">Mall of the Emirates, UAE</option>
+                  <option value="Riyadh Park, KSA">Riyadh Park, KSA</option>
+                  <option value="Yas Mall, UAE">Yas Mall, UAE</option>
+                  <option value="Other Middle East">Other Middle East Location</option>
+                </select>
+              </div>
+
+              <div class="space-y-2">
+                <label class="block font-bold text-zinc-950 uppercase tracking-wider font-display">Upload CAD Blueprint / Store Layout</label>
+                <div class="border-2 border-dashed border-zinc-300 hover:border-red-700/50 rounded-lg p-6 text-center transition cursor-pointer relative bg-white shadow-sm">
+                  <input type="file" id="rfq-file" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+                  <div class="space-y-2" id="upload-status-text">
+                    <i class="fas fa-cloud-upload-alt text-2xl text-zinc-400"></i>
+                    <p class="text-xs text-zinc-500 font-light">Drag & drop your files or <span class="text-red-700 font-bold">browse</span></p>
+                    <p class="text-[9px] text-zinc-450">Supported formats: PDF, CAD, DWG, ZIP (Max 15MB)</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="space-y-2">
+                <label class="block font-bold text-zinc-950 uppercase tracking-wider font-display">Project Brief & Details</label>
+                <textarea id="rfq-details" rows="3" placeholder="Provide details regarding material expectations, timeline, and scope..." class="w-full p-3 bg-white border border-zinc-200 rounded text-zinc-800 focus:outline-none focus:border-red-700 font-light"></textarea>
+              </div>
+            </div>
+
+          </form>
+        </div>
+
+        <!-- Form Navigation Buttons -->
+        <div class="flex justify-between items-center pt-8 border-t border-zinc-200 mt-8" id="rfq-buttons-footer">
+          <button id="form-prev-btn" class="px-5 py-2.5 bg-white border border-zinc-200 text-zinc-500 rounded font-semibold text-xs transition duration-200 disabled:opacity-40 disabled:pointer-events-none cursor-pointer hover:border-zinc-350 shadow-sm" disabled>
+            Previous
+          </button>
+          
+          <button id="form-next-btn" class="px-6 py-2.5 bg-red-700 hover:bg-red-800 text-white rounded font-bold text-xs transition duration-200 cursor-pointer shadow-sm">
+            Next Step
+          </button>
+        </div>
+
+        <!-- Form Success State -->
+        <div id="rfq-success-panel" class="hidden text-center py-12 px-6 space-y-6">
+          <div class="w-16 h-16 bg-red-50 border border-red-200 text-red-700 rounded-full flex items-center justify-center text-3xl mx-auto shadow-sm animate-bounce">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          
+          <div class="space-y-2">
+            <h3 class="text-xl font-bold text-zinc-950 font-display">Quote Brief Received</h3>
+            <p class="text-xs text-zinc-500 max-w-sm mx-auto font-light">Thank you for submitting your project brief. A regional technical estimator from our team has been assigned to your request.</p>
+          </div>
+
+          <div class="p-4 bg-white rounded border border-zinc-200 text-xs max-w-xs mx-auto space-y-2 text-left shadow-sm">
+            <div class="flex justify-between"><span class="text-zinc-400 font-semibold">Reference:</span> <span class="text-zinc-950 font-bold font-display" id="success-ref">RFQ-2026-9214</span></div>
+            <div class="flex justify-between"><span class="text-zinc-400 font-semibold">Assigned Hub:</span> <span class="text-zinc-950 font-semibold" id="success-hub">Umm Al Quwain Facility</span></div>
+            <div class="flex justify-between"><span class="text-zinc-400 font-semibold">Estimates Due:</span> <span class="text-red-700 font-bold">Within 48 Business Hours</span></div>
+          </div>
+
+          <div class="pt-6">
+            <button id="success-reset-btn" class="px-6 py-2.5 bg-zinc-950 border border-zinc-950 text-white hover:bg-red-700 hover:border-red-700 rounded font-bold text-xs transition duration-200 cursor-pointer shadow-sm">
+              Submit Another Quote Request
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Shared Footer Placeholder -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Global scripts -->
+  <script type="module" src="../assets/js/main.js"></script>
+
+  <!-- RFQ Multi-step interactive script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const step1 = document.getElementById("step-panel-1");
+      const step2 = document.getElementById("step-panel-2");
+      const step3 = document.getElementById("step-panel-3");
+      
+      const badge1 = document.getElementById("badge-1");
+      const badge2 = document.getElementById("badge-2");
+      const badge3 = document.getElementById("badge-3");
+      
+      const line1 = document.getElementById("line-1");
+      const line2 = document.getElementById("line-2");
+      
+      const prevBtn = document.getElementById("form-prev-btn");
+      const nextBtn = document.getElementById("form-next-btn");
+      
+      const areaSlider = document.getElementById("rfq-area-slider");
+      const areaDisplay = document.getElementById("rfq-area-display");
+      const fileInput = document.getElementById("rfq-file");
+      const uploadText = document.getElementById("upload-status-text");
+
+      const rfqFormBody = document.getElementById("rfq-form-body");
+      const rfqButtonsFooter = document.getElementById("rfq-buttons-footer");
+      const rfqSuccessPanel = document.getElementById("rfq-success-panel");
+      const rfqSpinner = document.getElementById("rfq-spinner");
+
+      const successRef = document.getElementById("success-ref");
+      const successHub = document.getElementById("success-hub");
+      const successResetBtn = document.getElementById("success-reset-btn");
+
+      let currentStep = 1;
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const prodParam = urlParams.get('prod');
+      if (prodParam) {
+        const detailsField = document.getElementById("rfq-details");
+        if (detailsField) {
+          detailsField.value = `Quotation request for Product Catalog item: ${decodeURIComponent(prodParam)}. `;
+        }
+      }
+
+      if (areaSlider && areaDisplay) {
+        areaSlider.addEventListener("input", (e) => {
+          areaDisplay.textContent = parseInt(e.target.value).toLocaleString() + " sq ft";
+        });
+      }
+
+      if (fileInput && uploadText) {
+        fileInput.addEventListener("change", (e) => {
+          if (e.target.files.length > 0) {
+            const fileName = e.target.files[0].name;
+            uploadText.innerHTML = `
+              <i class="fas fa-file-pdf text-2xl text-red-700 animate-pulse"></i>
+              <p class="text-xs text-red-750 font-bold">${fileName}</p>
+              <p class="text-[9px] text-zinc-400">File uploaded successfully.</p>
+            `;
+          }
+        });
+      }
+
+      const updateStepUI = () => {
+        if (currentStep === 1) {
+          step1.classList.remove("hidden");
+          step2.classList.add("hidden");
+          step3.classList.add("hidden");
+          
+          prevBtn.disabled = true;
+          nextBtn.textContent = "Next Step";
+          nextBtn.type = "button";
+          
+          badge2.className = "form-step-badge bg-white border border-zinc-200 text-zinc-400 text-xs font-bold";
+          badge3.className = "form-step-badge bg-white border border-zinc-200 text-zinc-400 text-xs font-bold";
+          line1.className = "h-0.5 w-6 bg-zinc-300";
+          line2.className = "h-0.5 w-6 bg-zinc-300";
+        } else if (currentStep === 2) {
+          step1.classList.add("hidden");
+          step2.classList.remove("hidden");
+          step3.classList.add("hidden");
+          
+          prevBtn.disabled = false;
+          nextBtn.textContent = "Next Step";
+          nextBtn.type = "button";
+          
+          badge2.className = "form-step-badge active text-xs font-bold";
+          badge3.className = "form-step-badge bg-white border border-zinc-200 text-zinc-400 text-xs font-bold";
+          line1.className = "h-0.5 w-6 bg-red-700";
+          line2.className = "h-0.5 w-6 bg-zinc-300";
+        } else if (currentStep === 3) {
+          step1.classList.add("hidden");
+          step2.classList.add("hidden");
+          step3.classList.remove("hidden");
+          
+          prevBtn.disabled = false;
+          nextBtn.textContent = "Submit Brief";
+          nextBtn.type = "submit";
+          
+          badge2.className = "form-step-badge active text-xs font-bold";
+          badge3.className = "form-step-badge active text-xs font-bold";
+          line1.className = "h-0.5 w-6 bg-red-700";
+          line2.className = "h-0.5 w-6 bg-red-700";
+        }
+      };
+
+      if (nextBtn) {
+        nextBtn.addEventListener("click", (e) => {
+          if (currentStep < 3) {
+            if (currentStep === 2) {
+              const comp = document.getElementById("rfq-company").value;
+              const pers = document.getElementById("rfq-person").value;
+              const email = document.getElementById("rfq-email").value;
+              const phone = document.getElementById("rfq-phone").value;
+              
+              if (!comp || !pers || !email || !phone) {
+                alert("Please fill in all required contact information fields.");
+                return;
+              }
+            }
+            
+            currentStep++;
+            updateStepUI();
+          } else {
+            e.preventDefault();
+            submitForm();
+          }
+        });
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener("click", () => {
+          if (currentStep > 1) {
+            currentStep--;
+            updateStepUI();
+          }
+        });
+      }
+
+      const submitForm = () => {
+        rfqSpinner.classList.add("active");
+
+        setTimeout(() => {
+          rfqSpinner.classList.remove("active");
+
+          const randNum = Math.floor(1000 + Math.random() * 9000);
+          successRef.textContent = `RFQ-2026-${randNum}`;
+
+          const loc = document.getElementById("rfq-location").value;
+          if (loc.includes("KSA")) {
+            successHub.textContent = "Riyadh Operations Hub";
+          } else {
+            successHub.textContent = "Umm Al Quwain Facility";
+          }
+
+          rfqFormBody.classList.add("hidden");
+          rfqButtonsFooter.classList.add("hidden");
+          rfqSuccessPanel.classList.remove("hidden");
+        }, 300);
+      };
+
+      if (successResetBtn) {
+        successResetBtn.addEventListener("click", () => {
+          document.getElementById("rfq-form").reset();
+          currentStep = 1;
+          updateStepUI();
+          
+          if (areaDisplay) areaDisplay.textContent = "5,000 sq ft";
+          if (uploadText) {
+            uploadText.innerHTML = `
+              <i class="fas fa-cloud-upload-alt text-2xl text-zinc-400"></i>
+              <p class="text-xs text-zinc-500 font-light">Drag & drop your files or <span class="text-red-700 font-bold">browse</span></p>
+              <p class="text-[9px] text-zinc-450">Supported formats: PDF, CAD, DWG, ZIP (Max 15MB)</p>
+            `;
+          }
+
+          rfqFormBody.classList.remove("hidden");
+          rfqButtonsFooter.classList.remove("hidden");
+          rfqSuccessPanel.classList.add("hidden");
+        });
+      }
+
+    });
+  </script>
+</body>
+</html>

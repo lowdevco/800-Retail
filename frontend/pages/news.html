@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News & R&D | 800 Retail Solutions - Al Ameen Group</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#09090B',
+            accent: '#C20E1A',
+            neutralDark: '#18181B',
+            neutralLight: '#FFFFFF'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white text-zinc-900 min-h-screen flex flex-col pt-20">
+
+  <!-- Shared Header Placeholder -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- Page Banner -->
+  <section class="py-24 bg-zinc-50 border-b border-zinc-200 text-center">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 space-y-4">
+      <h1 class="text-4xl sm:text-5xl font-black text-zinc-950 tracking-tight font-display">News & Insights</h1>
+      <p class="text-zinc-500 text-sm max-w-xl mx-auto font-light">Latest factory developments, research innovations, and commercial fitout completions.</p>
+    </div>
+  </section>
+
+  <!-- News List & Filter Section -->
+  <section class="py-32 bg-white flex-1">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 space-y-12">
+      
+      <!-- Search and Filter Bar -->
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 p-5 bg-zinc-50 rounded border border-zinc-200 shadow-sm">
+        <!-- Text Search -->
+        <div class="relative w-full md:w-80">
+          <input type="text" id="news-search" placeholder="Search announcements..." class="w-full pl-9 pr-4 py-2.5 bg-white border border-zinc-200 rounded text-xs text-zinc-800 focus:outline-none focus:border-red-750">
+          <i class="fas fa-search absolute left-3 top-3.5 text-[10px] text-zinc-400"></i>
+        </div>
+
+        <!-- Categories List -->
+        <div class="flex flex-wrap gap-2" id="news-categories-tags">
+          <!-- Dynamic Category Tabs -->
+        </div>
+      </div>
+
+      <!-- News Editorial Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12" id="news-grid">
+        <!-- Dynamically loaded from data-scraper.js -->
+      </div>
+
+      <!-- Empty State UI -->
+      <div id="news-empty-state" class="hidden">
+        <div class="empty-state">
+          <i class="fas fa-newspaper empty-state-icon text-red-700"></i>
+          <h3 class="text-lg font-bold text-zinc-950 font-display mb-1">No News Articles Found</h3>
+          <p class="text-xs text-zinc-500 mb-6 max-w-sm font-light">Try typing different search keywords or selecting another category.</p>
+          <button id="clear-news-filters" class="px-5 py-2.5 bg-red-700 hover:bg-red-800 text-white rounded font-bold text-xs transition duration-200 cursor-pointer">
+            Show All Articles
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Shared Footer Placeholder -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Global scripts -->
+  <script type="module" src="../assets/js/main.js"></script>
+
+  <!-- News filtering and list script -->
+  <script type="module">
+    import { newsList } from '../assets/js/data-scraper.js';
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const grid = document.getElementById("news-grid");
+      const emptyState = document.getElementById("news-empty-state");
+      
+      const searchInput = document.getElementById("news-search");
+      const categoryTags = document.getElementById("news-categories-tags");
+      const resetBtn = document.getElementById("clear-news-filters");
+
+      let selectedCategory = "ALL";
+      let searchQuery = "";
+
+      const categories = [...new Set(newsList.map(n => n.category))];
+
+      const renderCategoryTags = () => {
+        categoryTags.innerHTML = `
+          <button class="tag-filter-btn px-4 py-2 text-xs font-semibold rounded transition duration-200 cursor-pointer shadow-sm ${
+            selectedCategory === "ALL" ? "bg-red-700 text-white font-bold" : "bg-white border border-zinc-200 text-zinc-650 hover:border-red-700/50"
+          }" data-val="ALL">All Topics</button>
+        ` + categories.map(cat => `
+          <button class="tag-filter-btn px-4 py-2 text-xs font-semibold rounded transition duration-200 cursor-pointer shadow-sm ${
+            selectedCategory === cat ? "bg-red-700 text-white font-bold" : "bg-white border border-zinc-200 text-zinc-650 hover:border-red-700/50"
+          }" data-val="${cat}">${cat}</button>
+        `).join('');
+
+        categoryTags.querySelectorAll(".tag-filter-btn").forEach(btn => {
+          btn.addEventListener("click", (e) => {
+            selectedCategory = e.target.getAttribute("data-val");
+            updateArticlesList();
+          });
+        });
+      };
+
+      const renderArticlesGrid = (articles) => {
+        if (articles.length === 0) {
+          grid.innerHTML = "";
+          emptyState.classList.remove("hidden");
+          return;
+        }
+
+        emptyState.classList.add("hidden");
+        grid.innerHTML = articles.map(art => `
+          <article class="card-industrial rounded flex flex-col md:flex-row h-auto md:h-64 shadow-sm bg-white border border-zinc-200">
+            <div class="w-full md:w-2/5 h-48 md:h-full zoom-container relative border-r border-zinc-150">
+              <img src="${art.image}" alt="${art.title}" class="zoom-image w-full h-full object-cover">
+              <span class="absolute top-3 left-3 px-2 py-0.5 bg-white/95 text-red-700 border border-red-100 rounded text-[9px] font-extrabold uppercase tracking-wider shadow-sm">${art.category}</span>
+            </div>
+            
+            <div class="w-full md:w-3/5 p-6 flex flex-col justify-between space-y-3">
+              <div class="space-y-2">
+                <div class="text-[9px] text-zinc-400 font-bold uppercase tracking-wider">${art.date}</div>
+                <h3 class="text-sm font-bold text-zinc-950 font-display tracking-tight leading-snug group-hover:text-red-700 transition-colors">${art.title}</h3>
+                <p class="text-[11px] text-zinc-500 leading-relaxed line-clamp-3 font-light">${art.summary}</p>
+              </div>
+              
+              <div class="pt-4 border-t border-zinc-100 flex justify-between items-center">
+                <span class="text-[8px] tracking-widest text-zinc-400 font-extrabold">800 RETAIL NEWS</span>
+                <button class="read-more-btn text-xs text-red-750 font-bold hover:text-red-600 transition cursor-pointer flex items-center space-x-1.5" data-id="${art.id}">
+                  <span>Read Article</span>
+                  <i class="fas fa-arrow-right text-[9px]"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+        `).join('');
+
+        grid.querySelectorAll(".read-more-btn").forEach(btn => {
+          btn.addEventListener("click", (e) => {
+            const id = e.currentTarget.getAttribute("data-id");
+            showFullArticle(id);
+          });
+        });
+      };
+
+      const updateArticlesList = () => {
+        const filtered = newsList.filter(art => {
+          const matchCategory = selectedCategory === "ALL" || art.category === selectedCategory;
+          const matchSearch = searchQuery === "" || 
+            art.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+            art.summary.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            art.content.toLowerCase().includes(searchQuery.toLowerCase());
+          return matchCategory && matchSearch;
+        });
+
+        renderArticlesGrid(filtered);
+        renderCategoryTags();
+      };
+
+      if (searchInput) {
+        searchInput.addEventListener("input", (e) => {
+          searchQuery = e.target.value;
+          updateArticlesList();
+        });
+      }
+
+      const clearFilters = () => {
+        selectedCategory = "ALL";
+        searchQuery = "";
+        if (searchInput) searchInput.value = "";
+        updateArticlesList();
+      };
+
+      if (resetBtn) resetBtn.addEventListener("click", clearFilters);
+
+      // --- FULL ARTICLE MODAL ---
+      const showFullArticle = (id) => {
+        const art = newsList.find(a => a.id === id);
+        if (!art) return;
+
+        let modal = document.getElementById("news-modal");
+        if (!modal) {
+          modal = document.createElement("div");
+          modal.id = "news-modal";
+          modal.className = "fixed inset-0 z-50 overflow-y-auto hidden";
+          modal.innerHTML = `
+            <div class="fixed inset-0 bg-black/60 backdrop-blur-sm" id="news-modal-backdrop"></div>
+            <div class="flex min-h-screen items-center justify-center p-4">
+              <div class="relative w-full max-w-2xl bg-white rounded border border-zinc-200 shadow-2xl p-6 sm:p-8 space-y-6 transform scale-95 opacity-0 transition-all duration-350" id="news-modal-content">
+                <button id="news-modal-close" class="absolute right-4 top-4 text-zinc-500 hover:text-red-700 p-1">
+                  <i class="fas fa-times text-xl"></i>
+                </button>
+                <div class="space-y-4">
+                  <img id="nm-img" src="" alt="News Image" class="w-full h-64 object-cover rounded border border-zinc-200">
+                  <div class="flex items-center justify-between text-[10px] text-zinc-400 font-bold uppercase tracking-wider">
+                    <span id="nm-date">-</span>
+                    <span id="nm-cat" class="px-2.5 py-0.5 bg-red-50 text-red-700 border border-red-100 rounded">TOPIC</span>
+                  </div>
+                  <h3 id="nm-title" class="text-2xl font-bold text-zinc-950 font-display leading-tight">Article Title</h3>
+                  <div id="nm-content" class="text-xs text-zinc-650 leading-relaxed space-y-4 border-t border-zinc-200 pt-4 font-light">
+                    <!-- Dynamic text -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+          document.body.appendChild(modal);
+
+          modal.querySelector("#news-modal-close").addEventListener("click", closeNewsModal);
+          modal.querySelector("#news-modal-backdrop").addEventListener("click", closeNewsModal);
+        }
+
+        const mContent = modal.querySelector("#news-modal-content");
+        
+        modal.querySelector("#nm-img").src = art.image;
+        modal.querySelector("#nm-date").textContent = art.date;
+        modal.querySelector("#nm-cat").textContent = art.category;
+        modal.querySelector("#nm-title").textContent = art.title;
+        modal.querySelector("#nm-content").innerHTML = art.content.split('\n\n').map(p => `<p class="mb-4">${p}</p>`).join('');
+
+        modal.classList.remove("hidden");
+        setTimeout(() => {
+          mContent.classList.remove("scale-95", "opacity-0");
+          mContent.classList.add("scale-100", "opacity-100");
+        }, 10);
+        document.body.style.overflow = "hidden";
+      };
+
+      const closeNewsModal = () => {
+        const modal = document.getElementById("news-modal");
+        const mContent = modal.querySelector("#news-modal-content");
+        mContent.classList.remove("scale-100", "opacity-100");
+        mContent.classList.add("scale-95", "opacity-0");
+        setTimeout(() => {
+          modal.classList.add("hidden");
+        }, 300);
+        document.body.style.overflow = "";
+      };
+
+      updateArticlesList();
+    });
+  </script>
+</body>
+</html>

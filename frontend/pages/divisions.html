@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Divisions | 800 Retail Solutions - Al Ameen Group</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#09090B',
+            accent: '#C20E1A',
+            neutralDark: '#18181B',
+            neutralLight: '#FFFFFF'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white text-zinc-900 min-h-screen flex flex-col pt-20">
+
+  <!-- Shared Header Placeholder -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- Page Banner -->
+  <section class="py-24 bg-zinc-50 border-b border-zinc-200 text-center">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 space-y-4">
+      <h1 class="text-4xl sm:text-5xl font-black text-zinc-950 tracking-tight font-display">Specialized Divisions</h1>
+      <p class="text-zinc-500 text-sm max-w-xl mx-auto font-light">15+ vertically integrated divisions operating under strict 5S Lean manufacturing methodologies.</p>
+    </div>
+  </section>
+
+  <!-- Interactive Divisions Grid & Tab details -->
+  <section class="py-32 bg-white">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+        <!-- Division Tab List (5 columns) -->
+        <div class="lg:col-span-5 space-y-3.5 max-h-[600px] overflow-y-auto pr-6 border-r border-zinc-200" id="divisions-tab-list">
+          <div class="skeleton h-12 w-full rounded"></div>
+          <div class="skeleton h-12 w-full rounded mt-2"></div>
+          <div class="skeleton h-12 w-full rounded mt-2"></div>
+          <div class="skeleton h-12 w-full rounded mt-2"></div>
+        </div>
+
+        <!-- Selected Division Details (7 columns) -->
+        <div class="lg:col-span-7 bg-zinc-50 p-8 rounded border border-zinc-200 flex flex-col justify-between shadow-sm" id="division-detail-panel">
+          <div class="space-y-6">
+            <div class="flex items-center space-x-4 border-b border-zinc-200 pb-6">
+              <div class="w-16 h-16 bg-red-50 border border-red-100 text-red-700 rounded flex items-center justify-center text-3xl" id="detail-icon-box">
+                <i class="fas fa-hammer animate-pulse"></i>
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-zinc-950 font-display" id="detail-title">Loading Division</h3>
+                <span class="text-xs text-red-750 font-bold uppercase tracking-wider mt-1 inline-block" id="detail-subtitle">800 Retail Solutions</span>
+              </div>
+            </div>
+            <div class="space-y-4 text-zinc-650 text-sm leading-relaxed font-light">
+              <p id="detail-desc">Please select a division from the list to view its infrastructure specifications, raw material inputs, and structural capacity metrics.</p>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+                <div class="p-4 bg-white rounded border border-zinc-250/60 shadow-sm">
+                  <h4 class="text-xs font-bold text-zinc-900 uppercase tracking-wider mb-2 font-display">Production Capacity</h4>
+                  <p class="text-zinc-500 text-xs font-light" id="detail-capacity">-</p>
+                </div>
+                <div class="p-4 bg-white rounded border border-zinc-250/60 shadow-sm">
+                  <h4 class="text-xs font-bold text-zinc-900 uppercase tracking-wider mb-2 font-display">Material Tolerance</h4>
+                  <div class="flex flex-wrap gap-1.5 mt-2" id="detail-materials">
+                    <!-- Dynamic material tags -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-8 border-t border-zinc-200 mt-8">
+            <a href="./contact.html" class="px-6 py-3 bg-zinc-950 hover:bg-red-755 text-white rounded font-bold text-xs transition duration-200 inline-block shadow-sm">
+              Request Technical Spec Brief
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5S Lean Manufacturing System -->
+  <section class="py-32 bg-zinc-50 border-t border-zinc-200">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-20 space-y-4">
+        <span class="text-red-700 text-xs font-bold uppercase tracking-widest">Quality Assurance</span>
+        <h2 class="text-3xl sm:text-5xl font-black text-zinc-950 font-display">5S Lean Manufacturing System</h2>
+        <p class="text-zinc-500 text-sm font-light">We strictly enforce unified 5S principles across all production floors to reduce lead times and guarantee zero defects.</p>
+      </div>
+
+      <!-- 5S Steps Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-6 mb-12">
+        <!-- Step 1 -->
+        <button class="lean-step-btn active p-6 bg-white border border-red-700 rounded text-left transition hover:border-red-750 cursor-pointer shadow-sm" data-step="1">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-2xl font-black text-red-700 font-display">01</span>
+            <i class="fas fa-filter text-red-700"></i>
+          </div>
+          <h3 class="text-sm font-bold text-zinc-950 font-display">Sort (Seiri)</h3>
+          <p class="text-[10px] text-zinc-500 mt-1 font-light">Eliminating waste materials.</p>
+        </button>
+
+        <!-- Step 2 -->
+        <button class="lean-step-btn p-6 bg-white border border-zinc-200 rounded text-left transition hover:border-red-700 cursor-pointer shadow-sm" data-step="2">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-2xl font-black text-zinc-400 font-display" id="num-2">02</span>
+            <i class="fas fa-layer-group text-zinc-400" id="ico-2"></i>
+          </div>
+          <h3 class="text-sm font-bold text-zinc-950 font-display">Set in Order (Seiton)</h3>
+          <p class="text-[10px] text-zinc-500 mt-1 font-light">Organizing floor layouts.</p>
+        </button>
+
+        <!-- Step 3 -->
+        <button class="lean-step-btn p-6 bg-white border border-zinc-200 rounded text-left transition hover:border-red-700 cursor-pointer shadow-sm" data-step="3">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-2xl font-black text-zinc-400 font-display" id="num-3">03</span>
+            <i class="fas fa-sparkles text-zinc-400" id="ico-3"></i>
+          </div>
+          <h3 class="text-sm font-bold text-zinc-950 font-display">Shine (Seiso)</h3>
+          <p class="text-[10px] text-zinc-500 mt-1 font-light">Calibrating machinery.</p>
+        </button>
+
+        <!-- Step 4 -->
+        <button class="lean-step-btn p-6 bg-white border border-zinc-200 rounded text-left transition hover:border-red-700 cursor-pointer shadow-sm" data-step="4">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-2xl font-black text-zinc-400 font-display" id="num-4">04</span>
+            <i class="fas fa-clipboard-check text-zinc-400" id="ico-4"></i>
+          </div>
+          <h3 class="text-sm font-bold text-zinc-950 font-display">Standardize (Seiketsu)</h3>
+          <p class="text-[10px] text-zinc-500 mt-1 font-light">Unified safety checklists.</p>
+        </button>
+
+        <!-- Step 5 -->
+        <button class="lean-step-btn p-6 bg-white border border-zinc-200 rounded text-left transition hover:border-red-700 cursor-pointer shadow-sm" data-step="5">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-2xl font-black text-zinc-400 font-display" id="num-5">05</span>
+            <i class="fas fa-gauge-high text-zinc-400" id="ico-5"></i>
+          </div>
+          <h3 class="text-sm font-bold text-zinc-950 font-display">Sustain (Shitsuke)</h3>
+          <p class="text-[10px] text-zinc-500 mt-1 font-light">Continuous performance auditing.</p>
+        </button>
+      </div>
+
+      <!-- Lean Step Details Output -->
+      <div class="p-8 bg-white border border-zinc-200 rounded shadow-sm" id="lean-details-panel">
+        <h3 class="text-lg font-bold text-zinc-950 font-display mb-2 flex items-center space-x-2">
+          <i class="fas fa-filter text-red-700"></i>
+          <span>Sort (Seiri) - Plant Implementation</span>
+        </h3>
+        <p class="text-zinc-650 text-xs leading-relaxed font-light">
+          At our Dubai and Saudi manufacturing floors, Sort involves separating critical tools and raw metal/wood sheets from temporary layout templates. All scrap metal filings and sawdust are routed immediately to automated recycling systems, reducing workspace clutter and ensuring high safety standards.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Shared Footer Placeholder -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Global scripts -->
+  <script type="module" src="../assets/js/main.js"></script>
+
+  <!-- Divisions specific logic -->
+  <script type="module">
+    import { divisions } from '../assets/js/data-scraper.js';
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const tabList = document.getElementById("divisions-tab-list");
+      const detailTitle = document.getElementById("detail-title");
+      const detailDesc = document.getElementById("detail-desc");
+      const detailCapacity = document.getElementById("detail-capacity");
+      const detailMaterials = document.getElementById("detail-materials");
+      const detailIconBox = document.getElementById("detail-icon-box");
+
+      if (tabList && divisions.length > 0) {
+        tabList.innerHTML = "";
+        divisions.forEach((div, i) => {
+          const btn = document.createElement("button");
+          btn.className = `w-full text-left px-5 py-4 rounded border flex items-center justify-between text-xs font-semibold transition duration-200 cursor-pointer shadow-sm ${
+            i === 0 
+              ? "bg-white border-red-700 text-red-700 font-bold" 
+              : "bg-zinc-50 border-zinc-200 text-zinc-600 hover:border-red-700/50"
+          }`;
+          btn.setAttribute("data-id", div.id);
+          btn.innerHTML = `
+            <div class="flex items-center space-x-3">
+              <i class="fas ${div.icon}"></i>
+              <span>${div.name}</span>
+            </div>
+            <i class="fas fa-arrow-right text-[10px] opacity-60"></i>
+          `;
+          tabList.appendChild(btn);
+        });
+
+        const tabButtons = tabList.querySelectorAll("button");
+        tabButtons.forEach(btn => {
+          btn.addEventListener("click", () => {
+            tabButtons.forEach(b => {
+              b.className = "w-full text-left px-5 py-4 rounded border flex items-center justify-between text-xs font-semibold transition duration-200 cursor-pointer shadow-sm bg-zinc-50 border-zinc-200 text-zinc-600 hover:border-red-700/50";
+            });
+            btn.className = "w-full text-left px-5 py-4 rounded border flex items-center justify-between text-xs font-semibold transition duration-200 cursor-pointer shadow-sm bg-white border-red-700 text-red-700 font-bold";
+
+            const divId = btn.getAttribute("data-id");
+            updateDetailPanel(divId);
+          });
+        });
+
+        updateDetailPanel(divisions[0].id);
+      }
+
+      function updateDetailPanel(divId) {
+        const division = divisions.find(d => d.id === divId);
+        if (!division) return;
+
+        detailTitle.textContent = division.name;
+        detailDesc.textContent = division.description;
+        detailCapacity.textContent = division.capacity;
+        detailIconBox.innerHTML = `<i class="fas ${division.icon}"></i>`;
+
+        detailMaterials.innerHTML = "";
+        division.materials.forEach(mat => {
+          const span = document.createElement("span");
+          span.className = "px-2.5 py-1 bg-white border border-zinc-200 text-[10px] text-zinc-600 rounded font-semibold";
+          span.textContent = mat;
+          detailMaterials.appendChild(span);
+        });
+      }
+
+      // 5S Interactive visualizer details mapping
+      const leanButtons = document.querySelectorAll(".lean-step-btn");
+      const leanPanel = document.getElementById("lean-details-panel");
+      
+      const leanStepsInfo = {
+        1: {
+          title: "Sort (Seiri) - Plant Implementation",
+          icon: "fa-filter",
+          desc: "At our Dubai and Saudi manufacturing floors, Sort involves separating critical tools and raw metal/wood sheets from temporary layout templates. All scrap metal filings and sawdust are routed immediately to automated recycling systems, reducing workspace clutter and ensuring high safety standards."
+        },
+        2: {
+          title: "Set in Order (Seiton) - Plant Implementation",
+          icon: "fa-layer-group",
+          desc: "Set in Order designates specific physical slots for active tools, measuring calipers, and heavy equipment parts. Color-coded walkways separate forklift travel lanes from robotic welding assembly zones, streamlining the flow of raw sheets to completed furniture bays."
+        },
+        3: {
+          title: "Shine (Seiso) - Plant Implementation",
+          icon: "fa-sparkles",
+          desc: "Shine stands for cleanliness and mechanical maintenance. Every workstation shift ends with a full machinery cleanup. High-precision laser cutters and CNC routers undergo daily optical testing and axis adjustments to guarantee cutting tolerances of less than 0.1mm."
+        },
+        4: {
+          title: "Standardize (Seiketsu) - Plant Implementation",
+          icon: "fa-clipboard-check",
+          desc: "Standardize implements checklist guidelines across our divisions. Operators in Joinery, Glass, and Signage follow uniform quality checklists (PDI) before releasing components to the shipping terminal. Visual signage indicators warn of any out-of-spec readings."
+        },
+        5: {
+          title: "Sustain (Shitsuke) - Plant Implementation",
+          icon: "fa-gauge-high",
+          desc: "Sustain ensures the culture of continuous quality loops. Monthly audits analyze waste metrics, cycle speeds, and assembly compliance rates. Employee recognition programs incentivize clean safety records and innovative fabrication improvements."
+        }
+      };
+
+      leanButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          leanButtons.forEach(b => {
+            b.className = "lean-step-btn p-6 bg-white border border-zinc-200 rounded text-left transition hover:border-red-700 cursor-pointer shadow-sm";
+            
+            const stepNum = b.getAttribute("data-step");
+            if (stepNum !== "1") {
+              const numEl = document.getElementById("num-" + stepNum);
+              const icoEl = document.getElementById("ico-" + stepNum);
+              if (numEl) numEl.className = "text-2xl font-black text-zinc-400 font-display";
+              if (icoEl) icoEl.className = icoEl.className.replace("text-red-700", "text-zinc-400");
+            }
+          });
+
+          btn.className = "lean-step-btn active p-6 bg-white border border-red-700 rounded text-left transition hover:border-red-750 cursor-pointer shadow-sm";
+
+          const step = btn.getAttribute("data-step");
+          const stepData = leanStepsInfo[step];
+
+          if (step !== "1") {
+            const activeNum = document.getElementById("num-" + step);
+            const activeIco = document.getElementById("ico-" + step);
+            if (activeNum) activeNum.className = "text-2xl font-black text-red-700 font-display";
+            if (activeIco) activeIco.className = activeIco.className.replace("text-zinc-400", "text-red-700");
+          }
+
+          if (leanPanel) {
+            leanPanel.innerHTML = `
+              <h3 class="text-lg font-bold text-zinc-950 font-display mb-2 flex items-center space-x-2">
+                <i class="fas ${stepData.icon} text-red-700"></i>
+                <span>${stepData.title}</span>
+              </h3>
+              <p class="text-zinc-650 text-xs leading-relaxed font-light">${stepData.desc}</p>
+            `;
+          }
+        });
+      });
+
+    });
+  </script>
+</body>
+</html>

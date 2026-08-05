@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clientele & Case Studies | 800 Retail Solutions - Al Ameen Group</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#09090B',
+            accent: '#C20E1A',
+            neutralDark: '#18181B',
+            neutralLight: '#FFFFFF'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white text-zinc-900 min-h-screen flex flex-col pt-20">
+
+  <!-- Shared Header Placeholder -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- Page Banner -->
+  <section class="py-24 bg-zinc-50 border-b border-zinc-200 text-center">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 space-y-4">
+      <h1 class="text-4xl sm:text-5xl font-black text-zinc-950 tracking-tight font-display">Clientele & Case Studies</h1>
+      <p class="text-zinc-500 text-sm max-w-xl mx-auto font-light">Partnering with market leaders to execute custom retail rollouts and commercial spaces.</p>
+    </div>
+  </section>
+
+  <!-- Client Logo Grid Section -->
+  <section class="py-32 bg-white">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 space-y-12">
+      
+      <div class="text-center max-w-3xl mx-auto mb-20 space-y-4">
+        <h2 class="text-2xl sm:text-3xl font-bold text-zinc-950 font-display">Trusted By Leading Global & Regional Brands</h2>
+        <p class="text-zinc-500 text-xs font-light">Our certified manufacturing is a primary asset for these leading organizations.</p>
+      </div>
+
+      <!-- Clients Output Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-6" id="client-grid-list">
+        <!-- Dynamic loading -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- B2B Detailed Case Studies (Accordions) -->
+  <section class="py-32 bg-zinc-50 border-t border-zinc-200">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-24 space-y-4">
+        <span class="text-red-700 text-xs font-bold uppercase tracking-widest">In-depth Analysis</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-zinc-950 font-display">B2B Case Studies</h2>
+        <p class="text-zinc-500 text-sm font-light">Explore the precise engineering challenges and custom fabrication solutions delivered for our partners.</p>
+      </div>
+
+      <!-- Case Studies List -->
+      <div class="max-w-4xl mx-auto space-y-6">
+        
+        <!-- Case Study 1: Adidas -->
+        <div class="bg-zinc-50 border border-zinc-200 rounded overflow-hidden transition-all duration-300 shadow-sm" id="cs-box-1">
+          <button class="cs-toggle-btn w-full px-6 py-5 flex items-center justify-between text-left cursor-pointer bg-white" data-id="1">
+            <div class="flex items-center space-x-4">
+              <div class="w-10 h-10 bg-red-50 border border-red-100 text-red-700 rounded flex items-center justify-center text-lg">
+                <i class="fas fa-running"></i>
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-zinc-950 font-display">Adidas Flagship Project</h3>
+                <span class="text-[10px] text-zinc-400 font-bold uppercase tracking-wider">Dubai Mall, UAE</span>
+              </div>
+            </div>
+            <i class="fas fa-chevron-down text-zinc-400 transition-transform duration-300" id="cs-arrow-1"></i>
+          </button>
+
+          <!-- Accordion Panel (hidden by default) -->
+          <div class="hidden border-t border-zinc-200 p-6 space-y-6 text-xs text-zinc-650 leading-relaxed font-light bg-white" id="cs-panel-1">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div class="space-y-2">
+                <h4 class="font-bold text-zinc-950 uppercase tracking-wider font-display flex items-center"><i class="fas fa-exclamation-triangle text-red-700 mr-1.5"></i>The Challenge</h4>
+                <p class="text-zinc-500">
+                  Fabricating high-load metal columns that could wrap mall concrete supports while housing flush-mount P2.5 digital LED panel grids. The structure required custom tolerances of less than 0.2mm to prevent visible gaps.
+                </p>
+              </div>
+              <div class="space-y-2">
+                <h4 class="font-bold text-zinc-950 uppercase tracking-wider font-display flex items-center"><i class="fas fa-lightbulb text-red-700 mr-1.5"></i>The Solution</h4>
+                <p class="text-zinc-500">
+                  Our metal and LED divisions collaborated to design a segmented 3.5mm thick mild steel skeletal framework. The pieces were pre-cut via fiber lasers in our DIC plant, welded with robotic support, and fitted with specialized heat dissipation cooling slots.
+                </p>
+              </div>
+              <div class="space-y-2">
+                <h4 class="font-bold text-zinc-950 uppercase tracking-wider font-display flex items-center"><i class="fas fa-clipboard-list text-red-700 mr-1.5"></i>Scope Executed</h4>
+                <ul class="text-zinc-500 list-disc pl-4 space-y-1">
+                  <li>300+ Custom clothing displays manufactured</li>
+                  <li>Concealed 24V LED strip woodwork integration</li>
+                  <li>1,200 sq. ft. digital column casings</li>
+                  <li>Turnkey night-shift execution & compliance signoff</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case Study 2: Skechers -->
+        <div class="bg-zinc-50 border border-zinc-200 rounded overflow-hidden transition-all duration-300 shadow-sm" id="cs-box-2">
+          <button class="cs-toggle-btn w-full px-6 py-5 flex items-center justify-between text-left cursor-pointer bg-white" data-id="2">
+            <div class="flex items-center space-x-4">
+              <div class="w-10 h-10 bg-red-50 border border-red-100 text-red-700 rounded flex items-center justify-center text-lg">
+                <i class="fas fa-shoe-prints"></i>
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-zinc-950 font-display">Skechers Multi-Store Rollout</h3>
+                <span class="text-[10px] text-zinc-400 font-bold uppercase tracking-wider">Riyadh Park & Mall of Arabia, KSA</span>
+              </div>
+            </div>
+            <i class="fas fa-chevron-down text-zinc-400 transition-transform duration-300" id="cs-arrow-2"></i>
+          </button>
+
+          <!-- Accordion Panel (hidden by default) -->
+          <div class="hidden border-t border-zinc-200 p-6 space-y-6 text-xs text-zinc-650 leading-relaxed font-light bg-white" id="cs-panel-2">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div class="space-y-2">
+                <h4 class="font-bold text-zinc-950 uppercase tracking-wider font-display flex items-center"><i class="fas fa-exclamation-triangle text-red-700 mr-1.5"></i>The Challenge</h4>
+                <p class="text-zinc-500">
+                  Deploying consistent commercial layouts across multiple cities in KSA under tight retail occupancy dates, requiring simultaneous customs clearing and on-site assembly.
+                </p>
+              </div>
+              <div class="space-y-2">
+                <h4 class="font-bold text-zinc-950 uppercase tracking-wider font-display flex items-center"><i class="fas fa-lightbulb text-red-700 mr-1.5"></i>The Solution</h4>
+                <p class="text-zinc-500">
+                  Adopting pre-fabricated modular joinery templates. Fixtures were finished, wired, and packed into custom crates at the Dubai Industrial City factory, then shipped to KSA nodes for quick assembly by local teams.
+                </p>
+              </div>
+              <div class="space-y-2">
+                <h4 class="font-bold text-zinc-950 uppercase tracking-wider font-display flex items-center"><i class="fas fa-clipboard-list text-red-700 mr-1.5"></i>Scope Executed</h4>
+                <ul class="text-zinc-500 list-disc pl-4 space-y-1">
+                  <li>Modular double-sided retail gondolas</li>
+                  <li>CNC cut acrylic back-lit branding boards</li>
+                  <li>Jeddah & Riyadh localized site coordination</li>
+                  <li>Turnkey MEP and lighting approvals</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case Study 3: Landmark Group -->
+        <div class="bg-zinc-50 border border-zinc-200 rounded overflow-hidden transition-all duration-300 shadow-sm" id="cs-box-3">
+          <button class="cs-toggle-btn w-full px-6 py-5 flex items-center justify-between text-left cursor-pointer bg-white" data-id="3">
+            <div class="flex items-center space-x-4">
+              <div class="w-10 h-10 bg-red-50 border border-red-100 text-red-700 rounded flex items-center justify-center text-lg">
+                <i class="fas fa-building"></i>
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-zinc-950 font-display">Landmark Executive Wing</h3>
+                <span class="text-[10px] text-zinc-400 font-bold uppercase tracking-wider">JAFZA, Dubai</span>
+              </div>
+            </div>
+            <i class="fas fa-chevron-down text-zinc-400 transition-transform duration-300" id="cs-arrow-3"></i>
+          </button>
+
+          <!-- Accordion Panel (hidden by default) -->
+          <div class="hidden border-t border-zinc-200 p-6 space-y-6 text-xs text-zinc-650 leading-relaxed font-light bg-white" id="cs-panel-3">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div class="space-y-2">
+                <h4 class="font-bold text-zinc-950 uppercase tracking-wider font-display flex items-center"><i class="fas fa-exclamation-triangle text-red-700 mr-1.5"></i>The Challenge</h4>
+                <p class="text-zinc-500">
+                  Creating acoustic corporate zoning using double-glazed structural glass walls while integrating timber ceiling panels that conceal primary air ducts.
+                </p>
+              </div>
+              <div class="space-y-2">
+                <h4 class="font-bold text-zinc-950 uppercase tracking-wider font-display flex items-center"><i class="fas fa-lightbulb text-red-700 mr-1.5"></i>The Solution</h4>
+                <p class="text-zinc-500">
+                  Designed timber acoustic ceiling baffles suspended via sound-damping mounts. Smart-glass partitions were installed, changing from clear to opaque electronically.
+                </p>
+              </div>
+              <div class="space-y-2">
+                <h4 class="font-bold text-zinc-950 uppercase tracking-wider font-display flex items-center"><i class="fas fa-clipboard-list text-red-700 mr-1.5"></i>Scope Executed</h4>
+                <ul class="text-zinc-500 list-disc pl-4 space-y-1">
+                  <li>24 Executive offices completed</li>
+                  <li>Suspended acoustic baffles</li>
+                  <li>MEP air balancing and HVAC rerouting</li>
+                  <li>Seamless microcement flooring installation</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Shared Footer Placeholder -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Global scripts -->
+  <script type="module" src="../assets/js/main.js"></script>
+
+  <!-- Clientele specific script -->
+  <script type="module">
+    import { clientsList } from '../assets/js/data-scraper.js';
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const clientGrid = document.getElementById("client-grid-list");
+
+      if (clientGrid && clientsList.length > 0) {
+        clientGrid.innerHTML = clientsList.map(c => `
+          <div class="card-industrial p-6 rounded text-center flex flex-col justify-center items-center group h-40 shadow-sm bg-white border border-zinc-200">
+            <div class="w-12 h-12 rounded-full bg-zinc-50 border border-zinc-200 text-red-700 flex items-center justify-center text-xl mb-3 group-hover:scale-105 transition-transform duration-200">
+              <i class="fas ${c.logo}"></i>
+            </div>
+            <h3 class="text-sm font-bold text-zinc-950 font-display uppercase tracking-tight">${c.name}</h3>
+            <span class="text-[9px] text-zinc-400 font-bold tracking-wider uppercase mt-1 inline-block">${c.segment}</span>
+          </div>
+        `).join('');
+      }
+
+      const csButtons = document.querySelectorAll(".cs-toggle-btn");
+
+      csButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const id = btn.getAttribute("data-id");
+          const panel = document.getElementById("cs-panel-" + id);
+          const arrow = document.getElementById("cs-arrow-" + id);
+          const box = document.getElementById("cs-box-" + id);
+
+          const isOpen = !panel.classList.contains("hidden");
+
+          document.querySelectorAll("[id^='cs-panel-']").forEach(p => p.classList.add("hidden"));
+          document.querySelectorAll("[id^='cs-arrow-']").forEach(a => a.classList.remove("rotate-180"));
+          document.querySelectorAll("[id^='cs-box-']").forEach(b => b.className = "bg-zinc-50 border border-zinc-200 rounded overflow-hidden transition-all duration-300 shadow-sm");
+
+          if (!isOpen) {
+            panel.classList.remove("hidden");
+            arrow.classList.add("rotate-180");
+            box.className = "bg-zinc-50 border border-red-700/30 rounded overflow-hidden transition-all duration-300 shadow-md";
+          }
+        });
+      });
+
+    });
+  </script>
+</body>
+</html>

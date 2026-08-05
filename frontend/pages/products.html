@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products & Solutions | 800 Retail Solutions - Al Ameen Group</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#09090B',
+            accent: '#C20E1A',
+            neutralDark: '#18181B',
+            neutralLight: '#FFFFFF'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white text-zinc-900 min-h-screen flex flex-col pt-20">
+
+  <!-- Shared Header Placeholder -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- Page Banner -->
+  <section class="py-24 bg-zinc-50 border-b border-zinc-200 text-center">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 space-y-4">
+      <h1 class="text-4xl sm:text-5xl font-black text-zinc-950 tracking-tight font-display">Products & Solutions Catalog</h1>
+      <p class="text-zinc-500 text-sm max-w-xl mx-auto font-light">High-specification retail fittings, LED screen components, and architectural display structures.</p>
+    </div>
+  </section>
+
+  <!-- Product Catalog Section -->
+  <section class="py-32 bg-white flex-1">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 grid grid-cols-1 lg:grid-cols-4 gap-12">
+      
+      <!-- Filters Sidebar (1 column) -->
+      <aside class="space-y-6 lg:col-span-1">
+        <!-- Search bar -->
+        <div class="p-6 bg-zinc-50 rounded border border-zinc-200 space-y-3 shadow-sm">
+          <label for="product-search" class="text-xs font-bold text-zinc-950 uppercase tracking-wider font-display">Search Products</label>
+          <div class="relative">
+            <input type="text" id="product-search" placeholder="Type to search..." class="w-full pl-9 pr-4 py-2 bg-white border border-zinc-200 rounded text-xs text-zinc-800 focus:outline-none focus:border-red-700">
+            <i class="fas fa-search absolute left-3 top-3 text-[10px] text-zinc-400"></i>
+          </div>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="p-6 bg-zinc-50 rounded border border-zinc-200 space-y-3 shadow-sm">
+          <h4 class="text-xs font-bold text-zinc-950 uppercase tracking-wider font-display border-b border-zinc-200 pb-2">Category</h4>
+          <div class="space-y-2 text-xs" id="filter-category">
+            <!-- Dynamic Category List -->
+          </div>
+        </div>
+
+        <!-- Material Filters -->
+        <div class="p-6 bg-zinc-50 rounded border border-zinc-200 space-y-3 shadow-sm">
+          <h4 class="text-xs font-bold text-zinc-950 uppercase tracking-wider font-display border-b border-zinc-200 pb-2">Material</h4>
+          <div class="space-y-2 text-xs" id="filter-material">
+            <!-- Dynamic Materials list -->
+          </div>
+        </div>
+
+        <!-- Reset Button -->
+        <button id="reset-filters" class="w-full py-2.5 bg-zinc-950 hover:bg-red-750 text-white rounded font-bold text-xs transition duration-200 cursor-pointer shadow-sm">
+          Reset All Filters
+        </button>
+      </aside>
+
+      <!-- Products Grid & Container (3 columns) -->
+      <main class="lg:col-span-3 space-y-6 spinner-container">
+        
+        <!-- Spinner Overlay -->
+        <div id="product-spinner" class="spinner-overlay">
+          <div class="loading-spinner"></div>
+        </div>
+
+        <!-- Products List output -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="products-grid">
+          <!-- Dynamic Products or Skeletons -->
+        </div>
+
+        <!-- Empty State UI -->
+        <div id="products-empty-state" class="hidden">
+          <div class="empty-state">
+            <i class="fas fa-search-minus empty-state-icon text-red-700"></i>
+            <h3 class="text-lg font-bold text-zinc-950 font-display mb-1">No Products Match Your Search</h3>
+            <p class="text-xs text-zinc-500 mb-6 max-w-sm font-light">Try adjusting your filters, searching for alternate terms, or clearing filters to start fresh.</p>
+            <button id="empty-state-reset" class="px-5 py-2.5 bg-red-700 hover:bg-red-800 text-white rounded font-bold text-xs transition duration-200 cursor-pointer">
+              Clear All Filters
+            </button>
+          </div>
+        </div>
+
+      </main>
+
+    </div>
+  </section>
+
+  <!-- Specifications Detail Modal -->
+  <div id="product-modal" class="fixed inset-0 z-50 overflow-y-auto hidden">
+    <!-- Backdrop -->
+    <div class="fixed inset-0 bg-black/60 backdrop-blur-sm" id="modal-backdrop"></div>
+    
+    <!-- Modal Container -->
+    <div class="flex min-h-screen items-center justify-center p-4">
+      <div class="relative w-full max-w-2xl bg-white rounded border border-zinc-200 shadow-2xl p-6 sm:p-8 space-y-6 transform scale-95 opacity-0 transition-all duration-350" id="modal-content">
+        <!-- Close Button -->
+        <button id="modal-close" class="absolute right-4 top-4 text-zinc-500 hover:text-red-700 p-1">
+          <i class="fas fa-times text-xl"></i>
+        </button>
+
+        <!-- Detail Header -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <img id="modal-img" src="" alt="Product" class="w-full h-48 object-cover rounded border border-zinc-200">
+          
+          <div class="space-y-4">
+            <span id="modal-tag" class="inline-block px-2.5 py-0.5 bg-red-50 text-red-700 border border-red-100 rounded text-[9px] font-bold uppercase">Fixture</span>
+            <h3 id="modal-title" class="text-2xl font-bold text-zinc-950 font-display">Product Title</h3>
+            <p id="modal-desc" class="text-xs text-zinc-500 leading-relaxed font-light">Detailed description fits here.</p>
+          </div>
+        </div>
+
+        <!-- Specifications list -->
+        <div class="border-t border-zinc-200 pt-6">
+          <h4 class="text-xs font-bold text-zinc-950 uppercase tracking-wider mb-4 font-display">Technical Specifications</h4>
+          <div class="grid grid-cols-2 gap-4 text-xs" id="modal-specs">
+            <!-- Dynamic spec items -->
+          </div>
+        </div>
+
+        <!-- Footer Buttons -->
+        <div class="flex justify-end space-x-3 pt-4 border-t border-zinc-200">
+          <a href="./contact.html" id="modal-quote-link" class="px-5 py-2.5 bg-red-700 hover:bg-red-800 text-white rounded font-bold text-xs transition duration-200 shadow-sm">
+            Request Quote For This Item
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shared Footer Placeholder -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Global scripts -->
+  <script type="module" src="../assets/js/main.js"></script>
+
+  <!-- Products filter & rendering system -->
+  <script type="module">
+    import { productCatalog } from '../assets/js/data-scraper.js';
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const grid = document.getElementById("products-grid");
+      const emptyState = document.getElementById("products-empty-state");
+      const spinner = document.getElementById("product-spinner");
+      const searchInput = document.getElementById("product-search");
+      
+      const catFilterContainer = document.getElementById("filter-category");
+      const matFilterContainer = document.getElementById("filter-material");
+      
+      const resetBtn = document.getElementById("reset-filters");
+      const emptyResetBtn = document.getElementById("empty-state-reset");
+
+      let selectedCategory = "";
+      let selectedMaterial = "";
+      let searchQuery = "";
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const catParam = urlParams.get('cat');
+      if (catParam) {
+        selectedCategory = catParam;
+      }
+
+      const categories = [...new Set(productCatalog.map(p => p.category))];
+      const materials = [...new Set(productCatalog.map(p => p.material))];
+
+      const renderFilters = () => {
+        if (catFilterContainer) {
+          catFilterContainer.innerHTML = `
+            <label class="flex items-center space-x-2 cursor-pointer py-1">
+              <input type="radio" name="category" value="" ${selectedCategory === "" ? "checked" : ""} class="accent-red-700">
+              <span class="${selectedCategory === "" ? "text-red-700 font-bold" : "text-zinc-500"} font-light">All Categories</span>
+            </label>
+          ` + categories.map(cat => `
+            <label class="flex items-center space-x-2 cursor-pointer py-1">
+              <input type="radio" name="category" value="${cat}" ${selectedCategory === cat ? "checked" : ""} class="accent-red-700">
+              <span class="${selectedCategory === cat ? "text-red-700 font-bold" : "text-zinc-500"} font-light">${cat}</span>
+            </label>
+          `).join('');
+        }
+
+        if (matFilterContainer) {
+          matFilterContainer.innerHTML = `
+            <label class="flex items-center space-x-2 cursor-pointer py-1">
+              <input type="radio" name="material" value="" ${selectedMaterial === "" ? "checked" : ""} class="accent-red-700">
+              <span class="${selectedMaterial === "" ? "text-red-700 font-bold" : "text-zinc-500"} font-light">All Materials</span>
+            </label>
+          ` + materials.map(mat => `
+            <label class="flex items-center space-x-2 cursor-pointer py-1">
+              <input type="radio" name="material" value="${mat}" ${selectedMaterial === mat ? "checked" : ""} class="accent-red-700">
+              <span class="${selectedMaterial === mat ? "text-red-700 font-bold" : "text-zinc-500"} font-light">${mat}</span>
+            </label>
+          `).join('');
+        }
+      };
+
+      const renderSkeletons = () => {
+        grid.innerHTML = Array(6).fill(0).map(() => `
+          <div class="bg-white border border-zinc-200 rounded p-5 space-y-4 overflow-hidden shadow-sm">
+            <div class="skeleton h-40 w-full rounded"></div>
+            <div class="skeleton h-4 w-3/4 rounded"></div>
+            <div class="skeleton h-3 w-1/2 rounded"></div>
+            <div class="flex justify-between items-center pt-2 border-t border-zinc-100">
+              <div class="skeleton h-3 w-1/4 rounded"></div>
+              <div class="skeleton h-8 w-1/3 rounded"></div>
+            </div>
+          </div>
+        `).join('');
+        emptyState.classList.add("hidden");
+      };
+
+      const renderProducts = (products) => {
+        if (products.length === 0) {
+          grid.innerHTML = "";
+          emptyState.classList.remove("hidden");
+          return;
+        }
+
+        emptyState.classList.add("hidden");
+        grid.innerHTML = products.map(prod => `
+          <div class="card-industrial p-5 rounded flex flex-col justify-between h-[380px] shadow-sm bg-white">
+            <div class="space-y-3.5">
+              <div class="zoom-container h-40 w-full rounded relative border border-zinc-100">
+                <img src="${prod.image}" alt="${prod.name}" class="zoom-image w-full h-full object-cover">
+                <span class="absolute top-2 left-2 px-2 py-0.5 bg-white/95 text-red-700 border border-red-100 rounded text-[9px] font-extrabold uppercase shadow-sm">${prod.category}</span>
+              </div>
+              <h3 class="text-sm font-bold text-zinc-950 tracking-tight mt-2 font-display">${prod.name}</h3>
+              <p class="text-[11px] text-zinc-500 leading-relaxed line-clamp-2 font-light">${prod.description}</p>
+            </div>
+            
+            <div class="flex items-center justify-between mt-4 pt-3.5 border-t border-zinc-200">
+              <span class="text-[10px] text-zinc-400 font-bold uppercase tracking-wider">${prod.material}</span>
+              <button class="view-spec-btn px-4 py-2 bg-zinc-950 border border-zinc-950 text-[10px] font-bold text-white rounded hover:bg-red-700 hover:border-red-700 transition cursor-pointer" data-id="${prod.id}">
+                View Specs
+              </button>
+            </div>
+          </div>
+        `).join('');
+
+        grid.querySelectorAll(".view-spec-btn").forEach(btn => {
+          btn.addEventListener("click", () => openModal(btn.getAttribute("data-id")));
+        });
+      };
+
+      const handleFilterChange = () => {
+        renderSkeletons();
+        if (spinner) spinner.classList.add("active");
+
+        setTimeout(() => {
+          if (spinner) spinner.classList.remove("active");
+
+          const filtered = productCatalog.filter(prod => {
+            const matchesCategory = selectedCategory === "" || prod.category === selectedCategory;
+            const matchesMaterial = selectedMaterial === "" || prod.material === selectedMaterial;
+            const matchesSearch = searchQuery === "" || 
+              prod.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+              prod.description.toLowerCase().includes(searchQuery.toLowerCase());
+            return matchesCategory && matchesMaterial && matchesSearch;
+          });
+
+          renderProducts(filtered);
+          renderFilters();
+          bindFilterListeners();
+        }, 120);
+      };
+
+      const bindFilterListeners = () => {
+        catFilterContainer.querySelectorAll("input").forEach(radio => {
+          radio.addEventListener("change", (e) => {
+            selectedCategory = e.target.value;
+            handleFilterChange();
+          });
+        });
+
+        matFilterContainer.querySelectorAll("input").forEach(radio => {
+          radio.addEventListener("change", (e) => {
+            selectedMaterial = e.target.value;
+            handleFilterChange();
+          });
+        });
+      };
+
+      if (searchInput) {
+        searchInput.addEventListener("input", (e) => {
+          searchQuery = e.target.value;
+          handleFilterChange();
+        });
+      }
+
+      const clearAllFilters = () => {
+        selectedCategory = "";
+        selectedMaterial = "";
+        searchQuery = "";
+        if (searchInput) searchInput.value = "";
+        handleFilterChange();
+      };
+
+      if (resetBtn) resetBtn.addEventListener("click", clearAllFilters);
+      if (emptyResetBtn) emptyResetBtn.addEventListener("click", clearAllFilters);
+
+      // --- MODAL CONTROLS ---
+      const modal = document.getElementById("product-modal");
+      const mContent = document.getElementById("modal-content");
+      const mBackdrop = document.getElementById("modal-backdrop");
+      const mClose = document.getElementById("modal-close");
+
+      const mTitle = document.getElementById("modal-title");
+      const mTag = document.getElementById("modal-tag");
+      const mDesc = document.getElementById("modal-desc");
+      const mImg = document.getElementById("modal-img");
+      const mSpecs = document.getElementById("modal-specs");
+      const mQuoteLink = document.getElementById("modal-quote-link");
+
+      const openModal = (id) => {
+        const prod = productCatalog.find(p => p.id === id);
+        if (!prod) return;
+
+        mTitle.textContent = prod.name;
+        mTag.textContent = prod.category;
+        mDesc.textContent = prod.description;
+        mImg.src = prod.image;
+
+        mSpecs.innerHTML = Object.entries(prod.specs).map(([key, val]) => `
+          <div class="p-3 bg-zinc-50 border border-zinc-200 rounded">
+            <span class="text-zinc-400 uppercase tracking-widest text-[9px] font-bold">${key.replace(/([A-Z])/g, ' $1')}</span>
+            <div class="text-zinc-800 mt-1 font-bold">${val}</div>
+          </div>
+        `).join('');
+
+        if (mQuoteLink) {
+          mQuoteLink.href = `./contact.html?type=quote&prod=${encodeURIComponent(prod.name)}`;
+        }
+
+        modal.classList.remove("hidden");
+        setTimeout(() => {
+          mContent.classList.remove("scale-95", "opacity-0");
+          mContent.classList.add("scale-100", "opacity-100");
+        }, 10);
+        document.body.style.overflow = "hidden";
+      };
+
+      const closeModal = () => {
+        mContent.classList.remove("scale-100", "opacity-100");
+        mContent.classList.add("scale-95", "opacity-0");
+        setTimeout(() => {
+          modal.classList.add("hidden");
+        }, 300);
+        document.body.style.overflow = "";
+      };
+
+      if (mClose) mClose.addEventListener("click", closeModal);
+      if (mBackdrop) mBackdrop.addEventListener("click", closeModal);
+
+      handleFilterChange();
+    });
+  </script>
+</body>
+</html>
