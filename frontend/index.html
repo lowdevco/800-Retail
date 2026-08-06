@@ -9,16 +9,22 @@
   <script src="./assets/js/tailwind.config.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="shortcut icon" href="https://800retail.com/wp-content/uploads/2025/06/cropped-800-270x270.png" type="image/x-icon">
 </head>
 <body class="bg-white text-zinc-900 min-h-screen flex flex-col">
 
   <!-- Shared Header Placeholder -->
-  <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 glass-panel shadow-sm" id="main-header">
+  <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300  shadow-sm" id="main-header">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
-        <a href="./index.html" class="flex flex-col justify-center select-none">
-<img src="./assets/image/logo.svg" alt="logo">
+        <a href="./index.html" class="flex flex-col justify-center select-none hidden" id="logo-change-1" >
+            <img src="./assets/image/logo.svg" alt="logo">
         </a>
+
+        <a href="./index.html" class="flex flex-col justify-center  select-none w-[200px] h-[100px]" id="logo-change-2" >
+            <img src="./assets/image/logo-footer.png" alt="logo">
+        </a>
+
         <nav class="hidden lg:flex space-x-8 text-sm font-medium items-center">
           <a href="./index.html" class="text-red-700 font-bold border-b-2 border-red-700 pb-1">Home</a>
           <div class="relative group flex items-center h-20">
@@ -27,9 +33,9 @@
               <i class="fas fa-chevron-down text-[9px] transition-transform duration-200 group-hover:rotate-180"></i>
             </button>
             <div class="absolute top-[80px] left-0 mt-0 w-48 bg-white border border-zinc-100 rounded shadow-lg py-2 hidden group-hover:block">
-              <a href="./pages/about.html" class="block px-4 py-2.5 text-xs text-zinc-600 hover:bg-zinc-50 hover:text-red-600">About Us</a>
-              <a href="./pages/ceo-message.html" class="block px-4 py-2.5 text-xs text-zinc-600 hover:bg-zinc-50 hover:text-red-600">CEO Message</a>
-              <a href="./pages/global-facilities.html" class="block px-4 py-2.5 text-xs text-zinc-600 hover:bg-zinc-50 hover:text-red-600">Global Facilities</a>
+              <a href="./placeholder/about.html" class="block px-4 py-2.5 text-sm text-zinc-600 hover:bg-zinc-50 hover:text-red-600">About Us</a>
+              <a href="./placeholder/ceo-message.html" class="block px-4 py-2.5 text-sm text-zinc-600 hover:bg-zinc-50 hover:text-red-600">CEO Message</a>
+              <a href="./placeholder/global-facilities.html" class="block px-4 py-2.5 text-sm text-zinc-600 hover:bg-zinc-50 hover:text-red-600">Global Facilities</a>
             </div>
           </div>
           <div class="relative group flex items-center h-20">
@@ -38,8 +44,8 @@
               <i class="fas fa-chevron-down text-[9px] transition-transform duration-200 group-hover:rotate-180"></i>
             </button>
             <div class="absolute top-[80px] left-0 mt-0 w-48 bg-white border border-zinc-100 rounded shadow-lg py-2 hidden group-hover:block">
-              <a href="./pages/divisions.html" class="block px-4 py-2.5 text-xs text-zinc-600 hover:bg-zinc-50 hover:text-red-600">Production Divisions</a>
-              <a href="./pages/products.html" class="block px-4 py-2.5 text-xs text-zinc-600 hover:bg-zinc-50 hover:text-red-600">Products Catalog</a>
+              <a href="./placeholder/divisions.html" class="block px-4 py-2.5 text-sm text-zinc-600 hover:bg-zinc-50 hover:text-red-600">Production Divisions</a>
+              <a href="./placeholder/products.html" class="block px-4 py-2.5 text-sm text-zinc-600 hover:bg-zinc-50 hover:text-red-600">Products Catalog</a>
             </div>
           </div>
           <div class="relative group flex items-center h-20">
@@ -48,16 +54,16 @@
               <i class="fas fa-chevron-down text-[9px] transition-transform duration-200 group-hover:rotate-180"></i>
             </button>
             <div class="absolute top-[80px] left-0 mt-0 w-48 bg-white border border-zinc-100 rounded shadow-lg py-2 hidden group-hover:block">
-              <a href="./pages/projects.html" class="block px-4 py-2.5 text-xs text-zinc-600 hover:bg-zinc-50 hover:text-red-600">Projects Reference</a>
-              <a href="./pages/clientele.html" class="block px-4 py-2.5 text-xs text-zinc-600 hover:bg-zinc-50 hover:text-red-600">Our Clients</a>
+              <a href="./placeholder/projects.html" class="block px-4 py-2.5 text-sm text-zinc-600 hover:bg-zinc-50 hover:text-red-600">Projects Reference</a>
+              <a href="./placeholder/clientele.html" class="block px-4 py-2.5 text-sm text-zinc-600 hover:bg-zinc-50 hover:text-red-600">Our Clients</a>
             </div>
           </div>
-          <a href="./pages/news.html" class="text-zinc-600 hover:text-red-600 transition-colors duration-200 pb-1">News</a>
-          <a href="./pages/contact.html" class="text-zinc-600 hover:text-red-600 transition-colors duration-200 pb-1">Contact</a>
+          <a href="./placeholder/news.html" class="text-zinc-600 hover:text-red-600 transition-colors duration-200 pb-1">News</a>
+          <a href="./placeholder/contact.html" class="text-zinc-600 hover:text-red-600 transition-colors duration-200 pb-1">Contact</a>
         </nav>
         <div class="hidden lg:flex">
-          <a href="./pages/contact.html?type=quote" class="px-5 py-2.5 bg-zinc-950 hover:bg-red-700 text-white rounded text-sm font-semibold transition-all duration-350 btn-red-glow flex items-center space-x-2">
-            <i class="fas fa-file-invoice-dollar text-xs"></i>
+          <a href="./placeholder/contact.html?type=quote" class="px-5 py-2.5 bg-zinc-950 hover:bg-red-700 text-white rounded text-sm font-semibold transition-all duration-350 btn-red-glow flex items-center space-x-2">
+            <i class="fas fa-file-invoice-dollar text-sm"></i>
             <span>Request Quote</span>
           </a>
         </div>
@@ -72,8 +78,11 @@
       <div>
         <div class="flex items-center justify-between mb-8">
           <div class="flex flex-col">
-            <span class="text-xl font-black text-zinc-950 font-display">800 RETAIL</span>
-            <span class="text-[8px] tracking-widest text-zinc-400 font-semibold">Al Ameen Group</span>
+
+                                 <a href="./index.html" class=" select-none">
+            <img src="./assets/image/logo.svg" alt="logo">
+        </a>
+              
           </div>
           <button id="mobile-menu-close" class="text-zinc-500 hover:text-red-600 focus:outline-none p-1">
             <i class="fas fa-times text-2xl"></i>
@@ -81,19 +90,19 @@
         </div>
         <nav class="flex flex-col space-y-4 text-base font-semibold">
           <a href="./index.html" class="py-2 border-b border-zinc-100 text-red-700">Home</a>
-          <a href="./pages/about.html" class="py-2 border-b border-zinc-100 text-zinc-700 hover:text-red-600">About Us</a>
-          <a href="./pages/ceo-message.html" class="py-2 border-b border-zinc-100 text-zinc-700 hover:text-red-600">CEO Message</a>
-          <a href="./pages/global-facilities.html" class="py-2 border-b border-zinc-100 text-zinc-700 hover:text-red-600">Global Facilities</a>
-          <a href="./pages/divisions.html" class="py-2 border-b border-zinc-100 text-zinc-700 hover:text-red-600">Divisions</a>
-          <a href="./pages/products.html" class="py-2 border-b border-zinc-100 text-zinc-700 hover:text-red-600">Products & Solutions</a>
-          <a href="./pages/projects.html" class="py-2 border-b border-zinc-100 text-zinc-700 hover:text-red-600">Projects Portfolio</a>
-          <a href="./pages/clientele.html" class="py-2 border-b border-zinc-100 text-zinc-700 hover:text-red-600">Our Clients</a>
-          <a href="./pages/news.html" class="py-2 border-b border-zinc-100 text-zinc-700 hover:text-red-600">News & R&D</a>
-          <a href="./pages/contact.html" class="py-2 text-zinc-700 hover:text-red-600">Contact</a>
+          <a href="./placeholder/about.html" class="py-2 border-b border-zinc-100 text-zinc-700 hover:text-red-600">About Us</a>
+          <a href="./placeholder/ceo-message.html" class="py-2 border-b border-zinc-100 text-zinc-700 hover:text-red-600">CEO Message</a>
+          <a href="./placeholder/global-facilities.html" class="py-2 border-b border-zinc-100 text-zinc-700 hover:text-red-600">Global Facilities</a>
+          <a href="./placeholder/divisions.html" class="py-2 border-b border-zinc-100 text-zinc-700 hover:text-red-600">Divisions</a>
+          <a href="./placeholder/products.html" class="py-2 border-b border-zinc-100 text-zinc-700 hover:text-red-600">Products & Solutions</a>
+          <a href="./placeholder/projects.html" class="py-2 border-b border-zinc-100 text-zinc-700 hover:text-red-600">Projects Portfolio</a>
+          <a href="./placeholder/clientele.html" class="py-2 border-b border-zinc-100 text-zinc-700 hover:text-red-600">Our Clients</a>
+          <a href="./placeholder/news.html" class="py-2 border-b border-zinc-100 text-zinc-700 hover:text-red-600">News & R&D</a>
+          <a href="./placeholder/contact.html" class="py-2 text-zinc-700 hover:text-red-600">Contact</a>
         </nav>
       </div>
       <div class="mt-8">
-        <a href="./pages/contact.html?type=quote" class="w-full text-center block px-4 py-3 bg-red-700 hover:bg-red-800 text-white rounded font-bold transition duration-200">Request B2B Quote</a>
+        <a href="./placeholder/contact.html?type=quote" class="w-full text-center block px-4 py-3 bg-red-700 hover:bg-red-800 text-white rounded font-bold transition duration-200">Request B2B Quote</a>
       </div>
     </div>
     <div id="drawer-backdrop" class="hidden fixed inset-0 bg-zinc-950/40 backdrop-blur-sm z-40"></div>
@@ -103,12 +112,15 @@
   <section class="relative min-h-screen min-h-[100dvh] bg-zinc-900 overflow-hidden flex items-center pt-20">
     <!-- Carousel Slides -->
     <div class="absolute inset-0 z-0">
-      <!-- Slide 1 -->
+
       <div class="carousel-slide active w-full h-full bg-cover bg-center" style="background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=1920');"></div>
-      <!-- Slide 2 -->
+
       <div class="carousel-slide w-full h-full bg-cover bg-center" style="background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1920');"></div>
-      <!-- Slide 3 -->
+   
       <div class="carousel-slide w-full h-full bg-cover bg-center" style="background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&q=80&w=1920');"></div>
+
+      <!-- <video autoplay muted loop class=" w-full h-full bg-cover bg-center top-0 left-0" src="https://800retail.com/wp-content/uploads/2025/08/TL-CLUB-20-08-25-01-LQ.mp4"></video> -->
+
     </div>
 
     <!-- Hero Content Overlays -->
@@ -125,11 +137,11 @@
             From state-of-the-art joinery and robotic metal fabrication to next-generation retail lighting and turnkey interior execution across the GCC.
           </p>
           <div class="flex flex-wrap gap-4 pt-4">
-            <a href="./pages/contact.html?type=quote" class="px-8 py-3.5 bg-red-700 hover:bg-red-800 text-white rounded font-bold text-sm transition-all duration-350 btn-red-glow flex items-center space-x-2">
+            <a href="./placeholder/contact.html?type=quote" class="px-8 py-3.5 bg-red-700 hover:bg-red-800 text-white rounded font-bold text-sm transition-all duration-350 btn-red-glow flex items-center space-x-2">
               <i class="fas fa-file-invoice-dollar"></i>
               <span>Get a B2B Quote</span>
             </a>
-            <a href="./pages/projects.html" class="px-8 py-3.5 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded font-bold text-sm transition duration-300 backdrop-blur-sm">
+            <a href="./placeholder/projects.html" class="px-8 py-3.5 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded font-bold text-sm transition duration-300 backdrop-blur-sm">
               View Reference Gallery
             </a>
           </div>
@@ -142,7 +154,7 @@
               <i class="fas fa-bolt"></i>
             </div>
             <div>
-              <div class="text-xs font-bold font-display">48-Hour Rapid BoQ</div>
+              <div class="text-sm font-bold font-display">48-Hour Rapid BoQ</div>
               <div class="text-[10px] text-zinc-300 font-light">Turnaround on architectural drafts</div>
             </div>
           </div>
@@ -152,7 +164,7 @@
               <i class="fas fa-industry"></i>
             </div>
             <div>
-              <div class="text-xs font-bold font-display">300,000 Sq. Ft. Plant</div>
+              <div class="text-sm font-bold font-display">300,000 Sq. Ft. Plant</div>
               <div class="text-[10px] text-zinc-300 font-light">UAQ 100% In-house production</div>
             </div>
           </div>
@@ -162,7 +174,7 @@
               <i class="fas fa-certificate"></i>
             </div>
             <div>
-              <div class="text-xs font-bold font-display">Made in UAE Mark</div>
+              <div class="text-sm font-bold font-display">Made in UAE Mark</div>
               <div class="text-[10px] text-zinc-300 font-light">ISO 9001:2015 Certified</div>
             </div>
           </div>
@@ -170,15 +182,18 @@
       </div>
     </div>
 
+
     <!-- Carousel Controls -->
     <div class="absolute bottom-12 right-12 flex space-x-3 z-20">
       <button id="carousel-prev" class="w-10 h-10 rounded-full border border-white/20 bg-black/40 text-white flex items-center justify-center hover:bg-red-700 hover:border-red-700 transition duration-300 cursor-pointer">
-        <i class="fas fa-arrow-left text-xs"></i>
+        <i class="fas fa-arrow-left text-sm"></i>
       </button>
       <button id="carousel-next" class="w-10 h-10 rounded-full border border-white/20 bg-black/40 text-white flex items-center justify-center hover:bg-red-700 hover:border-red-700 transition duration-300 cursor-pointer">
-        <i class="fas fa-arrow-right text-xs"></i>
+        <i class="fas fa-arrow-right text-sm"></i>
       </button>
     </div>
+
+
   </section>
 
   <!-- Interactive Stats Counters Section -->
@@ -209,7 +224,7 @@
   <section class="py-32 bg-white relative">
     <div class="max-w-7xl mx-auto px-6 sm:px-8">
       <div class="text-center max-w-3xl mx-auto mb-20 space-y-5">
-        <span class="text-red-700 text-xs font-extrabold uppercase tracking-widest">Our Operations</span>
+        <span class="text-red-700 text-sm font-extrabold uppercase tracking-widest">Our Operations</span>
         <h2 class="text-3xl sm:text-5xl font-black text-zinc-950 tracking-tight font-display">The Four Core Pillars of Retail Design</h2>
         <div class="flex justify-center"><span class="section-divider"></span></div>
         <p class="text-zinc-500 text-sm font-light">We provide a vertically integrated contracting model, translating complex architectural drafts into reality.</p>
@@ -223,11 +238,11 @@
               <i class="fas fa-cubes"></i>
             </div>
             <h3 class="text-lg font-bold text-zinc-950 mb-3 font-display">Retail Fixtures</h3>
-            <p class="text-zinc-500 text-xs leading-relaxed font-light">
+            <p class="text-zinc-500 text-sm leading-relaxed font-light">
               Custom display cabinets, cladding elements, modular wall panels, and cashier stands manufactured with precision under strict quality tolerances.
             </p>
           </div>
-          <a href="./pages/products.html?cat=Retail%20Fixtures" class="text-xs text-red-700 font-bold flex items-center space-x-2 group">
+          <a href="./placeholder/products.html?cat=Retail%20Fixtures" class="text-sm text-red-700 font-bold flex items-center space-x-2 group">
             <span>Explore Fixtures</span>
             <i class="fas fa-chevron-right text-[10px] transform group-hover:translate-x-1 transition-transform"></i>
           </a>
@@ -240,11 +255,11 @@
               <i class="fas fa-tv"></i>
             </div>
             <h3 class="text-lg font-bold text-zinc-950 mb-3 font-display">Retail LED Displays</h3>
-            <p class="text-zinc-500 text-xs leading-relaxed font-light">
+            <p class="text-zinc-500 text-sm leading-relaxed font-light">
               High-definition transparent windows, fine-pitch indoor video panels, and interactive digital branding installations for shopping centers.
             </p>
           </div>
-          <a href="./pages/products.html?cat=LED%20Screens" class="text-xs text-red-700 font-bold flex items-center space-x-2 group">
+          <a href="./placeholder/products.html?cat=LED%20Screens" class="text-sm text-red-700 font-bold flex items-center space-x-2 group">
             <span>Explore LED Tech</span>
             <i class="fas fa-chevron-right text-[10px] transform group-hover:translate-x-1 transition-transform"></i>
           </a>
@@ -257,11 +272,11 @@
               <i class="fas fa-lightbulb"></i>
             </div>
             <h3 class="text-lg font-bold text-zinc-950 mb-3 font-display">Retail Lighting</h3>
-            <p class="text-zinc-500 text-xs leading-relaxed font-light">
+            <p class="text-zinc-500 text-sm leading-relaxed font-light">
               Concealed shelf LED strips, custom slim tension fabric lightboxes, architectural ceilings, and smart scene lighting control networks.
             </p>
           </div>
-          <a href="./pages/products.html?cat=Architectural%20Lightboxes" class="text-xs text-red-700 font-bold flex items-center space-x-2 group">
+          <a href="./placeholder/products.html?cat=Architectural%20Lightboxes" class="text-sm text-red-700 font-bold flex items-center space-x-2 group">
             <span>Explore Lightboxes</span>
             <i class="fas fa-chevron-right text-[10px] transform group-hover:translate-x-1 transition-transform"></i>
           </a>
@@ -274,11 +289,11 @@
               <i class="fas fa-compass-drafting"></i>
             </div>
             <h3 class="text-lg font-bold text-zinc-950 mb-3 font-display">Turnkey Fitouts</h3>
-            <p class="text-zinc-500 text-xs leading-relaxed font-light">
+            <p class="text-zinc-500 text-sm leading-relaxed font-light">
               Turnkey interior contracting, space partitioning, false ceiling arrays, civil works, MEP, and civil defense compliance for GCC.
             </p>
           </div>
-          <a href="./pages/divisions.html#fitout" class="text-xs text-red-700 font-bold flex items-center space-x-2 group">
+          <a href="./placeholder/divisions.html#fitout" class="text-sm text-red-700 font-bold flex items-center space-x-2 group">
             <span>Explore Site Execution</span>
             <i class="fas fa-chevron-right text-[10px] transform group-hover:translate-x-1 transition-transform"></i>
           </a>
@@ -291,7 +306,7 @@
   <section class="py-28 bg-zinc-50 border-t border-zinc-200">
     <div class="max-w-7xl mx-auto px-6 sm:px-8 space-y-16">
       <div class="text-center max-w-3xl mx-auto space-y-4">
-        <span class="text-red-700 text-xs font-extrabold uppercase tracking-widest">Tactile Excellence</span>
+        <span class="text-red-700 text-sm font-extrabold uppercase tracking-widest">Tactile Excellence</span>
         <h2 class="text-3xl sm:text-5xl font-black text-zinc-950 font-display">Material & Finish Explorer</h2>
         <p class="text-zinc-500 text-sm font-light">Select a material swatch to preview our in-house processing machinery, tolerances, and finishes.</p>
       </div>
@@ -351,21 +366,35 @@
               </div>
             </div>
           </div>
+
+          <!-- Swatch 5 -->
+          <div class="material-swatch-card" data-swatch="custom">
+            <div class="flex items-center space-x-4">
+              <div class="w-10 h-10 rounded bg-[#059669] flex items-center justify-center text-white text-base">
+                <i class="fa-solid fa-cube"></i>
+              </div>
+              <div class="flex-1">
+                <div class="text-sm font-bold text-zinc-950 font-display">Custom Retail Fixtures</div>
+                <div class="text-[10px] text-zinc-500 font-light">Gondolas • Display Units • Cash Counters</div>
+              </div>
+            </div>
+          </div>
+
         </div>
 
         <!-- Live Preview Panel (7 cols) -->
         <div class="lg:col-span-7 bg-white p-8 rounded-lg border border-zinc-200 shadow-md space-y-6" id="swatch-preview-panel">
           <div class="relative h-64 w-full rounded overflow-hidden border border-zinc-200">
             <img id="swatch-img" src="https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?auto=format&fit=crop&q=80&w=800" alt="Wood Joinery" class="w-full h-full object-cover transition-all duration-500">
-            <div class="absolute top-4 left-4 bg-zinc-950/80 backdrop-blur-md text-white px-3 py-1 rounded text-xs font-bold" id="swatch-badge">Wood & Joinery Spec</div>
+            <div class="absolute top-4 left-4 bg-zinc-950/80 backdrop-blur-md text-white px-3 py-1 rounded text-sm font-bold" id="swatch-badge">Wood & Joinery Spec</div>
           </div>
 
           <div class="space-y-3">
             <h3 class="text-xl font-bold text-zinc-950 font-display" id="swatch-title">Oak Veneer Joinery & MDF Lamination</h3>
-            <p class="text-xs text-zinc-500 leading-relaxed font-light" id="swatch-desc">
+            <p class="text-sm text-zinc-500 leading-relaxed font-light" id="swatch-desc">
               Processed using Homag 5-axis routers in our Umm Al Quwain factory. Features dust-controlled veneer pressing and zero-gap edge banding for luxury store displays.
             </p>
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-t border-zinc-100 text-xs">
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-t border-zinc-100 text-sm">
               <div>
                 <div class="text-[9px] uppercase text-zinc-400 font-bold">Tolerance</div>
                 <div class="text-zinc-900 font-bold font-display" id="swatch-stat-1">&plusmn;0.2 mm</div>
@@ -389,17 +418,17 @@
   <section class="py-32 bg-[#18181B] border-y border-zinc-200">
     <div class="max-w-7xl mx-auto px-6 sm:px-8">
       <div class="text-center max-w-3xl mx-auto mb-20 space-y-5">
-        <span class="text-red-700 text-xs font-extrabold uppercase tracking-widest">End-to-End Delivery</span>
+        <span class="text-red-700 text-sm font-extrabold uppercase tracking-widest">End-to-End Delivery</span>
         <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight font-display">Our Integrated Project Workflow</h2>
         <div class="flex justify-center"><span class="section-divider"></span></div>
-        <p class="text-zinc-500 text-sm font-light">How we manage commercial spaces from pre-construction layout concepts to on-site assembly handover.</p>
+        <p class="text-zinc-200 text-sm font-light">How we manage commercial spaces from pre-construction layout concepts to on-site assembly handover.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
         <div class="space-y-4">
           <div class="text-2xl font-black text-red-700 font-display">01.</div>
           <h3 class="text-sm font-bold text-white uppercase tracking-tight font-display">Estimating & BoQ</h3>
-          <p class="text-xs text-zinc-500 leading-relaxed font-light">
+          <p class="text-sm text-zinc-200 leading-relaxed font-light">
             Our estimation engineering team analyzes drafts to deliver complete, itemized Bills of Quantities (BoQs) and material calculations.
           </p>
         </div>
@@ -407,7 +436,7 @@
         <div class="space-y-4">
           <div class="text-2xl font-black text-red-700 font-display">02.</div>
           <h3 class="text-sm font-bold text-white uppercase tracking-tight font-display">Technical Detailing</h3>
-          <p class="text-xs text-zinc-500 leading-relaxed font-light">
+          <p class="text-sm text-zinc-200 leading-relaxed font-light">
             Industrial designers develop full CAD shop drawings and 3D architectural renders to resolve joins and load balances.
           </p>
         </div>
@@ -415,7 +444,7 @@
         <div class="space-y-4">
           <div class="text-2xl font-black text-red-700 font-display">03.</div>
           <h3 class="text-sm font-bold text-white uppercase tracking-tight font-display">In-House Production</h3>
-          <p class="text-xs text-zinc-500 leading-relaxed font-light">
+          <p class="text-sm text-zinc-200 leading-relaxed font-light">
             Custom woodwork, robotic welding, laser cutting, acrylic shaping, and LED diagnostics occur in our central Umm Al Quwain factory.
           </p>
         </div>
@@ -423,7 +452,7 @@
         <div class="space-y-4">
           <div class="text-2xl font-black text-red-700 font-display">04.</div>
           <h3 class="text-sm font-bold text-white uppercase tracking-tight font-display">Logistics Coordinates</h3>
-          <p class="text-xs text-zinc-500 leading-relaxed font-light">
+          <p class="text-sm text-zinc-200 leading-relaxed font-light">
             Completed fixtures are securely crated in compliance with ISPM-15 guidelines and dispatched via our GCC logistics networks.
           </p>
         </div>
@@ -431,7 +460,7 @@
         <div class="space-y-4">
           <div class="text-2xl font-black text-red-700 font-display">05.</div>
           <h3 class="text-sm font-bold text-white uppercase tracking-tight font-display">On-site Assembly</h3>
-          <p class="text-xs text-zinc-500 leading-relaxed font-light">
+          <p class="text-sm text-zinc-200 leading-relaxed font-light">
             In-house MEP and fitout site teams handle partition glazing, drywall installation, ceiling grids, and local civil defense checks.
           </p>
         </div>
@@ -443,7 +472,7 @@
   <section class="py-32 bg-white">
     <div class="max-w-7xl mx-auto px-6 sm:px-8 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
       <div class="lg:col-span-6 space-y-8 scroll-reveal-left">
-        <span class="text-red-700 text-xs font-bold uppercase tracking-widest">300,000 Sq. Ft. Manufacturing Plant</span>
+        <span class="text-red-700 text-sm font-bold uppercase tracking-widest">300,000 Sq. Ft. Manufacturing Plant</span>
         <h2 class="text-3xl sm:text-5xl font-black text-zinc-950 tracking-tight font-display">High-Precision Production Capacity</h2>
         <p class="text-zinc-650 text-sm leading-relaxed font-light">
           800 Retail operates under Al Ameen Industries LLC. Our main manufacturing base, located in Umm Al Quwain, UAE, spans over 300,000 square feet, facilitating high-volume production for GCC retail rollouts. 
@@ -454,11 +483,11 @@
         
         <div class="grid grid-cols-2 gap-6 pt-4 border-t border-zinc-200">
           <div>
-            <h4 class="text-xs font-bold text-zinc-950 uppercase tracking-wider font-display"><i class="fas fa-circle-check text-red-700 mr-2"></i>German Machinery</h4>
+            <h4 class="text-sm font-bold text-zinc-950 uppercase tracking-wider font-display"><i class="fas fa-circle-check text-red-700 mr-2"></i>German Machinery</h4>
             <p class="text-[11px] text-zinc-500 font-light mt-1">Equipped with 5-axis Homag woodworking routers and automated edge-banders.</p>
           </div>
           <div>
-            <h4 class="text-xs font-bold text-zinc-950 uppercase tracking-wider font-display"><i class="fas fa-circle-check text-red-700 mr-2"></i>Fiber Laser Profiling</h4>
+            <h4 class="text-sm font-bold text-zinc-950 uppercase tracking-wider font-display"><i class="fas fa-circle-check text-red-700 mr-2"></i>Fiber Laser Profiling</h4>
             <p class="text-[11px] text-zinc-500 font-light mt-1">High-tolerance robotic laser cutting, shearing, and CNC press bending.</p>
           </div>
         </div>
@@ -490,7 +519,7 @@
       </div>
 
       <div class="lg:col-span-6 order-1 lg:order-2 space-y-8 scroll-reveal-right">
-        <span class="text-red-700 text-xs font-bold uppercase tracking-widest">Engineering & Prototyping Hub</span>
+        <span class="text-red-700 text-sm font-bold uppercase tracking-widest">Engineering & Prototyping Hub</span>
         <h2 class="text-3xl sm:text-4xl font-black text-zinc-950 tracking-tight font-display">Concept Engineering & Detailing</h2>
         <p class="text-zinc-650 text-sm leading-relaxed font-light">
           While our central manufacturing operations are based in Umm Al Quwain, 800 Retail coordinates client consultations and prototyping approvals from our corporate trading showroom in Deira, Dubai (conveniently located near Abu Hail Metro Station).
@@ -503,45 +532,45 @@
   </section>
 
   <!-- Expanded Section: Material Specifications Table -->
-  <section class="py-32 bg-white border-t border-zinc-200">
+  <section class="py-32 bg-[#18181B] border-t border-zinc-200">
     <div class="max-w-7xl mx-auto px-6 sm:px-8 space-y-16">
       <div class="text-center max-w-3xl mx-auto space-y-4">
-        <span class="text-red-700 text-xs font-bold uppercase tracking-widest">Technical Specifications</span>
-        <h2 class="text-3xl sm:text-4xl font-black text-zinc-950 font-display">In-House Manufacturing Capabilities</h2>
-        <p class="text-zinc-500 text-sm font-light">A summary of the materials, machinery, and tolerances enforced across our UAQ production facilities.</p>
+        <span class="text-red-700 text-sm font-bold uppercase tracking-widest">Technical Specifications</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-white font-display">In-House Manufacturing Capabilities</h2>
+        <p class="text-zinc-200 text-sm font-light">A summary of the materials, machinery, and tolerances enforced across our UAQ production facilities.</p>
       </div>
 
-      <div class="overflow-x-auto rounded-lg border border-zinc-200 shadow-sm">
-        <table class="w-full text-left border-collapse bg-white text-xs">
+      <div class="overflow-x-auto rounded-lg border border-red-600 shadow-sm">
+        <table class="w-full text-left border-collapse bg-white text-sm">
           <thead>
-            <tr class="bg-zinc-50 border-b border-zinc-200 text-zinc-950 font-bold uppercase font-display tracking-wider">
+            <tr class="bg-[#18181B] border-b border-red-700 text-white font-bold uppercase font-display tracking-wider">
               <th class="p-4 sm:p-5">Division</th>
               <th class="p-4 sm:p-5">Key Machinery</th>
               <th class="p-4 sm:p-5">Materials & Operations</th>
               <th class="p-4 sm:p-5">Quality Tolerances</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-zinc-200 text-zinc-500 font-light">
+          <tbody class="divide-y bg-[#18181B] divide-red-600 text-zinc-200 font-light">
             <tr>
-              <td class="p-4 sm:p-5 font-bold text-zinc-950 font-display">Wood & Joinery</td>
+              <td class="p-4 sm:p-5 font-bold text-White font-display">Wood & Joinery</td>
               <td class="p-4 sm:p-5">Homag 5-Axis wood CNC routing system, veneer presses</td>
               <td class="p-4 sm:p-5">Bespoke counters, cladding boards, MDF lamination, Corian thermoforming</td>
               <td class="p-4 sm:p-5 text-red-700 font-bold font-display">&plusmn;0.2 mm</td>
             </tr>
             <tr>
-              <td class="p-4 sm:p-5 font-bold text-zinc-950 font-display">Metal Fabrication</td>
+              <td class="p-4 sm:p-5 font-bold text-White font-display">Metal Fabrication</td>
               <td class="p-4 sm:p-5">Fiber laser profiling cutters, robotic welders, press brakes</td>
               <td class="p-4 sm:p-5">Stainless steel, brass, custom gondolas, electrostatic powder coating</td>
               <td class="p-4 sm:p-5 text-red-700 font-bold font-display">&plusmn;0.5 mm</td>
             </tr>
             <tr>
-              <td class="p-4 sm:p-5 font-bold text-zinc-950 font-display">LED Assemblies</td>
+              <td class="p-4 sm:p-5 font-bold text-White font-display">LED Assemblies</td>
               <td class="p-4 sm:p-5">Cleanroom SMD testers, spectrometer color calibration arrays</td>
               <td class="p-4 sm:p-5">High-brightness transparent screens, P2.5 video walls, 72h heat tests</td>
               <td class="p-4 sm:p-5 text-red-700 font-bold font-display">CRI 90+ standard</td>
             </tr>
             <tr>
-              <td class="p-4 sm:p-5 font-bold text-zinc-950 font-display">Signage & Print</td>
+              <td class="p-4 sm:p-5 font-bold text-White font-display">Signage & Print</td>
               <td class="p-4 sm:p-5">Flatbed UV printers, computerized channel letter benders</td>
               <td class="p-4 sm:p-5">Large format tension fabric SEG lightboxes, 3D storefront letters</td>
               <td class="p-4 sm:p-5 text-red-700 font-bold font-display">UV-resistant inks</td>
@@ -555,7 +584,7 @@
   <!-- Expanded Section: Motto Spotlight Banner -->
   <section class="py-28 bg-zinc-50 border-t border-zinc-200 text-center">
     <div class="max-w-4xl mx-auto px-6 sm:px-8 space-y-8">
-      <span class="text-red-700 text-xs font-extrabold uppercase tracking-widest">Our Motto</span>
+      <span class="text-red-700 text-sm font-extrabold uppercase tracking-widest">Our Motto</span>
       <h2 class="text-4xl sm:text-7xl font-black text-zinc-950 tracking-tight font-display">&ldquo;Take on Tomorrow&rdquo;</h2>
       <div class="flex justify-center"><span class="section-divider"></span></div>
       <div class="max-w-xl mx-auto">
@@ -571,11 +600,11 @@
     <div class="max-w-7xl mx-auto px-6 sm:px-8 text-center space-y-8 relative z-10">
       <h2 class="text-3xl sm:text-5xl font-black text-white font-display">Ready to Partner with Al Ameen Group?</h2>
       <div class="flex justify-center"><span class="section-divider"></span></div>
-      <p class="text-zinc-300 text-sm max-w-xl mx-auto font-light leading-relaxed">
+      <p class="text-zinc-100 text-sm max-w-xl mx-auto font-light leading-relaxed">
         Consult directly with our estimating divisions. We deliver itemized bills of quantities, material specifications, and rapid scale prototype approvals.
       </p>
       <div class="pt-4">
-        <a href="./pages/contact.html" class="px-10 py-4 bg-red-700 hover:bg-red-800 text-white rounded font-bold text-sm transition-all duration-350 btn-red-glow inline-flex items-center space-x-2">
+        <a href="./placeholder/contact.html" class="px-10 py-4 bg-red-700 hover:bg-red-800 text-white rounded font-bold text-sm transition-all duration-350 btn-red-glow inline-flex items-center space-x-2">
           <i class="fas fa-headset"></i>
           <span>Consult with our Engineers</span>
         </a>
@@ -588,34 +617,21 @@
     <div class="max-w-7xl mx-auto px-6 sm:px-8">
       <div class="marquee-container">
         <div class="marquee-content flex items-center space-x-16">
-          <div class="flex items-center space-x-3 text-zinc-500 font-bold text-base hover:text-red-750 transition-colors">
-            <i class="fas fa-running text-red-650 text-xl"></i>
-            <span>ADIDAS</span>
-          </div>
-          <div class="flex items-center space-x-3 text-zinc-500 font-bold text-base hover:text-red-750 transition-colors">
-            <i class="fas fa-shoe-prints text-red-650 text-xl"></i>
-            <span>SKECHERS</span>
-          </div>
-          <div class="flex items-center space-x-3 text-zinc-500 font-bold text-base hover:text-red-750 transition-colors">
-            <i class="fas fa-bolt text-red-650 text-xl"></i>
-            <span>ASICS</span>
-          </div>
-          <div class="flex items-center space-x-3 text-zinc-500 font-bold text-base hover:text-red-750 transition-colors">
-            <i class="fas fa-building text-red-650 text-xl"></i>
-            <span>LANDMARK GROUP</span>
-          </div>
-          <div class="flex items-center space-x-3 text-zinc-500 font-bold text-base hover:text-red-750 transition-colors">
-            <i class="fas fa-shopping-cart text-red-650 text-xl"></i>
-            <span>NESTO</span>
-          </div>
-          <div class="flex items-center space-x-3 text-zinc-500 font-bold text-base hover:text-red-750 transition-colors">
-            <i class="fas fa-tags text-red-650 text-xl"></i>
-            <span>OFF PRICE</span>
-          </div>
-          <div class="flex items-center space-x-3 text-zinc-500 font-bold text-base hover:text-red-750 transition-colors">
-            <i class="fas fa-home text-red-650 text-xl"></i>
-            <span>OC HOME</span>
-          </div>
+
+            <img src="./assets/image/Clients/Adidas.svg" alt="adidas" class="space-x-3 h-20 w-20">
+
+            <img src="./assets/image/Clients/Skechers.svg" alt="Skechers" class="space-x-3 h-20 w-20">
+
+            <img src="./assets/image/Clients/ASICS.svg" alt="asics" class="space-x-3 h-20 w-20">
+
+            <img src="./assets/image/Clients/Landmark-Group.svg" alt="landmark" class="space-x-3 h-20 w-20">
+
+            <img src="./assets/image/Clients/Nesto.png" alt="nesto" class="space-x-3 h-20 w-30">
+
+            <img src="./assets/image/Clients/Oc-Homes.svg" alt="oc-Homes" class="space-x-3 h-20 w-20">
+
+            <img src="./assets/image/Clients/Reebok.svg" alt="Reebok" class="space-x-3 h-20 w-20">
+
         </div>
       </div>
     </div>
@@ -626,9 +642,9 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
       <div class="space-y-4">
         <div class="flex flex-col">
-<img src="./assets/image/logo.svg" alt="logo">
+           <img src="./assets/image/logo-footer.png" alt="logo">
         </div>
-        <p class="text-xs leading-relaxed text-zinc-400">Establishing standards in commercial interior fitouts and high-volume fixture manufacturing since 2004. Serving global retail brands with certified in-house capabilities.</p>
+        <p class="text-sm leading-relaxed text-zinc-400">Establishing standards in commercial interior fitouts and high-volume fixture manufacturing since 2004. Serving global retail brands with certified in-house capabilities.</p>
         <div class="flex space-x-4 pt-2">
           <a href="#" class="text-zinc-400 hover:text-red-500 transition-colors"><i class="fab fa-linkedin-in text-base"></i></a>
           <a href="#" class="text-zinc-400 hover:text-red-500 transition-colors"><i class="fab fa-instagram text-base"></i></a>
@@ -637,40 +653,36 @@
         </div>
       </div>
       <div class="space-y-4">
-        <h3 class="text-xs font-bold text-white uppercase tracking-wider font-display">Core Divisions</h3>
-        <ul class="space-y-2.5 text-xs">
-          <li><a href="./pages/divisions.html#joinery" class="hover:text-red-500 transition-colors">Joinery & Carpenter Works</a></li>
-          <li><a href="./pages/divisions.html#metalwork" class="hover:text-red-500 transition-colors">Metal Fabrication</a></li>
-          <li><a href="./pages/divisions.html#led" class="hover:text-red-500 transition-colors">LED Screens & Displays</a></li>
-          <li><a href="./pages/divisions.html#fitout" class="hover:text-red-500 transition-colors">Turnkey Interior Fitout</a></li>
-          <li><a href="./pages/divisions.html#lighting" class="hover:text-red-500 transition-colors">Architectural Lighting</a></li>
+        <h3 class="text-sm font-bold text-white uppercase tracking-wider font-display">Core Divisions</h3>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="./placeholder/divisions.html#joinery" class="hover:text-red-500 transition-colors">Joinery & Carpenter Works</a></li>
+          <li><a href="./placeholder/divisions.html#metalwork" class="hover:text-red-500 transition-colors">Metal Fabrication</a></li>
+          <li><a href="./placeholder/divisions.html#led" class="hover:text-red-500 transition-colors">LED Screens & Displays</a></li>
+          <li><a href="./placeholder/divisions.html#fitout" class="hover:text-red-500 transition-colors">Turnkey Interior Fitout</a></li>
+          <li><a href="./placeholder/divisions.html#lighting" class="hover:text-red-500 transition-colors">Architectural Lighting</a></li>
         </ul>
       </div>
       <div class="space-y-4">
-        <h3 class="text-xs font-bold text-white uppercase tracking-wider font-display">Company Links</h3>
-        <ul class="space-y-2.5 text-xs">
-          <li><a href="./pages/about.html" class="hover:text-red-500 transition-colors">Corporate Timeline</a></li>
-          <li><a href="./pages/global-facilities.html" class="hover:text-red-500 transition-colors">Global Production Facilities</a></li>
-          <li><a href="./pages/products.html" class="hover:text-red-500 transition-colors">Solutions Catalog</a></li>
-          <li><a href="./pages/projects.html" class="hover:text-red-500 transition-colors">Projects Reference</a></li>
-          <li><a href="./pages/news.html" class="hover:text-red-500 transition-colors">Corporate News & R&D</a></li>
+        <h3 class="text-sm font-bold text-white uppercase tracking-wider font-display">Company Links</h3>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="./placeholder/about.html" class="hover:text-red-500 transition-colors">Corporate Timeline</a></li>
+          <li><a href="./placeholder/global-facilities.html" class="hover:text-red-500 transition-colors">Global Production Facilities</a></li>
+          <li><a href="./placeholder/products.html" class="hover:text-red-500 transition-colors">Solutions Catalog</a></li>
+          <li><a href="./placeholder/projects.html" class="hover:text-red-500 transition-colors">Projects Reference</a></li>
+          <li><a href="./placeholder/news.html" class="hover:text-red-500 transition-colors">Corporate News & R&D</a></li>
         </ul>
       </div>
       <div class="space-y-4">
-        <h3 class="text-xs font-bold text-white uppercase tracking-wider font-display">Global Headquarters</h3>
-        <p class="text-xs"><i class="fas fa-map-marker-alt text-red-600 mr-2"></i> Umm Al Quwain, United Arab Emirates</p>
-        <p class="text-xs"><i class="fas fa-phone-alt text-red-600 mr-2"></i> +971 (6) 766-8800</p>
-        <p class="text-xs"><i class="fas fa-envelope text-red-600 mr-2"></i> projects@800retail.com</p>
-        <p class="text-xs border-t border-zinc-800 pt-3 mt-3 text-zinc-500">Certified ISO 9001:2015 Facility.<br>"Made in UAE" Certified Manufacturer.</p>
+        <h3 class="text-sm font-bold text-white uppercase tracking-wider font-display">Global Headquarters</h3>
+        <p class="text-sm"><i class="fas fa-map-marker-alt text-red-600 mr-2"></i> Umm Al Quwain, United Arab Emirates</p>
+        <p class="text-sm"><i class="fas fa-phone-alt text-red-600 mr-2"></i> +971 (6) 766-8800</p>
+        <p class="text-sm"><i class="fas fa-envelope text-red-600 mr-2"></i> projects@800retail.com</p>
+        <p class="text-sm border-t border-zinc-800 pt-3 mt-3 text-zinc-500">Certified ISO 9001:2015 Facility.<br>"Made in UAE" Certified Manufacturer.</p>
       </div>
     </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 pt-8 border-t border-zinc-900 flex flex-col md:flex-row items-center justify-between text-[11px] text-zinc-500">
-      <p>&copy; 2026 800 Retail (Al Ameen Group). All rights reserved.</p>
-      <div class="flex space-x-6 mt-4 md:mt-0">
-        <a href="#" class="hover:text-red-500">Privacy Policy</a>
-        <a href="#" class="hover:text-red-500">Terms of Service</a>
-        <a href="#" class="hover:text-red-500">Sitemap</a>
-      </div>
+      <p>Copyright &copy; 2026 | <strong> 800 Retail</strong>. All rights reserved.</p>
+      <p>Developed By <a target="_blank" href="https://xeventure.com/"><strong>Xeventure</strong></a></p>
     </div>
   </footer>
 

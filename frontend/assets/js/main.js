@@ -46,18 +46,29 @@ function initMobileMenu() {
  */
 function initHeaderScrollEffect() {
   const header = document.getElementById("main-header");
+  const logo1 = document.getElementById("logo-change-1");
+  const logo2 = document.getElementById("logo-change-2");
   if (!header) return;
 
   let ticking = false;
   window.addEventListener("scroll", () => {
     if (!ticking) {
       requestAnimationFrame(() => {
-        if (window.scrollY > 50) {
+        if (window.scrollY > 150) {
           header.classList.remove("h-20");
           header.classList.add("bg-white/95", "shadow-md");
+
+
+          logo1.classList.remove("hidden");
+          logo2.classList.add("hidden");
         } else {
           header.classList.add("h-20");
           header.classList.remove("bg-white/95", "shadow-md");
+          
+          // logo swap
+
+          logo1.classList.add("hidden");
+          logo2.classList.remove("hidden");
         }
         ticking = false;
       });
