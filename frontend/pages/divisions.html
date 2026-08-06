@@ -4,31 +4,78 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Divisions | 800 Retail Solutions - Al Ameen Group</title>
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- FontAwesome Icons -->
+  <script src="../assets/js/tailwind.config.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Custom Styles -->
   <link rel="stylesheet" href="../assets/css/style.css">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#09090B',
-            accent: '#C20E1A',
-            neutralDark: '#18181B',
-            neutralLight: '#FFFFFF'
-          }
-        }
-      }
-    }
-  </script>
 </head>
 <body class="bg-white text-zinc-900 min-h-screen flex flex-col pt-20">
 
   <!-- Shared Header Placeholder -->
-  <div id="navbar-placeholder"></div>
+  <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 glass-panel shadow-sm" id="main-header">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="../index.html" class="flex flex-col justify-center select-none">
+<img src="../assets/image/logo.svg" alt="logo">
+        </a>
+        <nav class="hidden lg:flex space-x-8 text-sm font-medium items-center">
+          <a href="../index.html" class="text-zinc-600 hover:text-red-600 transition-colors duration-200 pb-1">Home</a>
+          <div class="relative group flex items-center h-20">
+            <button class="inline-flex items-center space-x-1 text-zinc-600 hover:text-red-600 transition-colors duration-200"><span>Company</span><i class="fas fa-chevron-down text-[9px] transition-transform duration-200 group-hover:rotate-180"></i></button>
+            <div class="absolute top-[80px] left-0 mt-0 w-48 bg-white border border-zinc-100 rounded shadow-lg py-2 hidden group-hover:block">
+              <a href="./about.html" class="block px-4 py-2.5 text-xs text-zinc-600 hover:bg-zinc-50 hover:text-red-600">About Us</a>
+              <a href="./ceo-message.html" class="block px-4 py-2.5 text-xs text-zinc-600 hover:bg-zinc-50 hover:text-red-600">CEO Message</a>
+              <a href="./global-facilities.html" class="block px-4 py-2.5 text-xs text-zinc-600 hover:bg-zinc-50 hover:text-red-600">Global Facilities</a>
+            </div>
+          </div>
+          <div class="relative group flex items-center h-20">
+            <button class="inline-flex items-center space-x-1 text-zinc-600 hover:text-red-600 transition-colors duration-200"><span>Capabilities</span><i class="fas fa-chevron-down text-[9px] transition-transform duration-200 group-hover:rotate-180"></i></button>
+            <div class="absolute top-[80px] left-0 mt-0 w-48 bg-white border border-zinc-100 rounded shadow-lg py-2 hidden group-hover:block">
+              <a href="./divisions.html" class="block px-4 py-2.5 text-xs text-zinc-600 hover:bg-zinc-50 hover:text-red-600">Production Divisions</a>
+              <a href="./products.html" class="block px-4 py-2.5 text-xs text-zinc-600 hover:bg-zinc-50 hover:text-red-600">Products Catalog</a>
+            </div>
+          </div>
+          <div class="relative group flex items-center h-20">
+            <button class="inline-flex items-center space-x-1 text-zinc-600 hover:text-red-600 transition-colors duration-200"><span>Portfolio</span><i class="fas fa-chevron-down text-[9px] transition-transform duration-200 group-hover:rotate-180"></i></button>
+            <div class="absolute top-[80px] left-0 mt-0 w-48 bg-white border border-zinc-100 rounded shadow-lg py-2 hidden group-hover:block">
+              <a href="./projects.html" class="block px-4 py-2.5 text-xs text-zinc-600 hover:bg-zinc-50 hover:text-red-600">Projects Reference</a>
+              <a href="./clientele.html" class="block px-4 py-2.5 text-xs text-zinc-600 hover:bg-zinc-50 hover:text-red-600">Our Clients</a>
+            </div>
+          </div>
+          <a href="./news.html" class="text-zinc-600 hover:text-red-600 transition-colors duration-200 pb-1">News</a>
+          <a href="./contact.html" class="text-zinc-600 hover:text-red-600 transition-colors duration-200 pb-1">Contact</a>
+        </nav>
+        <div class="hidden lg:flex">
+          <a href="./contact.html?type=quote" class="px-5 py-2.5 bg-zinc-950 hover:bg-red-700 text-white rounded text-sm font-semibold transition-all duration-350 btn-red-glow flex items-center space-x-2"><i class="fas fa-file-invoice-dollar text-xs"></i><span>Request Quote</span></a>
+        </div>
+        <div class="lg:hidden flex items-center">
+          <button id="mobile-menu-toggle" class="text-zinc-800 hover:text-red-700 focus:outline-none p-2" aria-label="Toggle Menu"><i class="fas fa-bars text-2xl"></i></button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu-drawer" class="hidden fixed inset-y-0 right-0 w-80 bg-white shadow-2xl z-50 p-6 flex flex-col justify-between border-l border-zinc-200 transition-transform duration-300 translate-x-full">
+      <div>
+        <div class="flex items-center justify-between mb-8">
+          <div class="flex flex-col"><span class="text-xl font-black text-zinc-950 font-display">800 RETAIL</span><span class="text-[8px] tracking-widest text-zinc-400 font-semibold">Al Ameen Group</span></div>
+          <button id="mobile-menu-close" class="text-zinc-500 hover:text-red-600 focus:outline-none p-1"><i class="fas fa-times text-2xl"></i></button>
+        </div>
+        <nav class="flex flex-col space-y-4 text-base font-semibold">
+          <a href="../index.html" class="py-2 border-b border-zinc-100 text-zinc-700 hover:text-red-600">Home</a>
+          <a href="./about.html" class="py-2 border-b border-zinc-100 text-zinc-700 hover:text-red-600">About Us</a>
+          <a href="./ceo-message.html" class="py-2 border-b border-zinc-100 text-zinc-700 hover:text-red-600">CEO Message</a>
+          <a href="./global-facilities.html" class="py-2 border-b border-zinc-100 text-zinc-700 hover:text-red-600">Global Facilities</a>
+          <a href="./divisions.html" class="py-2 border-b border-zinc-100 text-zinc-700 hover:text-red-600">Divisions</a>
+          <a href="./products.html" class="py-2 border-b border-zinc-100 text-zinc-700 hover:text-red-600">Products &amp; Solutions</a>
+          <a href="./projects.html" class="py-2 border-b border-zinc-100 text-zinc-700 hover:text-red-600">Projects Portfolio</a>
+          <a href="./clientele.html" class="py-2 border-b border-zinc-100 text-zinc-700 hover:text-red-600">Our Clients</a>
+          <a href="./news.html" class="py-2 border-b border-zinc-100 text-zinc-700 hover:text-red-600">News &amp; R&amp;D</a>
+          <a href="./contact.html" class="py-2 text-zinc-700 hover:text-red-600">Contact</a>
+        </nav>
+      </div>
+      <div class="mt-8"><a href="./contact.html?type=quote" class="w-full text-center block px-4 py-3 bg-red-700 hover:bg-red-800 text-white rounded font-bold transition duration-200">Request B2B Quote</a></div>
+    </div>
+    <div id="drawer-backdrop" class="hidden fixed inset-0 bg-zinc-950/40 backdrop-blur-sm z-40"></div>
+  </header>
 
   <!-- Page Banner -->
   <section class="py-24 bg-zinc-50 border-b border-zinc-200 text-center">
@@ -170,14 +217,183 @@
   </section>
 
   <!-- Shared Footer Placeholder -->
-  <div id="footer-placeholder"></div>
+  <footer class="bg-zinc-950 border-t border-zinc-900 text-zinc-400 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
+      <div class="space-y-4">
+        <div class="flex flex-col"><img src="../assets/image/logo.svg" alt="logo"></div>
+        <p class="text-xs leading-relaxed text-zinc-400">Establishing standards in commercial interior fitouts and high-volume fixture manufacturing since 2004.</p>
+        <div class="flex space-x-4 pt-2">
+          <a href="#" class="text-zinc-400 hover:text-red-500 transition-colors"><i class="fab fa-linkedin-in text-base"></i></a>
+          <a href="#" class="text-zinc-400 hover:text-red-500 transition-colors"><i class="fab fa-instagram text-base"></i></a>
+          <a href="#" class="text-zinc-400 hover:text-red-500 transition-colors"><i class="fab fa-facebook-f text-base"></i></a>
+          <a href="#" class="text-zinc-400 hover:text-red-500 transition-colors"><i class="fab fa-youtube text-base"></i></a>
+        </div>
+      </div>
+      <div class="space-y-4">
+        <h3 class="text-xs font-bold text-white uppercase tracking-wider font-display">Core Divisions</h3>
+        <ul class="space-y-2.5 text-xs">
+          <li><a href="./divisions.html#joinery" class="hover:text-red-500 transition-colors">Joinery &amp; Carpenter Works</a></li>
+          <li><a href="./divisions.html#metalwork" class="hover:text-red-500 transition-colors">Metal Fabrication</a></li>
+          <li><a href="./divisions.html#led" class="hover:text-red-500 transition-colors">LED Screens &amp; Displays</a></li>
+          <li><a href="./divisions.html#fitout" class="hover:text-red-500 transition-colors">Turnkey Interior Fitout</a></li>
+          <li><a href="./divisions.html#lighting" class="hover:text-red-500 transition-colors">Architectural Lighting</a></li>
+        </ul>
+      </div>
+      <div class="space-y-4">
+        <h3 class="text-xs font-bold text-white uppercase tracking-wider font-display">Company Links</h3>
+        <ul class="space-y-2.5 text-xs">
+          <li><a href="./about.html" class="hover:text-red-500 transition-colors">Corporate Timeline</a></li>
+          <li><a href="./global-facilities.html" class="hover:text-red-500 transition-colors">Global Production Facilities</a></li>
+          <li><a href="./products.html" class="hover:text-red-500 transition-colors">Solutions Catalog</a></li>
+          <li><a href="./projects.html" class="hover:text-red-500 transition-colors">Projects Reference</a></li>
+          <li><a href="./news.html" class="hover:text-red-500 transition-colors">Corporate News &amp; R&amp;D</a></li>
+        </ul>
+      </div>
+      <div class="space-y-4">
+        <h3 class="text-xs font-bold text-white uppercase tracking-wider font-display">Global Headquarters</h3>
+        <p class="text-xs"><i class="fas fa-map-marker-alt text-red-600 mr-2"></i> Umm Al Quwain, UAE</p>
+        <p class="text-xs"><i class="fas fa-phone-alt text-red-600 mr-2"></i> +971 (6) 766-8800</p>
+        <p class="text-xs"><i class="fas fa-envelope text-red-600 mr-2"></i> projects@800retail.com</p>
+        <p class="text-xs border-t border-zinc-800 pt-3 mt-3 text-zinc-500">Certified ISO 9001:2015 Facility.<br>"Made in UAE" Certified Manufacturer.</p>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 pt-8 border-t border-zinc-900 flex flex-col md:flex-row items-center justify-between text-[11px] text-zinc-500">
+      <p>&copy; 2026 800 Retail (Al Ameen Group). All rights reserved.</p>
+      <div class="flex space-x-6 mt-4 md:mt-0">
+        <a href="#" class="hover:text-red-500">Privacy Policy</a>
+        <a href="#" class="hover:text-red-500">Terms of Service</a>
+        <a href="#" class="hover:text-red-500">Sitemap</a>
+      </div>
+    </div>
+  </footer>
 
   <!-- Global scripts -->
-  <script type="module" src="../assets/js/main.js"></script>
+  <script src="../assets/js/main.js"></script>
 
   <!-- Divisions specific logic -->
-  <script type="module">
-    import { divisions } from '../assets/js/data-scraper.js';
+  <script>
+    const divisions = [
+      {
+        id: "joinery",
+        name: "Joinery & Wood Fabrication",
+        icon: "fa-hammer",
+        description: "High-end bespoke joinery, solid timber processing, wood veneers, lamination, and shop fittings executed with high-precision multi-axis CNC routers and Homag edge-banding machinery.",
+        capacity: "Certified joinery workspace executing high-volume commercial counters and wall frames.",
+        materials: ["MDF", "Plywood", "Veneer", "Solid Oak", "Corian Solid Surface"]
+      },
+      {
+        id: "metalwork",
+        name: "Metal Fabrication & Steel structures",
+        icon: "fa-industry",
+        description: "Manual and robotic metal works including cutting, fiber laser profiling, CNC bending, and structural welding for commercial gondolas, display racks, and architectural claddings.",
+        capacity: "Conveyorized electrostatic powder coating line and fiber laser cutters.",
+        materials: ["Stainless Steel 304/316", "Mild Steel", "Aluminium", "Brass"]
+      },
+      {
+        id: "led",
+        name: "Digital Signage & LED Displays",
+        icon: "fa-tv",
+        description: "Integrated LED screens, high-contrast transparent window displays, digital headers, and video walls assembled in cleanroom conditions with comprehensive thermal aging tests.",
+        capacity: "LED diagnostic lab with spectrometer color calibration arrays.",
+        materials: ["SMD LED Panels", "Transparent Film LED", "COB Display Modules"]
+      },
+      {
+        id: "acrylic",
+        name: "Acrylic Fabrication & Thermoforming",
+        icon: "fa-gem",
+        description: "Laser cutting, diamond edge polishing, vacuum thermoforming, and assembly of retail display boxes, cosmetic counters, and visual merchandising elements.",
+        capacity: "Convection ovens, heavy-duty routers, and diamond polishers.",
+        materials: ["Perspex Acrylic", "Polycarbonate", "PETG Sheets"]
+      },
+      {
+        id: "fitout",
+        name: "Turnkey Interior Fitout",
+        icon: "fa-compass-drafting",
+        description: "Full commercial fitout contracting including partition installations, glass glazing, ceiling works, civil upgrades, and on-site project management coordinates.",
+        capacity: "In-house technical site engineers and licensed project managers.",
+        materials: ["Glazed Glass Partitioning", "Drywall Systems", "Acoustic Plaster"]
+      },
+      {
+        id: "mep",
+        name: "MEP Engineering Services",
+        icon: "fa-bolt",
+        description: "Electrical infrastructure, HVAC design, duct fabrication, fire fighting lines, and plumbing coordinates compliant with local civil defense codes.",
+        capacity: "Licensed MEP estimating and site engineering teams.",
+        materials: ["Galvanized HVAC Ducts", "Fire Sprinkler Lines", "Busbars"]
+      },
+      {
+        id: "glass",
+        name: "Glass Glazing & UV Bonding",
+        icon: "fa-window-maximize",
+        description: "Tempered glass storefronts, safety laminated window panes, acoustic glass partitions, and high-strength UV glass bonding for luxury showcases.",
+        capacity: "UV light bonding stations and glass cutting lines.",
+        materials: ["Low-Iron Tempered Glass", "Laminated Glass", "Acoustic Glass"]
+      },
+      {
+        id: "printing",
+        name: "Digital Printing & Signage",
+        icon: "fa-print",
+        description: "Large format UV printing, banner lamination, vinyl graphic overlays, and direct-to-substrate flatbed printing for store graphics and architectural lightboxes.",
+        capacity: "Flatbed UV printers and automated roll-to-roll laminators.",
+        materials: ["UV Inks", "PVC Film", "Tension Fabric graphics", "Translucent Vinyl"]
+      },
+      {
+        id: "lighting",
+        name: "Architectural Lighting Integration",
+        icon: "fa-lightbulb",
+        description: "Custom lighting integration into store shelves, architectural backlit fabric boxes, spot tracking layouts, and smart LED controller nodes.",
+        capacity: "Concealed 24V/12V LED wiring integration channels.",
+        materials: ["CRI 90+ LED strips", "Diffuser PMMA sheets", "Smart LED Drivers"]
+      },
+      {
+        id: "signage",
+        name: "Commercial Brand Signage",
+        icon: "fa-signature",
+        description: "Fabrication of 3D illuminated letters, neon flex overlays, pylon outdoor signs, and custom logo plates for high-visibility storefronts.",
+        capacity: "Laser channel letter bending machines and structural back-frames.",
+        materials: ["Stainless Steel casings", "Liquid Acrylic", "LED neon tubes"]
+      },
+      {
+        id: "design",
+        name: "Concept Design & technical detailing",
+        icon: "fa-drafting-table",
+        description: "Engineering drafting, 3D photorealistic rendering, shop drawing detailing, and prototype scaling for B2B client approval loops.",
+        capacity: "Design office equipped with SolidWorks and AutoCAD.",
+        materials: ["CAD Blueprints", "3D Renders", "Material Sample Boards"]
+      },
+      {
+        id: "logistics",
+        name: "Logistics & Sourcing Slabs",
+        icon: "fa-truck-loading",
+        description: "Custom export packaging, wooden crating, sea freight shipping, and border customs clearance across GCC, MENA, and global retail hubs.",
+        capacity: "Spacious packaging workshop and shipping yards.",
+        materials: ["ISPM 15 Heat-Treated Crating", "Bubble wrap padding"]
+      },
+      {
+        id: "upholstery",
+        name: "Custom Upholstery & Lounges",
+        icon: "fa-couch",
+        description: "Bespoke fabric wraps, wall upholstery panels, changing room seats, and custom store couches made with fire-retardant foam.",
+        capacity: "Industrial leather sewing lines and foam carving tools.",
+        materials: ["Luxury Leather", "Velvet", "Fire-retardant fabric", "Foam Blocks"]
+      },
+      {
+        id: "solid-surface",
+        name: "Solid Surface Processing",
+        icon: "fa-layer-group",
+        description: "Certified processing, thermal bending, and seamless joining of DuPont Corian solid surfaces for cash counters and vanity tops.",
+        capacity: "Corian Certified thermoforming ovens.",
+        materials: ["Corian", "Krion", "Acrylic Resins"]
+      },
+      {
+        id: "maintenance",
+        name: "Operational Store Maintenance",
+        icon: "fa-tools",
+        description: "Preventative and reactive maintenance SLA contracts covering cosmetic touch-ups, locks, joinery alignment, and lighting diagnostics.",
+        capacity: "Rapid dispatch vehicles across major cities.",
+        materials: ["Hardware parts", "Touch-up paints", "LED drivers"]
+      }
+    ];
 
     document.addEventListener("DOMContentLoaded", () => {
       const tabList = document.getElementById("divisions-tab-list");
