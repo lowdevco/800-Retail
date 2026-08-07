@@ -48,6 +48,7 @@ function initHeaderScrollEffect() {
   const header = document.getElementById("main-header");
   const logo1 = document.getElementById("logo-change-1");
   const logo2 = document.getElementById("logo-change-2");
+  const texts = document.getElementsByName("text-change");
   if (!header) return;
 
   let ticking = false;
@@ -61,6 +62,12 @@ function initHeaderScrollEffect() {
 
           logo1.classList.remove("hidden");
           logo2.classList.add("hidden");
+
+          texts.forEach(el => {
+                    el.classList.remove("text-white");
+                    el.classList.add("text-zinc-600");
+                });
+
         } else {
           header.classList.add("h-20");
           header.classList.remove("bg-white/95", "shadow-md");
@@ -69,6 +76,12 @@ function initHeaderScrollEffect() {
 
           logo1.classList.add("hidden");
           logo2.classList.remove("hidden");
+
+          texts.forEach(el => {
+                    el.classList.add("text-white");
+                    el.classList.remove("text-zinc-600");
+                });
+
         }
         ticking = false;
       });
