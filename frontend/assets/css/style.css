@@ -1,6 +1,5 @@
 /* -------------------------------------------------------------
- * 800 RETAIL (AL AMEEN GROUP) - Style System
- * Premium Light Theme — White / Red / Black
+ * 800 RETAIL - Style System
  * ------------------------------------------------------------- */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap');
@@ -23,7 +22,7 @@
 }
 
 /* ─── Base Reset & Typography ─── */
-body, html, button, input, select, textarea, .font-sans {
+body, html, .font-sans {
   font-family: 'Poppins', sans-serif !important;
   background-color: var(--color-neutral-light);
   background-image: radial-gradient(circle at 1px 1px, #E4E4E7 1px, transparent 0);
@@ -31,6 +30,10 @@ body, html, button, input, select, textarea, .font-sans {
   color: var(--color-neutral-dark);
   overflow-x: hidden;
   scroll-behavior: smooth;
+}
+
+button, input, select, textarea {
+  font-family: 'Poppins', sans-serif !important;
 }
 
 h1, h2, h3, h4, h5, h6, .font-display {
@@ -419,4 +422,28 @@ body {
 }
 .link-reveal:hover::after {
   width: 100%;
+}
+
+/* ─── Contact Map ─── */
+
+.jvm-tooltip{
+    background:#fff;
+    color:#18181B;
+    border-radius:12px;
+    padding:14px 18px;
+    border:1px solid #E4E4E7;
+    box-shadow:0 20px 40px rgba(0,0,0,.15);
+    font-size:14px;
+}
+
+.jvm-container{
+    background:#fff;
+}
+
+.jvm-region{
+    transition:.3s;
+}
+
+.jvm-marker{
+    transition:.3s;
 }
