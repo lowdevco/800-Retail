@@ -50,12 +50,16 @@ function initHeaderScrollEffect() {
   const logo1 = document.getElementById("logo-change-1");
   const logo2 = document.getElementById("logo-change-2");
   const texts = document.getElementsByName("text-change");
+  const button = document.getElementsByName("button-change");
   if (!header) return;
 
   let ticking = false;
   window.addEventListener("scroll", () => {
     if (!ticking) {
       requestAnimationFrame(() => {
+
+        // on scroll
+
         if (window.scrollY > 150) {
           header.classList.remove("h-20");
           header.classList.add("bg-white/95", "shadow-md");
@@ -69,11 +73,20 @@ function initHeaderScrollEffect() {
                     el.classList.add("text-zinc-600");
                 });
 
+          button.forEach(it => {
+            it.classList.remove("text-black");
+            it.classList.add("text-white");
+            it.classList.remove("bg-white");
+            it.classList.add("bg-zinc-950");
+          });
+
         } else {
+
+          // on rest
+
           header.classList.add("h-20");
           header.classList.remove("bg-white/95", "shadow-md");
           
-          // logo swap
 
           logo1.classList.add("hidden");
           logo2.classList.remove("hidden");
@@ -82,6 +95,13 @@ function initHeaderScrollEffect() {
                     el.classList.add("text-white");
                     el.classList.remove("text-zinc-600");
                 });
+
+          button.forEach(it => {
+            it.classList.remove("text-white");
+            it.classList.add("text-black");
+            it.classList.remove("bg-zinc-950");
+            it.classList.add("bg-white");
+          });
 
         }
         ticking = false;
