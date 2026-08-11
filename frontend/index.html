@@ -247,10 +247,21 @@
     <!-- Right Side: Immersive Project Imagery -->
     <div class="w-full lg:w-[60%] relative min-h-[60vh] lg:min-h-screen">
       <!-- Carousel Slides -->
-      <div class="absolute inset-0 z-0">
-        <div class="carousel-slide active !animate-none w-full h-full bg-cover bg-center transition-opacity duration-1000" style="background-image: url('./assets/image/Hero-bg-1.png?auto=format&fit=crop&q=80&w=1920');"></div>
-        <div class="carousel-slide !animate-none w-full h-full bg-cover bg-center transition-opacity duration-1000" style="background-image: url('./assets/image/Hero-bg-2.png?auto=format&fit=crop&q=80&w=1920');"></div>
-        <div class="carousel-slide !animate-none w-full h-full bg-cover bg-center transition-opacity duration-1000" style="background-image: url('./assets/image/Hero-bg-3.png?auto=format&fit=crop&q=80&w=1920');"></div>
+      <style>
+        #custom-carousel .carousel-slide {
+          opacity: 0;
+          transform: scale(1.08);
+          transition: opacity 1.8s ease-in-out, transform 2.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        #custom-carousel .carousel-slide.active {
+          opacity: 1;
+          transform: scale(1);
+        }
+      </style>
+      <div id="custom-carousel" class="absolute inset-0 z-0 overflow-hidden">
+        <div class="carousel-slide active !animate-none w-full h-full bg-cover bg-center" style="background-image: url('./assets/image/Hero-bg-1.png?auto=format&fit=crop&q=80&w=1920');"></div>
+        <div class="carousel-slide !animate-none w-full h-full bg-cover bg-center" style="background-image: url('./assets/image/Hero-bg-2.png?auto=format&fit=crop&q=80&w=1920');"></div>
+        <div class="carousel-slide !animate-none w-full h-full bg-cover bg-center" style="background-image: url('./assets/image/Hero-bg-3.png?auto=format&fit=crop&q=80&w=1920');"></div>
       </div>
 
       <!-- Very subtle dark gradient at bottom for text legibility -->
