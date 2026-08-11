@@ -62,7 +62,7 @@ function initHeaderScrollEffect() {
 
         if (window.scrollY > 150) {
           header.classList.remove("h-20");
-          header.classList.add("bg-white/95", "shadow-md");
+          header.classList.add("bg-white/95", "shadow-sm");
 
 
           logo1.classList.remove("hidden");
@@ -84,8 +84,8 @@ function initHeaderScrollEffect() {
 
           // on rest
 
-          header.classList.add("h-20");
-          header.classList.remove("bg-white/95", "shadow-md");
+          header.classList.add("h-20",);
+          header.classList.remove("bg-white/95", "shadow-sm");
           
 
           logo1.classList.add("hidden");
@@ -233,7 +233,7 @@ function initScrollAnimations() {
     "scroll-reveal-right",
     "scroll-reveal-scale"
   ];
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {

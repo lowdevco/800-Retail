@@ -14,21 +14,21 @@
 <body class="bg-white text-zinc-900 min-h-screen flex flex-col">
 
   <!-- Shared Header Placeholder -->
-  <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 " id="main-header">
+  <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300  shadow-sm" id="main-header">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
-        <a href="./index.html" class="flex flex-col justify-center select-none hidden " id="logo-change-1" >
+        <a href="./index.html" class="flex flex-col justify-center select-none hidden" id="logo-change-1" >
             <img src="./assets/image/logo.svg" alt="logo">
         </a>
 
-        <a href="./index.html" class="flex flex-col justify-center  select-none w-[200px] h-[100px] " id="logo-change-2" >
-            <img src="./assets/image/logo.svg" alt="logo">
+        <a href="./index.html" class="flex flex-col justify-center  select-none w-[200px] h-[100px]" id="logo-change-2" >
+            <img src="./assets/image/logo-footer.png" alt="logo">
         </a>
 
         <nav class="hidden lg:flex space-x-8 text-sm font-medium items-center">
           <a href="./index.html" class="text-red-700 font-bold border-b-2 border-red-700 pb-1">Home</a>
           <div class="relative group flex items-center h-20">
-            <button class="inline-flex items-center space-x-1 text-black hover:text-red-600 transition-colors duration-200 " name="text-change">
+            <button class="inline-flex items-center space-x-1 text-white hover:text-red-600 transition-colors duration-200 " name="text-change">
               <span>Company</span>
               <i class="fas fa-chevron-down text-[9px] transition-transform duration-200 group-hover:rotate-180"></i>
             </button>
@@ -39,7 +39,7 @@
             </div>
           </div>
           <div class="relative group flex items-center h-20">
-            <button class="inline-flex items-center space-x-1 text-black hover:text-red-600 transition-colors duration-200" name="text-change">
+            <button class="inline-flex items-center space-x-1 text-white hover:text-red-600 transition-colors duration-200" name="text-change">
               <span>Capabilities</span>
               <i class="fas fa-chevron-down text-[9px] transition-transform duration-200 group-hover:rotate-180"></i>
             </button>
@@ -49,7 +49,7 @@
             </div>
           </div>
           <div class="relative group flex items-center h-20">
-            <button class="inline-flex items-center space-x-1 text-black hover:text-red-600 transition-colors duration-200" name="text-change">
+            <button class="inline-flex items-center space-x-1 text-white hover:text-red-600 transition-colors duration-200" name="text-change">
               <span>Portfolio</span>
               <i class="fas fa-chevron-down text-[9px] transition-transform duration-200 group-hover:rotate-180"></i>
             </button>
@@ -58,8 +58,8 @@
               <a href="./placeholder/clientele.html" class="block px-4 py-2.5 text-sm text-zinc-600 hover:bg-zinc-50 hover:text-red-600">Our Clients</a>
             </div>
           </div>
-          <a href="./placeholder/news.html" class="text-black hover:text-red-600 transition-colors duration-200 pb-1" name="text-change">News</a>
-          <a href="./pages/contact.html" class="text-black hover:text-red-600 transition-colors duration-200 pb-1" name="text-change">Contact</a>
+          <a href="./placeholder/news.html" class="text-white hover:text-red-600 transition-colors duration-200 pb-1" name="text-change">News</a>
+          <a href="./pages/contact.html" class="text-white hover:text-red-600 transition-colors duration-200 pb-1" name="text-change">Contact</a>
         </nav>
         <div class="hidden lg:flex">
           <a href="./pages/contact.html" class="px-5 py-2.5 bg-white hover:bg-red-700 text-black hover:text-white rounded text-sm font-semibold transition-all duration-350 btn-red-glow flex items-center space-x-2" name="button-change">
@@ -208,67 +208,51 @@
    <!-- light Theme vesion Hero Section  -->
 
 
-  <section class="relative min-h-screen min-h-[100dvh] bg-transparent overflow-hidden flex items-center pt-24 pb-12">
-    
-    <!-- Carousel Slides Background (Full Width with Fade) -->
+  <section class="relative min-h-screen min-h-[100dvh] bg-zinc-900 overflow-hidden flex items-center pt-20">
+    <!-- Carousel Slides -->
     <div class="absolute inset-0 z-0">
-      <div class="carousel-slide active w-full h-full bg-cover bg-center transition-opacity duration-1000" style="background-image: url('./assets/image/Hero-bg-1.png?auto=format&fit=crop&q=80&w=1920');"></div>
-      <div class="carousel-slide w-full h-full bg-cover bg-center transition-opacity duration-1000" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1920');"></div>
-      <div class="carousel-slide w-full h-full bg-cover bg-center transition-opacity duration-1000" style="background-image: url('https://800retail.com/wp-content/uploads/2025/08/PAR_0029_ACO-DUBAI-HILLS-IMAGES-04_0011_DSC00164.jpg?auto=format&fit=crop&q=80&w=1920');"></div>
-      
-      <!-- Seamless White Gradient Fade to 50% -->
 
-      <div class="absolute inset-0 bg-gradient-to-r from-white from-0% lg:from-[30%] via-white/80 via-[50%] to-transparent lg:to-[70%] pointer-events-none"></div>
-      <div class="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent lg:hidden pointer-events-none"></div> 
- 
+      <div class="carousel-slide active w-full h-full bg-cover bg-center" style="background-image: linear-gradient(rgba(0,0,0,0.10), rgba(0,0,0,0.5)), url('https://800retail.com/wp-content/uploads/2025/06/FIXT_0004_WhatsApp-Image-2023-09-18-at-12.07.04-AM.jpg?auto=format&fit=crop&q=80&w=1920');"></div>
+
+      <div class="carousel-slide w-full h-full bg-cover bg-center" style="background-image: linear-gradient(rgba(0,0,0,0.10), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1920');"></div>
+   
+      <div class="carousel-slide w-full h-full bg-cover bg-center" style="background-image: linear-gradient(rgba(0,0,0,0.10), rgba(0,0,0,0.5)), url('https://800retail.com/wp-content/uploads/2025/08/PAR_0029_ACO-DUBAI-HILLS-IMAGES-04_0011_DSC00164.jpg?auto=format&fit=crop&q=80&w=1920');"></div>
+
     </div>
 
     <!-- Hero Content Overlays -->
     <div class="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 z-10 w-full text-left">
-
-       <!-- Backup for Cube  bg-white/20 rounded-xl p-10 pl-20  -->
-
-      <div class="max-w-xl lg:max-w-2xl space-y-7">
-        
-        <!-- Kicker -->
-        <div class="flex items-center gap-3">
-          <div class="w-1 h-5 bg-red-700/80 rounded-full"></div>
-          <span class="text-[10px] sm:text-xs font-bold text-zinc-900 tracking-widest uppercase">
-            Commercial Fitout & Fixture Manufacturing
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-8 space-y-8">
+          <span class="inline-block px-3.5 py-1.5 bg-red-700/10 border border-white-700/30 text-white rounded-full text-[11px] font-extrabold tracking-widest uppercase bg-white/10 backdrop-blur-md shadow-sm">
+            <i class="fas fa-shield-halved text-red-500 mr-1.5"></i> Commercial Fitout & Fixture Manufacturing
           </span>
-        </div>
-        
-        <!-- Headline -->
-        <h1 class="text-5xl sm:text-6xl lg:text-[4.5rem] font-black text-zinc-900 tracking-tight leading-[1.1] font-display">
-          Crafting Retail Environments That <br class="hidden lg:block" />
-          <span class="text-red-700">Inspire Sales</span>
-        </h1>
-        
-        <!-- Subtext -->
-        <p class="text-base sm:text-lg text-zinc-600 leading-relaxed font-medium max-w-lg pr-4">
-          From state-of-the-art joinery and robotic metal fabrication to next-generation retail lighting and turnkey interior execution across the GCC.
-        </p>
-        
-        <!-- Buttons -->
-        <div class="flex flex-wrap gap-4 pt-4">
-          <a href="./placeholder/contact.html?type=quote" class="px-8 py-3.5 bg-red-700 hover:bg-red-800 text-white rounded font-bold text-sm transition-all duration-300 flex items-center space-x-2 shadow-sm">
-            <i class="fas fa-file-invoice-dollar opacity-80 text-sm"></i>
-            <span>Request Quote</span>
-          </a>
-          <a href="./placeholder/projects.html" class="px-8 py-3.5 bg-transparent hover:bg-red-50 text-red-700 border border-red-700/30 rounded font-bold text-sm transition-all duration-300 flex items-center space-x-2">
-            <span>View Reference Gallery</span>
-            <i class="fas fa-arrow-right text-xs opacity-70"></i>
-          </a>
+          <h1 class="text-5xl sm:text-7xl font-black text-white tracking-tight leading-none font-display">
+            Crafting Retail Environments That <span class="text-red-500">Inspire Sales</span>
+          </h1>
+          <p class="text-base sm:text-lg text-zinc-200 leading-relaxed max-w-xl font-light">
+            From state-of-the-art joinery and robotic metal fabrication to next-generation retail lighting and turnkey interior execution across the GCC.
+          </p>
+          <div class="flex flex-wrap gap-4 pt-4">
+            <a href="./placeholder/contact.html?type=quote" class="px-8 py-3.5 bg-red-700 hover:bg-red-800 text-white rounded font-bold text-sm transition-all duration-350 btn-red-glow flex items-center space-x-2">
+              <i class="fas fa-file-invoice-dollar"></i>
+              <span>Get a B2B Quote</span>
+            </a>
+            <a href="./placeholder/projects.html" class="px-8 py-3.5 bg-white hover:bg-white text-red-700 border border-white/20 rounded font-bold text-sm transition duration-300 backdrop-blur-sm">
+              View Reference Gallery
+            </a>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- Vertical Carousel Pagination Dots -->
     <div class="absolute right-6 lg:right-10 top-1/2 -translate-y-1/2 flex flex-col items-center space-y-3 z-30" id="carousel-dots-container">
-      <button class="carousel-dot active w-3.5 h-3.5 border-2 border-slate-900 bg-transparent transition-all duration-300 cursor-pointer rounded-full" data-index="0" aria-label="Go to slide 1"></button>
-      <button class="carousel-dot w-2 h-2 bg-slate-300 hover:bg-slate-400 transition-all duration-300 cursor-pointer rounded-full" data-index="1" aria-label="Go to slide 2"></button>
-      <button class="carousel-dot w-2 h-2 bg-slate-300 hover:bg-slate-400 transition-all duration-300 cursor-pointer rounded-full" data-index="2" aria-label="Go to slide 3"></button>
+      <button class="carousel-dot active w-3.5 h-3.5  border-2 border-white bg-red-700 rotate-45   transition-all duration-300 cursor-pointer" data-index="0" aria-label="Go to slide 1"></button>
+      <button class="carousel-dot w-2.5 h-2.5  bg-white hover:bg-zinc-400 rotate-45 transition-all duration-300 cursor-pointer" data-index="1" aria-label="Go to slide 2"></button>
+      <button class="carousel-dot w-2.5 h-2.5  bg-white hover:bg-zinc-400 rotate-45 transition-all duration-300 cursor-pointer" data-index="2" aria-label="Go to slide 3"></button>
     </div>
+
 
   </section>
 
@@ -277,24 +261,24 @@
 
   <!-- Interactive Stats Counters Section -->
 
-  <section class="py-10 bg-white border-y relative z-10">
+  <section class="py-6 bg-zinc-50 border-y border-zinc-200 relative z-10">
     <div class="max-w-7xl mx-auto px-6 sm:px-8">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center items-center">
         <div class="space-y-1">
-          <div class="text-3xl sm:text-4xl font-black  text-zinc-900 font-display stat-counter" data-target="300000" data-suffix="+">0</div>
-          <p class="text-[9px] uppercase tracking-wider text-red-700 font-bold">Production Area (Sq. Ft.)</p>
+          <div class="text-3xl sm:text-4xl font-black text-red-700 font-display stat-counter" data-target="300000" data-suffix="+">0</div>
+          <p class="text-[9px] uppercase tracking-wider text-zinc-500 font-bold">Production Area (Sq. Ft.)</p>
         </div>
         <div class="space-y-1">
-          <div class="text-3xl sm:text-4xl font-black text-zinc-900 font-display stat-counter" data-target="22" data-suffix="+">0</div>
-          <p class="text-[9px] uppercase tracking-wider text-red-700 font-bold">Years Legacy (Since 2004)</p>
+          <div class="text-3xl sm:text-4xl font-black text-red-700 font-display stat-counter" data-target="22" data-suffix="+">0</div>
+          <p class="text-[9px] uppercase tracking-wider text-zinc-500 font-bold">Years Legacy (Since 2004)</p>
         </div>
         <div class="space-y-1">
-          <div class="text-3xl sm:text-4xl font-black text-zinc-900 font-display stat-counter" data-target="15" data-suffix="+">0</div>
-          <p class="text-[9px] uppercase tracking-wider text-red-700 font-bold">Specialized Divisions</p>
+          <div class="text-3xl sm:text-4xl font-black text-red-700 font-display stat-counter" data-target="15" data-suffix="+">0</div>
+          <p class="text-[9px] uppercase tracking-wider text-zinc-500 font-bold">Specialized Divisions</p>
         </div>
         <div class="space-y-1">
-          <div class="text-3xl sm:text-4xl font-black text-zinc-900 font-display stat-counter" data-target="2500" data-suffix="+">0</div>
-          <p class="text-[9px] uppercase tracking-wider text-red-700 font-bold">Completed Projects</p>
+          <div class="text-3xl sm:text-4xl font-black text-red-700 font-display stat-counter" data-target="2500" data-suffix="+">0</div>
+          <p class="text-[9px] uppercase tracking-wider text-zinc-500 font-bold">Completed Projects</p>
         </div>
       </div>
     </div>
@@ -788,9 +772,9 @@
         
         dots.forEach((dot, i) => {
           if (i === index) {
-            dot.className = "carousel-dot active w-3.5 h-3.5 border-2 border-slate-900 bg-transparent transition-all duration-300 cursor-pointer rounded-full";
+            dot.className = "carousel-dot active w-3.5 h-3.5 rotate-45 border-2 border-white bg-red-700  transition-all duration-300 cursor-pointer";
           } else {
-            dot.className = "carousel-dot w-2 h-2 bg-slate-300 hover:bg-slate-400 transition-all duration-300 cursor-pointer rounded-full";
+            dot.className = "carousel-dot w-2.5 h-2.5 rotate-45 bg-white hover:bg-zinc-400 transition-all duration-300 cursor-pointer";
           }
         });
 
