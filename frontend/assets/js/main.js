@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", () => {
   initMobileMenu();
   initHeaderScrollEffect();
@@ -47,8 +46,8 @@ function initMobileMenu() {
  */
 function initHeaderScrollEffect() {
   const header = document.getElementById("main-header");
-  const logo1 = document.getElementById("logo-change-1");
-  const logo2 = document.getElementById("logo-change-2");
+  const logo1s = document.querySelectorAll(".logo-change-1");
+  const logo2s = document.querySelectorAll(".logo-change-2");
   const texts = document.getElementsByName("text-change");
   const button = document.getElementsByName("button-change");
   if (!header) return;
@@ -57,52 +56,51 @@ function initHeaderScrollEffect() {
   window.addEventListener("scroll", () => {
     if (!ticking) {
       requestAnimationFrame(() => {
-
         // on scroll
 
         if (window.scrollY > 150) {
           header.classList.remove("h-20");
           header.classList.add("bg-white/95", "shadow-sm");
 
+          logo1s.forEach(l => l.classList.remove("hidden"));
+          logo2s.forEach(l => l.classList.add("hidden"));
 
-          logo1.classList.remove("hidden");
-          logo2.classList.add("hidden");
+          texts.forEach((el) => {
+            el.classList.remove("text-white", "text-black");
+            el.classList.add("text-zinc-600");
+          });
 
-          texts.forEach(el => {
-                    el.classList.remove("text-white");
-                    el.classList.add("text-zinc-600");
-                });
-
-          button.forEach(it => {
+          button.forEach((it) => {
             it.classList.remove("text-black");
             it.classList.add("text-white");
             it.classList.remove("bg-white");
             it.classList.add("bg-zinc-950");
           });
-
         } else {
-
           // on rest
 
-          header.classList.add("h-20",);
+          header.classList.add("h-20");
           header.classList.remove("bg-white/95", "shadow-sm");
-          
 
-          logo1.classList.add("hidden");
-          logo2.classList.remove("hidden");
+          logo1s.forEach(l => l.classList.add("hidden"));
+          logo2s.forEach(l => l.classList.remove("hidden"));
 
-          texts.forEach(el => {
-                    el.classList.add("text-white");
-                    el.classList.remove("text-zinc-600");
-                });
+          texts.forEach((el) => {
+            // Restore original colors (base gets white, overlay gets black) based on a data attribute
+            if (el.dataset.color === 'black') {
+              el.classList.add("text-black");
+            } else {
+              el.classList.add("text-white");
+            }
+            el.classList.remove("text-zinc-600");
+          });
 
-          button.forEach(it => {
+          button.forEach((it) => {
             it.classList.remove("text-white");
             it.classList.add("text-black");
             it.classList.remove("bg-zinc-950");
             it.classList.add("bg-white");
           });
-
         }
         ticking = false;
       });
@@ -120,39 +118,42 @@ function initStatsCounter() {
 
   const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4);
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        const targetNumber = parseInt(el.getAttribute("data-target"), 10);
-        const prefix = el.getAttribute("data-prefix") || "";
-        const suffix = el.getAttribute("data-suffix") || "";
-        const duration = 2200;
-        let startTime = null;
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const targetNumber = parseInt(el.getAttribute("data-target"), 10);
+          const prefix = el.getAttribute("data-prefix") || "";
+          const suffix = el.getAttribute("data-suffix") || "";
+          const duration = 2200;
+          let startTime = null;
 
-        const animate = (currentTime) => {
-          if (!startTime) startTime = currentTime;
-          const elapsed = currentTime - startTime;
-          const progress = Math.min(elapsed / duration, 1);
-          const easedProgress = easeOutQuart(progress);
-          const currentNum = Math.floor(easedProgress * targetNumber);
+          const animate = (currentTime) => {
+            if (!startTime) startTime = currentTime;
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easedProgress = easeOutQuart(progress);
+            const currentNum = Math.floor(easedProgress * targetNumber);
 
-          el.textContent = prefix + currentNum.toLocaleString() + suffix;
+            el.textContent = prefix + currentNum.toLocaleString() + suffix;
 
-          if (progress < 1) {
-            requestAnimationFrame(animate);
-          } else {
-            el.textContent = prefix + targetNumber.toLocaleString() + suffix;
-          }
-        };
+            if (progress < 1) {
+              requestAnimationFrame(animate);
+            } else {
+              el.textContent = prefix + targetNumber.toLocaleString() + suffix;
+            }
+          };
 
-        requestAnimationFrame(animate);
-        observer.unobserve(el);
-      }
-    });
-  }, { threshold: 0.2 });
+          requestAnimationFrame(animate);
+          observer.unobserve(el);
+        }
+      });
+    },
+    { threshold: 0.2 },
+  );
 
-  counters.forEach(counter => observer.observe(counter));
+  counters.forEach((counter) => observer.observe(counter));
 }
 
 /**
@@ -178,7 +179,8 @@ function initScrollProgress() {
     if (!ticking) {
       requestAnimationFrame(() => {
         const scrollTop = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const docHeight =
+          document.documentElement.scrollHeight - window.innerHeight;
         const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
         bar.style.width = scrollPercent + "%";
         ticking = false;
@@ -194,15 +196,22 @@ function initScrollProgress() {
 function initScrollAnimations() {
   const allSections = document.querySelectorAll("section");
   allSections.forEach((section, i) => {
-    if (i === 0 || section.classList.contains("h-screen") || section.classList.contains("min-h-screen")) return;
+    if (
+      i === 0 ||
+      section.classList.contains("h-screen") ||
+      section.classList.contains("min-h-screen")
+    )
+      return;
 
-    const headingArea = section.querySelector(".text-center.max-w-3xl, .text-center.max-w-4xl");
+    const headingArea = section.querySelector(
+      ".text-center.max-w-3xl, .text-center.max-w-4xl",
+    );
     if (headingArea && !headingArea.classList.contains("scroll-reveal")) {
       headingArea.classList.add("scroll-reveal");
     }
 
     const grids = section.querySelectorAll(".grid");
-    grids.forEach(grid => {
+    grids.forEach((grid) => {
       if (grid.children.length >= 2 && grid.children.length <= 8) {
         if (!grid.classList.contains("scroll-reveal-stagger")) {
           grid.classList.add("scroll-reveal-stagger");
@@ -211,15 +220,19 @@ function initScrollAnimations() {
     });
 
     const images = section.querySelectorAll("img");
-    images.forEach(img => {
+    images.forEach((img) => {
       const parent = img.parentElement;
-      if (parent && parent.classList.contains("relative") && !parent.classList.contains("scroll-reveal-scale")) {
+      if (
+        parent &&
+        parent.classList.contains("relative") &&
+        !parent.classList.contains("scroll-reveal-scale")
+      ) {
         parent.classList.add("scroll-reveal-scale");
       }
     });
 
     const splitText = section.querySelectorAll(".lg\\:col-span-6.space-y-8");
-    splitText.forEach(block => {
+    splitText.forEach((block) => {
       if (!block.classList.contains("scroll-reveal")) {
         block.classList.add("scroll-reveal");
       }
@@ -231,20 +244,23 @@ function initScrollAnimations() {
     "scroll-reveal-stagger",
     "scroll-reveal-left",
     "scroll-reveal-right",
-    "scroll-reveal-scale"
+    "scroll-reveal-scale",
   ];
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("revealed");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.08, rootMargin: "0px 0px -40px 0px" });
 
-  revealClasses.forEach(cls => {
-    document.querySelectorAll("." + cls).forEach(el => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.08, rootMargin: "0px 0px -40px 0px" },
+  );
+
+  revealClasses.forEach((cls) => {
+    document.querySelectorAll("." + cls).forEach((el) => {
       observer.observe(el);
     });
   });
