@@ -94,12 +94,12 @@
     <!-- Chapter 1: The Origin (Light) -->
     <div class="relative py-24 sm:py-32 bg-white group">
       <!-- Central Line Segment -->
-      <div class="absolute left-8 lg:left-1/2 top-0 bottom-0 w-px bg-zinc-200 transform lg:-translate-x-1/2 z-0"></div>
+      <div class="absolute left-6 sm:left-8 lg:left-1/2 top-0 bottom-0 w-px bg-zinc-200 transform lg:-translate-x-1/2 z-0"></div>
       
       <!-- Timeline Node -->
-      <div class="absolute left-8 lg:left-1/2 top-1/2 w-5 h-5 rounded-full bg-red-700 transform -translate-x-1/2 -translate-y-1/2 ring-8 ring-white z-10 transition-transform duration-500 group-hover:scale-125 shadow-lg"></div>
+      <div class="absolute left-6 sm:left-8 lg:left-1/2 top-28 sm:top-36 lg:top-1/2 w-5 h-5 rounded-full bg-red-700 transform -translate-x-1/2 -translate-y-1/2 ring-8 ring-white z-10 transition-transform duration-500 group-hover:scale-125 shadow-lg"></div>
       
-      <div class="max-w-7xl mx-auto px-6 sm:px-8 pl-20 lg:pl-8 relative z-20">
+      <div class="max-w-7xl mx-auto pl-16 sm:pl-20 pr-6 sm:pr-8 lg:px-8 relative z-20">
         <div class="flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-24">
           <!-- Text (Left Side Desktop) -->
           <div class="w-full lg:w-5/12 lg:text-right space-y-6">
@@ -124,12 +124,12 @@
     <!-- Chapter 2: Philosophy (Dark) -->
     <div class="relative py-24 sm:py-32 bg-zinc-950 text-white group">
       <!-- Central Line Segment -->
-      <div class="absolute left-8 lg:left-1/2 top-0 bottom-0 w-px bg-zinc-800 transform lg:-translate-x-1/2 z-0"></div>
+      <div class="absolute left-6 sm:left-8 lg:left-1/2 top-0 bottom-0 w-px bg-zinc-800 transform lg:-translate-x-1/2 z-0"></div>
       
       <!-- Timeline Node -->
-      <div class="absolute left-8 lg:left-1/2 top-1/2 w-5 h-5 rounded-full bg-red-700 transform -translate-x-1/2 -translate-y-1/2 ring-8 ring-zinc-950 z-10 transition-transform duration-500 group-hover:scale-125 shadow-[0_0_20px_rgba(185,28,28,0.4)]"></div>
+      <div class="absolute left-6 sm:left-8 lg:left-1/2 top-28 sm:top-36 lg:top-1/2 w-5 h-5 rounded-full bg-red-700 transform -translate-x-1/2 -translate-y-1/2 ring-8 ring-zinc-950 z-10 transition-transform duration-500 group-hover:scale-125 shadow-[0_0_20px_rgba(185,28,28,0.4)]"></div>
 
-      <div class="max-w-7xl mx-auto px-6 sm:px-8 pl-20 lg:pl-8 relative z-20">
+      <div class="max-w-7xl mx-auto pl-16 sm:pl-20 pr-6 sm:pr-8 lg:px-8 relative z-20">
         <div class="flex flex-col lg:flex-row-reverse items-center justify-between gap-16 lg:gap-24">
           <!-- Text (Right Side Desktop) -->
           <div class="w-full lg:w-5/12 text-left space-y-6">
@@ -158,12 +158,12 @@
     <!-- Chapter 3: LED Division (Light) -->
     <div class="relative py-24 sm:py-32 bg-[#F8F7F4] group">
       <!-- Central Line Segment -->
-      <div class="absolute left-8 lg:left-1/2 top-0 bottom-0 w-px bg-zinc-300 transform lg:-translate-x-1/2 z-0"></div>
+      <div class="absolute left-6 sm:left-8 lg:left-1/2 top-0 bottom-0 w-px bg-zinc-300 transform lg:-translate-x-1/2 z-0"></div>
       
       <!-- Timeline Node -->
-      <div class="absolute left-8 lg:left-1/2 top-1/2 w-5 h-5 rounded-full bg-red-700 transform -translate-x-1/2 -translate-y-1/2 ring-8 ring-[#F8F7F4] z-10 transition-transform duration-500 group-hover:scale-125 shadow-lg"></div>
+      <div class="absolute left-6 sm:left-8 lg:left-1/2 top-28 sm:top-36 lg:top-1/2 w-5 h-5 rounded-full bg-red-700 transform -translate-x-1/2 -translate-y-1/2 ring-8 ring-[#F8F7F4] z-10 transition-transform duration-500 group-hover:scale-125 shadow-lg"></div>
 
-      <div class="max-w-7xl mx-auto px-6 sm:px-8 pl-20 lg:pl-8 relative z-20">
+      <div class="max-w-7xl mx-auto pl-16 sm:pl-20 pr-6 sm:pr-8 lg:px-8 relative z-20">
         <div class="flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-24">
           <!-- Text (Left Side Desktop) -->
           <div class="w-full lg:w-5/12 lg:text-right space-y-6">
@@ -191,8 +191,26 @@
     </div>
   </section>
 
-  <!-- Global Footprint (Staggered Story) -->
-  <section class="py-32 bg-[#F8F7F4] relative overflow-hidden">
+  <!-- Qoute Section  -->
+
+  <section class="bg-red-700 relative overflow-hidden">
+    <div class="w-full">
+      <img src="../assets/image/Quote.png" alt="Quote" class="w-full h-full  object-cover block   max-[380px]:hidden max-[425px]:object-[20%_center] ">
+      <!--  Text Fallback for extra small screens (<380px) -->
+      <div class="hidden max-[380px]:flex flex-col items-center justify-center text-center p-8 bg-zinc-950 min-h-[400px]">
+        <i class="fas fa-quote-left text-3xl text-red-700 mb-6"></i>
+        <h3 class="text-2xl font-black text-white font-display tracking-tight leading-snug uppercase mb-4">
+          Every space we build <br>has a <span class="text-red-600">soul.</span>
+        </h3>
+        <p class="text-zinc-400 text-sm font-light leading-relaxed">
+          Behind every project, there's a person, a purpose, a vision.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Global Presence -->
+  <section class="py-24 sm:py-32 bg-[#F8F7F4] relative border-t border-zinc-200">
     <!-- Subtle Background Map/Grid -->
     <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(#000 1px, transparent 1px); background-size: 40px 40px;"></div>
     
@@ -207,7 +225,7 @@
         <div class="flex flex-col lg:flex-row items-center gap-16">
           <div class="w-full lg:w-1/2">
             <div class="relative rounded overflow-hidden shadow-2xl group">
-              <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&q=80&w=1000" alt="UAE Operations" class="w-full h-[400px] object-cover transform group-hover:scale-105 transition-transform duration-700">
+              <img src="../assets/image/UAE.png?auto=format&fit=crop&q=80&w=1000" alt="UAE Operations" class="w-full h-[400px] object-cover transform group-hover:scale-105 transition-transform duration-700">
               <div class="absolute top-6 left-6 bg-white/90 backdrop-blur p-3 rounded shadow-lg flex items-center space-x-3">
                 <img src="https://flagcdn.com/w80/ae.png" class="w-10 shadow-sm" alt="UAE">
                 <div>
@@ -232,7 +250,7 @@
         <div class="flex flex-col lg:flex-row-reverse items-center gap-16">
           <div class="w-full lg:w-1/2">
             <div class="relative rounded overflow-hidden shadow-2xl group">
-              <img src="https://images.unsplash.com/photo-1580418827493-f2b22c0a76cb?auto=format&fit=crop&q=80&w=1000" alt="KSA Operations" class="w-full h-[400px] object-cover transform group-hover:scale-105 transition-transform duration-700">
+              <img src="../assets/image/KSA.png?auto=format&fit=crop&q=80&w=1000" alt="KSA Operations" class="w-full h-[400px] object-cover transform group-hover:scale-105 transition-transform duration-700">
               <div class="absolute top-6 left-6 bg-white/90 backdrop-blur p-3 rounded shadow-lg flex items-center space-x-3">
                 <img src="https://flagcdn.com/w80/sa.png" class="w-10 shadow-sm" alt="KSA">
                 <div>
@@ -257,7 +275,7 @@
         <div class="flex flex-col lg:flex-row items-center gap-16">
           <div class="w-full lg:w-1/2">
             <div class="relative rounded overflow-hidden shadow-2xl group">
-              <img src="https://images.unsplash.com/photo-1549488344-c2834b62db93?auto=format&fit=crop&q=80&w=1000" alt="China Operations" class="w-full h-[400px] object-cover transform group-hover:scale-105 transition-transform duration-700">
+              <img src="../assets/image/CHINA.png?auto=format&fit=crop&q=80&w=1000" alt="China Operations" class="w-full h-[400px] object-cover transform group-hover:scale-105 transition-transform duration-700">
               <div class="absolute top-6 left-6 bg-white/90 backdrop-blur p-3 rounded shadow-lg flex items-center space-x-3">
                 <img src="https://flagcdn.com/w80/cn.png" class="w-10 shadow-sm" alt="China">
                 <div>
@@ -286,6 +304,13 @@
   <section class="py-32 bg-zinc-900 relative">
     <div class="max-w-7xl mx-auto px-6 sm:px-8">
       
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-20 space-y-4">
+        <h2 class="text-xs font-bold text-red-500 uppercase tracking-[0.25em]">Proven Track Record</h2>
+        <h3 class="text-4xl sm:text-5xl font-black text-white tracking-tight font-display">Impact & Scale</h3>
+        <p class="text-zinc-400 text-base font-light">Measuring our manufacturing capabilities, global footprint, and operational excellence.</p>
+      </div>
+
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-10 gap-x-10 place-items-center text-center max-w-6xl mx-auto">
         
         <!-- Stat 1 -->
