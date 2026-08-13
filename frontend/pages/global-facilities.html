@@ -22,7 +22,7 @@
           <a href="../index.html" class="text-zinc-600 hover:text-red-600 transition-colors duration-200 pb-1">Home</a>
           <div class="relative group flex items-center h-20">
             <button class="inline-flex items-center space-x-1 text-zinc-600 hover:text-red-600 transition-colors duration-200"><span>Company</span><i class="fas fa-chevron-down text-[9px] transition-transform duration-200 group-hover:rotate-180"></i></button>
-            <div class="absolute top-[80px] left-0 mt-0 w-48 bg-white border border-zinc-100 rounded shadow-lg py-2 hidden group-hover:block">
+            <div class="absolute top-[80px] left-0 mt-0 w-48 bg-white border border-zinc-100 py-2 hidden group-hover:block">
               <a href="./about.html" class="block px-4 py-2.5 text-sm text-zinc-600 hover:bg-zinc-50 hover:text-red-600">About Us</a>
               <a href="./ceo-message.html" class="block px-4 py-2.5 text-sm text-zinc-600 hover:bg-zinc-50 hover:text-red-600">CEO Message</a>
               <a href="./global-facilities.html" class="block px-4 py-2.5 text-sm text-zinc-600 hover:bg-zinc-50 hover:text-red-600">Global Facilities</a>
@@ -30,14 +30,14 @@
           </div>
           <div class="relative group flex items-center h-20">
             <button class="inline-flex items-center space-x-1 text-zinc-600 hover:text-red-600 transition-colors duration-200"><span>Capabilities</span><i class="fas fa-chevron-down text-[9px] transition-transform duration-200 group-hover:rotate-180"></i></button>
-            <div class="absolute top-[80px] left-0 mt-0 w-48 bg-white border border-zinc-100 rounded shadow-lg py-2 hidden group-hover:block">
+            <div class="absolute top-[80px] left-0 mt-0 w-48 bg-white border border-zinc-100 py-2 hidden group-hover:block">
               <a href="./divisions.html" class="block px-4 py-2.5 text-sm text-zinc-600 hover:bg-zinc-50 hover:text-red-600">Production Divisions</a>
               <a href="./products.html" class="block px-4 py-2.5 text-sm text-zinc-600 hover:bg-zinc-50 hover:text-red-600">Products Catalog</a>
             </div>
           </div>
           <div class="relative group flex items-center h-20">
             <button class="inline-flex items-center space-x-1 text-zinc-600 hover:text-red-600 transition-colors duration-200"><span>Portfolio</span><i class="fas fa-chevron-down text-[9px] transition-transform duration-200 group-hover:rotate-180"></i></button>
-            <div class="absolute top-[80px] left-0 mt-0 w-48 bg-white border border-zinc-100 rounded shadow-lg py-2 hidden group-hover:block">
+            <div class="absolute top-[80px] left-0 mt-0 w-48 bg-white border border-zinc-100 py-2 hidden group-hover:block">
               <a href="./projects.html" class="block px-4 py-2.5 text-sm text-zinc-600 hover:bg-zinc-50 hover:text-red-600">Projects Reference</a>
               <a href="./clientele.html" class="block px-4 py-2.5 text-sm text-zinc-600 hover:bg-zinc-50 hover:text-red-600">Our Clients</a>
             </div>
@@ -46,19 +46,21 @@
           <a href="./contact.html" class="text-zinc-600 hover:text-red-600 transition-colors duration-200 pb-1">Contact</a>
         </nav>
         <div class="hidden lg:flex">
-          <a href="./contact.html?type=quote" class="px-5 py-2.5 bg-zinc-950 hover:bg-red-700 text-white rounded text-sm font-semibold transition-all duration-350 btn-red-glow flex items-center space-x-2"><i class="fas fa-file-invoice-dollar text-sm"></i><span>Request Quote</span></a>
+          <a href="./contact.html?type=quote" class="px-5 py-2.5 bg-zinc-950 hover:bg-red-700 text-white text-sm font-semibold transition-all duration-350 flex items-center space-x-2"><i class="fas fa-file-invoice-dollar text-sm"></i><span>Request Quote</span></a>
         </div>
         <div class="lg:hidden flex items-center">
           <button id="mobile-menu-toggle" class="text-zinc-800 hover:text-red-700 focus:outline-none p-2" aria-label="Toggle Menu"><i class="fas fa-bars text-2xl"></i></button>
         </div>
       </div>
     </div>
-    <div id="mobile-menu-drawer" class="hidden fixed inset-y-0 right-0 w-80 bg-white shadow-2xl z-50 p-6 flex flex-col justify-between border-l border-zinc-200 transition-transform duration-300 translate-x-full">
+    <div id="mobile-menu-drawer" class="hidden fixed inset-y-0 right-0 w-80 bg-white border-l border-zinc-200 z-50 p-6 flex flex-col justify-between transition-transform duration-300 translate-x-full">
       <div>
         <div class="flex items-center justify-between mb-8">
-          <div class="flex flex-col">                     <a href="./index.html" class=" select-none">
-            <img src="./assets/image/logo.svg" alt="logo">
-        </a>  </div>
+          <div class="flex flex-col">
+            <a href="../index.html" class="select-none">
+              <img src="../assets/image/logo.svg" alt="logo">
+            </a>
+          </div>
           <button id="mobile-menu-close" class="text-zinc-500 hover:text-red-600 focus:outline-none p-1"><i class="fas fa-times text-2xl"></i></button>
         </div>
         <nav class="flex flex-col space-y-4 text-base font-semibold">
@@ -74,7 +76,7 @@
           <a href="./contact.html" class="py-2 text-zinc-700 hover:text-red-600">Contact</a>
         </nav>
       </div>
-      <div class="mt-8"><a href="./contact.html?type=quote" class="w-full text-center block px-4 py-3 bg-red-700 hover:bg-red-800 text-white rounded font-bold transition duration-200">Request B2B Quote</a></div>
+      <div class="mt-8"><a href="./contact.html?type=quote" class="w-full text-center block px-4 py-3 bg-red-700 hover:bg-red-800 text-white font-bold transition duration-200">Request B2B Quote</a></div>
     </div>
     <div id="drawer-backdrop" class="hidden fixed inset-0 bg-zinc-950/40 backdrop-blur-sm z-40"></div>
   </header>
@@ -88,169 +90,271 @@
   </section>
 
   <!-- Interactive Map & Stats Section -->
-  <section class="py-32 bg-white">
-    <div class="max-w-7xl mx-auto px-6 sm:px-8 grid grid-cols-1 lg:grid-cols-12 gap-16">
+  <section class="py-24 sm:py-32 bg-white">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8">
       
-      <!-- Interactive Map Column (8 cols) -->
-      <div class="lg:col-span-8 space-y-6">
-        <h2 class="text-xl font-bold text-zinc-950 font-display flex items-center space-x-2">
-          <i class="fas fa-globe-americas text-red-700"></i>
-          <span>Interactive Footprint Map</span>
-        </h2>
-        
-        <!-- CSS/SVG Map Container -->
-        <div class="facility-map-container h-[420px] relative">
-          <!-- Stylized Dark World SVG Grid Overlay -->
-          <svg class="absolute inset-0 w-full h-full opacity-60" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" fill="none" stroke="currentColor">
-            <path stroke-dasharray="4,4" d="M0,100 L1000,100 M0,200 L1000,200 M0,300 L1000,300 M0,400 L1000,400" stroke="#E4E4E7" />
-            <path stroke-dasharray="4,4" d="M200,0 L200,500 M400,0 L400,500 M600,0 L600,500 M800,0 L800,500" stroke="#E4E4E7" />
-            <path d="M150,150 Q250,100 350,120 T500,180 T600,150 T750,100 T850,160 T900,250 T800,380 T700,420 T550,450 T400,380 T300,350 Z" stroke="#D4D4D8" stroke-width="1.5" />
-          </svg>
-
-          <!-- Hotspot: UAE (Center) -->
-          <div class="map-hotspot active" style="top: 260px; left: 450px;" data-facility="uae">
-            <div class="hotspot-ring"></div>
-            <div class="hotspot-dot"></div>
-            <div class="hotspot-tooltip">Umm Al Quwain Facility (HQ)</div>
-          </div>
-
-          <!-- Hotspot: KSA (Riyadh) -->
-          <div class="map-hotspot" style="top: 250px; left: 410px;" data-facility="ksa">
-            <div class="hotspot-ring"></div>
-            <div class="hotspot-dot"></div>
-            <div class="hotspot-tooltip">Riyadh & Jeddah Hubs</div>
-          </div>
-
-          <!-- Hotspot: China (Foshan) -->
-          <div class="map-hotspot" style="top: 240px; left: 680px;" data-facility="china">
-            <div class="hotspot-ring"></div>
-            <div class="hotspot-dot"></div>
-            <div class="hotspot-tooltip">Foshan Sourcing Hub</div>
-          </div>
-          
-          <div class="absolute bottom-4 left-4 bg-white/95 px-4 py-2 rounded border border-zinc-200 text-[10px] text-zinc-500 shadow-sm font-semibold">
-            <i class="fas fa-info-circle text-red-700 mr-1.5"></i> Click on the pulsing pins to view facility specs.
-          </div>
-        </div>
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <span class="text-xs font-bold text-red-700 uppercase tracking-[0.25em]">Global Footprint</span>
+        <h2 class="text-4xl sm:text-5xl font-black text-zinc-950 font-display tracking-tight">Production & Logistics Network</h2>
+        <p class="text-zinc-500 text-base font-light">Explore our B2B manufacturing hubs, machine specs, and regional logistics nodes.</p>
       </div>
 
-      <!-- Facility Specs Details Column (4 cols) -->
-      <div class="lg:col-span-4 flex flex-col justify-between space-y-6">
-        <div class="space-y-6">
-          <h2 class="text-xl font-bold text-zinc-950 font-display flex items-center space-x-2">
-            <i class="fas fa-sliders-h text-red-700"></i>
-            <span>Facility Specifications</span>
-          </h2>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+        
+        <!-- Interactive Map Column (8 cols) -->
+        <div class="lg:col-span-8 space-y-6">
+          <div class="flex items-center justify-between border-b border-zinc-200 pb-4">
+            <h3 class="text-xl font-bold text-zinc-950 font-display flex items-center space-x-2">
+              <i class="fas fa-globe-americas text-red-700"></i>
+              <span>Interactive Operations Map</span>
+            </h3>
+            <span class="text-xs text-zinc-400 font-light hidden sm:inline">Click pins to inspect facility specs</span>
+          </div>
+          
+          <!-- CSS/SVG Map Container -->
+          <div class="facility-map-container h-[450px] relative border border-zinc-200 bg-[#F8F7F4]">
+            <!-- Stylized World SVG Grid Overlay -->
+            <svg class="absolute inset-0 w-full h-full opacity-60" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" fill="none" stroke="currentColor">
+              <path stroke-dasharray="4,4" d="M0,100 L1000,100 M0,200 L1000,200 M0,300 L1000,300 M0,400 L1000,400" stroke="#E4E4E7" />
+              <path stroke-dasharray="4,4" d="M200,0 L200,500 M400,0 L400,500 M600,0 L600,500 M800,0 L800,500" stroke="#E4E4E7" />
+              <path d="M150,150 Q250,100 350,120 T500,180 T600,150 T750,100 T850,160 T900,250 T800,380 T700,420 T550,450 T400,380 T300,350 Z" stroke="#D4D4D8" stroke-width="1.5" />
+            </svg>
 
-          <div class="p-6 bg-zinc-50 rounded border border-zinc-200 space-y-5 shadow-sm" id="facility-spec-card">
+            <!-- Hotspot: UAE (Center) -->
+            <div class="map-hotspot active cursor-pointer" style="top: 260px; left: 450px;" data-facility="uae">
+              <div class="hotspot-ring"></div>
+              <div class="hotspot-dot"></div>
+              <div class="hotspot-tooltip">Umm Al Quwain Facility (HQ)</div>
+            </div>
+
+            <!-- Hotspot: KSA (Riyadh) -->
+            <div class="map-hotspot cursor-pointer" style="top: 250px; left: 410px;" data-facility="ksa">
+              <div class="hotspot-ring"></div>
+              <div class="hotspot-dot"></div>
+              <div class="hotspot-tooltip">Riyadh & Jeddah Hubs</div>
+            </div>
+
+            <!-- Hotspot: China (Foshan) -->
+            <div class="map-hotspot cursor-pointer" style="top: 240px; left: 680px;" data-facility="china">
+              <div class="hotspot-ring"></div>
+              <div class="hotspot-dot"></div>
+              <div class="hotspot-tooltip">Foshan Sourcing Hub</div>
+            </div>
+            
+            <div class="absolute bottom-4 left-4 bg-white px-4 py-2 border border-zinc-200 text-[10px] text-zinc-600 font-bold uppercase tracking-wider">
+              <i class="fas fa-info-circle text-red-700 mr-1.5"></i> Select a pin to view capabilities
+            </div>
+          </div>
+        </div>
+
+        <!-- Facility Specs Details Column (4 cols) -->
+        <div class="lg:col-span-4 space-y-6">
+          <div class="flex items-center justify-between border-b border-zinc-200 pb-4">
+            <h3 class="text-xl font-bold text-zinc-950 font-display flex items-center space-x-2">
+              <i class="fas fa-sliders-h text-red-700"></i>
+              <span>Facility Specifications</span>
+            </h3>
+          </div>
+
+          <div class="p-6 bg-white border border-zinc-200 space-y-5" id="facility-spec-card">
             <!-- UAE (Default) Info -->
             <div id="spec-uae" class="facility-spec-item space-y-4">
               <div class="flex items-center justify-between border-b border-zinc-200 pb-3">
-                <h3 class="text-lg font-bold text-zinc-950 font-display">Umm Al Quwain Facility</h3>
-                <span class="px-2 py-0.5 bg-red-50 text-red-700 border border-red-100 rounded text-[9px] font-bold uppercase shadow-sm">HQ</span>
+                <h4 class="text-lg font-bold text-zinc-950 font-display">Umm Al Quwain Facility</h4>
+                <span class="px-2.5 py-1 bg-red-50 text-red-700 border border-red-100 text-[9px] font-bold uppercase tracking-widest">HQ Plant</span>
               </div>
               <p class="text-sm text-zinc-500 leading-relaxed font-light">
                 Our primary central manufacturing plant base, executing high-volume B2B shop fitting production, joinery, laser metal profiling, printing, and LED diagnostics.
               </p>
-              <div class="space-y-2 text-sm">
-                <div class="flex justify-between"><span class="text-zinc-400 font-semibold">Footprint:</span> <span class="text-zinc-800 font-bold">300,000 Sq. Ft.</span></div>
-                <div class="flex justify-between"><span class="text-zinc-400 font-semibold">Workforce:</span> <span class="text-zinc-800 font-bold">450+ Technicians & Craftsmen</span></div>
-                <div class="flex justify-between"><span class="text-zinc-400 font-semibold">CNC Machines:</span> <span class="text-zinc-800 font-bold">Multi-axis Wood CNC & Lasers</span></div>
-                <div class="flex justify-between"><span class="text-zinc-400 font-semibold">Monthly Capacity:</span> <span class="text-zinc-800 font-bold">150 Store Fixture Runs</span></div>
+              <div class="space-y-3 text-sm pt-2 border-t border-zinc-100">
+                <div class="flex justify-between"><span class="text-zinc-500 font-medium">Footprint:</span> <span class="text-zinc-950 font-bold">300,000 Sq. Ft.</span></div>
+                <div class="flex justify-between"><span class="text-zinc-500 font-medium">Workforce:</span> <span class="text-zinc-950 font-bold">450+ Technicians</span></div>
+                <div class="flex justify-between"><span class="text-zinc-500 font-medium">CNC Machinery:</span> <span class="text-zinc-950 font-bold">5-Axis Homag & Lasers</span></div>
+                <div class="flex justify-between"><span class="text-zinc-500 font-medium">Monthly Capacity:</span> <span class="text-zinc-950 font-bold">150 Store Fixture Runs</span></div>
               </div>
             </div>
 
             <!-- KSA Info -->
             <div id="spec-ksa" class="facility-spec-item space-y-4 hidden">
               <div class="flex items-center justify-between border-b border-zinc-200 pb-3">
-                <h3 class="text-lg font-bold text-zinc-950 font-display">Riyadh & Jeddah Hubs</h3>
-                <span class="px-2 py-0.5 bg-red-50 text-red-700 border border-red-100 rounded text-[9px] font-bold uppercase shadow-sm">GCC Support</span>
+                <h4 class="text-lg font-bold text-zinc-950 font-display">Riyadh & Jeddah Hubs</h4>
+                <span class="px-2.5 py-1 bg-red-50 text-red-700 border border-red-100 text-[9px] font-bold uppercase tracking-widest">GCC Node</span>
               </div>
               <p class="text-sm text-zinc-500 leading-relaxed font-light">
                 Regional operation facilities in KSA, managing local engineering support, assembly validation, civil compliance, and after-sales SLAs.
               </p>
-              <div class="space-y-2 text-sm">
-                <div class="flex justify-between"><span class="text-zinc-400 font-semibold">Locations:</span> <span class="text-zinc-800 font-bold">Riyadh (Al Malaz) & Jeddah</span></div>
-                <div class="flex justify-between"><span class="text-zinc-400 font-semibold">Services:</span> <span class="text-zinc-800 font-bold">Assembly, Painting, Electrical</span></div>
-                <div class="flex justify-between"><span class="text-zinc-400 font-semibold">Rapid Fleet:</span> <span class="text-zinc-800 font-bold">15 Mobile Maintenance Units</span></div>
-                <div class="flex justify-between"><span class="text-zinc-400 font-semibold">KSA Compliance:</span> <span class="text-zinc-800 font-bold">Civil Defense Certified</span></div>
+              <div class="space-y-3 text-sm pt-2 border-t border-zinc-100">
+                <div class="flex justify-between"><span class="text-zinc-500 font-medium">Locations:</span> <span class="text-zinc-950 font-bold">Riyadh & Jeddah</span></div>
+                <div class="flex justify-between"><span class="text-zinc-500 font-medium">Services:</span> <span class="text-zinc-950 font-bold">Assembly & Fitout</span></div>
+                <div class="flex justify-between"><span class="text-zinc-500 font-medium">Rapid Fleet:</span> <span class="text-zinc-950 font-bold">15 Mobile Units</span></div>
+                <div class="flex justify-between"><span class="text-zinc-500 font-medium">KSA Compliance:</span> <span class="text-zinc-950 font-bold">Civil Defense Certified</span></div>
               </div>
             </div>
 
             <!-- China Info -->
             <div id="spec-china" class="facility-spec-item space-y-4 hidden">
               <div class="flex items-center justify-between border-b border-zinc-200 pb-3">
-                <h3 class="text-lg font-bold text-zinc-950 font-display">Foshan Sourcing Hub</h3>
-                <span class="px-2 py-0.5 bg-red-50 text-red-700 border border-red-100 rounded text-[9px] font-bold uppercase shadow-sm">Logistics</span>
+                <h4 class="text-lg font-bold text-zinc-950 font-display">Foshan Sourcing Hub</h4>
+                <span class="px-2.5 py-1 bg-red-50 text-red-700 border border-red-100 text-[9px] font-bold uppercase tracking-widest">Logistics</span>
               </div>
               <p class="text-sm text-zinc-500 leading-relaxed font-light">
                 Strategic procurement hub managing raw material validation, digital component QA, and direct container shipping logistics.
               </p>
-              <div class="space-y-2 text-sm">
-                <div class="flex justify-between"><span class="text-zinc-400 font-semibold">Location:</span> <span class="text-zinc-800 font-bold">Foshan (Guangdong), China</span></div>
-                <div class="flex justify-between"><span class="text-zinc-400 font-semibold">Core Focus:</span> <span class="text-zinc-800 font-bold">Quality Control & Supply Chain</span></div>
-                <div class="flex justify-between"><span class="text-zinc-400 font-semibold">LED Diagnostic Lab:</span> <span class="text-zinc-800 font-bold">Spectrometer Calibrations</span></div>
-                <div class="flex justify-between"><span class="text-zinc-400 font-semibold">Shipping Volume:</span> <span class="text-zinc-800 font-bold">80 Containers / Month</span></div>
+              <div class="space-y-3 text-sm pt-2 border-t border-zinc-100">
+                <div class="flex justify-between"><span class="text-zinc-500 font-medium">Location:</span> <span class="text-zinc-950 font-bold">Foshan, China</span></div>
+                <div class="flex justify-between"><span class="text-zinc-500 font-medium">Core Focus:</span> <span class="text-zinc-950 font-bold">QA & Supply Chain</span></div>
+                <div class="flex justify-between"><span class="text-zinc-500 font-medium">Diagnostic Lab:</span> <span class="text-zinc-950 font-bold">Spectrometer Testing</span></div>
+                <div class="flex justify-between"><span class="text-zinc-500 font-medium">Shipping Volume:</span> <span class="text-zinc-950 font-bold">80 Containers / Month</span></div>
               </div>
             </div>
 
           </div>
-        </div>
 
-        <div class="pt-6">
-          <a href="./contact.html" class="w-full text-center block px-4 py-3.5 bg-red-700 hover:bg-red-800 text-white rounded font-bold text-sm transition duration-200 shadow-sm">
+          <a href="./contact.html" class="w-full text-center block px-6 py-4 bg-zinc-950 hover:bg-red-700 text-white font-bold text-xs uppercase tracking-widest transition duration-300">
             Schedule a Facility Visit
           </a>
         </div>
+
       </div>
 
     </div>
   </section>
 
-  <!-- Manufacturing Capabilities Grid -->
-  <section class="py-32 bg-zinc-50 border-t border-zinc-200">
-    <div class="max-w-7xl mx-auto px-6 sm:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-20 space-y-4">
-        <h2 class="text-3xl sm:text-4xl font-black text-zinc-950 font-display">Machinery & Output Tolerances</h2>
-        <p class="text-zinc-500 text-sm font-light">Industrial infrastructure enabling complex custom execution with zero variance.</p>
+  <!-- Manufacturing Capabilities Grid (Card Industrial Style) -->
+  <section class="py-24 sm:py-32 bg-[#F8F7F4] border-t border-b border-zinc-200">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 space-y-16">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto space-y-4">
+        <span class="text-xs font-bold text-red-700 uppercase tracking-[0.25em]">Industrial Standards</span>
+        <h2 class="text-4xl sm:text-5xl font-black text-zinc-950 font-display tracking-tight">Machinery & Output Tolerances</h2>
+        <p class="text-zinc-500 text-base font-light">Industrial infrastructure enabling complex custom execution with zero variance.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
         <!-- Wood Division -->
-        <div class="p-8 bg-white border border-zinc-200 rounded space-y-4">
-          <div class="text-2xl text-red-700"><i class="fas fa-tree"></i></div>
-          <h3 class="text-lg font-bold text-zinc-950 font-display">Woodwork & Joinery</h3>
-          <ul class="space-y-2.5 text-sm text-zinc-500 list-disc pl-4 font-light">
-            <li>5-axis Homag German machining centers</li>
-            <li>Concealed vacuum edge-banding units</li>
-            <li>Solid surface thermoforming ovens</li>
-            <li>Dust-controlled veneer pressing lines</li>
-          </ul>
+        <div class="card-industrial p-8 bg-white border border-zinc-200 flex flex-col justify-between h-[360px]">
+          <div>
+            <div class="w-12 h-12 bg-red-50 border border-red-100 text-red-700 flex items-center justify-center text-lg mb-6">
+              <i class="fas fa-tree"></i>
+            </div>
+            <h3 class="text-lg font-bold text-zinc-950 mb-3 font-display">Woodwork & Joinery</h3>
+            <ul class="space-y-2.5 text-sm text-zinc-500 list-disc pl-4 font-light">
+              <li>5-axis Homag German machining centers</li>
+              <li>Concealed vacuum edge-banding units</li>
+              <li>Solid surface thermoforming ovens</li>
+              <li>Dust-controlled veneer pressing lines</li>
+            </ul>
+          </div>
+          <div class="text-xs text-red-700 font-bold uppercase tracking-wider">Tolerance: &plusmn;0.2mm</div>
         </div>
 
         <!-- Metal Division -->
-        <div class="p-8 bg-white border border-zinc-200 rounded space-y-4">
-          <div class="text-2xl text-red-700"><i class="fas fa-tools"></i></div>
-          <h3 class="text-lg font-bold text-zinc-950 font-display">Metal & Steel Fabrication</h3>
-          <ul class="space-y-2.5 text-sm text-zinc-500 list-disc pl-4 font-light">
-            <li>Fiber laser cutters (up to 20mm steel thickness)</li>
-            <li>Robotic welding systems for consistent seams</li>
-            <li>Amada CNC press brakes for precise bending</li>
-            <li>Automated powder coating conveyor tunnels</li>
-          </ul>
+        <div class="card-industrial p-8 bg-white border border-zinc-200 flex flex-col justify-between h-[360px]">
+          <div>
+            <div class="w-12 h-12 bg-red-50 border border-red-100 text-red-700 flex items-center justify-center text-lg mb-6">
+              <i class="fas fa-tools"></i>
+            </div>
+            <h3 class="text-lg font-bold text-zinc-950 mb-3 font-display">Metal & Steel Fabrication</h3>
+            <ul class="space-y-2.5 text-sm text-zinc-500 list-disc pl-4 font-light">
+              <li>Fiber laser cutters (up to 20mm steel thickness)</li>
+              <li>Robotic welding systems for consistent seams</li>
+              <li>Amada CNC press brakes for precise bending</li>
+              <li>Automated powder coating conveyor tunnels</li>
+            </ul>
+          </div>
+          <div class="text-xs text-red-700 font-bold uppercase tracking-wider">Tolerance: &plusmn;0.1mm</div>
         </div>
 
         <!-- LED Division -->
-        <div class="p-8 bg-white border border-zinc-200 rounded space-y-4">
-          <div class="text-2xl text-red-700"><i class="fas fa-microchip"></i></div>
-          <h3 class="text-lg font-bold text-zinc-950 font-display">Digital & LED Diagnostic Labs</h3>
-          <ul class="space-y-2.5 text-sm text-zinc-500 list-disc pl-4 font-light">
-            <li>Cleanroom SMD surface mount testing rooms</li>
-            <li>72-hour continuous thermal heat-run racks</li>
-            <li>Spectral lux color calibration meters</li>
-            <li>Power safety insulation diagnostic arrays</li>
-          </ul>
+        <div class="card-industrial p-8 bg-white border border-zinc-200 flex flex-col justify-between h-[360px]">
+          <div>
+            <div class="w-12 h-12 bg-red-50 border border-red-100 text-red-700 flex items-center justify-center text-lg mb-6">
+              <i class="fas fa-microchip"></i>
+            </div>
+            <h3 class="text-lg font-bold text-zinc-950 mb-3 font-display">Digital & LED Diagnostic Labs</h3>
+            <ul class="space-y-2.5 text-sm text-zinc-500 list-disc pl-4 font-light">
+              <li>Cleanroom SMD surface mount testing rooms</li>
+              <li>72-hour continuous thermal heat-run racks</li>
+              <li>Spectral lux color calibration meters</li>
+              <li>Power safety insulation diagnostic arrays</li>
+            </ul>
+          </div>
+          <div class="text-xs text-red-700 font-bold uppercase tracking-wider">Passed 100% Diagnostic</div>
         </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Global Logistics & Standards (Dark Theme Section) -->
+  <section class="py-24 sm:py-32 bg-zinc-950 text-white border-b border-zinc-900 relative">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 space-y-16">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-4">
+        <span class="text-xs font-bold text-red-500 uppercase tracking-[0.25em]">Global Standards</span>
+        <h3 class="text-4xl sm:text-5xl font-black text-white tracking-tight font-display">Certifications & Freight SLA</h3>
+        <p class="text-zinc-400 text-base font-light">Ensuring seamless compliance, structural integrity, and on-time international delivery.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div class="card-industrial p-8 border border-zinc-800 bg-zinc-900 flex flex-col justify-between h-[300px]">
+          <div>
+            <div class="w-12 h-12 bg-red-950/50 border border-red-900/50 text-red-500 flex items-center justify-center text-lg mb-6">
+              <i class="fas fa-award"></i>
+            </div>
+            <h4 class="text-lg font-bold text-white mb-2 font-display">ISO 9001:2015 Certified</h4>
+            <p class="text-zinc-400 text-sm font-light leading-relaxed">
+              Internationally audited quality management system ensuring systematic process control from raw lumber to final assembly.
+            </p>
+          </div>
+          <div class="text-xs text-red-500 font-bold uppercase tracking-wider">Certified Standard</div>
+        </div>
+
+        <div class="card-industrial p-8 border border-zinc-800 bg-zinc-900 flex flex-col justify-between h-[300px]">
+          <div>
+            <div class="w-12 h-12 bg-red-950/50 border border-red-900/50 text-red-500 flex items-center justify-center text-lg mb-6">
+              <i class="fas fa-flag"></i>
+            </div>
+            <h4 class="text-lg font-bold text-white mb-2 font-display">"Made in UAE" National Mark</h4>
+            <p class="text-zinc-400 text-sm font-light leading-relaxed">
+              Official accreditation representing regional industrial excellence and trusted manufacturing authenticity.
+            </p>
+          </div>
+          <div class="text-xs text-red-500 font-bold uppercase tracking-wider">Unified Mark</div>
+        </div>
+
+        <div class="card-industrial p-8 border border-zinc-800 bg-zinc-900 flex flex-col justify-between h-[300px]">
+          <div>
+            <div class="w-12 h-12 bg-red-950/50 border border-red-900/50 text-red-500 flex items-center justify-center text-lg mb-6">
+              <i class="fas fa-truck-fast"></i>
+            </div>
+            <h4 class="text-lg font-bold text-white mb-2 font-display">25+ Countries Export Fleet</h4>
+            <p class="text-zinc-400 text-sm font-light leading-relaxed">
+              Robust logistics infrastructure serving GCC, Middle East, Asia, and North Africa with dedicated container loading protocols.
+            </p>
+          </div>
+          <div class="text-xs text-red-500 font-bold uppercase tracking-wider">Global Reach</div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA Section (EXACT MATCH to About Us CTA) -->
+  <section class="py-32 bg-white text-center px-6 relative overflow-hidden border-t border-zinc-200">
+    <div class="max-w-3xl mx-auto relative z-10 space-y-6">
+      <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-zinc-950 font-display tracking-tight leading-[1.1]">Ready to scale your retail footprint?</h2>
+      <p class="text-zinc-500 text-lg font-light max-w-xl mx-auto">Leverage our 300,000 sq ft of manufacturing power to bring your brand visions to reality.</p>
+      <div class="pt-4">
+        <a href="./contact.html?type=quote" class="inline-block bg-red-700 text-white hover:bg-zinc-950 hover:text-white px-8 py-4 font-bold text-sm uppercase tracking-widest transition-colors duration-300">
+          Start a Project
+        </a>
       </div>
     </div>
   </section>
