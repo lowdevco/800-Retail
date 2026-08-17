@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>800 Retail | Al Ameen Group - Commercial Interior Fitout & Fixtures</title>
+  <meta name="description" content="Certified commercial interior fitout contracting and premium fixture manufacturing since 2004. 300,000+ sq. ft. production facilities in Umm Al Quwain, UAE under Al Ameen Industries LLC.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="./assets/js/tailwind.config.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="shortcut icon" href="https://800retail.com/wp-content/uploads/2025/06/cropped-800-270x270.png" type="image/x-icon">
+</head>
+<body class="bg-white text-zinc-900 min-h-screen flex flex-col">
+
+  <!-- Shared Header pages -->
+
+  <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 " id="main-header">
+    <!-- Base Header (White Text for the right side) -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+
+        <a href="./index.html" class="flex flex-col justify-center select-none logo-change-1 hidden">
+            <img src="./assets/image/logo.svg" alt="logo">
+        </a>
+
+        <a href="./index.html" class="flex flex-col justify-center select-none w-[200px] h-[100px] logo-change-2">
+            <img src="./assets/image/logo.svg" alt="logo">
+        </a>
+
+        <!-- Base Nav (White Text) -->
+        
+        <nav class="hidden lg:flex space-x-8 text-sm font-medium items-center">
+          <a href="./index.html" class="text-white font-bold border-b-2 border-white pb-1">Home</a>
+          
+          <div class="relative group flex items-center h-20">
+            <button class="inline-flex items-center space-x-1 text-white hover:opacity-70 transition-opacity duration-200" name="text-change" data-color="white">
+              <span>Company</span>
+              <i class="fas fa-chevron-down text-[9px] transition-transform duration-200 group-hover:rotate-180"></i>
+            </button>
+            <div class="absolute top-[80px] left-0 mt-0 w-48 bg-white border border-zinc-100 rounded shadow-lg py-2 hidden group-hover:block">
+              <a href="./pages/about.html" class="block px-4 py-2.5 text-sm text-zinc-600 hover:bg-zinc-50 hover:text-red-600">About Us</a>
+              <a href="./pages/ceo-message.html" class="block px-4 py-2.5 text-sm text-zinc-600 hover:bg-zinc-50 hover:text-red-600">CEO Message</a>
+              <a href="./pages/global-facilities.html" class="block px-4 py-2.5 text-sm text-zinc-600 hover:bg-zinc-50 hover:text-red-600">Global Facilities</a>
+            </div>
+          </div>
+
+          <div class="relative group flex items-center h-20">
+            <button class="inline-flex items-center space-x-1 text-white hover:opacity-70 transition-opacity duration-200" name="text-change" data-color="white">
+              <span>Capabilities</span>
+              <i class="fas fa-chevron-down text-[9px] transition-transform duration-200 group-hover:rotate-180"></i>
+            </button>
+            <div class="absolute top-[80px] left-0 mt-0 w-48 bg-white border border-zinc-100 rounded shadow-lg py-2 hidden group-hover:block">
+              <a href="./pages/divisions.html" class="block px-4 py-2.5 text-sm text-zinc-600 hover:bg-zinc-50 hover:text-red-600">Production Divisions</a>
+              <a href="./pages/products.html" class="block px-4 py-2.5 text-sm text-zinc-600 hover:bg-zinc-50 hover:text-red-600">Products Catalog</a>
+            </div>
+          </div>
+
+          <div class="relative group flex items-center h-20">
+            <button class="inline-flex items-center space-x-1 text-white hover:opacity-70 transition-opacity duration-200" name="text-change" data-color="white">
+              <span>Portfolio</span>
+              <i class="fas fa-chevron-down text-[9px] transition-transform duration-200 group-hover:rotate-180"></i>
+            </button>
+            <div class="absolute top-[80px] left-0 mt-0 w-48 bg-white border border-zinc-100 rounded shadow-lg py-2 hidden group-hover:block">
+              <a href="./pages/projects.html" class="block px-4 py-2.5 text-sm text-zinc-600 hover:bg-zinc-50 hover:text-red-600">Projects Reference</a>
+              <a href="./pages/clientele.html" class="block px-4 py-2.5 text-sm text-zinc-600 hover:bg-zinc-50 hover:text-red-600">Our Clients</a>
+            </div>
+          </div>
+
+          <a href="./pages/news.html" class="text-white hover:opacity-70 transition-opacity duration-200 pb-1" name="text-change" data-color="white">News</a>
+          <a href="./pages/contact.html" class="text-white hover:opacity-70 transition-opacity duration-200 pb-1" name="text-change" data-color="white">Contact</a>
+        </nav>
+
+        <!-- Button -->
+        <div class="hidden lg:flex">
+          <a href="./pages/contact.html" class="px-5 py-2.5 bg-white hover:bg-red-700 text-black hover:text-white rounded text-sm font-semibold transition-all duration-350 btn-red-glow flex items-center space-x-2" name="button-change">
+            <i class="fas fa-file-invoice-dollar text-sm"></i>
+            <span>Request Quote</span>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        
+        <div class="lg:hidden flex items-center">
+          <button id="mobile-menu-toggle" class="text-black hover:text-red-700 focus:outline-none p-2" aria-label="Toggle Menu" data-color="white">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Overlay Header (Dark Text for the left side) -->
+    <div class="absolute inset-0 pointer-events-none hidden lg:block" style="clip-path: polygon(0 0, 40% 0, 40% 100%, 0 100%);">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full pointer-events-auto">
+        <div class="flex items-center justify-between h-full">
+          
+          <!-- Logo (Overlay) -->
+          <a href="./index.html" class="flex flex-col justify-center select-none logo-change-1 hidden">
+              <img src="./assets/image/logo.svg" alt="logo">
+          </a>
+          <a href="./index.html" class="flex flex-col justify-center select-none w-[200px] h-[100px] logo-change-2">
+              <img src="./assets/image/logo.svg" alt="logo">
+          </a>
+
+          <!-- Overlay Nav (Black Text) -->
+          <nav class="hidden lg:flex space-x-8 text-sm font-medium items-center">
+            <a href="./index.html" class="text-red-700 font-bold border-b-2 border-red-700 pb-1">Home</a>
+            
+            <div class="relative group flex items-center h-20">
+              <button class="inline-flex items-center space-x-1 text-black hover:text-red-600 transition-colors duration-200" name="text-change" data-color="black">
+                <span>Company</span>
+                <i class="fas fa-chevron-down text-[9px] transition-transform duration-200 group-hover:rotate-180"></i>
+              </button>
+            </div>
+
+            <div class="relative group flex items-center h-20">
+              <button class="inline-flex items-center space-x-1 text-black hover:text-red-600 transition-colors duration-200" name="text-change" data-color="black">
+                <span>Capabilities</span>
+                <i class="fas fa-chevron-down text-[9px] transition-transform duration-200 group-hover:rotate-180"></i>
+              </button>
+            </div>
+
+            <div class="relative group flex items-center h-20">
+              <button class="inline-flex items-center space-x-1 text-black hover:text-red-600 transition-colors duration-200" name="text-change" data-color="black">
+                <span>Portfolio</span>
+                <i class="fas fa-chevron-down text-[9px] transition-transform duration-200 group-hover:rotate-180"></i>
+              </button>
+            </div>
+
+            <a href="./pages/news.html" class="text-black hover:text-red-600 transition-colors duration-200 pb-1" name="text-change" data-color="black">News</a>
+            <a href="./pages/contact.html" class="text-black hover:text-red-600 transition-colors duration-200 pb-1" name="text-change" data-color="black">Contact</a>
+          </nav>
+
+          <!-- Button (Invisible overlay pages to keep flexbox perfect) -->
+          <div class="hidden lg:flex opacity-0 pointer-events-none">
+            <a href="#" class="px-5 py-2.5 bg-white text-black rounded text-sm font-semibold flex items-center space-x-2">
+              <i class="fas fa-file-invoice-dollar text-sm"></i>
+              <span>Request Quote</span>
+            </a>
+          </div>
+
+          <div class="lg:hidden flex items-center opacity-0 pointer-events-none">
+            <button class="p-2"><i class="fas fa-bars text-2xl"></i></button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu-drawer" class="hidden fixed inset-y-0 right-0 w-80 bg-white shadow-2xl z-50 p-6 flex flex-col justify-between border-l border-zinc-200 transition-transform duration-300 translate-x-full">
+      <div>
+        <div class="flex items-center justify-between mb-8">
+          <div class="flex flex-col">
+
+         <a href="./index.html" class=" select-none">
+            <img src="./assets/image/logo.svg" alt="logo">
+        </a>
+              
+          </div>
+          <button id="mobile-menu-close" class="text-zinc-500 hover:text-red-600 focus:outline-none p-1">
+            <i class="fas fa-times text-2xl"></i>
+          </button>
+        </div>
+        <nav class="flex flex-col space-y-4 text-base font-semibold">
+          <a href="./index.html" class="py-2 border-b border-zinc-100 text-red-700">Home</a>
+          <a href="./pages/about.html" class="py-2 border-b border-zinc-100 text-zinc-700 hover:text-red-600">About Us</a>
+          <a href="./pages/ceo-message.html" class="py-2 border-b border-zinc-100 text-zinc-700 hover:text-red-600">CEO Message</a>
+          <a href="./pages/global-facilities.html" class="py-2 border-b border-zinc-100 text-zinc-700 hover:text-red-600">Global Facilities</a>
+          <a href="./pages/divisions.html" class="py-2 border-b border-zinc-100 text-zinc-700 hover:text-red-600">Divisions</a>
+          <a href="./pages/products.html" class="py-2 border-b border-zinc-100 text-zinc-700 hover:text-red-600">Products & Solutions</a>
+          <a href="./pages/projects.html" class="py-2 border-b border-zinc-100 text-zinc-700 hover:text-red-600">Projects Portfolio</a>
+          <a href="./pages/clientele.html" class="py-2 border-b border-zinc-100 text-zinc-700 hover:text-red-600">Our Clients</a>
+          <a href="./pages/news.html" class="py-2 border-b border-zinc-100 text-zinc-700 hover:text-red-600">News & R&D</a>
+          <a href="./pages/contact.html" class="py-2 text-zinc-700 hover:text-red-600">Contact</a>
+        </nav>
+      </div>
+      <div class="mt-8">
+        <a href="./pages/contact.html?type=quote" class="w-full text-center block px-4 py-3 bg-red-700 hover:bg-red-800  text-white rounded font-bold transition duration-200">Request B2B Quote</a>
+      </div>
+    </div>
+    <div id="drawer-backdrop" class="hidden fixed inset-0 bg-zinc-950/40 backdrop-blur-sm z-40"></div>
+  </header>
+
+   <!-- Hero Section  -->
+
+
+  <section class="relative min-h-screen min-h-[100dvh] flex flex-col lg:flex-row bg-[#F8F7F4]">
+    
+    <!-- Left Side: Editorial Typography -->
+    
+    <div class="w-full lg:w-[40%] lg:max-w-[40%] shrink-0 flex items-center justify-center relative z-10 px-6 sm:px-8 py-32 lg:py-0 lg:px-10 xl:px-16 2xl:px-24">
+      <div class="max-w-lg space-y-10 w-full mt-10 lg:mt-0">
+        
+        <!-- Kicker -->
+        <div class="flex items-center gap-4">
+          <div class="w-[3px] h-6 bg-red-700"></div>
+          <span class="text-[10px] font-bold text-zinc-900 tracking-[0.2em] uppercase">
+            Commercial Fit-out & Fixture Manufacturing
+          </span>
+        </div>
+        
+        <!-- Headline -->
+        <h1 class="text-[2.5rem] leading-none sm:text-5xl lg:text-5xl xl:text-6xl 2xl:text-[4.25rem] font-black text-zinc-900 tracking-tight sm:leading-[1.05] font-display">
+          Crafting Retail Environments That <br class="hidden xl:block" />
+          <span class="text-red-700">Inspire Sales</span>
+        </h1>
+        
+        <!-- Subtext -->
+        <p class="text-base text-zinc-600 leading-relaxed font-light">
+          From state-of-the-art joinery and robotic metal fabrication to next-generation retail lighting and turnkey interior execution across the GCC.
+        </p>
+        
+        <!-- CTA -->
+        <div class="pt-4">
+          <a href="./pages/contact.html?type=quote" class="inline-flex items-center space-x-3 text-zinc-900 hover:text-red-700 font-bold text-sm tracking-[0.15em] uppercase transition-colors duration-300 group">
+            <span class="relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-[2px] after:bg-red-700 after:scale-x-0 group-hover:after:scale-x-100 after:origin-right group-hover:after:origin-left after:transition-transform after:duration-500">Start a Project</span>
+            <i class="fas fa-arrow-right text-xs group-hover:translate-x-1.5 transition-transform duration-300"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Right Side: Immersive Project Imagery -->
+    <div class="w-full lg:w-[60%] lg:max-w-[60%] shrink-0 relative min-h-[60vh] lg:min-h-screen">
+      <!-- Carousel Slides -->
+      <style>
+        #custom-carousel .carousel-slide {
+          opacity: 0;
+          transform: scale(1.08);
+          transition: opacity 1.8s ease-in-out, transform 2.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        #custom-carousel .carousel-slide.active {
+          opacity: 1;
+          transform: scale(1);
+        }
+      </style>
+      <div id="custom-carousel" class="absolute inset-0 z-0 overflow-hidden">
+        <div class="carousel-slide active  w-full h-full bg-cover bg-center" style="background-image: url('./assets/image/Hero-bg-1.png?auto=format&fit=crop&q=80&w=1920');"></div>
+        <div class="carousel-slide  w-full h-full bg-cover bg-center" style="background-image: url('./assets/image/Hero-bg-2.png?auto=format&fit=crop&q=80&w=1920');"></div>
+        <div class="carousel-slide  w-full h-full bg-cover bg-center" style="background-image: url('./assets/image/Hero-bg-3.png?auto=format&fit=crop&q=80&w=1920');"></div>
+      </div>
+
+  
+      <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/60 to-transparent z-10 pointer-events-none"></div>
+
+      <!-- Editorial Project Information Overlay -->
+
+      <div class="absolute bottom-0 right-0 left-0 z-20 p-8 lg:p-12 flex justify-end items-end">
+        <a href="#" class="text-[10px] sm:text-xs text-white hover:text-red-400 font-bold tracking-[0.15em] uppercase transition-colors duration-300 flex items-center space-x-2 group">
+          <span>View Projects</span>
+          <i class="fas fa-arrow-right transform -rotate-45 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300"></i>
+        </a>
+      </div>
+      
+      <!-- Vertical Carousel Pagination Dots -->
+
+      <div class="absolute right-6 lg:right-8 top-1/2 -translate-y-1/2 flex flex-col items-center space-y-4 z-30" id="carousel-dots-container">
+        <button class="carousel-dot active w-[3px] h-8 bg-white transition-all duration-300 cursor-pointer rounded-full" data-index="0" aria-label="Go to slide 1"></button>
+        <button class="carousel-dot w-[3px] h-2 bg-white/40 hover:bg-white/80 transition-all duration-300 cursor-pointer rounded-full" data-index="1" aria-label="Go to slide 2"></button>
+        <button class="carousel-dot w-[3px] h-2 bg-white/40 hover:bg-white/80 transition-all duration-300 cursor-pointer rounded-full" data-index="2" aria-label="Go to slide 3"></button>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Interactive Stats Counters Section -->
+
+  <section class="py-10 bg-zinc-900 border-y relative z-10">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center items-center">
+        <div class="space-y-1">
+          <div class="text-3xl sm:text-4xl font-black  text-white font-display stat-counter" data-target="300000" data-suffix="+">0</div>
+          <p class="text-[9px] uppercase tracking-wider text-red-700 font-bold">Production Area (Sq. Ft.)</p>
+        </div>
+        <div class="space-y-1">
+          <div class="text-3xl sm:text-4xl font-black text-white font-display stat-counter" data-target="22" data-suffix="+">0</div>
+          <p class="text-[9px] uppercase tracking-wider text-red-700 font-bold">Years Legacy (Since 2004)</p>
+        </div>
+        <div class="space-y-1">
+          <div class="text-3xl sm:text-4xl font-black text-white font-display stat-counter" data-target="15" data-suffix="+">0</div>
+          <p class="text-[9px] uppercase tracking-wider text-red-700 font-bold">Specialized Divisions</p>
+        </div>
+        <div class="space-y-1">
+          <div class="text-3xl sm:text-4xl font-black text-white font-display stat-counter" data-target="2500" data-suffix="+">0</div>
+          <p class="text-[9px] uppercase tracking-wider text-red-700 font-bold">Completed Projects</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Pillars Section -->
+  <section class="py-32 bg-white relative">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-20 space-y-5">
+        <span class="text-red-700 text-sm font-extrabold uppercase tracking-widest">Our Operations</span>
+        <h2 class="text-3xl sm:text-5xl font-black text-zinc-950 tracking-tight font-display">The Four Core Pillars of Retail Design</h2>
+        <div class="flex justify-center"><span class="section-divider"></span></div>
+        <p class="text-zinc-500 text-sm font-light">We provide a vertically integrated contracting model, translating complex architectural drafts into reality.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Pillar 1: Retail Fixtures -->
+        <div class="card-industrial p-8 rounded flex flex-col justify-between h-[360px]">
+          <div>
+            <div class="w-12 h-12 bg-red-50 border border-red-100 text-red-700 rounded flex items-center justify-center text-lg mb-6">
+              <i class="fas fa-cubes"></i>
+            </div>
+            <h3 class="text-lg font-bold text-zinc-950 mb-3 font-display">Retail Fixtures</h3>
+            <p class="text-zinc-500 text-sm leading-relaxed font-light">
+              Custom display cabinets, cladding elements, modular wall panels, and cashier stands manufactured with precision under strict quality tolerances.
+            </p>
+          </div>
+          <a href="./pages/products.html?cat=Retail%20Fixtures" class="text-sm text-red-700 font-bold flex items-center space-x-2 group">
+            <span>Explore Fixtures</span>
+            <i class="fas fa-chevron-right text-[10px] transform group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </div>
+
+        <!-- Pillar 2: Retail LED -->
+        <div class="card-industrial p-8 rounded flex flex-col justify-between h-[360px]">
+          <div>
+            <div class="w-12 h-12 bg-red-50 border border-red-100 text-red-700 rounded flex items-center justify-center text-lg mb-6">
+              <i class="fas fa-tv"></i>
+            </div>
+            <h3 class="text-lg font-bold text-zinc-950 mb-3 font-display">Retail LED Displays</h3>
+            <p class="text-zinc-500 text-sm leading-relaxed font-light">
+              High-definition transparent windows, fine-pitch indoor video panels, and interactive digital branding installations for shopping centers.
+            </p>
+          </div>
+          <a href="./pages/products.html?cat=LED%20Screens" class="text-sm text-red-700 font-bold flex items-center space-x-2 group">
+            <span>Explore LED Tech</span>
+            <i class="fas fa-chevron-right text-[10px] transform group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </div>
+
+        <!-- Pillar 3: Retail Lighting -->
+        <div class="card-industrial p-8 rounded flex flex-col justify-between h-[360px]">
+          <div>
+            <div class="w-12 h-12 bg-red-50 border border-red-100 text-red-700 rounded flex items-center justify-center text-lg mb-6">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+            <h3 class="text-lg font-bold text-zinc-950 mb-3 font-display">Retail Lighting</h3>
+            <p class="text-zinc-500 text-sm leading-relaxed font-light">
+              Concealed shelf LED strips, custom slim tension fabric lightboxes, architectural ceilings, and smart scene lighting control networks.
+            </p>
+          </div>
+          <a href="./pages/products.html?cat=Architectural%20Lightboxes" class="text-sm text-red-700 font-bold flex items-center space-x-2 group">
+            <span>Explore Lightboxes</span>
+            <i class="fas fa-chevron-right text-[10px] transform group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </div>
+
+        <!-- Pillar 4: Fitout Execution -->
+        <div class="card-industrial p-8 rounded flex flex-col justify-between h-[360px]">
+          <div>
+            <div class="w-12 h-12 bg-red-50 border border-red-100 text-red-700 rounded flex items-center justify-center text-lg mb-6">
+              <i class="fas fa-compass-drafting"></i>
+            </div>
+            <h3 class="text-lg font-bold text-zinc-950 mb-3 font-display">Turnkey Fitouts</h3>
+            <p class="text-zinc-500 text-sm leading-relaxed font-light">
+              Turnkey interior contracting, space partitioning, false ceiling arrays, civil works, MEP, and civil defense compliance for GCC.
+            </p>
+          </div>
+          <a href="./pages/divisions.html#fitout" class="text-sm text-red-700 font-bold flex items-center space-x-2 group">
+            <span>Explore Site Execution</span>
+            <i class="fas fa-chevron-right text-[10px] transform group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW Section: Interactive Material & Craftsmanship Swatch Explorer -->
+  <section class="py-28 bg-zinc-50 border-t border-zinc-200">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 space-y-16">
+      <div class="text-center max-w-3xl mx-auto space-y-4">
+        <span class="text-red-700 text-sm font-extrabold uppercase tracking-widest">Tactile Excellence</span>
+        <h2 class="text-3xl sm:text-5xl font-black text-zinc-950 font-display">Material & Finish Explorer</h2>
+        <p class="text-zinc-500 text-sm font-light">Select a material swatch to preview our in-house processing machinery, tolerances, and finishes.</p>
+      </div>
+
+      <!-- Swatch Grid and Live Preview Split -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Swatch Selector List (5 cols) -->
+        <div class="lg:col-span-5 space-y-4" id="swatch-selector-list">
+          <!-- Swatch 1 -->
+          <div class="material-swatch-card " data-swatch="wood">
+            <div class="flex items-center space-x-4">
+              <div class="w-10 h-10 rounded bg-amber-800 flex items-center justify-center text-white text-base">
+                <i class="fas fa-tree"></i>
+              </div>
+              <div class="flex-1">
+                <div class="text-sm font-bold text-zinc-950 font-display">Oak Veneer & Wood Joinery</div>
+                <div class="text-[10px] text-zinc-500 font-light">5-Axis Homag CNC Router & Zero-gap Edge Banding</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Swatch 2 -->
+          <div class="material-swatch-card" data-swatch="metal">
+            <div class="flex items-center space-x-4">
+              <div class="w-10 h-10 rounded bg-zinc-700 flex items-center justify-center text-white text-base">
+                <i class="fas fa-industry"></i>
+              </div>
+              <div class="flex-1">
+                <div class="text-sm font-bold text-zinc-950 font-display">PVD Brushed Brass & Steel</div>
+                <div class="text-[10px] text-zinc-500 font-light">Fiber Laser Profiling & Robotic Seam Welding</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Swatch 3 -->
+          <div class="material-swatch-card" data-swatch="corian">
+            <div class="flex items-center space-x-4">
+              <div class="w-10 h-10 rounded bg-red-800 flex items-center justify-center text-white text-base">
+                <i class="fas fa-layer-group"></i>
+              </div>
+              <div class="flex-1">
+                <div class="text-sm font-bold text-zinc-950 font-display">DuPont Corian Solid Surface</div>
+                <div class="text-[10px] text-zinc-500 font-light">Certified Thermoforming Ovens & Seamless Joints</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Swatch 4 -->
+          <div class="material-swatch-card" data-swatch="led">
+            <div class="flex items-center space-x-4">
+              <div class="w-10 h-10 rounded bg-blue-700 flex items-center justify-center text-white text-base">
+                <i class="fas fa-tv"></i>
+              </div>
+              <div class="flex-1">
+                <div class="text-sm font-bold text-zinc-950 font-display">Transparent & P2.5 LED Panels</div>
+                <div class="text-[10px] text-zinc-500 font-light">Cleanroom SMD Assembly & Spectrometer Calibration</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Swatch 5 -->
+          <div class="material-swatch-card" data-swatch="custom">
+            <div class="flex items-center space-x-4">
+              <div class="w-10 h-10 rounded bg-[#059669] flex items-center justify-center text-white text-base">
+                <i class="fa-solid fa-cube"></i>
+              </div>
+              <div class="flex-1">
+                <div class="text-sm font-bold text-zinc-950 font-display">Custom Retail Fixtures</div>
+                <div class="text-[10px] text-zinc-500 font-light">Gondolas • Display Units • Cash Counters</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Live Preview Panel (7 cols) -->
+        <div class="lg:col-span-7 bg-white p-8 rounded-lg border border-zinc-200 shadow-md space-y-6" id="swatch-preview-panel">
+          <div class="relative h-64 w-full rounded overflow-hidden border border-zinc-200">
+            <img id="swatch-img" src="https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?auto=format&fit=crop&q=80&w=800" alt="Wood Joinery" class="w-full h-full object-cover transition-all duration-500">
+            <div class="absolute top-4 left-4 bg-zinc-950/80 backdrop-blur-md text-white px-3 py-1 rounded text-sm font-bold" id="swatch-badge">Wood & Joinery Spec</div>
+          </div>
+
+          <div class="space-y-3">
+            <h3 class="text-xl font-bold text-zinc-950 font-display" id="swatch-title">Oak Veneer Joinery & MDF Lamination</h3>
+            <p class="text-sm text-zinc-500 leading-relaxed font-light" id="swatch-desc">
+              Processed using Homag 5-axis routers in our Umm Al Quwain factory. Features dust-controlled veneer pressing and zero-gap edge banding for luxury store displays.
+            </p>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-t border-zinc-100 text-sm">
+              <div>
+                <div class="text-[9px] uppercase text-zinc-400 font-bold">Tolerance</div>
+                <div class="text-zinc-900 font-bold font-display" id="swatch-stat-1">&plusmn;0.2 mm</div>
+              </div>
+              <div>
+                <div class="text-[9px] uppercase text-zinc-400 font-bold">Machine Base</div>
+                <div class="text-zinc-900 font-bold font-display" id="swatch-stat-2">German Homag CNC</div>
+              </div>
+              <div>
+                <div class="text-[9px] uppercase text-zinc-400 font-bold">Certification</div>
+                <div class="text-red-700 font-bold font-display" id="swatch-stat-3">Made in UAE</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expanded Section: Integrated Fitout Workflow -->
+  <section class="py-32 bg-[#18181B] border-y border-zinc-200">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-20 space-y-5">
+        <span class="text-red-700 text-sm font-extrabold uppercase tracking-widest">End-to-End Delivery</span>
+        <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight font-display">Our Integrated Project Workflow</h2>
+        <div class="flex justify-center"><span class="section-divider"></span></div>
+        <p class="text-zinc-200 text-sm font-light">How we manage commercial spaces from pre-construction layout concepts to on-site assembly handover.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
+        <div class="space-y-4">
+          <div class="text-2xl font-black text-red-700 font-display">01.</div>
+          <h3 class="text-sm font-bold text-white uppercase tracking-tight font-display">Estimating & BoQ</h3>
+          <p class="text-sm text-zinc-200 leading-relaxed font-light">
+            Our estimation engineering team analyzes drafts to deliver complete, itemized Bills of Quantities (BoQs) and material calculations.
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <div class="text-2xl font-black text-red-700 font-display">02.</div>
+          <h3 class="text-sm font-bold text-white uppercase tracking-tight font-display">Technical Detailing</h3>
+          <p class="text-sm text-zinc-200 leading-relaxed font-light">
+            Industrial designers develop full CAD shop drawings and 3D architectural renders to resolve joins and load balances.
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <div class="text-2xl font-black text-red-700 font-display">03.</div>
+          <h3 class="text-sm font-bold text-white uppercase tracking-tight font-display">In-House Production</h3>
+          <p class="text-sm text-zinc-200 leading-relaxed font-light">
+            Custom woodwork, robotic welding, laser cutting, acrylic shaping, and LED diagnostics occur in our central Umm Al Quwain factory.
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <div class="text-2xl font-black text-red-700 font-display">04.</div>
+          <h3 class="text-sm font-bold text-white uppercase tracking-tight font-display">Logistics Coordinates</h3>
+          <p class="text-sm text-zinc-200 leading-relaxed font-light">
+            Completed fixtures are securely crated in compliance with ISPM-15 guidelines and dispatched via our GCC logistics networks.
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <div class="text-2xl font-black text-red-700 font-display">05.</div>
+          <h3 class="text-sm font-bold text-white uppercase tracking-tight font-display">On-site Assembly</h3>
+          <p class="text-sm text-zinc-200 leading-relaxed font-light">
+            In-house MEP and fitout site teams handle partition glazing, drywall installation, ceiling grids, and local civil defense checks.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expanded Section: Factory Infrastructure & Technology -->
+  <section class="py-32 bg-white">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+      <div class="lg:col-span-6 space-y-8 scroll-reveal-left">
+        <span class="text-red-700 text-sm font-bold uppercase tracking-widest">300,000 Sq. Ft. Manufacturing Plant</span>
+        <h2 class="text-3xl sm:text-5xl font-black text-zinc-950 tracking-tight font-display">High-Precision Production Capacity</h2>
+        <p class="text-zinc-650 text-sm leading-relaxed font-light">
+          800 Retail operates under Al Ameen Industries LLC. Our main manufacturing base, located in Umm Al Quwain, UAE, spans over 300,000 square feet, facilitating high-volume production for GCC retail rollouts. 
+        </p>
+        <p class="text-zinc-500 text-sm leading-relaxed font-light">
+          By integrating design, joinery, metal fabrication, acrylic laser cutting, digital printing, and LED diagnostic lines in-house, we eliminate intermediate delays and retain strict quality control over material tolerances. 
+        </p>
+        
+        <div class="grid grid-cols-2 gap-6 pt-4 border-t border-zinc-200">
+          <div>
+            <h4 class="text-sm font-bold text-zinc-950 uppercase tracking-wider font-display"><i class="fas fa-circle-check text-red-700 mr-2"></i>German Machinery</h4>
+            <p class="text-[11px] text-zinc-500 font-light mt-1">Equipped with 5-axis Homag woodworking routers and automated edge-banders.</p>
+          </div>
+          <div>
+            <h4 class="text-sm font-bold text-zinc-950 uppercase tracking-wider font-display"><i class="fas fa-circle-check text-red-700 mr-2"></i>Fiber Laser Profiling</h4>
+            <p class="text-[11px] text-zinc-500 font-light mt-1">High-tolerance robotic laser cutting, shearing, and CNC press bending.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-6 relative scroll-reveal-right">
+        <div class="img-zoom">
+          <img src="./assets/image/Michane.png?auto=format&fit=crop&q=80&w=800" alt="UAQ Factory Plant" class="rounded shadow-xl border border-zinc-200 w-full object-cover h-[450px]">
+        </div>
+        <div class="absolute -bottom-6 -right-6 bg-zinc-950 text-white p-6 rounded shadow-xl hidden md:block border border-zinc-900">
+          <div class="text-2xl font-black font-display text-red-500">ISO 9001:2015</div>
+          <div class="text-[8px] uppercase tracking-widest text-zinc-400 mt-1 font-bold">Certified Operations</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expanded Section: Deira Design & Engineering Studio -->
+  <section class="py-32 bg-zinc-50 border-t border-zinc-200">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+      <div class="lg:col-span-6 order-2 lg:order-1 relative scroll-reveal-left">
+        <div class="img-zoom">
+          <img src="./assets/image/Concept.png?auto=format&fit=crop&q=80&w=800" alt="Deira Design Studio" class="rounded shadow-xl border border-zinc-200 w-full object-cover h-[400px]">
+        </div>
+        <div class="absolute -bottom-6 -right-6 bg-red-700 text-white p-6 rounded shadow-xl hidden md:block">
+          <div class="text-xl font-bold font-display">Trading & Design</div>
+          <div class="text-[8px] uppercase tracking-widest text-white/80 mt-1 font-bold">Deira Showroom, Dubai</div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-6 order-1 lg:order-2 space-y-8 scroll-reveal-right">
+        <span class="text-red-700 text-sm font-bold uppercase tracking-widest">Engineering & Prototyping Hub</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-zinc-950 tracking-tight font-display">Concept Engineering & Detailing</h2>
+        <p class="text-zinc-650 text-sm leading-relaxed font-light">
+          While our central manufacturing operations are based in Umm Al Quwain, 800 Retail coordinates client consultations and prototyping approvals from our corporate trading showroom in Deira, Dubai (conveniently located near Abu Hail Metro Station).
+        </p>
+        <p class="text-zinc-500 text-sm leading-relaxed font-light">
+          Our in-house design studio is staffed by experienced retail architects and technical draftsmen who transform initial brand blueprints into production-ready CAD files. We build custom prototype mockups and organize physical sample boards—featuring wood veneer stains, PVD metal finishes, and LED color temperatures—to guarantee zero variance before starting production run volumes.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expanded Section: Material Specifications Table -->
+  <section class="py-32 bg-[#18181B] border-t border-zinc-200">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 space-y-16">
+      <div class="text-center max-w-3xl mx-auto space-y-4">
+        <span class="text-red-700 text-sm font-bold uppercase tracking-widest">Technical Specifications</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-white font-display">In-House Manufacturing Capabilities</h2>
+        <p class="text-zinc-200 text-sm font-light">A summary of the materials, machinery, and tolerances enforced across our UAQ production facilities.</p>
+      </div>
+
+      <div class="overflow-x-auto rounded-lg border border-red-600 shadow-sm">
+        <table class="w-full text-left border-collapse bg-white text-sm">
+          <thead>
+            <tr class="bg-[#18181B] border-b border-red-700 text-white font-bold uppercase font-display tracking-wider">
+              <th class="p-4 sm:p-5">Division</th>
+              <th class="p-4 sm:p-5">Key Machinery</th>
+              <th class="p-4 sm:p-5">Materials & Operations</th>
+              <th class="p-4 sm:p-5">Quality Tolerances</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y bg-[#18181B] divide-red-600 text-zinc-200 font-light">
+            <tr>
+              <td class="p-4 sm:p-5 font-bold text-White font-display">Wood & Joinery</td>
+              <td class="p-4 sm:p-5">Homag 5-Axis wood CNC routing system, veneer presses</td>
+              <td class="p-4 sm:p-5">Bespoke counters, cladding boards, MDF lamination, Corian thermoforming</td>
+              <td class="p-4 sm:p-5 text-red-700 font-bold font-display">&plusmn;0.2 mm</td>
+            </tr>
+            <tr>
+              <td class="p-4 sm:p-5 font-bold text-White font-display">Metal Fabrication</td>
+              <td class="p-4 sm:p-5">Fiber laser profiling cutters, robotic welders, press brakes</td>
+              <td class="p-4 sm:p-5">Stainless steel, brass, custom gondolas, electrostatic powder coating</td>
+              <td class="p-4 sm:p-5 text-red-700 font-bold font-display">&plusmn;0.5 mm</td>
+            </tr>
+            <tr>
+              <td class="p-4 sm:p-5 font-bold text-White font-display">LED Assemblies</td>
+              <td class="p-4 sm:p-5">Cleanroom SMD testers, spectrometer color calibration arrays</td>
+              <td class="p-4 sm:p-5">High-brightness transparent screens, P2.5 video walls, 72h heat tests</td>
+              <td class="p-4 sm:p-5 text-red-700 font-bold font-display">CRI 90+ standard</td>
+            </tr>
+            <tr>
+              <td class="p-4 sm:p-5 font-bold text-White font-display">Signage & Print</td>
+              <td class="p-4 sm:p-5">Flatbed UV printers, computerized channel letter benders</td>
+              <td class="p-4 sm:p-5">Large format tension fabric SEG lightboxes, 3D storefront letters</td>
+              <td class="p-4 sm:p-5 text-red-700 font-bold font-display">UV-resistant inks</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expanded Section: Motto Spotlight Banner -->
+  <section class="py-28 bg-zinc-50 border-t border-zinc-200 text-center">
+    <div class="max-w-4xl mx-auto px-6 sm:px-8 space-y-8">
+      <span class="text-red-700 text-sm font-extrabold uppercase tracking-widest">Our Motto</span>
+      <h2 class="text-4xl sm:text-7xl font-black text-zinc-950 tracking-tight font-display">&ldquo;Take on Tomorrow&rdquo;</h2>
+      <div class="flex justify-center"><span class="section-divider"></span></div>
+      <div class="max-w-xl mx-auto">
+        <p class="pull-quote text-sm leading-relaxed">
+          Operating under our central &ldquo;Focus on the known&rdquo; strategy, we challenge conventional manufacturing limits to engineer retail spaces that support homegrown GCC brands.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Banner/CTA Section -->
+  <section class="py-32 relative overflow-hidden bg-cover bg-center" style="background-image: linear-gradient(135deg, rgba(9,9,11,0.92), rgba(194,14,26,0.15), rgba(9,9,11,0.95)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1920');">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 text-center space-y-8 relative z-10">
+      <h2 class="text-3xl sm:text-5xl font-black text-white font-display">Ready to Partner with 800 Retail?</h2>
+      <div class="flex justify-center"><span class="section-divider"></span></div>
+      <p class="text-zinc-100 text-sm max-w-xl mx-auto font-light leading-relaxed">
+        Consult directly with our estimating divisions. We deliver itemized bills of quantities, material specifications, and rapid scale prototype approvals.
+      </p>
+      <div class="pt-4">
+        <a href="./pages/contact.html" class="px-10 py-4 bg-red-700 hover:bg-red-800 text-white rounded font-bold text-sm transition-all duration-350 btn-red-glow inline-flex items-center space-x-2">
+          <i class="fas fa-headset"></i>
+          <span>Consult with our Engineers</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clients Logo Marquee Section -->
+  <section class="py-10 bg-zinc-50 border-t border-zinc-200">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8">
+      <div class="marquee-container">
+        <div class="marquee-content flex items-center space-x-16">
+
+            <img src="./assets/image/Clients/Adidas.svg" alt="adidas" class="space-x-3 h-20 w-20">
+
+            <img src="./assets/image/Clients/Skechers.svg" alt="Skechers" class="space-x-3 h-20 w-20">
+
+            <img src="./assets/image/Clients/ASICS.svg" alt="asics" class="space-x-3 h-20 w-20">
+
+            <img src="./assets/image/Clients/Landmark-Group.svg" alt="landmark" class="space-x-3 h-20 w-20">
+
+            <img src="./assets/image/Clients/Nesto.png" alt="nesto" class="space-x-3 h-20 w-30">
+
+            <img src="./assets/image/Clients/Oc-Homes.svg" alt="oc-Homes" class="space-x-3 h-20 w-20">
+
+            <img src="./assets/image/Clients/Reebok.svg" alt="Reebok" class="space-x-3 h-20 w-20">
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shared Footer pages -->
+  <footer class="bg-zinc-950 border-t border-zinc-900 text-zinc-400 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
+      <div class="space-y-4">
+        <div class="flex flex-col ">
+           <img src="./assets/image/logo-footer.png" alt="logo">
+        </div>
+        <p class="text-sm leading-relaxed text-zinc-400">Establishing standards in commercial interior fitouts and high-volume fixture manufacturing since 2004. Serving global retail brands with certified in-house capabilities.</p>
+        <div class="flex space-x-4 pt-2">
+          <a href="#" class="text-zinc-400 hover:text-red-500 transition-colors"><i class="fab fa-linkedin-in text-base"></i></a>
+          <a href="#" class="text-zinc-400 hover:text-red-500 transition-colors"><i class="fab fa-instagram text-base"></i></a>
+          <a href="#" class="text-zinc-400 hover:text-red-500 transition-colors"><i class="fab fa-facebook-f text-base"></i></a>
+          <a href="#" class="text-zinc-400 hover:text-red-500 transition-colors"><i class="fab fa-youtube text-base"></i></a>
+        </div>
+      </div>
+      <div class="space-y-4">
+        <h3 class="text-sm font-bold text-white uppercase tracking-wider font-display">Core Divisions</h3>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="./pages/divisions.html#joinery" class="hover:text-red-500 transition-colors">Joinery & Carpenter Works</a></li>
+          <li><a href="./pages/divisions.html#metalwork" class="hover:text-red-500 transition-colors">Metal Fabrication</a></li>
+          <li><a href="./pages/divisions.html#led" class="hover:text-red-500 transition-colors">LED Screens & Displays</a></li>
+          <li><a href="./pages/divisions.html#fitout" class="hover:text-red-500 transition-colors">Turnkey Interior Fitout</a></li>
+          <li><a href="./pages/divisions.html#lighting" class="hover:text-red-500 transition-colors">Architectural Lighting</a></li>
+        </ul>
+      </div>
+      <div class="space-y-4">
+        <h3 class="text-sm font-bold text-white uppercase tracking-wider font-display">Company Links</h3>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="./pages/about.html" class="hover:text-red-500 transition-colors">Corporate Timeline</a></li>
+          <li><a href="./pages/global-facilities.html" class="hover:text-red-500 transition-colors">Global Production Facilities</a></li>
+          <li><a href="./pages/products.html" class="hover:text-red-500 transition-colors">Solutions Catalog</a></li>
+          <li><a href="./pages/projects.html" class="hover:text-red-500 transition-colors">Projects Reference</a></li>
+          <li><a href="./pages/news.html" class="hover:text-red-500 transition-colors">Corporate News & R&D</a></li>
+        </ul>
+      </div>
+      <div class="space-y-4">
+        <h3 class="text-sm font-bold text-white uppercase tracking-wider font-display">Global Headquarters</h3>
+        <p class="text-sm"><i class="fas fa-map-marker-alt text-red-600 mr-2"></i> Umm Al Quwain, United Arab Emirates</p>
+        <p class="text-sm"><i class="fas fa-phone-alt text-red-600 mr-2"></i> +971 (6) 766-8800</p>
+        <p class="text-sm"><i class="fas fa-envelope text-red-600 mr-2"></i> projects@800retail.com</p>
+        <p class="text-sm border-t border-zinc-800 pt-3 mt-3 text-zinc-500">Certified ISO 9001:2015 Facility.<br>"Made in UAE" Certified Manufacturer.</p>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 pt-8 border-t border-zinc-900 flex flex-col md:flex-row items-center justify-between text-[11px] text-zinc-500">
+      <p>Copyright &copy; 2026 | <strong> 800 Retail</strong>. All rights reserved.</p>
+      <p>Developed By <a target="_blank" href="https://xeventure.com/"><strong>Xeventure</strong></a></p>
+    </div>
+  </footer>
+
+  <!-- Global scripts -->
+  <script src="./assets/js/main.js"></script>
+
+  <!-- Homepage specific carousel logic -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const slides = document.querySelectorAll(".carousel-slide");
+      let activeIndex = 0;
+      let interval;
+      const dots = document.querySelectorAll(".carousel-dot");
+
+      const showSlide = (index) => {
+        slides.forEach((slide, i) => {
+          if (i === index) {
+            slide.classList.add("active");
+          } else {
+            slide.classList.remove("active");
+          }
+        });
+        
+        dots.forEach((dot, i) => {
+          if (i === index) {
+            dot.className = "carousel-dot active w-[3px] h-8 bg-white transition-all duration-300 cursor-pointer rounded-full";
+          } else {
+            dot.className = "carousel-dot w-[3px] h-2 bg-white/40 hover:bg-white/80 transition-all duration-300 cursor-pointer rounded-full";
+          }
+        });
+
+        activeIndex = index;
+      };
+
+      const nextSlide = () => {
+        let newIndex = activeIndex + 1;
+        if (newIndex >= slides.length) newIndex = 0;
+        showSlide(newIndex);
+      };
+
+      const prevSlide = () => {
+        let newIndex = activeIndex - 1;
+        if (newIndex < 0) newIndex = slides.length - 1;
+        showSlide(newIndex);
+      };
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener("click", () => {
+          clearInterval(interval);
+          showSlide(i);
+          startAutoplay();
+        });
+      });
+
+      const startAutoplay = () => {
+        interval = setInterval(nextSlide, 8000);
+      };
+
+      startAutoplay();
+
+      // Swatch Explorer Interactive Script
+      const swatchCards = document.querySelectorAll(".material-swatch-card");
+      const swatchImg = document.getElementById("swatch-img");
+      const swatchBadge = document.getElementById("swatch-badge");
+      const swatchTitle = document.getElementById("swatch-title");
+      const swatchDesc = document.getElementById("swatch-desc");
+      const swatchStat1 = document.getElementById("swatch-stat-1");
+      const swatchStat2 = document.getElementById("swatch-stat-2");
+      const swatchStat3 = document.getElementById("swatch-stat-3");
+
+      const swatchData = {
+        wood: {
+          title: "Oak Veneer Joinery & MDF Lamination",
+          desc: "Processed using Homag 5-axis routers in our Umm Al Quwain factory. Features dust-controlled veneer pressing and zero-gap edge banding for luxury store displays.",
+          img: "https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?auto=format&fit=crop&q=80&w=800",
+          badge: "Wood & Joinery Spec",
+          stat1: "±0.2 mm",
+          stat2: "German Homag CNC",
+          stat3: "Made in UAE"
+        },
+        metal: {
+          title: "PVD Brushed Brass & Structural Steel",
+          desc: "Fabricated using fiber laser cutters and robotic seam welders. Finished in an automated electrostatic powder-coating conveyor line with scratch-resistant clear coat.",
+          img: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=800",
+          badge: "Metalwork Spec",
+          stat1: "±0.5 mm",
+          stat2: "Fiber Laser Profiler",
+          stat3: "PVD Brass Coating"
+        },
+        corian: {
+          title: "DuPont Corian Solid Surface Processing",
+          desc: "Certified thermoforming ovens and custom vacuum molds for seamless curved cash counters and reception desks. Integrated concealed LED under-lighting.",
+          img: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=800",
+          badge: "Solid Surface Spec",
+          stat1: "Seamless Joints",
+          stat2: "Thermoform Oven",
+          stat3: "DuPont Certified"
+        },
+        led: {
+          title: "75% Transparent & P2.5 Commercial LED Displays",
+          desc: "Assembled in cleanroom conditions with 72-hour thermal stress testing and spectral lux color calibration. High-contrast nits rating for bright mall store fronts.",
+          img: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=800",
+          badge: "LED Technology Spec",
+          stat1: "1500–5500 Nits",
+          stat2: "Cleanroom SMD",
+          stat3: "100,000h Lifespan"
+        }
+      };
+
+      swatchCards.forEach(card => {
+        card.addEventListener("click", () => {
+          swatchCards.forEach(c => c.classList.remove("active"));
+          card.classList.add("active");
+
+          const type = card.getAttribute("data-swatch");
+          const data = swatchData[type];
+          if (data) {
+            swatchImg.style.opacity = "0.3";
+            setTimeout(() => {
+              swatchImg.src = data.img;
+              swatchBadge.textContent = data.badge;
+              swatchTitle.textContent = data.title;
+              swatchDesc.textContent = data.desc;
+              swatchStat1.textContent = data.stat1;
+              swatchStat2.textContent = data.stat2;
+              swatchStat3.textContent = data.stat3;
+              swatchImg.style.opacity = "1";
+            }, 150);
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<svg width="1004" height="1011" viewBox="0 0 1004 1011" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_36001_3075)">
+<rect x="1004" y="1011" width="12" height="12" transform="rotate(180 1004 1011)" fill="white"/>
+<line x1="2000" y1="1004.5" y2="1004.5" stroke="white" stroke-opacity="0.25"/>
+<path d="M997.996 1004L997.996 1.10971e-05" stroke="white" stroke-opacity="0.25"/>
+<path d="M997.996 1004L1998 4" stroke="white" stroke-opacity="0.25"/>
+<path d="M997.996 1004L0.996078 6.99998" stroke="white" stroke-opacity="0.25"/>
+<mask id="path-6-inside-1_36001_3075" fill="white">
+<path d="M0 4C0 269.216 105.357 523.57 292.893 711.107C480.43 898.643 734.783 1004 1000 1004C1265.22 1004 1519.57 898.643 1707.11 711.107C1894.64 523.571 2000 269.217 2000 4.00015L1000 4H0Z"/>
+</mask>
+<path d="M0 4C0 269.216 105.357 523.57 292.893 711.107C480.43 898.643 734.783 1004 1000 1004C1265.22 1004 1519.57 898.643 1707.11 711.107C1894.64 523.571 2000 269.217 2000 4.00015L1000 4H0Z" stroke="white" stroke-opacity="0.25" stroke-width="2" mask="url(#path-6-inside-1_36001_3075)"/>
+</g>
+<defs>
+<clipPath id="clip0_36001_3075">
+<rect width="1004" height="1011" fill="white" transform="matrix(-1 0 0 -1 1004 1011)"/>
+</clipPath>
+</defs>
+</svg>
