@@ -3069,7 +3069,7 @@ blockquote {
 .nav-logo {
   border-radius: 0;
   width: auto;
-  height: 28px;
+  height: 50px;
 }
 .heading-style-h1 {
   font-family: var(--fonts--heading);
@@ -4051,10 +4051,529 @@ blockquote {
   grid-column-gap: 6px;
   grid-row-gap: 6px;
   grid-template-rows: auto;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 3fr 7fr;
   grid-auto-columns: 1fr;
   display: grid;
 }
+
+
+/* =========================================
+   WHAT WE DO - HORIZONTAL EXPANDING PANELS
+========================================= */
+
+.home1_welcome_content-wrap {
+    min-width: 0;
+    overflow: hidden;
+}
+
+.what-we-do-list {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+
+    display: flex;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    /* Hide scrollbar for a cleaner look while allowing scrolling */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    border: 1px solid var(--color-neutral--border-color, rgba(255, 255, 255, 0.15));
+}
+.what-we-do-list::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* -----------------------------------------
+   INDIVIDUAL PANEL
+----------------------------------------- */
+
+.what-we-do-item {
+    position: relative;
+
+    /* Collapsed width */
+    flex: 0 0 45px;
+
+    min-width: 45px;
+    height: 100%;
+
+    overflow: hidden;
+
+    border-right: 1px solid var(--color-neutral--border-color, rgba(255, 255, 255, 0.2));
+
+    transition:
+        flex-grow 0.6s ease-in-out,
+        flex-basis 0.6s ease-in-out;
+
+    background: var(--color-base--black, #1c1c16);
+}
+
+
+/* -----------------------------------------
+   ACTIVE PANEL
+----------------------------------------- */
+
+.what-we-do-item.active {
+    flex: 1 1 0;
+    min-width: 500px;
+}
+
+
+/* -----------------------------------------
+   VERTICAL TAB BUTTON
+----------------------------------------- */
+
+.what-we-do-trigger {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    border: none;
+    background: transparent;
+
+    color: inherit;
+
+    cursor: pointer;
+
+    z-index: 10;
+
+    padding: 22px 0;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* -----------------------------------------
+   SERVICE NAME
+----------------------------------------- */
+
+.what-we-do-label {
+
+  z-index: 2;
+
+    writing-mode: vertical-rl;
+
+    transform: rotate(180deg);
+
+    white-space: nowrap;
+
+    font-size: 13px;
+    font-weight: 400;
+
+    letter-spacing: 0.02em;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.4s ease;
+}
+
+
+/* -----------------------------------------
+   ARROW
+----------------------------------------- */
+
+.what-we-do-arrow {
+    font-size: 22px;
+    font-weight: 300;
+
+    line-height: 1;
+
+    transition:
+        transform 0.4s ease,
+        opacity 0.3s ease;
+}
+
+
+.what-we-do-item:not(.active):hover .what-we-do-arrow {
+    transform: translateX(4px);
+}
+
+
+/* -----------------------------------------
+   WHEN PANEL BECOMES ACTIVE
+
+   Hide the vertical tab so content
+   becomes visible.
+----------------------------------------- */
+
+.what-we-do-item.active .what-we-do-trigger {
+    opacity: 0;
+    pointer-events: none;
+
+    transition: opacity 0.2s ease;
+}
+
+
+/* -----------------------------------------
+   EXPANDED AREA
+----------------------------------------- */
+
+.what-we-do-expanded {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: opacity 0.25s ease;
+}
+
+
+/* Show only active content */
+
+.what-we-do-item.active .what-we-do-expanded {
+    opacity: 1;
+    pointer-events: auto;
+
+    transition-delay: 0.25s;
+}
+
+
+/* -----------------------------------------
+   CONTENT SIDE
+----------------------------------------- */
+
+.what-we-do-content {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding: 30px 40px;
+
+    opacity: 0;
+
+    transform: translateY(25px);
+
+    transition:
+        opacity 0.45s ease,
+        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+.what-we-do-item.active .what-we-do-content {
+    opacity: 1;
+
+    transform: translateY(0);
+
+    transition-delay: 0.35s;
+}
+
+
+/* -----------------------------------------
+   TEXT
+----------------------------------------- */
+
+.what-we-do-content p {
+    margin: 0 0 30px;
+
+    max-width: 360px;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    color: var(--color-neutral--shade-200, rgba(255, 255, 255, 0.75));
+}
+
+
+/* -----------------------------------------
+   BUTTON
+----------------------------------------- */
+
+.what-we-do-btn {
+    width: fit-content;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 13px 24px;
+
+    border: 1px solid currentColor;
+
+    color: var(--color-base--white, #fff);
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+
+.what-we-do-btn:hover {
+    background: var(--color-base--white, #fff);
+    color: var(--color-base--black, #000);
+}
+
+
+/* -----------------------------------------
+   IMAGE
+----------------------------------------- */
+
+.what-we-do-image {
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transform: scale(1.05);
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+.what-we-do-item.active .what-we-do-image {
+    opacity: 1;
+
+    transform: scale(1);
+
+    transition-delay: 0.3s;
+}
+
+
+.what-we-do-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+/* =========================================
+   MOBILE – VERTICAL ACCORDION
+========================================= */
+
+@media screen and (max-width: 767px) {
+
+    .what-we-do-list {
+        display: block;
+        height: auto;
+        min-height: 0;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        overflow: visible;
+    }
+
+    .what-we-do-item {
+        width: 100%;
+        min-width: 0;
+        height: auto;
+
+        display: block;
+
+        flex: none;
+
+        overflow: hidden;
+
+        background: transparent;
+
+        border-right: 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.18);
+
+        transition: none;
+    }
+
+    .what-we-do-item:last-child {
+        border-bottom: 0;
+    }
+
+    .what-we-do-item.active {
+        min-width: 0;
+    }
+
+
+    /* MOBILE HEADER */
+
+    .what-we-do-trigger {
+        position: relative;
+
+        inset: auto;
+
+        width: 100%;
+        height: 70px;
+
+        padding: 0 20px;
+
+        display: flex;
+        
+        color: var(--color-neutral--shade-200, rgba(255, 255, 255, 0.75));
+
+        flex-direction: row-reverse;
+
+        justify-content: space-between;
+        align-items: center;
+
+        background: transparent;
+
+        color: #222;
+
+        opacity: 1 !important;
+
+        pointer-events: auto !important;
+    }
+
+
+    /* Remove vertical writing */
+
+    .what-we-do-label {
+        writing-mode: horizontal-tb;
+
+        transform: none;
+
+        font-size: 16px;
+
+        white-space: normal;
+        
+        color: var(--color-neutral--shade-200, #ffffff);
+    }
+
+
+    /* Arrow */
+
+    .what-we-do-arrow {
+        font-size: 32px;
+
+        transform: rotate(90deg);
+
+        transition: transform 0.3s ease;
+        
+        color: var(--color-neutral--shade-200, #ffffff);
+    }
+
+
+    /* Active arrow points up */
+
+    .what-we-do-item.active .what-we-do-arrow {
+        color: var(--color-base--white, #ffffff);
+    }
+
+
+    .what-we-do-item.active .what-we-do-label {
+        color: var(--color-base--white, #fff);
+    }
+
+
+    /* EXPANDED CONTENT */
+
+    .what-we-do-expanded {
+        position: relative;
+
+        inset: auto;
+
+        width: 100%;
+        height: auto;
+
+        display: block;
+
+        max-height: 0;
+
+        overflow: hidden;
+
+        opacity: 0;
+
+        pointer-events: none;
+
+        transition:
+            max-height 0.6s ease,
+            opacity 0.35s ease;
+    }
+
+
+    /* OPEN PANEL */
+
+    .what-we-do-item.active .what-we-do-expanded {
+        max-height: 1000px;
+
+        opacity: 1;
+
+        pointer-events: auto;
+
+        transition-delay: 0s;
+    }
+
+
+    /* CONTENT */
+
+    .what-we-do-content {
+        display: block;
+
+        padding: 20px 20px 25px;
+
+        opacity: 1;
+
+        transform: none;
+    }
+
+
+    .what-we-do-content p {
+        max-width: none;
+
+        margin-bottom: 24px;
+
+        font-size: 14px;
+
+        line-height: 1.6;
+
+        color: var(--color-neutral--shade-200, rgba(255, 255, 255, 0.75));
+    }
+
+
+    /* IMAGE */
+
+    .what-we-do-image {
+        width: 100%;
+        height: 280px;
+
+        padding: 0 20px 20px;
+
+        opacity: 1;
+
+        transform: none;
+
+        transition: none;
+    }
+
+
+    .what-we-do-image img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+    }
+
+}
+
+
 .home1_welcome_content {
   grid-column-gap: 1px;
   grid-row-gap: 1px;
@@ -4156,6 +4675,7 @@ blockquote {
   inset: 0%;
 }
 .home3_hero_left {
+  width: 100%;
   grid-column-gap: 0.75rem;
   grid-row-gap: 0.75rem;
   flex-flow: column;
