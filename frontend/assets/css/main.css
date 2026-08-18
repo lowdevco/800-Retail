@@ -9592,3 +9592,88 @@ blockquote {
     grid-column: span 1 / span 1;
   }
 }
+
+
+/* Global Offices Map Section Additions */
+.region-tab {
+  background: none;
+  border: none;
+  padding-bottom: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #dddddd;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+.region-tab:hover {
+  color: #fff;
+}
+
+.region-tab:hover {
+  color: var(--theme--text);
+  border-bottom-color: var(--theme--border);
+}
+
+.region-tab.is-active {
+  color: #ffffff; /* Active red */
+  border-bottom-color: #ffffff;
+}
+
+.opacity-0 {
+  opacity: 0 !important;
+}
+
+.opacity-100 {
+  opacity: 1 !important;
+}
+
+.pointer-events-none {
+  pointer-events: none !important;
+}
+
+@media screen and (min-width: 992px) {
+  .global_offices_wrapper {
+    grid-template-columns: 4fr 8fr !important;
+  }
+}
+
+/* Custom Global Office Card Styles */
+.global_office_card {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: transparent;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.global_office_card:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.global_office_card .icon-wrap {
+  flex-shrink: 0;
+}
+
+/* Custom 3-column grid for contact cards */
+.grid-3-cols {
+  grid-template-columns: repeat(3, 1fr) !important;
+}
+
+@media (max-width: 991px) {
+  .grid-3-cols {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .grid-3-cols {
+    grid-template-columns: 1fr !important;
+  }
+}
