@@ -1389,7 +1389,7 @@
               i && e.remove();
               return;
             }
-            (e.length && e.remove(), i || a.append(t));
+            (e.length && e.remove(), i || void(0));
           }
           return (
             (n.ready = function () {
