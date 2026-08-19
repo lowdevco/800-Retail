@@ -7459,6 +7459,7 @@ blockquote {
   padding: 1.5rem;
   display: flex;
 }
+
 .about_metrics-list {
   z-index: 1;
   grid-column-gap: 1px;
