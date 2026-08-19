@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
  
 <html
  
@@ -211,27 +211,7 @@
             margin-left: auto !important;
           }
 
-          /* 
-Make the following elements inherit typography styles from the parent and not have hardcoded values. 
-Important: You will not be able to style for example "All Links" in Designer with this CSS applied.
-Uncomment this CSS to use it in the project. Leave this message for future hand-off.
-*/
-          /*
-a,
-.w-input,
-.w-select,
-.w-tab-link,
-.w-nav-link,
-.w-dropdown-btn,
-.w-dropdown-toggle,
-.w-dropdown-link {
-  color: inherit;
-  text-decoration: inherit;
-  font-size: inherit;
-}
-*/
-
-          /* Apply "..." after 3 lines of text */
+  
           .text-style-3lines {
             display: -webkit-box;
             overflow: hidden;
@@ -434,14 +414,16 @@ a,
             </div>
           </div>
         </section>
-        <section class="section_home1_welcome">
+
+
+          <section class="section_home1_welcome">
           <div class="padding-global padding-section-medium">
             <div class="container-default">
               <div class="header is-centered">
                 <div class="max-width-medium">
                   <div animate="fade-up-1" class="text-style-badge">
                     <div class="badge-dot"></div>
-                    <div class="text-color-alternate">Welcome to 800 retail solutions</div>
+                    <div class="text-color-alternate">Welcome to 800 Retail Solutions</div>
                   </div>
                   <div class="spacer-small"></div>
                   <h3 animate="fade-up-2">
@@ -450,7 +432,7 @@ a,
                 </div>
               </div>
               <div class="spacer-large"></div>
-              <div class="home1_welcome_wrap">
+              <div class="home1_welcome_wrap-top">
                 <div animate="fade-up-2" class="home3_hero_left">
                   <div
                     data-poster-url="assets/images/video-2-poster.jpg"
@@ -473,11 +455,7 @@ a,
                       data-object-fit="cover"
                     >
                       <source
-                        src="assets/media/video-1.mp4"
-                        data-wf-ignore="true"
-                      />
-                      <source
-                        src="assets/media/video-2.webm"
+                        src="./assets/media/800Retail-company.mp4"
                         data-wf-ignore="true"
                       /></video
                     ><noscript
@@ -609,382 +587,95 @@ a,
                     <div class="corner-frame_bottom-right"></div>
                     <div class="corner-frame_bottom-left"></div>
                   </div>
-
-<div class="what-we-do-list">
-
-    <!-- 1. PROJECT MANAGEMENT -->
-    <div class="what-we-do-item active">
-        <button class="what-we-do-trigger" type="button">
-            <span class="what-we-do-arrow">&rsaquo;</span>
-            <span class="what-we-do-label">Design & Development Department
-</span>
-        </button>
-
-        <div class="what-we-do-expanded">
-            <div class="what-we-do-content">
-                <p>
-Leads the creative and technical design process, including concept development, engineering detailing and prototyping of metal and joinery solutions tailored for retail environments.
-                </p>
-
-                <a href="#contact" class="what-we-do-btn">
-                    Get In Touch
-                </a>
-            </div>
-
-            <div class="what-we-do-image">
-                <img
-                    src="https://800retail.com/wp-content/uploads/2025/06/Departmental-Structure_0005_1.-Design-Development-Departmen.jpg"
-                    alt="Project Management"
-                />
-            </div>
-        </div>
-    </div>
-
-
-    <!-- 2. GENERAL CONTRACTING -->
-    <div class="what-we-do-item">
-        <button class="what-we-do-trigger" type="button">
-            <span class="what-we-do-arrow">&rsaquo;</span>
-            <span class="what-we-do-label">Machine Department
-</span>
-        </button>
-
-        <div class="what-we-do-expanded">
-            <div class="what-we-do-content">
-                <p>
-                   Precision is at the heart of what we do. Our Machine Department handles cutting, shaping, and refining materials with expert accuracy ensuring every part fits perfectly into your retail or production needs.
-                </p>
-
-                <a href="#contact" class="what-we-do-btn">
-                    Get In Touch
-                </a>
-            </div>
-
-            <div class="what-we-do-image">
-                <img
-                    src="https://800retail.com/wp-content/uploads/2025/06/01_0001_Layer-4.jpg"
-                    alt="General Contracting"
-                />
-            </div>
-        </div>
-    </div>
-
-
-    <!-- 3. TECHNICAL DESIGN -->
-    <div class="what-we-do-item">
-        <button class="what-we-do-trigger" type="button">
-            <span class="what-we-do-arrow">&rsaquo;</span>
-            <span class="what-we-do-label">Metal Fabrication Robotic
-</span>
-        </button>
-
-        <div class="what-we-do-expanded">
-            <div class="what-we-do-content">
-                <p>
-Executes both manual and robotic fabrication processes, including cutting, welding, bending and forming of metal structures and components for retail fixtures and displays.
-
-
-                </p>
-
-                <a href="#contact" class="what-we-do-btn">
-                    Get In Touch
-                </a>
-            </div>
-
-            <div class="what-we-do-image">
-                <img
-                    src="https://800retail.com/wp-content/uploads/2025/06/Departmental-Structure_0001_Metal-Fabrication-Department.jpg"
-                    alt="Technical Design"
-                />
-            </div>
-        </div>
-    </div>
-
-
-    <!-- 4. CONCEPT DESIGN -->
-    <div class="what-we-do-item">
-        <button class="what-we-do-trigger" type="button">
-            <span class="what-we-do-arrow">&rsaquo;</span>
-            <span class="what-we-do-label">Metal Fabrication Department
-</span>
-        </button>
-
-        <div class="what-we-do-expanded">
-            <div class="what-we-do-content">
-                <p>
-From custom shelves and displays to durable fixtures, our team crafts solutions that are both practical and visually striking. Designed to fit your space, built to support your business.
-
-
-                </p>
-
-                <a href="#contact" class="what-we-do-btn">
-                    Get In Touch
-                </a>
-            </div>
-
-            <div class="what-we-do-image">
-                <img
-                    src="https://800retail.com/wp-content/uploads/2025/06/01_0000_Layer-5.jpg"
-                    alt="Concept Design"
-                />
-            </div>
-        </div>
-    </div>
-
-
-    <!-- 5. MANUFACTURING -->
-    <div class="what-we-do-item">
-        <button class="what-we-do-trigger" type="button">
-            <span class="what-we-do-arrow">&rsaquo;</span>
-            <span class="what-we-do-label">Lighting Integration Department
-</span>
-        </button>
-
-        <div class="what-we-do-expanded">
-            <div class="what-we-do-content">
-                <p>
-             From display shelves to architectural accents, our team seamlessly integrates lighting into your fixtures and spaces — enhancing visibility, mood, and the overall customer experience. Smart, sleek, and built to shine.
-
-
-                </p>
-
-                <a href="#contact" class="what-we-do-btn">
-                    Get In Touch
-                </a>
-            </div>
-
-            <div class="what-we-do-image">
-                <img
-                    src="https://800retail.com/wp-content/uploads/2025/06/Departmental-Structure_0002_Electrical-Integration-Assembly-Department.jpg"
-                    alt="Manufacturing"
-                />
-            </div>
-        </div>
-    </div>
-
-
-    <!-- 6. LOGISTICS -->
-    <div class="what-we-do-item">
-        <button class="what-we-do-trigger" type="button">
-            <span class="what-we-do-arrow">&rsaquo;</span>
-            <span class="what-we-do-label">Powder Coating & Surface Protection
-</span>
-        </button>
-
-        <div class="what-we-do-expanded">
-            <div class="what-we-do-content">
-                <p>
-   Applies high-performance powder coating and surface treatments to enhance durability, corrosion resistance and aesthetic finish of all metal products.
-
-
-                </p>
-
-                <a href="#contact" class="what-we-do-btn">
-                    Get In Touch
-                </a>
-            </div>
-
-            <div class="what-we-do-image">
-                <img
-                    src="https://800retail.com/wp-content/uploads/2025/06/Departmental-Structure_0004_3.Powder-Coating-Surface-Protection-Department.jpg"
-                    alt="Logistics"
-                />
-            </div>
-        </div>
-    </div>
-
-
-    <!-- 7. INSTALLATION -->
-    <div class="what-we-do-item">
-        <button class="what-we-do-trigger" type="button">
-            <span class="what-we-do-arrow">&rsaquo;</span>
-            <span class="what-we-do-label">Joinery & Carpentry Works Department
-</span>
-        </button>
-
-        <div class="what-we-do-expanded">
-            <div class="what-we-do-content">
-                <p>
-Specializes in precision wood joinery, carpentry, and custom fit-outs using a variety of materials, including solid wood and engineered boards, for modular retail components.
-
-
-                </p>
-
-                <a href="#contact" class="what-we-do-btn">
-                    Get In Touch
-                </a>
-            </div>
-
-            <div class="what-we-do-image">
-                <img
-                    src="https://800retail.com/wp-content/uploads/2025/06/01_0001_Layer-4_0003_Layer-1-copy-2.jpg"
-                    alt="Installation"
-                />
-            </div>
-        </div>
-    </div>
-
-
-    <!-- 8. PROTOTYPING -->
-    <div class="what-we-do-item">
-        <button class="what-we-do-trigger" type="button">
-            <span class="what-we-do-arrow">&rsaquo;</span>
-            <span class="what-we-do-label">
-               Painting Department
-
-            </span>
-        </button>
-
-        <div class="what-we-do-expanded">
-            <div class="what-we-do-content">
-                <p>
- Our Painting Department adds the final touch with precision-applied coatings that protect and enhance every piece. Whether it's bold branding or subtle elegance, we deliver a flawless finish every time.
-
-
-                </p>
-
-                <a href="#contact" class="what-we-do-btn">
-                    Get In Touch
-                </a>
-            </div>
-
-            <div class="what-we-do-image">
-                <img
-                    src="https://800retail.com/wp-content/uploads/2025/06/01_0001_Layer-4_0001_Layer-1.jpg"
-                    alt="Prototyping and Procurement"
-                />
-            </div>
-        </div>
-    </div>
-
-    <!-- 9. QUALITY CONTROL -->
-    <div class="what-we-do-item">
-        <button class="what-we-do-trigger" type="button">
-            <span class="what-we-do-arrow">&rsaquo;</span>
-            <span class="what-we-do-label"> QC Department
-</span>
-        </button>
-
-        <div class="what-we-do-expanded">
-            <div class="what-we-do-content">
-                <p>
-Our QC team inspects every detail, every time, ensuring that each product meets the highest standards before it reaches you. We don’t just check the boxes we protect your brand’s reputation.
-
-
-                </p>
-
-                <a href="#contact" class="what-we-do-btn">
-                    Get In Touch
-                </a>
-            </div>
-
-            <div class="what-we-do-image">
-                <img
-                    src="https://800retail.com/wp-content/uploads/2025/06/RTL-_0007_OC-OUT.jpg"
-                    alt="Quality Control"
-                />
-            </div>
-        </div>
-    </div>
-
-    <!-- 10. MAINTENANCE -->
-    <div class="what-we-do-item">
-        <button class="what-we-do-trigger" type="button">
-            <span class="what-we-do-arrow">&rsaquo;</span>
-            <span class="what-we-do-label">Packing & Dispatch
-</span>
-        </button>
-
-        <div class="what-we-do-expanded">
-            <div class="what-we-do-content">
-                <p>
-    Our Packing & Dispatch team ensures every product is carefully packed, protected, and delivered with precision. We make sure your order arrives exactly how you expect ready to shine from day one.
-
-
-                </p>
-
-                <a href="#contact" class="what-we-do-btn">
-                    Get In Touch
-                </a>
-            </div>
-
-            <div class="what-we-do-image">
-                <img
-                    src="https://800retail.com/wp-content/uploads/2025/06/01.jpg"
-                    alt="Maintenance"
-                />
-            </div>
-        </div>
-    </div>
-
-    <!-- 11. STORE DESIGN -->
-    <div class="what-we-do-item">
-        <button class="what-we-do-trigger" type="button">
-            <span class="what-we-do-arrow">&rsaquo;</span>
-            <span class="what-we-do-label"> Installation Department
-</span>
-        </button>
-
-        <div class="what-we-do-expanded">
-            <div class="what-we-do-content">
-                <p>
-           Manages final-stage packaging, safe handling, dispatch logistics and complete on-site installation of fabricated and joinery elements as per client specifications.
-
-
-                </p>
-
-                <a href="#contact" class="what-we-do-btn">
-                    Get In Touch
-                </a>
-            </div>
-
-            <div class="what-we-do-image">
-                <img
-                    src="https://800retail.com/wp-content/uploads/2025/06/RTL-_0002_INSTALLATION-DEPT-OUT.jpg"
-                    alt="Store Design"
-                />
-            </div>
-        </div>
-    </div>
-
-    <!-- 12. CONSULTING -->
-    <div class="what-we-do-item">
-        <button class="what-we-do-trigger" type="button">
-            <span class="what-we-do-arrow">&rsaquo;</span>
-            <span class="what-we-do-label">After Service
-</span>
-        </button>
-
-        <div class="what-we-do-expanded">
-            <div class="what-we-do-content">
-                <p>
-Integrates electrical systems into both metal and wood fixtures, including wiring, lighting, LED screen components and control units, ensuring full functional readiness.
-
-
-                </p>
-
-                <a href="#contact" class="what-we-do-btn">
-                    Get In Touch
-                </a>
-            </div>
-
-            <div class="what-we-do-image">
-                <img
-                    src="https://800retail.com/wp-content/uploads/2025/06/01_0001_Layer-4_0004_Layer-1-copy.jpg"
-                    alt="Consulting"
-                />
-            </div>
-        </div>
-    </div>
-
-</div>
-
-
+                  <div animate="card-stagger" class="home1_welcome_content">
+                    <div class="welcome_card">
+                      <div class="icon-wrap">
+                        <img
+                          src="./assets/images/flags/UAE.svg"
+                          loading="lazy"
+                          alt=""
+                          class="icon-height-medium"
+                        />
+                      </div>
+                      <div>
+                        <div class="text-size-small text-weight-light">
+                          UAE since 1997
+                        </div>
+                        <div
+                          class="text-size-small text-weight-light text-style-muted"
+                        >
+                        Delivering complete retail solutions with decades of experience across the region
+                        </div>
+                      </div>
+                    </div>
+                    <div class="welcome_card">
+                      <div class="icon-wrap">
+                        <img
+                          src="./assets/images/flags/KSA.svg"
+                          loading="lazy"
+                          alt=""
+                          class="icon-height-medium"
+                        />
+                      </div>
+                      <div>
+                        <div class="text-size-small text-weight-light">
+                          KSA since 2022
+                        </div>
+                        <div
+                          class="text-size-small text-weight-light text-style-muted"
+                        >
+                        Expanding our retail expertise with complete solutions for a growing market
+                        </div>
+                      </div>
+                    </div>
+                    <div class="welcome_card">
+                      <div class="icon-wrap">
+                        <img
+                          src="./assets/images/flags/CHINA.svg"
+                          loading="lazy"
+                          alt=""
+                          class="icon-height-medium"
+                        />
+                      </div>
+                      <div>
+                        <div class="text-size-small text-weight-light">
+                           CHINA since 2023
+                        </div>
+                        <div
+                          class="text-size-small text-weight-light text-style-muted"
+                        >
+                        Strengthening our global network through sourcing, manufacturing and innovation
+                        </div>
+                      </div>
+                    </div>
+                    <div class="welcome_card">
+                      <div class="icon-wrap">
+                        <img
+                          src="./assets/images/flags/INDIA.svg"
+                          loading="lazy"
+                          alt=""
+                          class="icon-height-medium"
+                        />
+                      </div>
+                      <div>
+                        <div class="text-size-small text-weight-light">
+                          INDIA (comming Soon)
+                        </div>
+                        <div
+                          class="text-size-small text-weight-light text-style-muted"
+                        >
+                        Bringing our retail expertise to India as we prepare for our next expansion
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
+
+
         
 <section class="section_home1_expertise">
   <div class="padding-outer-inline">
@@ -1433,172 +1124,399 @@ being in this journey along with us.
         </section>
 
 
-        <section class="section_home1_about">
-          <div class="padding-outer-inline">
-            <div
-              class="padding-global padding-section-medium background-color-alternate"
-            >
-              <div class="container-default">
-                <div animate="fade-up-1" class="home1_about_wrap">
-                  <div class="home1_about_content">
-                    <div class="home1_about_content-top" style="flex: 1; width: 100%;">
-                      <div animate="" class="text-style-badge">
-                        <div class="badge-dot"></div>
-                        <div>Locations We Serve</div>
-                      </div>
+        <section class="section_home1_welcome">
+          <div class="padding-global padding-section-medium">
+            <div class="container-default">
 
-                      <div class="spacer-small"></div>
-                      <div class="tools-list" style="width: 100%; flex: 1; grid-template-rows: 1fr 1fr;">
-                        <div class="tools-list_item" style="padding: 1.25rem; height: 100%; align-items: center; flex-direction: row; gap: 1rem; justify-content: flex-start;">
-                          <img src="assets/images/Building-office-4.svg" loading="lazy" alt="UAE" class="icon-height-medium" style="width: 28px; height: 28px; filter: invert(0.5);" />
-                          <div class="heading-style-h6" style="margin-bottom: 0; font-size: 1.1rem;">UAE</div>
-                        </div>
-                        <div class="tools-list_item" style="padding: 1.25rem; align-items: center; flex-direction: row; gap: 1rem; justify-content: flex-start;">
-                          <img src="assets/images/Building-office-4.svg" loading="lazy" alt="KSA" class="icon-height-medium" style="width: 28px; height: 28px; filter: invert(0.5);" />
-                          <div class="heading-style-h6" style="margin-bottom: 0; font-size: 1.1rem;">KSA</div>
-                        </div>
-                        <div class="tools-list_item" style="padding: 1.25rem; align-items: center; flex-direction: row; gap: 1rem; justify-content: flex-start;">
-                          <img src="assets/images/Building-office-4.svg" loading="lazy" alt="China" class="icon-height-medium" style="width: 28px; height: 28px; filter: invert(0.5);" />
-                          <div class="heading-style-h6" style="margin-bottom: 0; font-size: 1.1rem;">China</div>
-                        </div>
-                        <div class="tools-list_item" style="padding: 1.25rem; align-items: center; flex-direction: row; gap: 1rem; justify-content: flex-start; opacity: 0.7;">
-                          <img src="assets/images/Building-office-4.svg" loading="lazy" alt="India" class="icon-height-medium" style="width: 28px; height: 28px; filter: invert(0.5);" />
-                          <div style="display: flex; flex-direction: column; align-items: flex-start;">
-                            <div class="heading-style-h6" style="margin-bottom: 0; font-size: 1.1rem;">India</div>
-                            <div class="text-size-small text-weight-bold" style="color: #ff6118; margin-top: 0.1rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px;">Coming Soon</div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="spacer-medium"></div>
 
-                    </div>
-                    <div>
-                      <div class="text-size-medium text-weight-light text-style-muted">Our Core Services</div>
-                      <div class="spacer-tiny"></div>
-                      <div class="spacer-xxsmall"></div>
-                      <div class="tools-list" style="width: 100%;">
-                        <div class="tools-list_item">
-                          <img src="assets/images/features icon1.svg" loading="lazy" alt="" class="icon-height-medium" />
-                          <div>
-                            <div class="text-weight-bold" style="font-weight: 600;">Turnkey Retail Fit-outs</div>
-                            <div class="spacer-tiny"></div>
-                            <div class="text-size-small text-style-muted60" style="opacity: 0.8;">
-                              Comprehensive project management from initial design to final handover.
-                            </div>
-                          </div>
-                        </div>
-                        <div class="tools-list_item">
-                          <img src="assets/images/features icon2.svg" loading="lazy" alt="" class="icon-height-medium" />
-                          <div>
-                            <div class="text-weight-bold" style="font-weight: 600;">Installation & Execution</div>
-                            <div class="spacer-tiny"></div>
-                            <div class="text-size-small text-style-muted60" style="opacity: 0.8;">
-                              Flawless execution handled by our expert engineering and technical teams.
-                            </div>
-                          </div>
-                        </div>
-                        <div class="tools-list_item">
-                          <img src="assets/images/features icon3.svg" loading="lazy" alt="" class="icon-height-medium" />
-                          <div>
-                            <div class="text-weight-bold" style="font-weight: 600;">Fixture Manufacturing</div>
-                            <div class="spacer-tiny"></div>
-                            <div class="text-size-small text-style-muted60" style="opacity: 0.8;">
-                              State-of-the-art production of premium bespoke retail fixtures and kiosks.
-                            </div>
-                          </div>
-                        </div>
-                        <div class="tools-list_item">
-                          <img src="assets/images/features icon4.svg" loading="lazy" alt="" class="icon-height-medium" />
-                          <div>
-                            <div class="text-weight-bold" style="font-weight: 600;">Digital & LED Solutions</div>
-                            <div class="spacer-tiny"></div>
-                            <div class="text-size-small text-style-muted60" style="opacity: 0.8;">
-                              Immersive digital displays designed to elevate the modern in-store experience.
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+              <div class="home1_welcome_wrap">
+
+                <div class="home1_welcome_content-wrap">
+                  <div class="corner-frame">
+                    <div class="corner-frame_top-left"></div>
+                    <div class="corner-frame_top-right"></div>
+                    <div class="corner-frame_bottom-right"></div>
+                    <div class="corner-frame_bottom-left"></div>
                   </div>
-                  <div
-                    data-poster-url="assets/images/video-2-poster.jpg"
-                    data-video-urls="assets/media/video-1.mp4"
-                    data-autoplay="true"
-                    data-loop="true"
-                    data-wf-ignore="true"
-                    class="home1_about_img w-background-video w-background-video-atom"
-                  >
-                    <video
-                      id="81f666b8-5326-3209-bfb5-18fc4c1d4c78-video"
-                      autoplay=""
-                      loop=""
-                      style="
-                        background-image: url(https://frame-co-construction-architects.webflow.io/&quot;assets/images/video-2-poster.jpg&quot;);
-                      "
-                      muted=""
-                      playsinline=""
-                      data-wf-ignore="true"
-                      data-object-fit="cover"
-                    >
-                      <source
-                        src="assets/media/video-1.mp4"
-                        data-wf-ignore="true"
-                      />
-                      <source
-                        src="assets/media/video-2.webm"
-                        data-wf-ignore="true"
-                      /></video
-                    ><noscript
-                      ><style>
-                        [data-wf-bgvideo-fallback-img] {
-                          display: none;
-                        }
-                        @media (prefers-reduced-motion: reduce) {
-                          [data-wf-bgvideo-fallback-img] {
-                            position: absolute;
-                            z-index: -100;
-                            display: inline-block;
-                            height: 100%;
-                            width: 100%;
-                            object-fit: cover;
-                          }
-                        }</style
-                      ><img
-                        data-wf-bgvideo-fallback-img="true"
-                        src="assets/images/video-2-poster.jpg"
-                        alt=""
-                    /></noscript>
-                    <div aria-live="polite">
-                      <button
-                        type="button"
-                        data-w-bg-video-control="true"
-                        aria-controls="81f666b8-5326-3209-bfb5-18fc4c1d4c78-video"
-                        class="w-backgroundvideo-backgroundvideoplaypausebutton w-background-video--control"
-                      >
-                        <span class="play-state"
-                          ><img
-                            loading="lazy"
-                            src="assets/images/play.svg"
-                            alt="Pause video"
-                            class="play-image" /></span
-                        ><span hidden="" class="pause-state"
-                          ><img
-                            loading="lazy"
-                            src="assets/images/pause.svg"
-                            alt="Play video"
-                            class="pause-image"
-                        /></span>
-                      </button>
-                    </div>
-                  </div>
+
+<div class="department-list">
+
+    <!-- 1. PROJECT MANAGEMENT -->
+    <div class="department-item active">
+        <button class="department-trigger" type="button">
+            <span class="department-arrow">&rsaquo;</span>
+            <span class="department-label">Design & Development Department
+</span>
+        </button>
+
+        <div class="department-expanded">
+            <div class="department-content">
+                <p>
+Leads the creative and technical design process, including concept development, engineering detailing and prototyping of metal and joinery solutions tailored for retail environments.
+                </p>
+
+                <a href="#contact" class="department-btn">
+                    Get In Touch
+                </a>
+            </div>
+
+            <div class="department-image">
+                <img
+                    src="https://800retail.com/wp-content/uploads/2025/06/Departmental-Structure_0005_1.-Design-Development-Departmen.jpg"
+                    alt="Project Management"
+                />
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 2. GENERAL CONTRACTING -->
+    <div class="department-item">
+        <button class="department-trigger" type="button">
+            <span class="department-arrow">&rsaquo;</span>
+            <span class="department-label">Machine Department
+</span>
+        </button>
+
+        <div class="department-expanded">
+            <div class="department-content">
+                <p>
+                   Precision is at the heart of what we do. Our Machine Department handles cutting, shaping, and refining materials with expert accuracy ensuring every part fits perfectly into your retail or production needs.
+                </p>
+
+                <a href="#contact" class="department-btn">
+                    Get In Touch
+                </a>
+            </div>
+
+            <div class="department-image">
+                <img
+                    src="https://800retail.com/wp-content/uploads/2025/06/01_0001_Layer-4.jpg"
+                    alt="General Contracting"
+                />
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 3. TECHNICAL DESIGN -->
+    <div class="department-item">
+        <button class="department-trigger" type="button">
+            <span class="department-arrow">&rsaquo;</span>
+            <span class="department-label">Metal Fabrication Robotic
+</span>
+        </button>
+
+        <div class="department-expanded">
+            <div class="department-content">
+                <p>
+Executes both manual and robotic fabrication processes, including cutting, welding, bending and forming of metal structures and components for retail fixtures and displays.
+
+
+                </p>
+
+                <a href="#contact" class="department-btn">
+                    Get In Touch
+                </a>
+            </div>
+
+            <div class="department-image">
+                <img
+                    src="https://800retail.com/wp-content/uploads/2025/06/Departmental-Structure_0001_Metal-Fabrication-Department.jpg"
+                    alt="Technical Design"
+                />
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 4. CONCEPT DESIGN -->
+    <div class="department-item">
+        <button class="department-trigger" type="button">
+            <span class="department-arrow">&rsaquo;</span>
+            <span class="department-label">Metal Fabrication Department
+</span>
+        </button>
+
+        <div class="department-expanded">
+            <div class="department-content">
+                <p>
+From custom shelves and displays to durable fixtures, our team crafts solutions that are both practical and visually striking. Designed to fit your space, built to support your business.
+
+
+                </p>
+
+                <a href="#contact" class="department-btn">
+                    Get In Touch
+                </a>
+            </div>
+
+            <div class="department-image">
+                <img
+                    src="https://800retail.com/wp-content/uploads/2025/06/01_0000_Layer-5.jpg"
+                    alt="Concept Design"
+                />
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 5. MANUFACTURING -->
+    <div class="department-item">
+        <button class="department-trigger" type="button">
+            <span class="department-arrow">&rsaquo;</span>
+            <span class="department-label">Lighting Integration Department
+</span>
+        </button>
+
+        <div class="department-expanded">
+            <div class="department-content">
+                <p>
+             From display shelves to architectural accents, our team seamlessly integrates lighting into your fixtures and spaces — enhancing visibility, mood, and the overall customer experience. Smart, sleek, and built to shine.
+
+
+                </p>
+
+                <a href="#contact" class="department-btn">
+                    Get In Touch
+                </a>
+            </div>
+
+            <div class="department-image">
+                <img
+                    src="https://800retail.com/wp-content/uploads/2025/06/Departmental-Structure_0002_Electrical-Integration-Assembly-Department.jpg"
+                    alt="Manufacturing"
+                />
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 6. LOGISTICS -->
+    <div class="department-item">
+        <button class="department-trigger" type="button">
+            <span class="department-arrow">&rsaquo;</span>
+            <span class="department-label">Powder Coating & Surface Protection
+</span>
+        </button>
+
+        <div class="department-expanded">
+            <div class="department-content">
+                <p>
+   Applies high-performance powder coating and surface treatments to enhance durability, corrosion resistance and aesthetic finish of all metal products.
+
+
+                </p>
+
+                <a href="#contact" class="department-btn">
+                    Get In Touch
+                </a>
+            </div>
+
+            <div class="department-image">
+                <img
+                    src="https://800retail.com/wp-content/uploads/2025/06/Departmental-Structure_0004_3.Powder-Coating-Surface-Protection-Department.jpg"
+                    alt="Logistics"
+                />
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 7. INSTALLATION -->
+    <div class="department-item">
+        <button class="department-trigger" type="button">
+            <span class="department-arrow">&rsaquo;</span>
+            <span class="department-label">Joinery & Carpentry Works Department
+</span>
+        </button>
+
+        <div class="department-expanded">
+            <div class="department-content">
+                <p>
+Specializes in precision wood joinery, carpentry, and custom fit-outs using a variety of materials, including solid wood and engineered boards, for modular retail components.
+
+
+                </p>
+
+                <a href="#contact" class="department-btn">
+                    Get In Touch
+                </a>
+            </div>
+
+            <div class="department-image">
+                <img
+                    src="https://800retail.com/wp-content/uploads/2025/06/01_0001_Layer-4_0003_Layer-1-copy-2.jpg"
+                    alt="Installation"
+                />
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 8. PROTOTYPING -->
+    <div class="department-item">
+        <button class="department-trigger" type="button">
+            <span class="department-arrow">&rsaquo;</span>
+            <span class="department-label">
+               Painting Department
+
+            </span>
+        </button>
+
+        <div class="department-expanded">
+            <div class="department-content">
+                <p>
+ Our Painting Department adds the final touch with precision-applied coatings that protect and enhance every piece. Whether it's bold branding or subtle elegance, we deliver a flawless finish every time.
+
+
+                </p>
+
+                <a href="#contact" class="department-btn">
+                    Get In Touch
+                </a>
+            </div>
+
+            <div class="department-image">
+                <img
+                    src="https://800retail.com/wp-content/uploads/2025/06/01_0001_Layer-4_0001_Layer-1.jpg"
+                    alt="Prototyping and Procurement"
+                />
+            </div>
+        </div>
+    </div>
+
+    <!-- 9. QUALITY CONTROL -->
+    <div class="department-item">
+        <button class="department-trigger" type="button">
+            <span class="department-arrow">&rsaquo;</span>
+            <span class="department-label"> QC Department
+</span>
+        </button>
+
+        <div class="department-expanded">
+            <div class="department-content">
+                <p>
+Our QC team inspects every detail, every time, ensuring that each product meets the highest standards before it reaches you. We don’t just check the boxes we protect your brand’s reputation.
+
+
+                </p>
+
+                <a href="#contact" class="department-btn">
+                    Get In Touch
+                </a>
+            </div>
+
+            <div class="department-image">
+                <img
+                    src="https://800retail.com/wp-content/uploads/2025/06/RTL-_0007_OC-OUT.jpg"
+                    alt="Quality Control"
+                />
+            </div>
+        </div>
+    </div>
+
+    <!-- 10. MAINTENANCE -->
+    <div class="department-item">
+        <button class="department-trigger" type="button">
+            <span class="department-arrow">&rsaquo;</span>
+            <span class="department-label">Packing & Dispatch
+</span>
+        </button>
+
+        <div class="department-expanded">
+            <div class="department-content">
+                <p>
+    Our Packing & Dispatch team ensures every product is carefully packed, protected, and delivered with precision. We make sure your order arrives exactly how you expect ready to shine from day one.
+
+
+                </p>
+
+                <a href="#contact" class="department-btn">
+                    Get In Touch
+                </a>
+            </div>
+
+            <div class="department-image">
+                <img
+                    src="https://800retail.com/wp-content/uploads/2025/06/01.jpg"
+                    alt="Maintenance"
+                />
+            </div>
+        </div>
+    </div>
+
+    <!-- 11. STORE DESIGN -->
+    <div class="department-item">
+        <button class="department-trigger" type="button">
+            <span class="department-arrow">&rsaquo;</span>
+            <span class="department-label"> Installation Department
+</span>
+        </button>
+
+        <div class="department-expanded">
+            <div class="department-content">
+                <p>
+           Manages final-stage packaging, safe handling, dispatch logistics and complete on-site installation of fabricated and joinery elements as per client specifications.
+
+
+                </p>
+
+                <a href="#contact" class="department-btn">
+                    Get In Touch
+                </a>
+            </div>
+
+            <div class="department-image">
+                <img
+                    src="https://800retail.com/wp-content/uploads/2025/06/RTL-_0002_INSTALLATION-DEPT-OUT.jpg"
+                    alt="Store Design"
+                />
+            </div>
+        </div>
+    </div>
+
+    <!-- 12. CONSULTING -->
+    <div class="department-item">
+        <button class="department-trigger" type="button">
+            <span class="department-arrow">&rsaquo;</span>
+            <span class="department-label">After Service
+</span>
+        </button>
+
+        <div class="department-expanded">
+            <div class="department-content">
+                <p>
+Integrates electrical systems into both metal and wood fixtures, including wiring, lighting, LED screen components and control units, ensuring full functional readiness.
+
+
+                </p>
+
+                <a href="#contact" class="department-btn">
+                    Get In Touch
+                </a>
+            </div>
+
+            <div class="department-image">
+                <img
+                    src="https://800retail.com/wp-content/uploads/2025/06/01_0001_Layer-4_0004_Layer-1-copy.jpg"
+                    alt="Consulting"
+                />
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
                 </div>
               </div>
             </div>
-            <div class="padding-global background-color-alternate">
-              <div class="container-default"><div class="divider"></div></div>
-            </div>
           </div>
         </section>
+
+
+
         <section class="section_home1_values">
           <div class="padding-outer-inline">
             <div
