@@ -995,7 +995,9 @@ textarea.w-select {
   width: 0;
   height: 0;
   position: absolute;
-  top: 100%;
+  top: calc(100% + 15px);
+  /* Invisible bridge for hover */
+  box-shadow: 0 -15px 0 transparent, 0 10px 20px rgba(0,0,0,0.1);
   left: 50%;
 }
 .w-widget-twitter-count-shim.w--vertical:before {
@@ -1641,7 +1643,9 @@ textarea.w-select {
   background: #c8c8c8;
   min-width: 200px;
   position: absolute;
-  top: 100%;
+  top: calc(100% + 15px);
+  /* Invisible bridge for hover */
+  box-shadow: 0 -15px 0 transparent, 0 10px 20px rgba(0,0,0,0.1);
   left: 0;
   right: 0;
   overflow: visible;
@@ -1655,7 +1659,9 @@ textarea.w-select {
   width: 100%;
   display: none;
   position: absolute;
-  top: 100%;
+  top: calc(100% + 15px);
+  /* Invisible bridge for hover */
+  box-shadow: 0 -15px 0 transparent, 0 10px 20px rgba(0,0,0,0.1);
   left: 0;
   right: 0;
   overflow: hidden;
@@ -10204,5 +10210,70 @@ blockquote {
 @media (max-width: 767px) {
   .grid-3-cols {
     grid-template-columns: 1fr !important;
+  }
+}
+
+
+/* Custom Nav Toggle Colors */
+.nav-menu-btn-line-top, .nav-menu-btn-line-bottom { background-color: var(--color-base--white) !important; }
+
+/* Simple Dropdown Override */
+.nav-dropdown {
+  position: relative;
+}
+.simple-dropdown-list {
+  background-color: var(--color-base--white);
+  border: 1px solid var(--color-neutral--shade-200);
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  padding: 10px 0;
+  min-width: 200px;
+  position: absolute;
+  top: calc(100% + 15px);
+  /* Invisible bridge for hover */
+  box-shadow: 0 -15px 0 transparent, 0 10px 20px rgba(0,0,0,0.1);
+  left: 0;
+}
+.simple-dropdown-link {
+  display: block;
+  padding: 12px 24px;
+  color: var(--color-base--black);
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+.simple-dropdown-link:hover {
+  background-color: var(--color-neutral--shade-100);
+}
+@media screen and (max-width: 991px) {
+  .simple-dropdown-list {
+    position: static;
+    box-shadow: none;
+    border: none;
+    background-color: transparent;
+    padding-left: 20px;
+  }
+  .simple-dropdown-link {
+    color: var(--color-base--white);
+  }
+}
+
+.simple-dropdown-list::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background: transparent;
+}
+
+.simple-dropdown-list {
+  display: none;
+  z-index: 999;
+}
+@media screen and (max-width: 991px) {
+  .nav-dropdown-toggle {
+    cursor: pointer;
   }
 }
