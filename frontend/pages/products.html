@@ -38,10 +38,18 @@
         visibility: visible !important;
       }
     
+            .modern-row:last-child {
+              border-bottom: none;
+              padding-bottom: 0;
+              margin-bottom: 0;
+            }
+
     @media screen and (max-width: 767px) {
-        .project-horizontal-content { padding: 1.5rem !important; }
-        .project-horizontal-title { font-size: 1.5rem !important; }
-        .project-horizontal-card { margin-bottom: 2rem; }
+        .modern-row { margin-bottom: 3rem; padding-bottom: 3rem; }
+        .modern-title { font-size: 1.75rem !important; }
+        .modern-meta { flex-direction: column; gap: 1rem; }
+        .products-filter-bar { gap: 0.5rem; }
+        .product-filter-btn { padding: 0.5rem 1rem; font-size: 0.85rem; }
     }
 </style>
     <link href="https://fonts.googleapis.com" rel="preconnect" />
@@ -322,293 +330,317 @@
           }
         
     @media screen and (max-width: 767px) {
-        .project-horizontal-content { padding: 1.5rem !important; }
-        .project-horizontal-title { font-size: 1.5rem !important; }
-        .project-horizontal-card { margin-bottom: 2rem; }
+        .modern-row { margin-bottom: 3rem; padding-bottom: 3rem; }
+        .modern-title { font-size: 1.75rem !important; }
+        .modern-meta { flex-direction: column; gap: 1rem; }
+        .products-filter-bar { gap: 0.5rem; }
+        .product-filter-btn { padding: 0.5rem 1rem; font-size: 0.85rem; }
     }
 </style>
       </div>
-      <main class="main-wrapper">
-        
-<section class="section_projects_hero" style="background-image: url(../assets/images/layer-top.svg);  position: relative; overflow: hidden; background-color: var(--color-base--black); min-height: 80vh; display: flex; align-items: center; justify-content: center;">
-  <!-- Background Image with Parallax / Scale effect -->
-  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;">
-    <!-- <img src="../assets/images/Interior-2.avif" alt="Featured Project" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.5; transform: scale(1.05); filter: contrast(1.1) saturate(1.2);" /> -->
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, var(--color-base--black) 100%);"></div>
-  </div>
-
-  <div class="padding-global padding-section-medium" style="position: relative; z-index: 1; width: 100%;">
-    <div class="container-default">
-      <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-        
-        <div animate="load-hero-1" class="text-style-badge" style="justify-content: center; margin-bottom: 2rem; border-color: rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); backdrop-filter: blur(5px);">
-          <div class="badge-dot" style="background-color: var(--secondary);"></div>
-          <div style="color: var(--color-base--white); letter-spacing: 2px; text-transform: uppercase; font-size: 0.75rem; font-weight: 600;">Our Portfolio</div>
-        </div>
-        
-        <h1 animate="load-hero-title" style="color: var(--color-base--white); font-size: clamp(3.5rem, 8vw, 6rem); line-height: 1.05; margin-bottom: 1.5rem; font-family: var(--fonts--heading); font-weight: bold; letter-spacing: -1px;">
-          Spaces That <br/> <span style="color: var(--secondary);">Inspire.</span>
-        </h1>
-        
-        <p animate="load-hero-2" style="color: rgba(255,255,255,0.7); font-size: 1.15rem; line-height: 1.7; max-width: 600px; margin: 0 auto 3.5rem auto; font-weight: 300;">
-          From the first concept sketch to the final execution, we deliver bespoke retail and commercial fit-outs that stand the test of time. Explore our global footprint of successful projects.
-        </p>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-        <section class="section_projects_list">
-          <div class="padding-outer-inline">
-            <div
-              class="padding-global padding-section-medium background-color-alternate"
-            >
+      
+        <main class="main-wrapper">
+          
+          <!-- Hero Section -->
+          <section class="section_products_hero" style="background-color: var(--color-base--black); padding: 10rem 0 6rem 0; position: relative; background-image: url(../assets/images/layer-top.svg);">
+            <img src="../assets/images/layer-top.svg" loading="lazy" alt="" class="hero-layer" style="position: absolute; top: 0; right: 0; max-width: 50%; opacity: 0.15;" />
+            <div class="padding-global padding-section-medium" style="position: relative; z-index: 1;">
               <div class="container-default">
-                <div class="projects_list_wrap">
-                  <div class="w-dyn-list">
-                    <div role="list" class="projects_list w-dyn-items" id="projects-container" style="display: block;">
-  <!-- Cards will be dynamically injected here by projects-renderer.js -->
-                          </div>
-                    </div>
+                <div style="max-width: 800px;">
+                  <div animate="load-hero-1" class="text-style-badge" style="margin-bottom: 2rem; border-color: rgba(255,255,255,0.2);">
+                    <div class="badge-dot" style="background-color: var(--secondary);"></div>
+                    <div style="color: var(--color-base--white); letter-spacing: 2px; text-transform: uppercase; font-size: 0.75rem; font-weight: 600;">Products & Solutions</div>
                   </div>
+                  <h1 animate="load-hero-title" style="color: var(--color-base--white); font-size: clamp(3rem, 6vw, 4.5rem); line-height: 1.1; margin-bottom: 1.5rem; font-family: var(--fonts--heading); font-weight: bold; letter-spacing: -1px;">
+                    Innovating <span style="color: var(--secondary);">Retail</span> Environments.
+                  </h1>
+                  <p animate="load-hero-2" style="color: rgba(255,255,255,0.7); font-size: 1.15rem; line-height: 1.7; max-width: 650px; font-weight: 300;">
+                    Explore our comprehensive range of high-performance retail fixtures, immersive LED screens, architectural lightboxes, and bespoke custom fabrication offerings.
+                  </p>
                 </div>
               </div>
             </div>
           </section>
 
+          <!-- Dynamic Products Listing -->
+          <section class="section_products_listing" style="background-color: var(--color-base--white); padding: 8rem 0; min-height: 80vh;">
+            <div class="padding-global">
+              <div class="container-default">
+                
+                <!-- Filters -->
+                <div class="products-filter-bar" animate="fade-up-1">
+                  <button class="product-filter-btn active" data-filter="All">All Solutions</button>
+                  <button class="product-filter-btn" data-filter="Retail Fixtures">Retail Fixtures</button>
+                  <button class="product-filter-btn" data-filter="LED Screens">LED Screens</button>
+                  <button class="product-filter-btn" data-filter="Lightboxes & Lighting">Lightboxes & Lighting</button>
+                  <button class="product-filter-btn" data-filter="Custom Fabrication">Custom Fabrication</button>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="products-grid" id="products-grid" animate="fade-up-2">
+                  <!-- Injected via JS -->
+                </div>
+
+              </div>
+            </div>
+          </section>
+
           <style>
-            .projects_list {
-              display: block !important;
+            .products-filter-bar {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 1.5rem;
+              margin-bottom: 6rem;
+              justify-content: center;
             }
-            .project-horizontal-card {
+            .product-filter-btn {
+              background: transparent;
+              border: 1px solid rgba(0,0,0,0.1);
+              padding: 0.75rem 2rem;
+              border-radius: 0;
+              font-size: 0.95rem;
+              font-family: var(--fonts--body);
+              font-weight: 500;
+              color: rgba(0,0,0,0.5);
+              cursor: pointer;
+              transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            }
+            .product-filter-btn:hover {
+              color: var(--color-base--black);
+              border-color: rgba(0,0,0,0.3);
+            }
+            .product-filter-btn.active {
+              background: var(--color-base--black);
+              border-color: var(--color-base--black);
+              color: var(--color-base--white);
+              box-shadow: none;
+            }
+
+            .products-grid {
+              display: flex;
+              flex-direction: column;
+            }
+            
+            .modern-row {
               display: grid;
               grid-template-columns: 1.2fr 1fr;
-              gap: 0;
-              background-color: var(--color-base--white);
-              border-radius: var(--radius--default);
+              gap: 5rem;
+              align-items: center;
+              border-bottom: 1px solid rgba(0,0,0,0.1);
+              padding-bottom: 4rem;
+              margin-bottom: 4rem;
+            }
+            
+            /* Alternating Layout */
+            .modern-row:nth-child(even) {
+              grid-template-columns: 1fr 1.2fr;
+            }
+            .modern-row:nth-child(even) .modern-media-wrap {
+              order: 2;
+            }
+            .modern-row:nth-child(even) .modern-content {
+              order: 1;
+            }
+            
+            .modern-media-wrap {
+              width: 100%;
+              aspect-ratio: 16 / 9;
+              position: relative;
+              background: #000;
+              border-radius: 0;
               overflow: hidden;
-              box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-              transition: transform 0.3s ease, box-shadow 0.3s ease;
+              box-shadow: none;
               border: 1px solid rgba(0,0,0,0.05);
             }
             
-            
-            .project-horizontal-card.reverse {
-              grid-template-columns: 1fr 1.2fr;
-            }
-            .project-horizontal-card.reverse .project-horizontal-content {
-              order: 1; /* Content on left */
-            }
-            .project-horizontal-card.reverse .project-horizontal-media {
-              order: 2; /* Image on right */
-            }
-            @media screen and (max-width: 991px) {
-              .project-horizontal-card.reverse {
-                grid-template-columns: 1fr;
-              }
-              .project-horizontal-card.reverse .project-horizontal-content {
-                order: 2; /* Content bottom on mobile */
-              }
-              .project-horizontal-card.reverse .project-horizontal-media {
-                order: 1; /* Image top on mobile */
-              }
-            }
-
-            .project-horizontal-card:hover {
-              transform: translateY(-5px);
-              box-shadow: 0 20px 50px rgba(0,0,0,0.12);
-            }
-            
-            .project-horizontal-media {
-              position: relative;
+            .modern-media-wrap iframe {
               width: 100%;
               height: 100%;
-              min-height: 400px;
-              cursor: pointer;
-              background-color: #000;
-              overflow: hidden;
-            }
-            
-            .project-horizontal-img {
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
+              border: none;
               position: absolute;
               top: 0;
               left: 0;
-              opacity: 0.85;
-              transition: opacity 0.3s, transform 0.5s ease;
             }
             
-            .project-horizontal-media:hover .project-horizontal-img {
-              opacity: 0.6;
-              transform: scale(1.05);
+            .modern-row-img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              transition: transform 0.6s ease;
             }
-            
-            .project-horizontal-play {
+            .modern-media-wrap:hover .modern-row-img {
+              transform: scale(1.03);
+            }
+
+            .modern-category-tag {
               position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-              width: 70px;
-              height: 70px;
-              background-color: #ff0000;
-              border-radius: 50%;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-              box-shadow: 0 10px 20px rgba(255,0,0,0.3);
+              top: 0;
+              left: 0;
+              background: var(--color-base--black);
+              padding: 0.5rem 1rem;
+              border-radius: 0;
+              font-size: 0.75rem;
+              font-weight: 700;
+              color: var(--color-base--white);
+              text-transform: uppercase;
+              letter-spacing: 1px;
               z-index: 2;
+              box-shadow: none;
             }
-            
-            .project-horizontal-media:hover .project-horizontal-play {
-              transform: translate(-50%, -50%) scale(1.15);
-            }
-            
-            .project-horizontal-play svg {
-              margin-left: 4px;
-              width: 28px;
-              height: 28px;
-            }
-            
-            .project-horizontal-content {
-              padding: 3rem 4rem;
+
+            .modern-content {
               display: flex;
               flex-direction: column;
               justify-content: center;
-              background-color: #fcfcfc;
             }
             
-            .project-horizontal-meta {
+            .modern-title {
+              font-size: 2.2rem;
+              font-family: var(--fonts--heading);
+              font-weight: bold;
+              color: var(--color-base--black);
+              margin-bottom: 1.5rem;
+              line-height: 1.2;
+              letter-spacing: -0.5px;
+            }
+            
+            .modern-meta {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 1.5rem;
+              margin-bottom: 2rem;
+              padding-bottom: 2rem;
+              border-bottom: 1px solid rgba(0,0,0,0.08);
+            }
+            .meta-block {
+              display: flex;
+              flex-direction: column;
+              gap: 0.25rem;
+            }
+            .meta-label {
+              font-size: 0.75rem;
+              font-weight: 600;
+              text-transform: uppercase;
+              letter-spacing: 1px;
+              color: rgba(0,0,0,0.4);
+            }
+            .meta-value {
               font-size: 0.95rem;
-              color: rgba(0,0,0,0.75);
+              font-weight: 500;
+              color: var(--color-base--black);
+            }
+
+            .scope-title {
+              font-weight: 700;
+              font-size: 0.85rem;
+              text-transform: uppercase;
+              letter-spacing: 1px;
+              color: var(--color-base--black);
+              margin-bottom: 1.25rem;
+            }
+            .scope-list {
+              list-style: none;
+              padding-left: 0;
+              margin: 0;
               display: flex;
               flex-direction: column;
               gap: 0.75rem;
-              padding-bottom: 1.75rem;
-              border-bottom: 1px solid rgba(0,0,0,0.1);
             }
-            
-            .project-horizontal-scope h4 {
-              font-size: 1.1rem;
-              color: var(--color-base--black);
-              margin-bottom: 1rem;
-              font-family: var(--fonts--heading);
-              font-weight: 600;
+            .scope-list li {
+              position: relative;
+              padding-left: 1.5rem;
+              font-size: 0.95rem;
+              color: rgba(0,0,0,0.6);
+              line-height: 1.5;
             }
-            
-            .project-horizontal-scope ul {
-              padding-left: 1.25rem;
-              margin: 0;
-              color: rgba(0,0,0,0.75);
+            .scope-list li::before {
+              content: "";
+              position: absolute;
+              left: 0;
+              top: 0.5rem;
+              width: 6px;
+              height: 6px;
+              background-color: var(--secondary);
+              border-radius: 0;
             }
-            
-            .project-horizontal-scope li {
-              margin-bottom: 0.75rem;
-              line-height: 1.6;
-              font-size: 14px;
+
+            .modern-row:last-child {
+              border-bottom: none;
+              padding-bottom: 0;
+              margin-bottom: 0;
             }
-            
-            .project-horizontal-scope li::marker {
-              color: #FF6118; /* YouTube Red / Brand Red */
-            }
-            
+
             @media screen and (max-width: 991px) {
-              .project-horizontal-card {
+              .modern-row, .modern-row:nth-child(even) {
                 grid-template-columns: 1fr;
+                gap: 3rem;
               }
-              .project-horizontal-media {
-                min-height: 250px;
+              .modern-row:nth-child(even) .modern-media-wrap {
+                order: 1;
               }
-              .project-horizontal-content {
-                padding: 2.5rem;
-              }
-            }
-            @media screen and (max-width: 479px) {
-              .project-horizontal-content {
-                padding: 1.5rem;
-              }
-              .project-horizontal-media {
-                min-height: 200px;
+              .modern-row:nth-child(even) .modern-content {
+                order: 2;
               }
             }
           
     @media screen and (max-width: 767px) {
-        .project-horizontal-content { padding: 1.5rem !important; }
-        .project-horizontal-title { font-size: 1.5rem !important; }
-        .project-horizontal-card { margin-bottom: 2rem; }
+        .modern-row { margin-bottom: 3rem; padding-bottom: 3rem; }
+        .modern-title { font-size: 1.75rem !important; }
+        .modern-meta { flex-direction: column; gap: 1rem; }
+        .products-filter-bar { gap: 0.5rem; }
+        .product-filter-btn { padding: 0.5rem 1rem; font-size: 0.85rem; }
     }
 </style>
 
-        <section class="section_home2_banner">
+       <section class="section_home1_banner">
+          <img
+            loading="lazy"
+            src="../assets/images/layer-top.svg"
+            alt=""
+            class="home1_banner_layer"
+          />
           <div class="padding-global padding-section-medium">
-            <div class="container-default">
-              <div class="home2_banner_wrap">
-                <div class="home2_banner_left">
-                  <div animate="fade-up-1" class="text-style-badge">
-                    <div class="badge-dot"></div>
-                    <div>Get Started</div>
-                  </div>
-                  <div class="max-width-small">
-                    <h2 animate="title">Let's Build Something That Lasts</h2>
-                  </div>
-                  <div animate="fade-up-2" class="button-group">
-                    <a
-                      button=""
-                      href="../pages/divisions.html"
-                      class="button is-secondary is-small w-inline-block"
-                      ><div class="button-mask">
-                        <div button-text="" class="button-text">
-                          Explore Divisions
-                        </div>
-                        <div button-text="" class="button-text-hover">
-                          Explore Divisions
-                        </div>
-                      </div></a
-                    ><a
-                      button=""
-                      href="../pages/contact.html"
-                      class="button is-transparent is-small w-inline-block"
-                      ><div class="button-mask">
-                        <div button-text="" class="button-text">Contact Us</div>
-                        <div button-text="" class="button-text-hover">
-                          Contact Us
-                        </div>
-                      </div></a
-                    >
-                  </div>
+            <div class="container-small">
+              <div class="home1_banner_wrap">
+                <h2 animate="title">Lets'sBuild Something That Lasts</h2>
+                <div
+                  animate="fade-up-2"
+                  class="text-size-medium text-weight-light"
+                >
+                  From design to delivery, we turn ideas into enduring spaces
+                  that inspire trust and stand the test of time.
                 </div>
-                <div animate="fade-up-3" class="home2_banner_right">
-                  <img
-                    width="634"
-                    height="296"
-                    alt="800Retail"
-                    src="../assets/images/People-3.avif"
-                    loading="lazy"
-                    sizes="(max-width: 1856px) 100vw, 1856px"
-                    srcset="
-                      ../assets/images/People-3-p-500.avif   500w,
-                      ../assets/images/People-3-p-800.avif   800w,
-                      ../assets/images/People-3-p-1080.avif 1080w,
-                      ../assets/images/People-3-p-1600.avif 1600w,
-                      ../assets/images/People-3.avif        1856w
-                    "
-                    class="home2_banner_img"
-                  /><img
-                    src="../assets/images/home2-layer-1.svg"
-                    loading="lazy"
-                    alt=""
-                    class="home2_banner_layer"
-                  />
+                <div animate="fade-up-3" class="button-group">
+                  <a
+                    button=""
+                    href="../pages/divisions.html"
+                    class="button is-secondary is-small w-inline-block"
+                    ><div class="button-mask">
+                      <div button-text="" class="button-text">
+                        Explore Divisions
+                      </div>
+                      <div button-text="" class="button-text-hover">
+                        Explore Divisions
+                      </div>
+                    </div></a
+                  ><a
+                    button=""
+                    href="pages/contact.html"
+                    class="button is-alternative is-small w-inline-block"
+                    ><div class="button-mask">
+                      <div button-text="" class="button-text">Contact Us</div>
+                      <div button-text="" class="button-text-hover">
+                        Contact Us
+                      </div>
+                    </div></a
+                  >
                 </div>
               </div>
             </div>
           </div>
         </section>
+
+
       </main>
       <footer class="footer">
         <div class="container-default">
@@ -703,56 +735,97 @@
     ></script>
     <script src="../assets/js/main.js" type="text/javascript"></script>
   
-      <script src="../assets/data/projects.js" type="text/javascript"></script>
-      <script type="text/javascript">
-        document.addEventListener("DOMContentLoaded", () => {
-          const container = document.getElementById('projects-container');
-          if (!container) return;
-          
-          let html = "";
-          projectsData.forEach((project, index) => {
-            const isReverse = index % 2 !== 0; // Alternating layout
-            const reverseClass = isReverse ? 'reverse' : '';
-            
-            // Build bullets
-            const scopeBullets = project.scope.map(point => `<li>${point}</li>`).join("");
-            
-            // Video iframe template
-            const videoIframe = `<iframe src='https://www.youtube.com/embed/${project.videoId}?autoplay=1' frameborder='0' allow='autoplay; fullscreen' style='position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: var(--radius--default);'></iframe>`;
-            
-            html += `
-              <div animate="fade-up-1" role="listitem" class="w-dyn-item" style="margin-bottom: 4rem;">
-                <div class="project-horizontal-card ${reverseClass}">
-                  
-                  <div class="project-horizontal-media" onclick="this.innerHTML=\`${videoIframe}\`;">
-                    <img src="${project.thumbnail}" alt="${project.title}" class="project-horizontal-img" />
-                  </div>
-
-                  <div class="project-horizontal-content">
-                    <h3 class="heading-style-h3" style="color: var(--color-base--black); margin-bottom: 1.5rem; font-family: var(--fonts--heading); font-weight: bold;">${project.title}</h3>
+      
+<script src="../assets/data/products.js" type="text/javascript"></script>
+          <script type="text/javascript">
+            document.addEventListener("DOMContentLoaded", () => {
+              const grid = document.getElementById('products-grid');
+              const filterBtns = document.querySelectorAll('.product-filter-btn');
+              
+              if (!grid || typeof productsData === 'undefined') return;
+              
+              const renderCards = (filterCategory) => {
+                let html = "";
+                productsData.forEach((p) => {
+                  if (filterCategory === 'All' || p.category === filterCategory) {
                     
-                    <div class="project-horizontal-meta">
-                      <div><strong style="color: var(--color-base--black); font-weight: 600;">Store Name:</strong> ${project.storeName}</div>
-                      <div><strong style="color: var(--color-base--black); font-weight: 600;">Location:</strong> ${project.location}</div>
-                    </div>
+                    let metaHtml = '<div class="modern-meta">';
+                    const allowedMeta = ['Location', 'Store Type', 'Store Size', 'Type', 'Application', 'Material'];
+                    let hasMeta = false;
+                    
+                    // Always show Store Name if available
+                    if (p.details && p.details['Store Name']) {
+                      metaHtml += `<div class="meta-block"><span class="meta-label">Store Name</span><span class="meta-value">${p.details['Store Name']}</span></div>`;
+                      hasMeta = true;
+                    }
+                    
+                    for (const [key, value] of Object.entries(p.details || {})) {
+                      if (key !== 'Store Name' && allowedMeta.includes(key) && value && value.trim() !== '') {
+                        metaHtml += `<div class="meta-block"><span class="meta-label">${key}</span><span class="meta-value">${value}</span></div>`;
+                        hasMeta = true;
+                      }
+                    }
+                    metaHtml += '</div>';
+                    if (!hasMeta) metaHtml = '';
 
-                    <div class="project-horizontal-scope">
-                      <h4> Project Specifics</h4>
-                      <ul>
-                        ${scopeBullets}
-                      </ul>
-                    </div>
-                  </div>
+                    let scopeHtml = '';
+                    if (p.details && p.details['Scope of Project'] && p.details['Scope of Project'].length > 0) {
+                      scopeHtml += `
+                        <div class="scope-section">
+                          <div class="scope-title">Scope of Project:</div>
+                          <ul class="scope-list">
+                      `;
+                      p.details['Scope of Project'].forEach(item => {
+                        scopeHtml += `<li>${item}</li>`;
+                      });
+                      scopeHtml += `
+                          </ul>
+                        </div>
+                      `;
+                    }
 
-                </div>
-              </div>
-            `;
-          });
-          
-          container.innerHTML = html;
-        });
-      </script>
+                    let mediaHtml = '';
+                    if (p.video) {
+                      let vidUrl = p.video.includes('watch?v=') ? p.video.replace('watch?v=', 'embed/') : p.video;
+                      mediaHtml = `<iframe src="${vidUrl}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+                    } else if (p.image) {
+                      mediaHtml = `<img src="${p.image}" alt="${p.title}" class="modern-row-img" loading="lazy" onerror="this.src='../assets/images/project2.jpg'" />`;
+                    }
 
+                    html += `
+                      <div class="modern-row">
+                        <div class="modern-media-wrap">
+                          <div class="modern-category-tag">${p.category}</div>
+                          ${mediaHtml}
+                        </div>
+                        <div class="modern-content">
+                          <h3 class="modern-title">${p.title}</h3>
+                          ${metaHtml}
+                          ${scopeHtml}
+                        </div>
+                      </div>
+                    `;
+                  }
+                });
+                
+                grid.style.opacity = 0;
+                setTimeout(() => {
+                  grid.innerHTML = html;
+                  grid.style.opacity = 1;
+                }, 200);
+              };
+
+              grid.style.transition = "opacity 0.3s ease";
+              renderCards('All');
+              
+              filterBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                  filterBtns.forEach(b => b.classList.remove('active'));
+                  e.target.classList.add('active');
+                  renderCards(e.target.getAttribute('data-filter'));
+                });
+              });
+            });
+          </script>
     </body>
 </html>
-

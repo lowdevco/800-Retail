@@ -10277,3 +10277,132 @@ blockquote {
     cursor: pointer;
   }
 }
+
+/* ---- CRITICAL RESPONSIVE & NAVBAR FIXES ---- */
+.nav-menu-btn-icon div,
+.nav-menu-btn-line-top, 
+.nav-menu-btn-line-bottom, 
+.w-icon-nav-menu {
+    background-color: #ffffff !important;
+    color: #ffffff !important;
+}
+
+@media screen and (max-width: 991px) {
+    /* Ensure no overflow on mobile */
+    body {
+        overflow-x: hidden;
+    }
+    
+    /* General responsive constraints for tables and grids */
+    .table-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .elegant-table {
+        min-width: 600px; /* Let it scroll horizontally instead of squishing */
+    }
+    
+    .five-s-table {
+        min-width: 600px;
+    }
+    
+    /* Ensure padding is reasonable on mobile */
+    .padding-global {
+        padding-left: 1.25rem !important;
+        padding-right: 1.25rem !important;
+    }
+}
+
+/* ---- HAMBURGER MENU VISIBILITY & ORDER FIX ---- */
+.nav-right {
+    display: flex !important;
+}
+
+@media screen and (max-width: 991px) {
+    /* Reverse the order on mobile so button is left, hamburger is right */
+    .nav-right {
+        flex-direction: row-reverse !important;
+        align-items: center;
+        gap: 16px;
+    }
+    
+    /* Ensure the Get a Quote button is actually visible on tablet/mobile if desired */
+    .nav-right-button.hide-mobile {
+        display: flex !important; 
+    }
+}
+
+/* Force hamburger lines to be visible and white */
+.nav-menu-btn.w-nav-button {
+    background-color: transparent !important;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 44px !important;
+    height: 44px !important;
+    padding: 0 !important;
+    cursor: pointer;
+}
+
+.nav-menu-btn-icon {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 28px !important;
+    height: 18px !important;
+}
+
+.nav-menu-btn-line-top, 
+.nav-menu-btn-line-bottom {
+    display: block !important;
+    width: 100% !important;
+    height: 2px !important;
+    background-color: #ffffff !important;
+    min-height: 2px !important;
+}
+
+/* If Webflow tries to use the default icon font */
+.w-icon-nav-menu {
+    color: #ffffff !important;
+    font-size: 32px !important;
+}
+
+/* ---- HAMBURGER MENU 3-LINE & MOBILE QUOTE BUTTON FIX ---- */
+@media screen and (max-width: 550px) {
+    /* Hide the Get a Quote button on ultra-small screens */
+    .nav-right-button.hide-mobile {
+        display: none !important;
+    }
+}
+
+/* Convert 2-line minimalist hamburger to a standard 3-line hamburger */
+.nav-menu-btn-line-top { order: 1; }
+
+.nav-menu-btn-icon::after {
+    content: "";
+    display: block !important;
+    width: 100% !important;
+    height: 2px !important;
+    background-color: #ffffff !important;
+    min-height: 2px !important;
+    order: 2;
+}
+
+.nav-menu-btn-line-bottom { order: 3; }
+
+.nav-menu-btn-icon {
+    justify-content: space-between !important;
+    height: 22px !important; /* Slightly taller to accommodate 3 lines breathing room */
+}
+
+/* ---- FIX: HIDE HAMBURGER ON DESKTOP ---- */
+@media screen and (min-width: 992px) {
+    .nav-menu-btn.w-nav-button,
+    .nav-menu-btn-icon {
+        display: none !important;
+    }
+}
