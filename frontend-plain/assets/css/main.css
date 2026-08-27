@@ -10152,8 +10152,8 @@ blockquote {
 }
 
 .region-tab:hover {
-  color: var(--theme--text);
-  border-bottom-color: var(--theme--border);
+  color: #ffffff;
+  border-bottom-color: #ffffff;
 }
 
 .region-tab.is-active {
@@ -10901,10 +10901,10 @@ html.w-mod-js:not(.w-mod-ix3)
 /* ========================================================================== */
 /*                            TABLET (MAX-WIDTH: 991PX)                       */
 /* ========================================================================== */
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 995px) {
   .methodology-wrap {
-    grid-template-columns: 1fr;
-    gap: 3rem;
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
   }
 }
 
@@ -11135,10 +11135,10 @@ html.w-mod-js:not(.w-mod-ix3)
 /* ========================================================================== */
 /*                            TABLET (MAX-WIDTH: 991PX)                       */
 /* ========================================================================== */
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 995px) {
   .methodology-wrap {
-    grid-template-columns: 1fr;
-    gap: 3rem;
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
   }
 }
 
@@ -11907,8 +11907,8 @@ input[type="file"]:focus-visible {
 .five-s-table-light th,
 .five-s-table-light td {
   padding: 1.5rem 2rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  border-right: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  border-right: 1px solid rgba(0, 0, 0, 0.15);
   text-align: left;
   font-size: 1.05rem;
   color: var(--color-base--black);
@@ -13020,5 +13020,25 @@ input[type="file"]:focus-visible {
   }
   .project-horizontal-card {
     margin-bottom: 2rem;
+  }
+}
+
+
+/* Master Responsive Rule for Methodology Wrap */
+@media screen and (max-width: 995px) {
+  .methodology-wrap {
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
+  }
+}
+
+/* Responsive Table */
+@media screen and (max-width: 767px) {
+  .five-s-table th,
+  .five-s-table td,
+  .five-s-table-light th,
+  .five-s-table-light td {
+    padding: 0.75rem 1rem !important;
+    font-size: 0.9rem !important;
   }
 }

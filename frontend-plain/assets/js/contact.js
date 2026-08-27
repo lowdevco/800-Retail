@@ -125,9 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
       };
 
       card.innerHTML = `
-        <div class="icon-wrap is-light" style="flex-shrink:0;">
-          <img loading="lazy" src="../../assets/images/Building-office-4.svg" alt="" class="icon-height-medium" />
-        </div>
+
         <div style="flex:1;">
           <div class="text-size-small text-weight-light text-color-primary" style="font-weight:600; color: #ffffff;">
             ${store.title}
