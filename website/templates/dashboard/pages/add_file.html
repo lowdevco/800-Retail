@@ -1,0 +1,97 @@
+{% extends 'dashboard/LayoutMain.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+    
+
+        <div class="pagetitle">
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{% url 'file_manager' %}">Files</a></li>
+                    <li class="breadcrumb-item active">Add New File</li>
+                </ol>
+            </nav>
+        </div>
+
+        <section class="section profile">
+
+            <div class="container mt-5">
+
+                <div class="card border-0 shadow-sm modern-card">
+
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">
+                            Add New File
+                        </h5>
+                    </div>
+
+                    <div class="card-body p-4">
+
+                        <form method="POST" enctype="multipart/form-data">
+
+                            {% csrf_token %}
+
+                            <!-- Name Field -->
+                            <div class="mb-3">
+
+                                <label class="form-label fw-bold">
+                                    File Name
+                                </label>
+
+                                {{ form.name }}
+
+                                {% if form.name.errors %}
+                                <small class="text-danger">
+                                    {{ form.name.errors }}
+                                </small>
+                                {% endif %}
+
+                            </div>
+
+                            <!-- File Upload -->
+                            <div class="mb-3">
+
+                                <label class="form-label fw-bold">
+                                    Upload File
+                                </label>
+
+                                {{ form.image }}
+
+                                {% if form.image.errors %}
+                                <small class="text-danger">
+                                    {{ form.image.errors }}
+                                </small>
+                                {% endif %}
+
+                            </div>
+
+                            <!-- Buttons -->
+                            <div class="mt-4">
+
+                                <button type="submit" class="btn btn-primary">
+                                    Add File
+                                </button>
+
+                                <a href="{% url 'file_manager' %}" class="btn btn-secondary">
+                                    Back
+                                </a>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    
+
+{% endblock %}

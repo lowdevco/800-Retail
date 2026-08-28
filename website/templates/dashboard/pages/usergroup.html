@@ -1,0 +1,108 @@
+{% extends 'dashboard/LayoutMain.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="pagetitle">
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+          <li class="breadcrumb-item active">Usergroup</li>
+        </ol>
+      </nav>
+    </div>
+
+    <section class="section profile">
+
+      <div class="container my-4">
+        <div class="card border-0 shadow-sm modern-card">
+          <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <span class="card-header-title">Usergroup List</span>
+            <a href="{% url 'add_usergroup' %}" class="btn btn-light btn-sm">Add new</a>
+          </div>
+          <div class="card-body p-4">
+
+            <table id="usergroupTable" class="table table-bordered align-middle">
+              <thead>
+                <tr>
+                  <th>Sl.no</th>
+                  <th>Name</th>
+                  <th>Status</th>
+                  <th>Edit</th>
+                  <th>Permission</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% if usergroups %}
+                  {% for group in usergroups %}
+                  <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ group.name }}</td>
+                    <td>
+                      {% if group.status %}
+                      <span class="badge bg-success">&#10003;</span>
+                      {% else %}
+                      <span class="badge bg-danger">&#10007;</span>
+                      {% endif %}
+                    </td>
+                    <!-- Edit -->
+                    <td class="text-center">
+                      <a href="{% url 'edit_usergroup' group.id %}" class="text-primary" title="Edit">
+                        <i class="fas fa-edit"></i>
+                      </a>
+                    </td>
+                    <!-- Permission -->
+                    <td class="text-center">
+                      <a href="{% url 'user_permission' group.id %}" class="text-primary" title="Permission">
+                        <i class="fas fa-lock"></i>
+                      </a>
+                    </td>
+                    <!-- Delete Trigger -->
+                    <td class="text-center">
+                      <a href="javascript:void(0);"
+                         data-bs-toggle="modal"
+                         data-toggle="modal"
+                         data-bs-target="#deleteUserGroupModal{{ group.id }}"
+                         data-target="#deleteUserGroupModal{{ group.id }}"
+                         class="text-danger"
+                         title="Delete">
+                        <i class="fas fa-trash"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                {% else %}
+                  <tr>
+                    <td colspan="6" class="text-center">No Usergroups Found</td>
+                  </tr>
+                {% endif %}
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- Delete Modals rendered outside table flow -->
+{% for group in usergroups %}
+<div class="modal fade text-start delete-modal" id="deleteUserGroupModal{{ group.id }}" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" style="max-width: 380px;">
+    <div class="modal-content text-center p-3">
+      <div class="delete-modal-icon">
+        <i class="bi bi-trash3-fill"></i>
+      </div>
+      <div class="modal-body pt-2 pb-0">
+        <h5 class="delete-modal-title">Confirm Delete</h5>
+        <p class="delete-modal-text">Are you sure you want to delete <br><strong class="text-dark">{{ group.name }}</strong>?<br><small class="text-muted">This action cannot be undone.</small></p>
+      </div>
+      <div class="modal-footer d-flex gap-2 border-0 justify-content-center pt-4">
+        <button type="button" class="btn btn-light w-50 py-2 fw-semibold" data-bs-dismiss="modal" data-dismiss="modal">Cancel</button>
+        <a href="{% url 'usergroup_delete' group.id %}" class="btn btn-danger w-50 py-2 fw-semibold shadow-sm" onclick="window.location.href=this.href; return false;">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}

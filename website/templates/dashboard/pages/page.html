@@ -1,0 +1,120 @@
+{% extends 'dashboard/LayoutMain.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+    
+    <!-- End Sidebar-->
+
+    
+
+        <div class="pagetitle">
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                    <li class="breadcrumb-item active">Pages</li>
+                </ol>
+            </nav>
+        </div>
+
+        <section class="section profile">
+            <div class="container my-4">
+                <div class="card border-0 shadow-sm modern-card">
+                    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                        <span class="card-header-title">Pages List</span>
+
+                        <a href="{% url 'add_page' %}" class="btn btn-light btn-sm">
+                            Add New
+                        </a>
+                    </div>
+                    <div class="ca card-body">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Sl.no</th>
+                                    <th>Title</th>
+                                    <th>URL Slug</th>
+                                    <th>Priority</th>
+                                    <th>Show in Menu</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for page in pages %}
+                                <tr>
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>{{ page.title }}</td>
+                                    <td>{{ page.slug }}</td>
+                                    <td>{{ page.priority }}</td>
+                                    <td>
+                                        <a href="{% url 'toggle_page_status' page.id %}" title="{% if page.show_in_menu %}Click to deactivate{% else %}Click to activate{% endif %}">
+                                            {% if page.show_in_menu %}
+                                                <i class="fas fa-check text-success" style="font-size: 1.2rem;"></i>
+                                            {% else %}
+                                                <i class="fas fa-times text-danger" style="font-size: 1.2rem;"></i>
+                                            {% endif %}
+                                        </a>
+                                    </td>
+                                    <td><a href="{% url 'edit_page' page.id %}" class="text-primary" title="Edit"><i class="fas fa-edit"></i></a></td>
+                                    <td>
+                                        {% if page.slug not in 'home,about,service,booking,contact,location,location-creek-harbour,location-business-bay,location-down-town' %}
+                                        <a href="{% url 'delete_page' page.id %}" class="text-danger" title="Delete"
+                                           onclick="return confirmDelete(this.href, '{{ page.title|escapejs }}');">🗑</a>
+                                        {% else %}
+                                        <span class="text-muted" title="System Page (Cannot Delete)">-</span>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="8" class="text-center text-muted">No pages available. Please run migrations.</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+
+    <!-- End #main -->
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade delete-modal" id="deleteModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" style="max-width: 380px;">
+        <div class="modal-content text-center p-3">
+          <div class="delete-modal-icon">
+            <i class="bi bi-trash3-fill"></i>
+          </div>
+          <div class="modal-body pt-2 pb-0">
+            <h5 class="delete-modal-title">Confirm Delete</h5>
+            <p class="delete-modal-text">Are you sure you want to delete page<br><strong class="text-dark" id="deletePageTitle"></strong>?<br><small class="text-muted">This action cannot be undone.</small></p>
+          </div>
+          <div class="modal-footer d-flex gap-2 border-0 justify-content-center pt-4">
+            <button type="button" class="btn btn-light w-50 py-2 fw-semibold" data-bs-dismiss="modal" data-dismiss="modal" onclick="$(this).closest('.modal').modal('hide');">Cancel</button>
+            <a id="confirmDeleteBtn" href="#" class="btn btn-danger w-50 py-2 fw-semibold shadow-sm">Delete</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+    function confirmDelete(url, title) {
+        document.getElementById('deletePageTitle').textContent = title;
+        document.getElementById('confirmDeleteBtn').setAttribute('href', url);
+        var myModal = new bootstrap.Modal(document.getElementById('deleteModal'), {
+            keyboard: false
+        });
+        myModal.show();
+        return false;
+    }
+    </script>
+
+    
+
+    {% endblock %}

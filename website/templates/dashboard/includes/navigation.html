@@ -1,0 +1,62 @@
+{% load static %}
+<header id="header" class="header fixed-top d-flex align-items-center shadow-sm" style="min-height: 70px;">
+
+  <div class="d-flex align-items-center px-4">
+    <i class="bi bi-list toggle-sidebar-btn me-4 text-secondary" style="cursor: pointer; font-size: 1.8rem;"></i>
+    <a href="{% url 'index' %}" class="logo d-flex align-items-center text-decoration-none">
+      <img src="{% static 'dashboard/img/logo.svg' %}" alt="800retail Logo" style="max-height: 55px; object-fit: contain;">
+    </a>
+  </div>
+
+  <nav class="header-nav ms-auto pe-4">
+    <ul class="d-flex align-items-center m-0 p-0" style="list-style: none;">
+
+      <li class="nav-item dropdown ms-3">
+        <a class="nav-link nav-profile d-flex align-items-center text-decoration-none p-0" href="#" data-bs-toggle="dropdown">
+          {% if global_user_profile and global_user_profile.image %}
+            <img src="{{ global_user_profile.image.url }}" alt="Profile" class="rounded-circle shadow-sm border border-2" style="width: 42px; height: 42px; object-fit: cover;">
+          {% else %}
+            <img src="{% static 'dashboard/img/default.jpg' %}" alt="Profile" class="rounded-circle shadow-sm border border-2" style="width: 42px; height: 42px; object-fit: cover;">
+          {% endif %}
+          <span class="d-none d-md-block dropdown-toggle ps-2 fw-semibold text-dark" style="font-size: 0.95rem;">
+            {% if global_user_profile and global_user_profile.name %}{{ global_user_profile.name }}{% else %}{{ request.user.username }}{% endif %}
+          </span>
+        </a>
+
+        <ul class="dropdown-menu dropdown-menu-end profile shadow border-0 rounded-3 m-0 mt-1">
+          <li class="dropdown-header text-center py-3 bg-light rounded-top">
+            <h6 class="mb-0 fw-bold fs-6" style="color: var(--primary-dark);">
+              {% if global_user_profile and global_user_profile.name %}{{ global_user_profile.name }}{% else %}{{ request.user.username }}{% endif %}
+            </h6>
+          </li>
+          <li><hr class="dropdown-divider m-0"></li>
+
+          <li>
+            <a class="dropdown-item d-flex align-items-center py-2 px-3" href="{% url 'users_profile' user.id %}">
+              <i class="bi bi-person fs-5 me-2 text-primary"></i>
+              <span style="font-size: 0.9rem;">Profile</span>
+            </a>
+          </li>
+          <li><hr class="dropdown-divider m-0"></li>
+
+          <li>
+            <a class="dropdown-item d-flex align-items-center py-2 px-3" href="{% url 'company_profile' %}">
+              <i class="bi bi-building fs-5 me-2 text-primary"></i>
+              <span style="font-size: 0.9rem;">Company Profile</span>
+            </a>
+          </li>
+
+          <li><hr class="dropdown-divider m-0"></li>
+          <li>
+            <a class="dropdown-item d-flex align-items-center py-2 px-3 text-danger" href="{% url 'logout' %}">
+              <i class="bi bi-box-arrow-right fs-5 me-2"></i>
+              <span style="font-size: 0.9rem;">Logout</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+    </ul>
+  </nav>
+
+</header>

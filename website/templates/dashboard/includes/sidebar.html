@@ -1,0 +1,85 @@
+{% load static %}
+
+<aside id="sidebar" class="sidebar shadow-sm bg-white">
+  <ul class="sidebar-nav p-3" id="sidebar-nav" style="list-style: none; padding-left: 0;">
+
+    <div class="text-center mt-2 mb-4 pb-4 border-bottom">
+      <a href="{% url 'users_profile' request.user.id %}">
+        {% if global_user_profile and global_user_profile.image %}
+        <img src="{{ global_user_profile.image.url }}" class="rounded-circle shadow-sm border border-2" style="width: 110px; height: 110px; object-fit: cover; border-color: var(--primary-light-border) !important; cursor: pointer;" alt="Profile Image">
+        {% else %}
+        <img src="{% static 'dashboard/img/default.jpg' %}" class="rounded-circle shadow-sm border border-2" style="width: 110px; height: 110px; object-fit: cover; border-color: var(--primary-light-border) !important; cursor: pointer;" alt="Default Image">
+        {% endif %}
+      </a>
+      
+      <h4 class="sidebar-profile-name mt-3 fw-bold mb-1">
+        {% if global_user_profile and global_user_profile.name %}{{ global_user_profile.name }}{% else %}{{ request.user.username }}{% endif %}
+      </h4>
+      <small class="text-muted d-block mb-3" style="font-size: 0.85rem; font-weight: 500;">{{ global_user_profile.usergroup }}</small>
+      
+      <div class="d-flex justify-content-center gap-2 mb-2">
+        <a href="https://web.whatsapp.com/" target="_blank"class="profile-social-btn" title="WhatsApp">
+          <i class="bi bi-whatsapp"></i>
+        </a>
+        <a href="https://www.instagram.com/retailfixtures/?hl=en" target="_blank" class="profile-social-btn" title="Facebook">
+          <i class="bi bi-instagram"></i>
+        </a>
+        <a href="{% url "home" %}" class="profile-social-btn" title="website">
+          <i class="bi bi-reply-fill"></i>
+        </a>
+      </div>
+    </div>
+
+    <li class="nav-item mb-1">
+      <a class="nav-link collapsed d-flex align-items-center rounded-3 px-3 py-2 text-decoration-none" href="{% url 'index' %}">
+        <i class="bi bi-grid fs-5 me-3 text-primary"></i>
+        <span class="fw-semibold">Dashboard</span>
+      </a>
+    </li>
+
+    {% for module in modules %}
+    {% if module.children.exists %}
+    <li class="nav-item mb-1">
+      <a class="nav-link collapsed d-flex align-items-center rounded-3 px-3 py-2 text-decoration-none" data-bs-toggle="collapse" href="#module-{{ module.id }}" role="button" aria-expanded="false" aria-controls="module-{{ module.id }}">
+        <i class="{{ module.icon_class }} fs-5 me-3 text-primary"></i>
+        <span class="fw-semibold">{{ module.name }}</span>
+        <i class="bi bi-chevron-down ms-auto" style="font-size: 0.85rem; transition: transform 0.2s;"></i>
+      </a>
+      <ul id="module-{{ module.id }}" class="nav-content collapse list-unstyled ps-4 ms-2 mt-1 border-start border-2" data-bs-parent="#sidebar-nav" style="border-color: var(--primary-light-bg) !important;">
+        {% for child in module.children.all|dictsort:"name" %}
+        <li class="mb-1">
+          {% if child.url_name %}
+          <a href="{% url child.url_name %}" class="d-flex align-items-center text-decoration-none py-1 text-secondary hover-primary" style="font-size: 0.95rem;">
+            <i class="bi bi-circle-fill me-2 text-primary" style="font-size: 0.4rem;"></i> 
+            <span class="fw-medium">{{ child.name }}</span>
+          </a>
+          {% else %}
+          <a class="d-flex align-items-center text-decoration-none py-1 text-muted disabled" style="font-size: 0.95rem;">
+            <i class="bi bi-circle me-2" style="font-size: 0.4rem;"></i> 
+            <span>{{ child.name }} <small>(Missing URL)</small></span>
+          </a>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </li>
+    {% else %}
+    <li class="nav-item mb-1">
+      <a class="nav-link collapsed d-flex align-items-center rounded-3 px-3 py-2 text-decoration-none" href="{% url 'module_url_name' module.id %}">
+        <i class="{{ module.icon_class }} fs-5 me-3 text-primary"></i>
+        <span class="fw-semibold">{{ module.name }}</span>
+      </a>
+    </li>
+    {% endif %}
+    {% endfor %}
+
+    <li class="nav-heading mt-4 mb-2 ps-3 text-uppercase fw-bold" style="font-size: 0.75rem; letter-spacing: 0.5px; color: #000;">Settings</li>
+    
+    <li class="nav-item mb-1">
+      <a class="nav-link collapsed d-flex align-items-center rounded-3 px-3 py-2 text-decoration-none" href="{% url 'module_priority' %}">
+        <i class="bi bi-sort-down fs-5 me-3 text-primary"></i>
+        <span class="fw-semibold">Align Modules</span>
+      </a>
+    </li>
+  </ul>
+</aside>

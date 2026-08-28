@@ -1,0 +1,130 @@
+{% extends 'dashboard/LayoutMain.html' %}
+{% load static %}
+
+{% block content %}
+    
+
+        <div class="pagetitle">
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                    <li class="breadcrumb-item active">Users</li>
+                </ol>
+            </nav>
+        </div>
+
+        <section class="section profile">
+            <div class="container my-4">
+                <div class="card border-0 shadow-sm modern-card">
+                    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                        <span class="card-header-title">Users List</span>
+                        <a href="{% url 'create_user' %}" class="btn btn-light btn-sm">Add new</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="row mb-3 align-items-center">
+                            <div class="col-sm-6 d-flex align-items-center mb-2 mb-sm-0">
+                                <span class="mr-2">Show</span>
+                                <select class="form-control form-control-sm d-inline-block w-auto">
+                                    <option>10</option>
+                                    <option>25</option>
+                                    <option>50</option> 
+                                </select>
+                                <span class="ml-2">entries</span>
+                            </div>
+                            <div class="col-sm-6 d-flex align-items-center justify-content-sm-end">
+                                <span class="mr-2">Search:</span>
+                                <input type="text" class="form-control form-control-sm w-auto d-inline-block">
+                            </div>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle mb-0">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>Sl.no</th>
+                                        <th>Usergroup</th>
+                                        <th>Name</th>
+                                        <th>Status</th>
+                                        <th>Online status</th>
+                                        <th class="text-center">Edit</th>
+                                        <th class="text-center">Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for profile in profiles %}
+                                    <tr>
+                                        <td>{{ forloop.counter }}</td>
+                                        <td>{{ profile.usergroup }}</td>
+                                        <td class="font-weight-bold">{{ profile.name }}</td>
+                                        <td><span class="badge badge-success">Active</span></td>
+                                        <td>
+                                            {% if profile.user == request.user %}
+                                            <span class="text-success"><i class="fas fa-circle"
+                                                    style="font-size: 0.6rem;"></i> Online</span>
+                                            {% else %}
+                                            <span class="text-muted"><i class="fas fa-circle"
+                                                    style="font-size: 0.6rem;"></i> Offline</span>
+                                            {% endif %}
+                                        </td>
+                                        <td class="text-center">
+                                            {% if profile.user and profile.user.id %}
+                                            <a href="{% url 'users_profile' profile.user.id %}"
+                                                class="btn btn-sm btn-outline-primary rounded-circle">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            {% else %}
+                                            <span class="text-danger small">Invalid User</span>
+                                            {% endif %}
+                                        </td>
+                                         <td class="text-center">
+                                            {% if profile.user and profile.user.id %}
+                                            <a href="javascript:void(0);" data-bs-toggle="modal"
+                                                data-toggle="modal"
+                                                data-bs-target="#deleteProfileModal{{ profile.user.id }}"
+                                                data-target="#deleteProfileModal{{ profile.user.id }}"
+                                                class="btn btn-sm btn-outline-danger rounded-circle"
+                                                title="Delete">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                            {% else %}
+                                            <span class="text-danger small">No user assigned</span>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    {% empty %}
+                                    <tr>
+                                        <td colspan="7" class="text-center py-4 text-muted">No users found.</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- Delete Modals rendered outside of table flow -->
+{% for profile in profiles %}
+{% if profile.user and profile.user.id %}
+<div class="modal fade text-start delete-modal" id="deleteProfileModal{{ profile.user.id }}" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 380px;">
+        <div class="modal-content text-center p-3">
+            <div class="delete-modal-icon">
+                <i class="bi bi-trash3-fill"></i>
+            </div>
+            <div class="modal-body pt-2 pb-0">
+                <h5 class="delete-modal-title">Confirm Delete</h5>
+                <p class="delete-modal-text">Are you sure you want to delete user<br><strong class="text-dark">{{ profile.name }}</strong>?<br><small class="text-muted">This action cannot be undone.</small></p>
+            </div>
+            <div class="modal-footer d-flex gap-2 border-0 justify-content-center pt-4">
+                <button type="button" class="btn btn-light w-50 py-2 fw-semibold" data-bs-dismiss="modal" data-dismiss="modal">Cancel</button>
+                <a href="{% url 'delete_profile' profile.user.id %}" class="btn btn-danger w-50 py-2 fw-semibold shadow-sm" onclick="window.location.href=this.href; return false;">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endfor %}
+
+{% endblock %}

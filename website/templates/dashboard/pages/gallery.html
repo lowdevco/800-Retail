@@ -1,0 +1,166 @@
+{% extends 'dashboard/LayoutMain.html' %}
+{% load static %}
+
+{% block content %}
+
+        <div class="pagetitle">
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                    <li class="breadcrumb-item active">Gallery</li>
+                </ol>
+            </nav>
+        </div>
+
+        <section class="section profile">
+            <div class="container my-4">
+                <div class="card border-0 shadow-sm modern-card">
+
+                    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                        <span class="card-header-title">Gallery List</span>
+
+                        <a href="{% url 'add_gallery' %}" class="btn btn-light btn-sm">
+                            Add New
+                        </a>
+                    </div>
+
+                    <div class="ca card-body">
+
+                        <table class="table table-bordered align-middle">
+
+                            <thead>
+                                <tr>
+                                    <th>Sl.no</th>
+                                    <th>Title</th>
+                                    <th>Display</th>
+                                    <th>URL</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                {% if gallery %}
+
+                                    {% for item in gallery %}
+
+                                    <tr>
+
+                                        <td>{{ forloop.counter }}</td>
+
+                                        <td>{{ item.title }}</td>
+
+                                        <td>
+                                            {% if item.image %}
+                                                <img src="{{ item.image.url }}"
+                                                     width="80"
+                                                     height="80"
+                                                     style="object-fit:cover; border-radius:5px;">
+                                            {% else %}
+                                                No Image
+                                            {% endif %}
+                                        </td>
+
+                                        <td style="width:250px;">
+                                            {% if item.image %}
+                                                <button
+                                                    type="button"
+                                                    class="btn btn-sm btn-light border"
+                                                    onclick="copyFileUrl('/website{{ item.image.url }}', this)">
+                                                    Copy URL
+                                                </button>
+                                            {% else %}
+                                                N/A
+                                            {% endif %}
+                                        </td>
+
+                                        <td class="text-center">
+                                            <a href="{% url 'edit_gallery' id=item.id %}" class="text-primary">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                        </td>
+
+                                        <td class="text-center">
+                                            <a href="javascript:void(0);"
+                                               data-bs-toggle="modal"
+                                               data-toggle="modal"
+                                               data-bs-target="#deleteGalleryModal{{ item.id }}"
+                                               data-target="#deleteGalleryModal{{ item.id }}"
+                                               class="text-danger"
+                                               title="Delete">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </td>
+
+                                    </tr>
+
+                                    {% endfor %}
+
+                                {% else %}
+
+                                    <tr>
+                                        <td colspan="6" class="text-center">
+                                            No Gallery Items Found
+                                        </td>
+                                    </tr>
+
+                                {% endif %}
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+<!-- Delete Modals rendered outside of table flow -->
+{% for item in gallery %}
+<div class="modal fade text-start delete-modal" id="deleteGalleryModal{{ item.id }}" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 380px;">
+        <div class="modal-content text-center p-3">
+            <div class="delete-modal-icon">
+                <i class="bi bi-trash3-fill"></i>
+            </div>
+            <div class="modal-body pt-2 pb-0">
+                <h5 class="delete-modal-title">Confirm Delete</h5>
+                <p class="delete-modal-text">Are you sure you want to delete<br><strong class="text-dark">{{ item.title }}</strong>?<br><small class="text-muted">This action cannot be undone.</small></p>
+            </div>
+            <div class="modal-footer d-flex gap-2 border-0 justify-content-center pt-4">
+                <button type="button" class="btn btn-light w-50 py-2 fw-semibold" data-bs-dismiss="modal" data-dismiss="modal">Cancel</button>
+                <a href="{% url 'delete_gallery' id=item.id %}" class="btn btn-danger w-50 py-2 fw-semibold shadow-sm" onclick="window.location.href=this.href; return false;">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+<!-- Copy URL Script -->
+<script>
+function copyFileUrl(url, button) {
+    if (!navigator.clipboard) {
+        const tempInput = document.createElement("textarea");
+        tempInput.value = url;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+    } else {
+        navigator.clipboard.writeText(url);
+    }
+
+    const oldText = button.innerHTML;
+    button.innerHTML = '<i class="fas fa-check"></i> Copied';
+
+    setTimeout(() => {
+        button.innerHTML = oldText;
+    }, 1500);
+}
+</script>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'dashboard/LayoutMain.html' %}
+{% load static %}
+
+{% block content %}
+
+        <div class="pagetitle">
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{% url 'gallery_view' %}">Gallery</a></li>
+                    <li class="breadcrumb-item active">Add New Gallery</li>
+                </ol>
+            </nav>
+        </div>
+
+        <section class="section profile">
+            <div class="container mt-5">
+                <div class="card border-0 shadow-sm modern-card">
+                    <div class="card-header bg-primary text-white">
+                        <span class="card-header-title">
+                            {% if form.instance.pk %}Edit Gallery{% else %}Add New Gallery{% endif %}
+                        </span>
+                    </div>
+                    <div class="card-body p-4">
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Title</label>
+                                {{ form.title }}
+                                {% if form.title.errors %}
+                                <small class="text-danger">{{ form.title.errors }}</small>
+                                {% endif %}
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Upload Image</label>
+                                {{ form.image }}
+                                {% if form.image.errors %}
+                                <small class="text-danger">{{ form.image.errors }}</small>
+                                {% endif %}
+                            </div>
+
+                            <div class="mt-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {% if form.instance.pk %}Update Gallery{% else %}Add Gallery{% endif %}
+                                </button>
+                                <a href="{% url 'gallery_view' %}" class="btn btn-secondary">
+                                    Back
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+{% endblock %}
