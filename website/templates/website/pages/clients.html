@@ -1,0 +1,441 @@
+﻿{% extends 'website/Base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <!-- Clean Typographic Hero -->
+  <section class="section_clients_hero" style="
+            background-color: var(--color-base--black);
+            background-image: url({% static 'website/assets/images/layer-top.svg' %});
+            padding: 10rem 0 6rem 0;
+            position: relative;
+          ">
+    <div class="padding-global padding-section-medium" style="position: relative; z-index: 1">
+      <div class="container-default">
+        <div style="max-width: 800px">
+          <div animate="load-hero-1" class="text-style-badge" style="margin-bottom: 2rem">
+            <div class="badge-dot" style="background-color: var(--secondary)"></div>
+            <div style="
+                      color: var(--color-base--white);
+                      letter-spacing: 2px;
+                      text-transform: uppercase;
+                      font-size: 0.75rem;
+                      font-weight: 600;
+                    ">Client Stories</div>
+          </div>
+
+          <h1 animate="load-hero-title" style="
+                    color: var(--color-base--white);
+                    font-size: clamp(3rem, 6vw, 4.5rem);
+                    line-height: 1.1;
+                    margin-bottom: 1.5rem;
+                    font-family: var(--fonts--heading);
+                    font-weight: bold;
+                    letter-spacing: -1px;
+                  ">Built on <span style="color: var(--secondary)">Trust</span> & Partnership.</h1>
+
+          <p animate="load-hero-2" style="
+                    color: rgba(255, 255, 255, 0.7);
+                    font-size: 1.15rem;
+                    line-height: 1.7;
+                    max-width: 600px;
+                    font-weight: 300;
+                  ">We are proud to collaborate with some of the world's leading brands. Explore the success stories and testimonials from the partners who inspire our continued innovation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="section_testimonials" style="
+            background-color: var(--color-neutral--shade-100);
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+          ">
+    <div class="padding-outer-inline">
+      <div class="padding-global">
+        <div class="container-default">
+          <div class="testimonials-grid">
+            <div class="testimonial-card" animate="fade-up-1" style="animation-delay: 0ms">
+              <div class="testimonial-header">
+                <div class="testimonial-logo">
+                  <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-001-scaled.png" alt="Adidas" />
+                </div>
+                <div class="testimonial-quote-icon">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.017 21L16.417 14.59C16.417 14.59 15.707 14.75 15.017 14.75C12.757 14.75 10.927 12.92 10.927 10.66C10.927 8.4 12.757 6.57 15.017 6.57C17.277 6.57 19.107 8.4 19.107 10.66C19.107 12.35 18.067 15.42 16.717 18.73C15.827 20.91 14.757 22.81 14.757 22.81L14.017 21ZM5.01697 21L7.41697 14.59C7.41697 14.59 6.70697 14.75 6.01697 14.75C3.75697 14.75 1.92697 12.92 1.92697 10.66C1.92697 8.4 3.75697 6.57 6.01697 6.57C8.27697 6.57 10.107 8.4 10.107 10.66C10.107 12.35 9.06697 15.42 7.71697 18.73C6.82697 20.91 5.75697 22.81 5.75697 22.81L5.01697 21Z" />
+                  </svg>
+                </div>
+              </div>
+              <div class="testimonial-body">
+                <p class="testimonial-text">"Thank you, Asics, for partnering with us! We value your trust and collaboration. Together, we stride forward with confidence and excellence honoring our shared journey and success."</p>
+              </div>
+              <div class="testimonial-footer">
+                <h3 class="testimonial-client">Adidas</h3>
+                <p class="testimonial-subtitle">Global Sportswear Brand</p>
+              </div>
+            </div>
+
+            <div class="testimonial-card" animate="fade-up-1" style="animation-delay: 100ms">
+              <div class="testimonial-header">
+                <div class="testimonial-logo">
+                  <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-010-scaled.png" alt="Skechers" />
+                </div>
+                <div class="testimonial-quote-icon">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.017 21L16.417 14.59C16.417 14.59 15.707 14.75 15.017 14.75C12.757 14.75 10.927 12.92 10.927 10.66C10.927 8.4 12.757 6.57 15.017 6.57C17.277 6.57 19.107 8.4 19.107 10.66C19.107 12.35 18.067 15.42 16.717 18.73C15.827 20.91 14.757 22.81 14.757 22.81L14.017 21ZM5.01697 21L7.41697 14.59C7.41697 14.59 6.70697 14.75 6.01697 14.75C3.75697 14.75 1.92697 12.92 1.92697 10.66C1.92697 8.4 3.75697 6.57 6.01697 6.57C8.27697 6.57 10.107 8.4 10.107 10.66C10.107 12.35 9.06697 15.42 7.71697 18.73C6.82697 20.91 5.75697 22.81 5.75697 22.81L5.01697 21Z" />
+                  </svg>
+                </div>
+              </div>
+              <div class="testimonial-body">
+                <p class="testimonial-text">"We deeply appreciate Skechers for placing your trust in us! Thank you for your ongoing partnership together we walk strong, stepping toward success and shared growth."</p>
+              </div>
+              <div class="testimonial-footer">
+                <h3 class="testimonial-client">Skechers</h3>
+                <p class="testimonial-subtitle">Footwear & Lifestyle Brand</p>
+              </div>
+            </div>
+
+            <div class="testimonial-card" animate="fade-up-1" style="animation-delay: 200ms">
+              <div class="testimonial-header">
+                <div class="testimonial-logo">
+                  <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-002-scaled.png" alt="Birkenstock" />
+                </div>
+                <div class="testimonial-quote-icon">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.017 21L16.417 14.59C16.417 14.59 15.707 14.75 15.017 14.75C12.757 14.75 10.927 12.92 10.927 10.66C10.927 8.4 12.757 6.57 15.017 6.57C17.277 6.57 19.107 8.4 19.107 10.66C19.107 12.35 18.067 15.42 16.717 18.73C15.827 20.91 14.757 22.81 14.757 22.81L14.017 21ZM5.01697 21L7.41697 14.59C7.41697 14.59 6.70697 14.75 6.01697 14.75C3.75697 14.75 1.92697 12.92 1.92697 10.66C1.92697 8.4 3.75697 6.57 6.01697 6.57C8.27697 6.57 10.107 8.4 10.107 10.66C10.107 12.35 9.06697 15.42 7.71697 18.73C6.82697 20.91 5.75697 22.81 5.75697 22.81L5.01697 21Z" />
+                  </svg>
+                </div>
+              </div>
+              <div class="testimonial-body">
+                <p class="testimonial-text">"Thank you, Asics, for partnering with us! We value your trust and collaboration. Together, we stride forward with confidence and excellence honoring our shared journey and success."</p>
+              </div>
+              <div class="testimonial-footer">
+                <h3 class="testimonial-client">Birkenstock</h3>
+                <p class="testimonial-subtitle">Premium Footwear Brand</p>
+              </div>
+            </div>
+
+            <div class="testimonial-card" animate="fade-up-1" style="animation-delay: 0ms">
+              <div class="testimonial-header">
+                <div class="testimonial-logo">
+                  <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-003-scaled.png" alt="Asics" />
+                </div>
+                <div class="testimonial-quote-icon">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.017 21L16.417 14.59C16.417 14.59 15.707 14.75 15.017 14.75C12.757 14.75 10.927 12.92 10.927 10.66C10.927 8.4 12.757 6.57 15.017 6.57C17.277 6.57 19.107 8.4 19.107 10.66C19.107 12.35 18.067 15.42 16.717 18.73C15.827 20.91 14.757 22.81 14.757 22.81L14.017 21ZM5.01697 21L7.41697 14.59C7.41697 14.59 6.70697 14.75 6.01697 14.75C3.75697 14.75 1.92697 12.92 1.92697 10.66C1.92697 8.4 3.75697 6.57 6.01697 6.57C8.27697 6.57 10.107 8.4 10.107 10.66C10.107 12.35 9.06697 15.42 7.71697 18.73C6.82697 20.91 5.75697 22.81 5.75697 22.81L5.01697 21Z" />
+                  </svg>
+                </div>
+              </div>
+              <div class="testimonial-body">
+                <p class="testimonial-text">"We are grateful to Apparel Group for your trust and partnership! Together we style success, blending fashion and quality. Thank you for continuing this valued journey with us."</p>
+              </div>
+              <div class="testimonial-footer">
+                <h3 class="testimonial-client">Asics</h3>
+                <p class="testimonial-subtitle">Performance Sports Brand</p>
+              </div>
+            </div>
+
+            <div class="testimonial-card" animate="fade-up-1" style="animation-delay: 100ms">
+              <div class="testimonial-header">
+                <div class="testimonial-logo">
+                  <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-006-scaled.png" alt="Apparel Group" />
+                </div>
+                <div class="testimonial-quote-icon">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.017 21L16.417 14.59C16.417 14.59 15.707 14.75 15.017 14.75C12.757 14.75 10.927 12.92 10.927 10.66C10.927 8.4 12.757 6.57 15.017 6.57C17.277 6.57 19.107 8.4 19.107 10.66C19.107 12.35 18.067 15.42 16.717 18.73C15.827 20.91 14.757 22.81 14.757 22.81L14.017 21ZM5.01697 21L7.41697 14.59C7.41697 14.59 6.70697 14.75 6.01697 14.75C3.75697 14.75 1.92697 12.92 1.92697 10.66C1.92697 8.4 3.75697 6.57 6.01697 6.57C8.27697 6.57 10.107 8.4 10.107 10.66C10.107 12.35 9.06697 15.42 7.71697 18.73C6.82697 20.91 5.75697 22.81 5.75697 22.81L5.01697 21Z" />
+                  </svg>
+                </div>
+              </div>
+              <div class="testimonial-body">
+                <p class="testimonial-text">"We are grateful to Apparel Group for your trust and partnership! Together we style success, blending fashion and quality. Thank you for continuing this valued journey with us."</p>
+              </div>
+              <div class="testimonial-footer">
+                <h3 class="testimonial-client">Apparel Group</h3>
+                <p class="testimonial-subtitle">Retail Partner</p>
+              </div>
+            </div>
+
+            <div class="testimonial-card" animate="fade-up-1" style="animation-delay: 200ms">
+              <div class="testimonial-header">
+                <div class="testimonial-logo">
+                  <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-007-scaled.png" alt="Landmark Group" />
+                </div>
+                <div class="testimonial-quote-icon">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.017 21L16.417 14.59C16.417 14.59 15.707 14.75 15.017 14.75C12.757 14.75 10.927 12.92 10.927 10.66C10.927 8.4 12.757 6.57 15.017 6.57C17.277 6.57 19.107 8.4 19.107 10.66C19.107 12.35 18.067 15.42 16.717 18.73C15.827 20.91 14.757 22.81 14.757 22.81L14.017 21ZM5.01697 21L7.41697 14.59C7.41697 14.59 6.70697 14.75 6.01697 14.75C3.75697 14.75 1.92697 12.92 1.92697 10.66C1.92697 8.4 3.75697 6.57 6.01697 6.57C8.27697 6.57 10.107 8.4 10.107 10.66C10.107 12.35 9.06697 15.42 7.71697 18.73C6.82697 20.91 5.75697 22.81 5.75697 22.81L5.01697 21Z" />
+                  </svg>
+                </div>
+              </div>
+              <div class="testimonial-body">
+                <p class="testimonial-text">"Thank you, Landmark Group, for your confidence and trust in our work! Together we build impact across retail and community. We appreciate this journey of excellence."</p>
+              </div>
+              <div class="testimonial-footer">
+                <h3 class="testimonial-client">Landmark Group</h3>
+                <p class="testimonial-subtitle">Retail Conglomerate</p>
+              </div>
+            </div>
+
+            <div class="testimonial-card" animate="fade-up-1" style="animation-delay: 0ms">
+              <div class="testimonial-header">
+                <div class="testimonial-logo">
+                  <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-005-scaled.png" alt="Nesto" />
+                </div>
+                <div class="testimonial-quote-icon">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.017 21L16.417 14.59C16.417 14.59 15.707 14.75 15.017 14.75C12.757 14.75 10.927 12.92 10.927 10.66C10.927 8.4 12.757 6.57 15.017 6.57C17.277 6.57 19.107 8.4 19.107 10.66C19.107 12.35 18.067 15.42 16.717 18.73C15.827 20.91 14.757 22.81 14.757 22.81L14.017 21ZM5.01697 21L7.41697 14.59C7.41697 14.59 6.70697 14.75 6.01697 14.75C3.75697 14.75 1.92697 12.92 1.92697 10.66C1.92697 8.4 3.75697 6.57 6.01697 6.57C8.27697 6.57 10.107 8.4 10.107 10.66C10.107 12.35 9.06697 15.42 7.71697 18.73C6.82697 20.91 5.75697 22.81 5.75697 22.81L5.01697 21Z" />
+                  </svg>
+                </div>
+              </div>
+              <div class="testimonial-body">
+                <p class="testimonial-text">"We sincerely thank Nesto for entrusting us with your partnership! Together we serve communities with care and quality. Your trust inspires us toward continued growth."</p>
+              </div>
+              <div class="testimonial-footer">
+                <h3 class="testimonial-client">Nesto</h3>
+                <p class="testimonial-subtitle">Hypermarket Chain</p>
+              </div>
+            </div>
+
+            <div class="testimonial-card" animate="fade-up-1" style="animation-delay: 100ms">
+              <div class="testimonial-header">
+                <div class="testimonial-logo">
+                  <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-008-scaled.png" alt="Brands For Less" />
+                </div>
+                <div class="testimonial-quote-icon">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.017 21L16.417 14.59C16.417 14.59 15.707 14.75 15.017 14.75C12.757 14.75 10.927 12.92 10.927 10.66C10.927 8.4 12.757 6.57 15.017 6.57C17.277 6.57 19.107 8.4 19.107 10.66C19.107 12.35 18.067 15.42 16.717 18.73C15.827 20.91 14.757 22.81 14.757 22.81L14.017 21ZM5.01697 21L7.41697 14.59C7.41697 14.59 6.70697 14.75 6.01697 14.75C3.75697 14.75 1.92697 12.92 1.92697 10.66C1.92697 8.4 3.75697 6.57 6.01697 6.57C8.27697 6.57 10.107 8.4 10.107 10.66C10.107 12.35 9.06697 15.42 7.71697 18.73C6.82697 20.91 5.75697 22.81 5.75697 22.81L5.01697 21Z" />
+                  </svg>
+                </div>
+              </div>
+              <div class="testimonial-body">
+                <p class="testimonial-text">"We appreciate Brands For Less for your trust and partnership! Together we bring value and style to shoppers. Thank you for joining us on this innovative and rewarding journey."</p>
+              </div>
+              <div class="testimonial-footer">
+                <h3 class="testimonial-client">Brands For Less</h3>
+                <p class="testimonial-subtitle">Discount Retailer</p>
+              </div>
+            </div>
+
+            <div class="testimonial-card" animate="fade-up-1" style="animation-delay: 200ms">
+              <div class="testimonial-header">
+                <div class="testimonial-logo">
+                  <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-009-scaled.png" alt="Brand Folio" />
+                </div>
+                <div class="testimonial-quote-icon">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.017 21L16.417 14.59C16.417 14.59 15.707 14.75 15.017 14.75C12.757 14.75 10.927 12.92 10.927 10.66C10.927 8.4 12.757 6.57 15.017 6.57C17.277 6.57 19.107 8.4 19.107 10.66C19.107 12.35 18.067 15.42 16.717 18.73C15.827 20.91 14.757 22.81 14.757 22.81L14.017 21ZM5.01697 21L7.41697 14.59C7.41697 14.59 6.70697 14.75 6.01697 14.75C3.75697 14.75 1.92697 12.92 1.92697 10.66C1.92697 8.4 3.75697 6.57 6.01697 6.57C8.27697 6.57 10.107 8.4 10.107 10.66C10.107 12.35 9.06697 15.42 7.71697 18.73C6.82697 20.91 5.75697 22.81 5.75697 22.81L5.01697 21Z" />
+                  </svg>
+                </div>
+              </div>
+              <div class="testimonial-body">
+                <p class="testimonial-text">"Thank you, Brand Folio, for your trust and collaboration! Together we elevate identity and creativity. We value our joint path forward grateful for your partnership every step."</p>
+              </div>
+              <div class="testimonial-footer">
+                <h3 class="testimonial-client">Brand Folio</h3>
+                <p class="testimonial-subtitle">Retail Group</p>
+              </div>
+            </div>
+
+            <div class="testimonial-card" animate="fade-up-1" style="animation-delay: 0ms">
+              <div class="testimonial-header">
+                <div class="testimonial-logo">
+                  <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-004-scaled.png" alt="Reebok" />
+                </div>
+                <div class="testimonial-quote-icon">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.017 21L16.417 14.59C16.417 14.59 15.707 14.75 15.017 14.75C12.757 14.75 10.927 12.92 10.927 10.66C10.927 8.4 12.757 6.57 15.017 6.57C17.277 6.57 19.107 8.4 19.107 10.66C19.107 12.35 18.067 15.42 16.717 18.73C15.827 20.91 14.757 22.81 14.757 22.81L14.017 21ZM5.01697 21L7.41697 14.59C7.41697 14.59 6.70697 14.75 6.01697 14.75C3.75697 14.75 1.92697 12.92 1.92697 10.66C1.92697 8.4 3.75697 6.57 6.01697 6.57C8.27697 6.57 10.107 8.4 10.107 10.66C10.107 12.35 9.06697 15.42 7.71697 18.73C6.82697 20.91 5.75697 22.81 5.75697 22.81L5.01697 21Z" />
+                  </svg>
+                </div>
+              </div>
+              <div class="testimonial-body">
+                <p class="testimonial-text">"Thank you, Reebok, for your trust and collaboration! Together we power performance and style. Your confidence in us fuels our commitment here is to continued success together."</p>
+              </div>
+              <div class="testimonial-footer">
+                <h3 class="testimonial-client">Reebok</h3>
+                <p class="testimonial-subtitle">Sports Footwear</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section_why_trust_us" style="
+            background-color: var(--color-base--black);
+            padding: 8rem 0;
+            color: var(--color-base--white);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+          ">
+    <div class="padding-global">
+      <div class="container-default">
+        <div style="
+                  text-align: center;
+                  margin-bottom: 5rem;
+                  max-width: 700px;
+                  margin-left: auto;
+                  margin-right: auto;
+                ">
+          <div animate="fade-up-1" class="text-style-badge" style="
+                    justify-content: center;
+                    margin-bottom: 1.5rem;
+                    border-color: rgba(255, 255, 255, 0.2);
+                  ">
+            <div class="badge-dot" style="background-color: var(--secondary)"></div>
+            <div style="
+                      color: var(--color-base--white);
+                      letter-spacing: 2px;
+                      text-transform: uppercase;
+                      font-size: 0.75rem;
+                      font-weight: 600;
+                    ">Stability Rules</div>
+          </div>
+          <h2 animate="fade-up-2" style="
+                    font-size: clamp(2.5rem, 5vw, 3.5rem);
+                    font-family: var(--fonts--heading);
+                    font-weight: bold;
+                    margin-bottom: 1rem;
+                  ">
+            Why Brands
+            <span style="color: var(--secondary)">Trust Us.</span>
+          </h2>
+          <p animate="fade-up-3" style="
+                    color: rgba(255, 255, 255, 0.7);
+                    font-size: 1.1rem;
+                    line-height: 1.6;
+                  ">Our foundational pillars ensure that every project we deliver meets the highest global standards of precision, agility, and quality.</p>
+        </div>
+
+        <div class="trust-grid" style="
+                  display: grid;
+                  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                  gap: 3rem;
+                ">
+          <div class="trust-card" animate="fade-up-1">
+            <div class="trust-icon" style="
+                      width: 60px;
+                      height: 60px;
+                      background: rgba(255, 255, 255, 0.05);
+                      border-radius: 50%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      margin-bottom: 1.5rem;
+                      border: 1px solid rgba(255, 255, 255, 0.1);
+                    ">
+              <img src="{% static 'website/assets/images/Error-Diamond.svg' %}" alt="Precision" style="
+                        filter: brightness(0) invert(1);
+                        opacity: 0.8;
+                        width: 24px;
+                      " />
+            </div>
+            <h3 style="
+                      font-size: 1.25rem;
+                      font-weight: 600;
+                      margin-bottom: 1rem;
+                      color: #fff;
+                    ">Precision & Engineering</h3>
+            <p style="
+                      color: rgba(255, 255, 255, 0.6);
+                      line-height: 1.6;
+                      font-size: 0.95rem;
+                    ">Uncompromising accuracy in manufacturing and fit-out execution, ensuring flawless delivery across all projects.</p>
+          </div>
+
+          <div class="trust-card" animate="fade-up-1" style="animation-delay: 100ms">
+            <div class="trust-icon" style="
+                      width: 60px;
+                      height: 60px;
+                      background: rgba(255, 255, 255, 0.05);
+                      border-radius: 50%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      margin-bottom: 1.5rem;
+                      border: 1px solid rgba(255, 255, 255, 0.1);
+                    ">
+              <img src="{% static 'website/assets/images/Up-graph.svg' %}" alt="Agility" style="
+                        filter: brightness(0) invert(1);
+                        opacity: 0.8;
+                        width: 24px;
+                      " />
+            </div>
+            <h3 style="
+                      font-size: 1.25rem;
+                      font-weight: 600;
+                      margin-bottom: 1rem;
+                      color: #fff;
+                    ">Supply Chain Agility</h3>
+            <p style="
+                      color: rgba(255, 255, 255, 0.6);
+                      line-height: 1.6;
+                      font-size: 0.95rem;
+                    ">Robust global sourcing and localized execution that adapt seamlessly to dynamic retail demands.</p>
+          </div>
+
+          <div class="trust-card" animate="fade-up-1" style="animation-delay: 200ms">
+            <div class="trust-icon" style="
+                      width: 60px;
+                      height: 60px;
+                      background: rgba(255, 255, 255, 0.05);
+                      border-radius: 50%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      margin-bottom: 1.5rem;
+                      border: 1px solid rgba(255, 255, 255, 0.1);
+                    ">
+              <img src="{% static 'website/assets/images/Cube.svg' %}" alt="R&D" style="
+                        filter: brightness(0) invert(1);
+                        opacity: 0.8;
+                        width: 24px;
+                      " />
+            </div>
+            <h3 style="
+                      font-size: 1.25rem;
+                      font-weight: 600;
+                      margin-bottom: 1rem;
+                      color: #fff;
+                    ">Research & Development</h3>
+            <p style="
+                      color: rgba(255, 255, 255, 0.6);
+                      line-height: 1.6;
+                      font-size: 0.95rem;
+                    ">Continuous innovation in materials and technology to stay ahead of retail trends and sustainability standards.</p>
+          </div>
+
+          <div class="trust-card" animate="fade-up-1" style="animation-delay: 300ms">
+            <div class="trust-icon" style="
+                      width: 60px;
+                      height: 60px;
+                      background: rgba(255, 255, 255, 0.05);
+                      border-radius: 50%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      margin-bottom: 1.5rem;
+                      border: 1px solid rgba(255, 255, 255, 0.1);
+                    ">
+              <img src="{% static 'website/assets/images/Shield-done.svg' %}" alt="Quality" style="
+                        filter: brightness(0) invert(1);
+                        opacity: 0.8;
+                        width: 24px;
+                      " />
+            </div>
+            <h3 style="
+                      font-size: 1.25rem;
+                      font-weight: 600;
+                      margin-bottom: 1rem;
+                      color: #fff;
+                    ">Total Quality Management</h3>
+            <p style="
+                      color: rgba(255, 255, 255, 0.6);
+                      line-height: 1.6;
+                      font-size: 0.95rem;
+                    ">Strict adherence to ISO standards and our bespoke Japanese 5S methodology to guarantee zero defects.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,453 @@
+﻿{% extends 'website/Base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <!-- Hero Section -->
+  <section class="section_divisions_hero" style="background-color: var(--color-base--black); padding: 10rem 0 6rem 0; position: relative; background-image: url({% static 'website/assets/images/layer-bottom.svg' %});">
+    <img src="{% static 'website/assets/images/layer-top.svg' %}" loading="lazy" alt="" class="hero-layer" style="position: absolute; top: 0; right: 0; max-width: 50%; opacity: 0.1;" />
+    <div class="padding-global padding-section-medium" style="position: relative; z-index: 1;">
+      <div class="container-default">
+        <div style="max-width: 800px;">
+          <div animate="load-hero-1" class="text-style-badge" style="margin-bottom: 2rem;">
+            <div class="badge-dot" style="background-color: var(--secondary);"></div>
+            <div style="color: var(--color-base--white); letter-spacing: 2px; text-transform: uppercase; font-size: 0.75rem; font-weight: 600;">Operational Excellence</div>
+          </div>
+          <h1 animate="load-hero-title" style="color: var(--color-base--white); font-size: clamp(3rem, 6vw, 4.5rem); line-height: 1.1; margin-bottom: 1.5rem; font-family: var(--fonts--heading); font-weight: bold; letter-spacing: -1px;"><span style="color: var(--secondary);">15+ Divisions.</span> One Standard.</h1>
+          <p animate="load-hero-2" style="color: rgba(255,255,255,0.7); font-size: 1.15rem; line-height: 1.7; max-width: 650px; font-weight: 300;">Discover how Al Ameen applies the Japanese 5S System across our diverse manufacturing and service divisions to ensure precision, efficiency, and continuous improvement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5S System Overview -->
+  <section class="section_5s_overview" style="background-color: var(--color-neutral--shade-100); padding: 8rem 0;">
+    <div class="padding-global">
+      <div class="container-default">
+        <div style="margin-bottom: 4rem; max-width: 700px;">
+          <h2 style="font-size: clamp(2.5rem, 5vw, 3.5rem); font-family: var(--fonts--heading); font-weight: bold; margin-bottom: 1rem; color: var(--color-base--black); letter-spacing: -1px;">The <span style="color: var(--secondary);">5S</span> Methodology</h2>
+          <p style="color: rgba(0,0,0,0.6); font-size: 1.1rem; line-height: 1.6;">Rooted in lean manufacturing principles, the 5S methodology enhances productivity by systematically organizing the workplace. Below is the operational framework we apply across all our facilities.</p>
+        </div>
+
+        <div class="table-wrapper" style="width: 100%; overflow-x: auto;">
+          <table class="five-s-table-light">
+            <thead>
+              <tr>
+                <th>5S System</th>
+                <th>Definition</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <strong>Seiri</strong>
+                </td>
+                <td>Sort</td>
+                <td>Eliminate what is not needed</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Seiton</strong>
+                </td>
+                <td>Set In Order</td>
+                <td>Organise what remains</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Seiso</strong>
+                </td>
+                <td>Shine</td>
+                <td>Clean the workplace</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Seiketsu</strong>
+                </td>
+                <td>Standardise</td>
+                <td>Establish standards</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Shitsuke</strong>
+                </td>
+                <td>Sustain</td>
+                <td>Maintain and improve</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section_divisions_interactive" style="background-color: var(--color-base--white); padding: 8rem 0;">
+    <div class="padding-global">
+      <div class="container-default">
+        <div style="margin-bottom: 4rem; max-width: 700px;">
+          <h2 style="font-size: clamp(2.5rem, 5vw, 3.5rem); font-family: var(--fonts--heading); font-weight: bold; color: var(--color-base--black); margin-bottom: 1rem; letter-spacing: -1px;">Divisional <span style="color: var(--secondary);">Breakdown</span></h2>
+          <p style="color: rgba(0,0,0,0.6); font-size: 1.1rem; line-height: 1.6;">Explore how our 16 specialized divisions implement the 5S methodology to guarantee operational excellence across every stage of the project lifecycle.</p>
+        </div>
+
+        <div class="modern-accordion" id="divisions-accordion">
+          <div class="acc-item">
+            <button class="acc-header" aria-expanded="false">
+              <div class="acc-header-left">
+                <div class="acc-icon">
+                  <img src="{% static 'website/assets/images/img/ST-01.svg' %}" alt="Management Division" loading="lazy" />
+                </div>
+                <h3 class="acc-title">Management Division</h3>
+              </div>
+              <div class="acc-icon-toggle">
+                <span class="acc-line-h"></span>
+                <span class="acc-line-v"></span>
+              </div>
+            </button>
+            <div class="acc-body">
+              <div class="acc-body-content">
+                <p class="acc-desc">Implements Seiri (Sort) to eliminate redundant processes, and Seiton (Set in Order) to structure workflows. Seiketsu (Standardise) ensures consistent governance, while Shitsuke (Sustain) promotes long-term organizational discipline and continuous improvement.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-header" aria-expanded="false">
+              <div class="acc-header-left">
+                <div class="acc-icon">
+                  <img src="{% static 'website/assets/images/img/ST-02.svg' %}" alt="Infrastructure & Facilities Division" loading="lazy" />
+                </div>
+                <h3 class="acc-title">Infrastructure & Facilities Division</h3>
+              </div>
+              <div class="acc-icon-toggle">
+                <span class="acc-line-h"></span>
+                <span class="acc-line-v"></span>
+              </div>
+            </button>
+            <div class="acc-body">
+              <div class="acc-body-content">
+                <p class="acc-desc">Applies Seiri to declutter storage areas, Seiton to organize logistics tools and utilities, Seiso (Shine) to maintain cleanliness across workshops, and Seiketsu to uphold safety protocols. Shitsuke ensures operational excellence across facilities.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-header" aria-expanded="false">
+              <div class="acc-header-left">
+                <div class="acc-icon">
+                  <img src="{% static 'website/assets/images/img/ST-03.svg' %}" alt="Business Development & Strategic Partnerships" loading="lazy" />
+                </div>
+                <h3 class="acc-title">Business Development & Strategic Partnerships</h3>
+              </div>
+              <div class="acc-icon-toggle">
+                <span class="acc-line-h"></span>
+                <span class="acc-line-v"></span>
+              </div>
+            </button>
+            <div class="acc-body">
+              <div class="acc-body-content">
+                <p class="acc-desc">Uses Seiri to focus on viable partnerships, Seiton for managing client records and leads, and Seiketsu to standardize business proposal formats. Shitsuke drives sustained growth through disciplined client engagement.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-header" aria-expanded="false">
+              <div class="acc-header-left">
+                <div class="acc-icon">
+                  <img src="{% static 'website/assets/images/img/ST-04.svg' %}" alt="Client Consulting & Advisory Services" loading="lazy" />
+                </div>
+                <h3 class="acc-title">Client Consulting & Advisory Services</h3>
+              </div>
+              <div class="acc-icon-toggle">
+                <span class="acc-line-h"></span>
+                <span class="acc-line-v"></span>
+              </div>
+            </button>
+            <div class="acc-body">
+              <div class="acc-body-content">
+                <p class="acc-desc">Applies Seiri to tailor insights to client goals, Seiton to organize tools and deliverables, and Seiketsu to standardize consulting frameworks. Shitsuke supports consistent, high-impact advisory outcomes.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-header" aria-expanded="false">
+              <div class="acc-header-left">
+                <div class="acc-icon">
+                  <img src="{% static 'website/assets/images/img/ST-05.svg' %}" alt="Marketing & Digital Communications" loading="lazy" />
+                </div>
+                <h3 class="acc-title">Marketing & Digital Communications</h3>
+              </div>
+              <div class="acc-icon-toggle">
+                <span class="acc-line-h"></span>
+                <span class="acc-line-v"></span>
+              </div>
+            </button>
+            <div class="acc-body">
+              <div class="acc-body-content">
+                <p class="acc-desc">Uses Seiri to filter outdated content, Seiton to organize media assets and campaigns, Seiketsu for consistent brand tone and visuals, and Shitsuke to sustain digital presence and metrics.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-header" aria-expanded="false">
+              <div class="acc-header-left">
+                <div class="acc-icon">
+                  <img src="{% static 'website/assets/images/img/ST-06.svg' %}" alt="Design & Engineering Solutions" loading="lazy" />
+                </div>
+                <h3 class="acc-title">Design & Engineering Solutions</h3>
+              </div>
+              <div class="acc-icon-toggle">
+                <span class="acc-line-h"></span>
+                <span class="acc-line-v"></span>
+              </div>
+            </button>
+            <div class="acc-body">
+              <div class="acc-body-content">
+                <p class="acc-desc">Implements Seiri to remove design redundancies, Seiton to structure CAD libraries and material specs, Seiketsu to apply engineering standards, and Shitsuke to promote disciplined innovation cycles.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-header" aria-expanded="false">
+              <div class="acc-header-left">
+                <div class="acc-icon">
+                  <img src="{% static 'website/assets/images/img/LOGOD-2-02.svg' %}" alt="Research & Development (R&D)" loading="lazy" />
+                </div>
+                <h3 class="acc-title">Research & Development (R&D)</h3>
+              </div>
+              <div class="acc-icon-toggle">
+                <span class="acc-line-h"></span>
+                <span class="acc-line-v"></span>
+              </div>
+            </button>
+            <div class="acc-body">
+              <div class="acc-body-content">
+                <p class="acc-desc">Applies Seiri to focus only on relevant prototypes, Seiton to organize testing environments, Seiso to ensure precision conditions, Seiketsu for experimental frameworks, and Shitsuke for continuous idea validation and innovation.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-header" aria-expanded="false">
+              <div class="acc-header-left">
+                <div class="acc-icon">
+                  <img src="{% static 'website/assets/images/img/LOGOD-2-01.svg' %}" alt="Quality Control (QC)" loading="lazy" />
+                </div>
+                <h3 class="acc-title">Quality Control (QC)</h3>
+              </div>
+              <div class="acc-icon-toggle">
+                <span class="acc-line-h"></span>
+                <span class="acc-line-v"></span>
+              </div>
+            </button>
+            <div class="acc-body">
+              <div class="acc-body-content">
+                <p class="acc-desc">A core strength of Al Ameen, QC uses Seiri to eliminate non-conforming parts early, Seiton to structure inspection areas, Seiso for spotless inspection labs, Seiketsu to define testing parameters, and Shitsuke to uphold a quality-first culture.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-header" aria-expanded="false">
+              <div class="acc-header-left">
+                <div class="acc-icon">
+                  <img src="{% static 'website/assets/images/img/ST-07.svg' %}" alt="Machinery & Core Production Division" loading="lazy" />
+                </div>
+                <h3 class="acc-title">Machinery & Core Production Division</h3>
+              </div>
+              <div class="acc-icon-toggle">
+                <span class="acc-line-h"></span>
+                <span class="acc-line-v"></span>
+              </div>
+            </button>
+            <div class="acc-body">
+              <div class="acc-body-content">
+                <p class="acc-desc">
+                  Fully embraces 5S:<ul>
+                    <li>Seiri (Sort): Remove unused tools and materials</li>
+
+                    <li>Seiton (Set in Order): Organize workstations and tool storage</li>
+
+                    <li>Seiso (Shine): Maintain clean machines and floors</li>
+
+                    <li>Seiketsu (Standardise): Document best practices and setup procedures</li>
+
+                    <li>Shitsuke (Sustain): Reinforce habits through regular audits and training</li>
+                  </ul>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-header" aria-expanded="false">
+              <div class="acc-header-left">
+                <div class="acc-icon">
+                  <img src="{% static 'website/assets/images/img/ST-08.svg' %}" alt="Fabrication Technologies Division" loading="lazy" />
+                </div>
+                <h3 class="acc-title">Fabrication Technologies Division</h3>
+              </div>
+              <div class="acc-icon-toggle">
+                <span class="acc-line-h"></span>
+                <span class="acc-line-v"></span>
+              </div>
+            </button>
+            <div class="acc-body">
+              <div class="acc-body-content">
+                <p class="acc-desc">Utilizes Seiri to streamline raw materials, Seiton to mark workstations and tool zones, Seiso for spotless welding and powder coating stations, Seiketsu to document finishing specs, and Shitsuke to ensure continuous quality and efficiency.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-header" aria-expanded="false">
+              <div class="acc-header-left">
+                <div class="acc-icon">
+                  <img src="{% static 'website/assets/images/img/ST-09.svg' %}" alt="Joinery & Finishing Works Division" loading="lazy" />
+                </div>
+                <h3 class="acc-title">Joinery & Finishing Works Division</h3>
+              </div>
+              <div class="acc-icon-toggle">
+                <span class="acc-line-h"></span>
+                <span class="acc-line-v"></span>
+              </div>
+            </button>
+            <div class="acc-body">
+              <div class="acc-body-content">
+                <p class="acc-desc">Applies Seiri to optimize raw wood inventory, Seiton to arrange tools and materials, Seiso to ensure dust-free, clean environments, Seiketsu for uniform finish quality, and Shitsuke for craftsmanship standards.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-header" aria-expanded="false">
+              <div class="acc-header-left">
+                <div class="acc-icon">
+                  <img src="{% static 'website/assets/images/img/ST-10.svg' %}" alt="Installation & Execution Services" loading="lazy" />
+                </div>
+                <h3 class="acc-title">Installation & Execution Services</h3>
+              </div>
+              <div class="acc-icon-toggle">
+                <span class="acc-line-h"></span>
+                <span class="acc-line-v"></span>
+              </div>
+            </button>
+            <div class="acc-body">
+              <div class="acc-body-content">
+                <p class="acc-desc">Uses Seiri to prepare only needed tools for site work, Seiton to sequence installation steps, Seiso to maintain clean, hazard-free job sites, Seiketsu for installation SOPs, and Shitsuke to ensure on-time, consistent execution.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-header" aria-expanded="false">
+              <div class="acc-header-left">
+                <div class="acc-icon">
+                  <img src="{% static 'website/assets/images/img/ST-11.svg' %}" alt="Digital Media & LED Display Solutions" loading="lazy" />
+                </div>
+                <h3 class="acc-title">Digital Media & LED Display Solutions</h3>
+              </div>
+              <div class="acc-icon-toggle">
+                <span class="acc-line-h"></span>
+                <span class="acc-line-v"></span>
+              </div>
+            </button>
+            <div class="acc-body">
+              <div class="acc-body-content">
+                <p class="acc-desc">Applies Seiri to manage components and content, Seiton to label and arrange control systems, Seiso to ensure clear displays, Seiketsu to standardize LED calibration, and Shitsuke for long-term media system performance.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-header" aria-expanded="false">
+              <div class="acc-header-left">
+                <div class="acc-icon">
+                  <img src="{% static 'website/assets/images/img/LOGOOGOOGOOGOOGOOGOOGOOGOOOOOOOGOOG-03.svg' %}" alt="Stretch Ceiling & Lighting Division" loading="lazy" />
+                </div>
+                <h3 class="acc-title">Stretch Ceiling & Lighting Division</h3>
+              </div>
+              <div class="acc-icon-toggle">
+                <span class="acc-line-h"></span>
+                <span class="acc-line-v"></span>
+              </div>
+            </button>
+            <div class="acc-body">
+              <div class="acc-body-content">
+                <p class="acc-desc">Implements Seiri to remove outdated modules, Seiton for logical lighting layouts, Seiso for clean finishes and environments, Seiketsu to define install techniques, and Shitsuke to ensure client-ready presentations every time.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-header" aria-expanded="false">
+              <div class="acc-header-left">
+                <div class="acc-icon">
+                  <img src="{% static 'website/assets/images/img/LOGOD-2-04.svg' %}" alt="Printing & Signage" loading="lazy" />
+                </div>
+                <h3 class="acc-title">Printing & Signage</h3>
+              </div>
+              <div class="acc-icon-toggle">
+                <span class="acc-line-h"></span>
+                <span class="acc-line-v"></span>
+              </div>
+            </button>
+            <div class="acc-body">
+              <div class="acc-body-content">
+                <p class="acc-desc">Follows Seiri to declutter print queues, Seiton for logical storage of media and inks, Seiso for clean printer areas, Seiketsu to define color standards and templates, and Shitsuke for continuous output quality.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-header" aria-expanded="false">
+              <div class="acc-header-left">
+                <div class="acc-icon">
+                  <img src="{% static 'website/assets/images/img/ST-12.svg' %}" alt="After-Sales Services" loading="lazy" />
+                </div>
+                <h3 class="acc-title">After-Sales Services</h3>
+              </div>
+              <div class="acc-icon-toggle">
+                <span class="acc-line-h"></span>
+                <span class="acc-line-v"></span>
+              </div>
+            </button>
+            <div class="acc-body">
+              <div class="acc-body-content">
+                <p class="acc-desc">Delivers ongoing technical support and AMS with Seiri applied to simplify client service records, Seiton to organize manuals and service kits, Seiso to maintain demo equipment, Seiketsu for ticket handling protocols, and Shitsuke to ensure responsive, reliable support.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const headers = document.querySelectorAll(".acc-header");
+        
+        headers.forEach(header => {
+            header.addEventListener("click", () => {
+                const isExpanded = header.getAttribute("aria-expanded") === "true";
+                const body = header.nextElementSibling;
+                
+                // Close all other accordions (optional: remove if you want multiple open)
+                headers.forEach(h => {
+                    h.setAttribute("aria-expanded", "false");
+                    h.nextElementSibling.style.maxHeight = null;
+                });
+                
+                if (!isExpanded) {
+                    header.setAttribute("aria-expanded", "true");
+                    body.style.maxHeight = body.scrollHeight + "px";
+                }
+            });
+        });
+    });
+</script>
+
+
+{% endblock %}

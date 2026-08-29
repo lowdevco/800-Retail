@@ -1,0 +1,188 @@
+{% extends 'website/Base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+          <!-- Hero Section (Dark) -->
+          <section class="section_global_facilities" style="background-color: var(--color-base--black); color: var(--color-base--white); overflow: hidden;">
+            <div class="padding-outer-inline">
+              <div class="padding-global padding-section-large" style="background-image: url({% static 'website/assets/images/layer-left.svg' %});">
+              <div class="container-default">
+                <!-- Header -->
+                <div class="header is-centered" style="margin-bottom: 4rem; text-align: center;">
+                  <div animate="load-hero-1" class="text-style-badge" style="justify-content: center; margin-bottom: 1.5rem;">
+                    <div class="badge-dot"></div>
+                    <div style="color: var(--color-base--white);">OUR GLOBAL REACH</div>
+                  </div>
+                  <h1 animate="load-hero-title" class="heading-style-h2" style="color: var(--color-base--white);">
+                    A Growing Footprint <br/><span style="color: var(--secondary);">Across the Globe.</span>
+                  </h1>
+                  <div class="spacer-tiny"></div>
+                  <p animate="load-hero-2" class="text-size-medium text-weight-light" style="color: var(--color-neutral--shade-400); max-width: 600px; margin: 0 auto;">
+                    Operating from state-of-the-art facilities with a skilled workforce, Al Ameen delivers high-quality solutions across the Middle East and Asia.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- CAROUSEL -->
+            <div animate="load-hero-2" class="gallery_marquee" style="padding-bottom: 4rem;">
+              <div class="gallery_marquee-group">
+                <div class="gallery_marquee-item">
+                  <img src="{% static 'website/assets/images/projects/aco-dubai-hills.jpg' %}" alt="Facility 1" class="gallery_marquee-img" loading="lazy" />
+                </div>
+                <div class="gallery_marquee-item">
+                  <img src="{% static 'website/assets/images/projects/Al-rahi.png' %}" alt="Facility 2" class="gallery_marquee-img" loading="lazy" />
+                </div>
+                <div class="gallery_marquee-item">
+                  <img src="{% static 'website/assets/images/projects/shoes-store.jpg' %}" alt="Facility 3" class="gallery_marquee-img" loading="lazy" />
+                </div>
+                <div class="gallery_marquee-item">
+                  <img src="{% static 'website/assets/images/projects/image-1.jpg' %}" alt="Facility 4" class="gallery_marquee-img" loading="lazy" />
+                </div>
+                <div class="gallery_marquee-item">
+                  <img src="{% static 'website/assets/images/projects/jackandjones.png' %}" alt="Facility 5" class="gallery_marquee-img" loading="lazy" />
+                </div>
+              </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- UAE Facility (Light) -->
+          <section class="section_facility" style="background-color: var(--color-base--white); color: var(--color-base--black);">
+            <div class="padding-outer-inline"><div class="padding-global padding-section-medium">
+              <div class="container-default">
+                <div class="facility-grid">
+                  <div animate="fade-up-1" class="facility-image-wrapper">
+                                      <div class="corner-frame">
+                    <div class="corner-frame_top-left is-black"></div>
+                    <div class="corner-frame_top-right is-black"></div>
+                    <div class="corner-frame_bottom-right is-black"></div>
+                    <div class="corner-frame_bottom-left is-black"></div>
+                  </div>
+                    <img src="{% static 'website/assets/images/flags/UAE.png' %}" alt="UAE Facility" class="facility-image" />
+                    <div class="facility-flag-badge">
+                      <img src="{% static 'website/assets/images/flags/UAE.svg' %}" alt="UAE" />
+                      <span>UAE HEADQUARTERS</span>
+                    </div>
+                  </div>
+                  <div class="facility-content">
+                    <h2 animate="fade-up-1" class="heading-style-h3" style="color: var(--color-base--black);"><strong>United Arab Emirates</strong></h2>
+                    <div animate="fade-up-1" class="facility-stats" style="border-color: rgba(0,0,0,0.1);">
+                      <div class="stat-item">
+                        <div class="stat-value">300,000+</div>
+                        <div class="stat-label" style="color: rgba(0,0,0,0.75);">Square Feet</div>
+                      </div>
+                      <div class="stat-item">
+                        <div class="stat-value">450+</div>
+                        <div class="stat-label" style="color: rgba(0,0,0,0.75);">Skilled Workforce</div>
+                      </div>
+                    </div>
+                    <p animate="fade-up-2" class="text-size-medium text-weight-light" style="color: rgba(0,0,0,0.75); margin-bottom: 1rem; line-height: 1.6;">
+                      Operating from a state-of-the-art manufacturing facility spanning over 300,000 square feet and powered by a skilled workforce of over 450 employees, Al Ameen excels in delivering high-quality solutions across retail and commercial fixtures, LED display panels, architectural lightboxes, and custom fabrication.
+                    </p>
+                    <p animate="fade-up-2" class="text-size-small text-weight-light" style="color: rgba(0,0,0,0.75); line-height: 1.6;">
+                      With a proven track record of completing more than 9500+ store counters in over 25 countries, the group has established a strong global footprint marked by precision, reliability, and innovation. Al Ameen also features a dedicated experience center in Dubai, offering clients a first-hand look at our craftsmanship.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- KSA Facility (Beige) -->
+          <section class="section_facility background-color-alternate" style="color: var(--color-base--black);">
+            <div class="padding-outer-inline"><div class="padding-global padding-section-medium">
+              <div class="container-default">
+                <div class="facility-grid reverse">
+                  <div class="facility-content">
+                    <h2 animate="fade-up-1" class="heading-style-h3" style="color: var(--color-base--black);"><strong>Kingdom of Saudi Arabia</strong></h2>
+                    <div animate="fade-up-1" class="facility-stats" style="border-color: rgba(0,0,0,0.1);">
+                      <div class="stat-item">
+                        <div class="stat-value">40,000+</div>
+                        <div class="stat-label" style="color: rgba(0,0,0,0.75);">Square Feet</div>
+                      </div>
+                      <div class="stat-item">
+                        <div class="stat-value">50+</div>
+                        <div class="stat-label" style="color: rgba(0,0,0,0.75);">Skilled Team</div>
+                      </div>
+                    </div>
+                    <p animate="fade-up-2" class="text-size-medium text-weight-light" style="color: rgba(0,0,0,0.75); margin-bottom: 1rem; line-height: 1.6;">
+                      Our dedicated manufacturing facility in Riyadh spans over 40,000 square feet and is supported by a skilled team of 50+ employees, with plans in place to expand operations in response to increasing market demand.
+                    </p>
+                    <p animate="fade-up-2" class="text-size-small text-weight-light" style="color: rgba(0,0,0,0.75); line-height: 1.6;">
+                      We proudly operate experience centers in both Riyadh and Jeddah, offering clients the opportunity to engage with our design innovation, product quality, and manufacturing capabilities firsthand. With comprehensive service coverage across Saudi Arabia, we provide efficient and localized project execution.
+                    </p>
+                  </div>
+                  <div animate="fade-up-1" class="facility-image-wrapper reverse-img">
+                                      <div class="corner-frame">
+                    <div class="corner-frame_top-left is-black"></div>
+                    <div class="corner-frame_top-right is-black"></div>
+                    <div class="corner-frame_bottom-right is-black"></div>
+                    <div class="corner-frame_bottom-left is-black"></div>
+                  </div>
+                    <img src="{% static 'website/assets/images/flags/KSA.png' %}" alt="KSA Facility" class="facility-image" />
+                    <div class="facility-flag-badge">
+                      <img src="{% static 'website/assets/images/flags/KSA.svg' %}" alt="KSA" />
+                      <span>KSA FACILITY</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- CHINA Facility (Dark) -->
+          <section class="section_facility" style="background-color: var(--color-base--white); color: var(--color-base--black);">
+            <div class="padding-outer-inline"><div class="padding-global padding-section-medium">
+              <div class="container-default">
+                <div class="facility-grid">
+                  <div animate="fade-up-1" class="facility-image-wrapper">
+                                      <div class="corner-frame">
+                    <div class="corner-frame_top-left is-black"></div>
+                    <div class="corner-frame_top-right is-black"></div>
+                    <div class="corner-frame_bottom-right is-black"></div>
+                    <div class="corner-frame_bottom-left is-black"></div>
+                  </div>
+                    <img src="{% static 'website/assets/images/flags/CHINA.png' %}" alt="China Facility" class="facility-image" />
+                    <div class="facility-flag-badge">
+                      <img src="{% static 'website/assets/images/flags/CHINA.svg' %}" alt="CHINA" />
+                      <span>CHINA SOURCING HUB</span>
+                    </div>
+                  </div>
+                  <div class="facility-content">
+                    <h2 animate="fade-up-1" class="heading-style-h3" style="color: var(--color-base--black);"><strong>China</strong></h2>
+                    <div animate="fade-up-1" class="facility-stats" style="border-color: rgba(0,0,0,0.1);">
+                      <div class="stat-item">
+                        <div class="stat-value">46,000+</div>
+                        <div class="stat-label" style="color: rgba(0,0,0,0.75);">Square Feet Total</div>
+                      </div>
+                      <div class="stat-item">
+                        <div class="stat-value">Hub</div>
+                        <div class="stat-label" style="color: rgba(0,0,0,0.75);">Global Sourcing</div>
+                      </div>
+                    </div>
+                    <p animate="fade-up-2" class="text-size-medium text-weight-light" style="color: rgba(0,0,0,0.75); margin-bottom: 1rem; line-height: 1.6;">
+                      Al Ameen continues to expand its international capabilities with a dedicated procurement and sourcing hub in Foshan, China. This facility features a 6,000+ square foot experience and procurement center that serves as a crucial platform for material selection and collaboration with vendors across Asia.
+                    </p>
+                    <p animate="fade-up-2" class="text-size-small text-weight-light" style="color: rgba(0,0,0,0.75); line-height: 1.6;">
+                      To further strengthen our manufacturing footprint, a new 40,000+ square foot furniture production facility is currently under development in Foshan. Al Ameen's China operations play a strategic role in enabling agile sourcing, cost-efficient production, and robust supply chain integration for projects worldwide.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+          </section>
+
+        
+
+
+
+{% endblock content %}
+
+
+

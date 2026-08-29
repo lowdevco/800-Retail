@@ -1,0 +1,142 @@
+{% extends 'website/Base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+       <section class="section_ceo_message">
+          <div class="padding-outer-inline">
+            <div class="padding-global padding-section-medium">
+              <div class="container-default">
+                <div class="ceo-message-container">
+                  <div class="ceo-message-text">
+                    <div
+                      animate="load-hero-1"
+                      class="text-style-badge"
+                      style="margin-bottom: 1.5rem"
+                    >
+                      <div class="badge-dot"></div>
+                      <div style="color: var(--color-base--white)">
+                        MESSAGE FROM THE CEO
+                      </div>
+                    </div>
+                    <h1
+                      animate="load-hero-title"
+                      class="heading-style-h2"
+                      style="
+                        margin-bottom: 1.5rem;
+                        color: var(--color-base--white);
+                      "
+                    >
+                      Every space we build has a soul because behind every
+                      project, there's a person, a purpose, a vision.
+                    </h1>
+
+                    <div class="spacer-tiny"></div>
+
+                    <p
+                      animate="load-hero-2"
+                      class="text-size-small text-weight-light"
+                      style="
+                        color: var(--color-neutral--shade-400);
+                        margin-bottom: 1rem;
+                      "
+                    >
+                      At Al Ameen, what we create is rooted in more than just
+                      fixtures. It's built on values, relationships, and a deep
+                      sense of responsibility.
+                    </p>
+
+                    <p
+                      animate="load-hero-2"
+                      class="text-size-small text-weight-light"
+                      style="
+                        color: var(--color-neutral--shade-400);
+                        margin-bottom: 1rem;
+                      "
+                    >
+                      For me, it's never about how big or small the project is.
+                      It's about meaning. It's about understanding what truly
+                      matters to you and turning that into something real. A
+                      space that reflects your story. A place that brings pride,
+                      comfort, and joy.
+                    </p>
+
+                    <p
+                      animate="load-hero-2"
+                      class="text-size-small text-weight-light"
+                      style="
+                        color: var(--color-neutral--shade-400);
+                        margin-bottom: 1rem;
+                      "
+                    >
+                      That moment when a client walks through their completed
+                      project and quietly smiles � that's everything to me. No
+                      award or milestone compares to that feeling.
+                    </p>
+
+                    <p
+                      animate="load-hero-2"
+                      class="text-size-small text-weight-light"
+                      style="
+                        color: var(--color-neutral--shade-400);
+                        margin-bottom: 2rem;
+                      "
+                    >
+                      This isn't just my work, it's my purpose. And every single
+                      project is a reflection of the trust you place in us. For
+                      that, I carry immense gratitude and thank you for always
+                      being in this journey along with us.
+                    </p>
+                  </div>
+
+                  <div animate="load-hero-1" class="ceo-message-card">
+                    <div class="image-wrapper">
+                      <img
+                        src="{% static 'website/assets/images/brand/CEO-image.png' %}"
+                        alt="Muhammed Manaf - CEO"
+                      />
+                    </div>
+                    <div
+                      animate="load-hero-2"
+                      class="ceo-signature"
+                      style="
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        text-align: center;
+                      "
+                    >
+                      <img
+                        src="{% static 'website/assets/images/brand/Sign.svg' %}"
+                        style="
+                          filter: invert(1) brightness(200%);
+                          opacity: 0.9;
+                          height: 50px;
+                          margin-bottom: 10px;
+                        "
+                        alt="Muhammed Manaf Signature"
+                      />
+                      <p
+                        class="text-size-small text-style-muted"
+                        style="
+                          font-weight: 500;
+                          text-transform: uppercase;
+                          letter-spacing: 1px;
+                          color: var(--color-base--white);
+                        "
+                      >
+                        CEO, Al Ameen Group
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      
+
+
+{% endblock content %}
+

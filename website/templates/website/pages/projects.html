@@ -1,0 +1,156 @@
+﻿{% extends 'website/Base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <section class="section_projects_hero" style="
+            background-image: url({% static 'website/assets/images/layer-top.svg' %});
+            position: relative;
+            overflow: hidden;
+            background-color: var(--color-base--black);
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          ">
+    <!-- Background Image with Parallax / Scale effect -->
+    <div style="
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              z-index: 0;
+            ">
+      <div style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.2) 0%,
+                  var(--color-base--black) 100%
+                );
+              "></div>
+    </div>
+
+    <div class="padding-global padding-section-medium" style="position: relative; z-index: 1; width: 100%">
+      <div class="container-default">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center">
+          <div animate="load-hero-1" class="text-style-badge" style="
+                    justify-content: center;
+                    margin-bottom: 2rem;
+                    border-color: rgba(255, 255, 255, 0.2);
+                    background: rgba(0, 0, 0, 0.3);
+                    backdrop-filter: blur(5px);
+                  ">
+            <div class="badge-dot" style="background-color: var(--secondary)"></div>
+            <div style="
+                      color: var(--color-base--white);
+                      letter-spacing: 2px;
+                      text-transform: uppercase;
+                      font-size: 0.75rem;
+                      font-weight: 600;
+                    ">Our Portfolio</div>
+          </div>
+
+          <h1 animate="load-hero-title" style="
+                    color: var(--color-base--white);
+                    font-size: clamp(3.5rem, 8vw, 6rem);
+                    line-height: 1.05;
+                    margin-bottom: 1.5rem;
+                    font-family: var(--fonts--heading);
+                    font-weight: bold;
+                    letter-spacing: -1px;
+                  ">
+            Spaces That <br />
+            <span style="color: var(--secondary)">Inspire.</span>
+          </h1>
+
+          <p animate="load-hero-2" style="
+                    color: rgba(255, 255, 255, 0.7);
+                    font-size: 1.15rem;
+                    line-height: 1.7;
+                    max-width: 600px;
+                    margin: 0 auto 3.5rem auto;
+                    font-weight: 300;
+                  ">From the first concept sketch to the final execution, we deliver bespoke retail and commercial fit-outs that stand the test of time. Explore our global footprint of successful projects.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section_projects_list">
+    <div class="padding-outer-inline">
+      <div class="padding-global padding-section-medium background-color-alternate">
+        <div class="container-default">
+          <div class="projects_list_wrap">
+            <div class="w-dyn-list">
+              <div role="list" class="projects_list w-dyn-items" id="projects-container" style="display: block">
+                <!-- Cards will be dynamically injected here by projects-renderer.js -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block script %}
+
+    <script src="{% static 'website/assets/data/projects.js' %}" type="text/javascript"></script>
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", () => {
+        const container = document.getElementById("projects-container");
+        if (!container) return;
+
+        let html = "";
+        projectsData.forEach((project, index) => {
+          const isReverse = index % 2 !== 0; // Alternating layout
+          const reverseClass = isReverse ? "reverse" : "";
+
+          // Build bullets
+          const scopeBullets = project.scope
+            .map((point) => `<li>${point}</li>`)
+            .join("");
+
+          // Video iframe template
+          const videoIframe = `<iframe src='https://www.youtube.com/embed/${project.videoId}?autoplay=1' frameborder='0' allow='autoplay; fullscreen' style='position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: var(--radius--default);'></iframe>`;
+
+          html += `
+              <div animate="fade-up-1" role="listitem" class="w-dyn-item" style="margin-bottom: 4rem;">
+                <div class="project-horizontal-card ${reverseClass}">
+                  
+                  <div class="project-horizontal-media" onclick="this.innerHTML=\`${videoIframe}\`;">
+                    <img src="${project.thumbnail}" alt="${project.title}" class="project-horizontal-img" />
+                  </div>
+
+                  <div class="project-horizontal-content">
+                    <h3 class="heading-style-h3" style="color: var(--color-base--black); margin-bottom: 1.5rem; font-family: var(--fonts--heading); font-weight: bold;">${project.title}</h3>
+                    
+                    <div class="project-horizontal-meta">
+                      <div><strong style="color: var(--color-base--black); font-weight: 600;">Store Name:</strong> ${project.storeName}</div>
+                      <div><strong style="color: var(--color-base--black); font-weight: 600;">Location:</strong> ${project.location}</div>
+                    </div>
+
+                    <div class="project-horizontal-scope">
+                      <h4> Project Specifics</h4>
+                      <ul>
+                        ${scopeBullets}
+                      </ul>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            `;
+        });
+
+        container.innerHTML = html;
+      });
+    </script>
+
+{% endblock script %}

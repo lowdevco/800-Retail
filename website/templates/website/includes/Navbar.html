@@ -1,0 +1,115 @@
+  {% load static %}
+
+  <div
+        data-animation="default"
+        class="navbar w-nav"
+        data-easing2="ease"
+        data-easing="ease"
+        data-collapse="medium"
+        role="banner"
+        data-no-scroll="1"
+        data-duration="400"
+        data-doc-height="1"
+      >
+        <header class="nav-content">
+          <div class="container w-container">
+            <div class="nav-wrapper">
+              <a href="{% url 'home' %}" class="nav-brand w-nav-brand"
+                ><img
+                  loading="lazy"
+                  src="{% static 'website/assets/images/brand/logo-white.svg' %}"
+                  alt="800Retail"
+                  class="nav-logo"
+              /></a>
+              <div class="nav-right">
+                <div class="nav-menu-wrapper">
+                  <nav role="navigation" class="nav-menu w-nav-menu">
+                    <a href="{% url 'home' %}" class="nav-link w-nav-link">Home</a>
+
+                    <div data-delay="0" data-hover="true" class="nav-dropdown">
+                      <div class="nav-dropdown-toggle">
+                        <div>Company</div>
+                      </div>
+                      <nav class="simple-dropdown-list">
+                        <a
+                          href="{% url 'about' %}"
+                          class="simple-dropdown-link"
+                          >About</a
+                        >
+                        <a
+                          href="{% url 'ceo_message' %}"
+                          class="simple-dropdown-link"
+                          >CEO Message</a
+                        >
+                        <a
+                          href="{% url 'global_facilities' %}"
+                          class="simple-dropdown-link"
+                          >Global Facilities</a
+                        >
+                      </nav>
+                    </div>
+
+                    <div data-delay="0" data-hover="true" class="nav-dropdown">
+                      <div class="nav-dropdown-toggle">
+                        <div>Capabilities</div>
+                      </div>
+                      <nav class="simple-dropdown-list">
+                        <a
+                          href="{% url 'divisions' %}"
+                          class="simple-dropdown-link"
+                          >Divisions</a
+                        >
+                        <a
+                          href="{% url 'product' %}"
+                          class="simple-dropdown-link"
+                          >Products & Solutions</a
+                        >
+                      </nav>
+                    </div>
+
+                    <div data-delay="0" data-hover="true" class="nav-dropdown">
+                      <div class="nav-dropdown-toggle">
+                        <div>Portfolio</div>
+                      </div>
+                      <nav class="simple-dropdown-list">
+                        <a
+                          href="{% url 'project' %}"
+                          class="simple-dropdown-link"
+                          >Projects</a
+                        >
+                        <a
+                          href="{% url 'client' %}"
+                          class="simple-dropdown-link"
+                          >Our Clientele</a
+                        >
+                      </nav>
+                    </div>
+
+                    <a href="{% url 'blog' %}" class="nav-link w-nav-link"
+                      >Blog</a
+                    >
+                    <a href="{% url 'contact' %}" class="nav-link w-nav-link"
+                      >Contact</a
+                    >
+                  </nav>
+                  <div class="nav-menu-btn w-nav-button">
+                    <div class="nav-menu-btn-icon">
+                      <div class="nav-menu-btn-line-top"></div>
+                      <div class="nav-menu-btn-line-bottom"></div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="nav-right-button hide-mobile"
+                  style="display: flex; align-items: center"
+                >
+                  <a href="{% url 'contact' %}" class="button w-inline-block">
+                    <div>Get a Quote</div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+      </div>
+      <div class="global-styles w-embed"></div>

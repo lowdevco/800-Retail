@@ -1,0 +1,133 @@
+{% load static %}
+
+      <footer class="footer">
+        <div class="container-default">
+          <div class="footer-box">
+            <nav class="footer_box">
+              <div class="footer_nav-column-left">
+                <div>
+                  <img
+                    loading="lazy"
+                    src="{% static 'website/assets/images/brand/logo-white.svg' %}"
+                    alt="800Retail"
+                    class="nav-logo"
+                  />
+                  <div class="spacer-medium"></div>
+                  <div
+                    class="text-size-tiny text-color-alternate"
+                    style="max-width: 300px; line-height: 1.6"
+                  >
+                    800 Retail Solutions is a leading provider of comprehensive
+                    retail fit-outs, bespoke fixture manufacturing, and digital
+                    LED solutions, committed to excellence and innovation in
+                    modern retail environments.
+                  </div>
+                </div>
+                <div class="footer_socials">
+                  <a href="#" class="social-link w-inline-block"
+                    ><img
+                      loading="lazy"
+                      src="{% static 'website/assets/images/Linkedin.svg' %}"
+                      alt=""
+                      class="social-link-image"
+                  /></a>
+                  <a href="#" class="social-link w-inline-block"
+                    ><img
+                      loading="lazy"
+                      src="{% static 'website/assets/images/IG.svg' %}"
+                      alt=""
+                      class="social-link-image"
+                  /></a>
+                  <a href="#" class="social-link w-inline-block"
+                    ><img
+                      loading="lazy"
+                      src="{% static 'website/assets/images/x.svg' %}"
+                      alt=""
+                      class="social-link-image"
+                  /></a>
+                </div>
+              </div>
+              <div class="footer_nav">
+                <div class="footer_nav-column">
+                  <div class="text-style-badge text-color-alternate">
+                    Company
+                  </div>
+                  <div class="footer_nav-list">
+                    <a href="{% url 'home' %}" class="footer_nav-link">Home</a>
+                    <a href="{% url 'about' %}" class="footer_nav-link"
+                      >About Us</a
+                    >
+                    <a href="{% url 'ceo_message' %}" class="footer_nav-link"
+                      >CEO Message</a
+                    >
+                    <a
+                      href="{% url 'global_facilities' %}"
+                      class="footer_nav-link"
+                      >Global Facilities</a
+                    >
+                  </div>
+                </div>
+                <div class="footer_nav-column">
+                  <div class="text-style-badge text-color-alternate">
+                    Capabilities
+                  </div>
+                  <div class="footer_nav-list">
+                    <a href="{% url 'divisions' %}" class="footer_nav-link"
+                      >Divisions</a
+                    >
+                    <a href="{% url 'product' %}" class="footer_nav-link"
+                      >Products & Solutions</a
+                    >
+                  </div>
+                </div>
+                <div class="footer_nav-column">
+                  <div class="text-style-badge text-color-alternate">
+                    Portfolio
+                  </div>
+                  <div class="footer_nav-list">
+                    <a href="{% url 'project' %}" class="footer_nav-link"
+                      >Projects</a
+                    >
+                    <a href="{% url 'client' %}" class="footer_nav-link"
+                      >Our Clientele</a
+                    >
+                  </div>
+                </div>
+                <div class="footer_nav-column">
+                  <div class="text-style-badge text-color-alternate">
+                    Explore
+                  </div>
+                  <div class="footer_nav-list">
+                    <a href="{% url 'blog' %}" class="footer_nav-link">Blog</a>
+                    <a href="{% url 'contact' %}" class="footer_nav-link"
+                      >Contact</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </nav>
+            <div class="divider is-footer"></div>
+            <div class="spacer-xsmall"></div>
+            <div
+              class="text-size-tiny text-color-alternate text-style-muted60"
+              style="
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 10px;
+              "
+            >
+              <div>
+                Copyright &copy; 2026 |
+                <a href="{% url 'home' %}" style="color: white; font-weight: bold;">800 Retail</a>. All rights
+                reserved.
+              </div>
+              <div>
+                Developed By <a href="https://xeventure.com/" target="_blank" style="color: white; font-weight: bold;">Xeventure</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>

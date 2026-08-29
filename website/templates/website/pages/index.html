@@ -1,0 +1,1966 @@
+﻿{% extends 'website/Base.html' %}
+{% load static %}
+
+{% block head %}
+  <noscript>
+    <style>
+      [data-wf-bgvideo-fallback-img] {
+        display: none;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        [data-wf-bgvideo-fallback-img] {
+          position: absolute;
+          z-index: -100;
+          display: inline-block;
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+    </style>
+    <img data-wf-bgvideo-fallback-img="true" src="{% static 'website/assets/images/video-2-poster.jpg' %}" alt="" />
+  </noscript>
+
+  <style>
+    .client-carousel-wrapper {
+      position: relative;
+      width: 100%;
+    }
+    .client-carousel-track {
+      display: flex;
+      gap: 2rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 2rem;
+      /* Hide scrollbar */
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .client-carousel-track::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .client-carousel-track .testimonial-card {
+      flex: 0 0 calc(33.333% - 1.333rem);
+      scroll-snap-align: start;
+      white-space: normal;
+      background: rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 0;
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: grab;
+      position: relative;
+    }
+    .client-carousel-track .testimonial-card:active {
+      cursor: grabbing;
+    }
+    .client-carousel-track .testimonial-card:hover {
+      background: rgba(0, 0, 0, 0.04);
+      border-color: rgba(255, 97, 24, 0.5);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+    .client-carousel-track .testimonial-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      padding-bottom: 1rem;
+    }
+    /* FIX FOR LOGO ALWAYS COLORED */
+    .client-carousel-track .testimonial-logo img {
+      height: 40px;
+      width: auto;
+      transition: transform 0.3s ease;
+      filter: none !important;
+      opacity: 1 !important;
+    }
+    .client-carousel-track .testimonial-card:hover .testimonial-logo img {
+      filter: none !important;
+      opacity: 1 !important;
+    }
+    .client-carousel-track .testimonial-quote-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: var(--secondary);
+      opacity: 0.9;
+    }
+    .client-carousel-track .testimonial-text {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: var(--color-base--black);
+      font-style: italic;
+    }
+    .client-carousel-track .testimonial-footer {
+      margin-top: auto;
+      border-left: 3px solid var(--secondary);
+      padding-left: 1rem;
+    }
+    .client-carousel-track .testimonial-client {
+      font-size: 1.2rem;
+      color: var(--color-base--black);
+      margin: 0;
+      font-family: var(--fonts--heading);
+      font-weight: 700;
+    }
+    .client-carousel-track .testimonial-subtitle {
+      font-size: 0.9rem;
+      color: var(--color-neutral--shade-500);
+      margin: 0;
+      margin-top: 0.25rem;
+    }
+    
+    .client-carousel-prev:hover,
+    .client-carousel-next:hover {
+      background: var(--color-base--black) !important;
+      color: var(--color-base--white) !important;
+      border-color: var(--color-base--black) !important;
+    }
+    
+    @media screen and (max-width: 991px) {
+      .client-carousel-track .testimonial-card {
+        flex: 0 0 calc(50% - 1rem);
+      }
+    }
+    @media screen and (max-width: 767px) {
+      .client-carousel-track .testimonial-card {
+        flex: 0 0 100%;
+        padding: 2rem;
+      }
+    }
+    
+    .divisions-compact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      border-left: 1px solid rgba(0, 0, 0, 0.1);
+      background: var(--color-base--white);
+    }
+    .div-grid-card {
+      border-right: 1px solid rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: all 0.3s ease;
+      background: transparent;
+      cursor: default;
+    }
+    .div-grid-card:hover {
+      background: var(--color-base--black);
+      transform: translateY(-4px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      border-color: transparent;
+      z-index: 2;
+    }
+    .div-grid-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 0;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* removed background-color and padding */
+    }
+    .div-grid-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: grayscale(100%) contrast(1000%);
+      transition: filter 0.3s ease;
+    }
+    .div-grid-card:hover .div-grid-icon img {
+      filter: grayscale(100%) contrast(1000%) invert(1);
+    }
+    .div-grid-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .div-grid-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      font-family: var(--fonts--heading);
+      color: var(--color-base--black);
+      margin-bottom: 0;
+      transition: color 0.3s ease;
+      line-height: 1.2;
+    }
+    .div-grid-card:hover .div-grid-title {
+      color: var(--color-base--white);
+    }
+    .div-grid-desc {
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: rgba(0, 0, 0, 0.6);
+      transition: color 0.3s ease;
+      margin: 0;
+    }
+    .div-grid-desc ul {
+      padding-left: 1rem;
+      margin-top: 0.5rem;
+    }
+    .div-grid-card:hover .div-grid-desc {
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    @media screen and (max-width: 1024px) {
+      .divisions-compact-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media screen and (max-width: 767px) {
+      .divisions-compact-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .div-grid-card {
+        padding: 1.5rem;
+      }
+    }
+    @media screen and (max-width: 479px) {
+      .divisions-compact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .home-methodology-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    @media screen and (max-width: 995px) {
+      .home-methodology-wrap {
+        grid-template-columns: 1fr !important;
+        gap: 3rem !important;
+      }
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+  <section class="section_home1_hero">
+    <div class="padding-outer-inline">
+      <div class="home1_hero_wrap">
+        <img src="{% static 'website/assets/images/brand/company-image.png' %}" loading="eager" sizes="(max-width: 2464px) 100vw, 2464px" alt="800Retail" class="home1_hero_img" />
+        <div class="home1_hero_img-layer-wrap">
+          <img src="{% static 'website/assets/images/layer-bottom.svg' %}" loading="eager" alt="" class="home1_hero_img-layer" />
+        </div>
+        <div class="home1_hero_content">
+          <div class="padding-global">
+            <div class="container-default">
+              <div class="home1_hero_grid">
+                <div class="home1_hero_left">
+                  <div animate="" class="text-style-badge">
+                    <div class="badge-dot"></div>
+                    <div class="text-color-alternate">Welcome to 800 Retail Solutions</div>
+                  </div>
+                  <div class="spacer-small"></div>
+                  <div>
+                    <h1>Largest Retail Solution in the World</h1>
+                  </div>
+                </div>
+                <div class="home1_hero_right">
+                  <div class="text-size-medium text-weight-light">From concept to completion, we create retail spaces that perform, inspire, and last</div>
+                  <div class="spacer-small"></div>
+                  <div class="button-group">
+                    <a animate="" button="" href="pages/projects/crestview-cultural-center.html" class="button is-secondary w-inline-block">
+                      <div class="button-mask">
+                        <div button-text="" class="button-text">View Our Projects</div>
+                        <div button-text="" class="button-text-hover">View Our Projects</div>
+                      </div>
+                    </a><a button="" href="pages/contact.html" class="button is-alternative w-inline-block">
+                      <div class="button-mask">
+                        <div button-text="" class="button-text">Contact Us</div>
+                        <div button-text="" class="button-text-hover">Contact Us</div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section_home1_welcome">
+    <div class="padding-global padding-section-medium">
+      <div class="container-default">
+        <div class="header is-centered">
+          <div class="max-width-medium">
+            <div animate="fade-up-1" class="text-style-badge">
+              <div class="badge-dot"></div>
+              <div class="text-color-alternate">Welcome to 800 Retail Solutions</div>
+            </div>
+            <div class="spacer-small"></div>
+            <h3 animate="fade-up-2">“A trusted partner in creating exceptional retail spaces, delivering thoughtful design, precision manufacturing, and seamless execution from concept to completion.”</h3>
+          </div>
+        </div>
+        <div class="spacer-large"></div>
+        <div class="home1_welcome_wrap-top">
+          <div animate="fade-up-2" class="home3_hero_left">
+            <div data-poster-url="{% static 'website/assets/images/video-2-poster.jpg' %}" data-video-urls="{% static 'website/assets/media/video-1.mp4' %}" data-autoplay="true" data-loop="true" data-wf-ignore="true" class="background-video w-background-video w-background-video-atom">
+              <video id="7990fe26-a00c-6402-5ad0-5365f93fab76-video" autoplay="" loop="" style="
+                        background-image: url({% static 'website/assets/images/video-2-poster.jpg' %});
+                      " muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover">
+                <source src="{% static 'website/assets/media/800Retail-company.mp4' %}" data-wf-ignore="true" />
+              </video>
+
+              <div aria-live="polite">
+                <button type="button" data-w-bg-video-control="true" aria-controls="7990fe26-a00c-6402-5ad0-5365f93fab76-video" class="w-backgroundvideo-backgroundvideoplaypausebutton play-ontop w-background-video--control"><span class="play-state"><img loading="lazy" src="{% static 'website/assets/images/play.svg' %}" alt="Pause video" class="play-image" /></span><span hidden="" class="pause-state"><img loading="lazy" src="{% static 'website/assets/images/pause.svg' %}" alt="Play video" class="pause-image" /></span></button>
+              </div>
+            </div>
+            <div class="highlights_marquee">
+              <div class="highlights_marquee-group">
+                <div class="text-size-large text-weight-light">Craftsmanship</div>
+                <h3>|</h3>
+                <div class="text-size-large text-weight-light">Reliability</div>
+                <h3>|</h3>
+                <div class="text-size-large text-weight-light">Sustainability</div>
+                <h3>|</h3>
+                <div class="text-size-large text-weight-light">Craftsmanship</div>
+                <h3>|</h3>
+              </div>
+              <div class="highlights_marquee-group">
+                <div class="text-size-large text-weight-light">Craftsmanship</div>
+                <h3>|</h3>
+                <div class="text-size-large text-weight-light">Reliability</div>
+                <h3>|</h3>
+                <div class="text-size-large text-weight-light">Sustainability</div>
+                <h3>|</h3>
+                <div class="text-size-large text-weight-light">Craftsmanship</div>
+                <h3>|</h3>
+              </div>
+            </div>
+          </div>
+          <div class="home1_welcome_content-wrap">
+            <div class="corner-frame">
+              <div class="corner-frame_top-left"></div>
+              <div class="corner-frame_top-right"></div>
+              <div class="corner-frame_bottom-right"></div>
+              <div class="corner-frame_bottom-left"></div>
+            </div>
+            <div animate="card-stagger" class="home1_welcome_content">
+              <div class="welcome_card">
+                <div class="icon-wrap">
+                  <img src="{% static 'website/assets/images/flags/UAE.svg' %}" loading="lazy" alt="" class="icon-height-medium" />
+                </div>
+                <div>
+                  <div class="text-size-small text-weight-light">UAE since 1997</div>
+                  <div class="text-size-small text-weight-light text-style-muted">Delivering complete retail solutions with decades of experience across the region</div>
+                </div>
+              </div>
+              <div class="welcome_card">
+                <div class="icon-wrap">
+                  <img src="{% static 'website/assets/images/flags/KSA.svg' %}" loading="lazy" alt="" class="icon-height-medium" />
+                </div>
+                <div>
+                  <div class="text-size-small text-weight-light">KSA since 2022</div>
+                  <div class="text-size-small text-weight-light text-style-muted">Expanding our retail expertise with complete solutions for a growing market</div>
+                </div>
+              </div>
+              <div class="welcome_card">
+                <div class="icon-wrap">
+                  <img src="{% static 'website/assets/images/flags/CHINA.svg' %}" loading="lazy" alt="" class="icon-height-medium" />
+                </div>
+                <div>
+                  <div class="text-size-small text-weight-light">CHINA since 2023</div>
+                  <div class="text-size-small text-weight-light text-style-muted">Strengthening our global network through sourcing, manufacturing and innovation</div>
+                </div>
+              </div>
+              <div class="welcome_card">
+                <div class="icon-wrap">
+                  <img src="{% static 'website/assets/images/flags/INDIA.svg' %}" loading="lazy" alt="" class="icon-height-medium" />
+                </div>
+                <div>
+                  <div class="text-size-small text-weight-light">INDIA (coming Soon)</div>
+                  <div class="text-size-small text-weight-light text-style-muted">Bringing our retail expertise to India as we prepare for our next expansion</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section_home1_expertise">
+    <div class="padding-outer-inline">
+      <div class="padding-global padding-section-medium background-color-alternate" style="padding-top: 100px; padding-bottom: 100px">
+        <div class="container-default">
+          <div class="header" style="
+                    text-align: center;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin-bottom: 3rem;
+                  ">
+            <div style="
+                      display: flex;
+                      flex-direction: column;
+                      align-items: center;
+                    ">
+              <div animate="fade-up-1" class="text-style-badge">
+                <div class="badge-dot"></div>
+                <div>Our Expertise</div>
+              </div>
+              <div class="spacer-xxsmall"></div>
+              <div class="spacer-tiny"></div>
+              <h2 animate="title" style="max-width: 800px">Building Global Retail Environments for Generations</h2>
+            </div>
+          </div>
+          <div class="expertise_list">
+            <a animate="fade-up-1" href="pages/divisions.html" class="expertise_card w-inline-block">
+              <img src="{% static 'website/assets/images/img/retail_fixtures.png' %}" loading="lazy" sizes="(max-width: 2464px) 100vw, 2464px" alt="Retail Fixtures" class="expertise_card-img" />
+              <div class="expertise_card-layer-wrap">
+                <img src="{% static 'website/assets/images/layer-left.svg' %}" loading="lazy" alt="" class="expertise_card-layer-img" />
+              </div>
+              <div class="expertise_card-content">
+                <h3>Retail Fixtures</h3>
+                <div class="expertise_card-info">
+                  <div class="label-list">
+                    <div class="label">
+                      <div class="text-size-tiny text-weight-light">Wall Units</div>
+                    </div>
+                    <div class="label">
+                      <div class="text-size-tiny text-weight-light">Gondolas</div>
+                    </div>
+                    <div class="label">
+                      <div class="text-size-tiny text-weight-light">Custom Displays</div>
+                    </div>
+                  </div>
+                  <div button="" class="button is-alternative is-small">
+                    <div class="button-mask">
+                      <div button-text="" class="button-text is-alternative">Learn More</div>
+                      <div button-text="" class="button-text-hover is-alternative">Learn More</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <a animate="fade-up-2" href="pages/divisions.html" class="expertise_card w-inline-block">
+              <img src="{% static 'website/assets/images/img/retail_led.png' %}" loading="lazy" sizes="100vw" alt="Retail LED" class="expertise_card-img" />
+              <div class="expertise_card-layer-wrap">
+                <img src="{% static 'website/assets/images/layer-right.svg' %}" loading="lazy" alt="" class="expertise_card-layer-img is-right" />
+              </div>
+              <div class="expertise_card-content">
+                <h3>Retail LED</h3>
+                <div class="expertise_card-info">
+                  <div class="label-list">
+                    <div class="label">
+                      <div class="text-size-tiny text-weight-light">Display Systems</div>
+                    </div>
+                    <div class="label">
+                      <div class="text-size-tiny text-weight-light">Digital Signage</div>
+                    </div>
+                    <div class="label">
+                      <div class="text-size-tiny text-weight-light">Video Walls</div>
+                    </div>
+                  </div>
+                  <div button="" class="button is-alternative is-small">
+                    <div class="button-mask">
+                      <div button-text="" class="button-text is-alternative">Learn More</div>
+                      <div button-text="" class="button-text-hover is-alternative">Learn More</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <a animate="fade-up-1" href="pages/divisions.html" class="expertise_card w-inline-block">
+              <img src="{% static 'website/assets/images/img/retail_lighting.png' %}" loading="lazy" sizes="(max-width: 2464px) 100vw, 2464px" alt="Retail Lighting" class="expertise_card-img" />
+              <div class="expertise_card-layer-wrap">
+                <img src="{% static 'website/assets/images/layer-left.svg' %}" loading="lazy" alt="" class="expertise_card-layer-img" />
+              </div>
+              <div class="expertise_card-content">
+                <h3>Retail Lighting</h3>
+                <div class="expertise_card-info">
+                  <div class="label-list">
+                    <div class="label">
+                      <div class="text-size-tiny text-weight-light">Architectural</div>
+                    </div>
+                    <div class="label">
+                      <div class="text-size-tiny text-weight-light">Illumination</div>
+                    </div>
+                    <div class="label">
+                      <div class="text-size-tiny text-weight-light">Sustainable</div>
+                    </div>
+                  </div>
+                  <div button="" class="button is-alternative is-small">
+                    <div class="button-mask">
+                      <div button-text="" class="button-text is-alternative">Learn More</div>
+                      <div button-text="" class="button-text-hover is-alternative">Learn More</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <a animate="fade-up-2" href="pages/divisions.html" class="expertise_card w-inline-block">
+              <img src="{% static 'website/assets/images/img/retail_fitout.png' %}" loading="lazy" sizes="100vw" alt="Retail Fitout" class="expertise_card-img" />
+              <div class="expertise_card-layer-wrap">
+                <img src="{% static 'website/assets/images/layer-right.svg' %}" loading="lazy" alt="" class="expertise_card-layer-img is-right" />
+              </div>
+              <div class="expertise_card-content">
+                <h3>Retail Fitout</h3>
+                <div class="expertise_card-info">
+                  <div class="label-list">
+                    <div class="label">
+                      <div class="text-size-tiny text-weight-light">Interior Fit-out</div>
+                    </div>
+                    <div class="label">
+                      <div class="text-size-tiny text-weight-light">Concept Design</div>
+                    </div>
+                    <div class="label">
+                      <div class="text-size-tiny text-weight-light">Installation</div>
+                    </div>
+                  </div>
+                  <div button="" class="button is-alternative is-small">
+                    <div class="button-mask">
+                      <div button-text="" class="button-text is-alternative">Learn More</div>
+                      <div button-text="" class="button-text-hover is-alternative">Learn More</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="padding-global background-color-alternate">
+        <div class="container-default">
+          <div class="divider"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section_home1_process">
+    <div class="padding-outer-inline">
+      <div class="padding-global padding-section-medium background-color-alternate">
+        <div class="container-default">
+          <div class="header">
+            <div>
+              <div animate="fade-up-1" class="text-style-badge">
+                <div class="badge-dot"></div>
+                <div>Our Process</div>
+              </div>
+              <div class="spacer-xxsmall"></div>
+              <div class="spacer-tiny"></div>
+              <h2 animate="title">From Concept to Complete Retail Space</h2>
+            </div>
+          </div>
+
+          <div class="spacer-medium"></div>
+
+          <div class="home1_process_wrap">
+            <div class="home1_process_divider-wrap">
+              <div class="home1_process_divider"></div>
+            </div>
+
+            <!-- STEP 01 -->
+            <div class="home1_process_item">
+              <div class="home1_process_circle is-left"></div>
+
+              <div class="home1_process_content">
+                <div class="home1_process_line"></div>
+
+                <div class="text-font-badge">01</div>
+
+                <div>
+                  <div class="text-size-medium text-weight-light">Discover & Define</div>
+
+                  <div class="spacer-tiny"></div>
+
+                  <div class="text-size-medium text-weight-light text-style-muted60">We begin by understanding your brand, retail requirements, space and the experience you want to create.</div>
+                </div>
+
+                <div class="label-list is-bottom is-first">
+                  <div class="label">
+                    <div class="text-size-tiny text-weight-light">Brand Requirements</div>
+                  </div>
+
+                  <div class="label">
+                    <div class="text-size-tiny text-weight-light">Space Planning</div>
+                  </div>
+
+                  <div class="label">
+                    <div class="text-size-tiny text-weight-light">Project Consultation</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 02 -->
+            <div class="home1_process_item is-centered">
+              <div class="home1_process_circle"></div>
+
+              <div class="home1_process_content is-centered">
+                <div class="home1_process_line"></div>
+
+                <div class="text-font-badge">02</div>
+
+                <div>
+                  <div class="text-size-medium text-weight-light">Design & Manufacture</div>
+
+                  <div class="spacer-tiny"></div>
+
+                  <div class="text-size-medium text-weight-light text-style-muted60">Our team transforms the concept into detailed retail solutions, custom fixtures and production-ready designs.</div>
+                </div>
+
+                <div class="label-list is-bottom is-centerd">
+                  <div class="label">
+                    <div class="text-size-tiny text-weight-light">Custom Fixtures</div>
+                  </div>
+
+                  <div class="label">
+                    <div class="text-size-tiny text-weight-light">Joinery & Fabrication</div>
+                  </div>
+
+                  <div class="label">
+                    <div class="text-size-tiny text-weight-light">Prototyping & Mockups</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 03 -->
+            <div class="home1_process_item is-right">
+              <div class="home1_process_circle is-right"></div>
+
+              <div class="home1_process_content is-right">
+                <div class="home1_process_line"></div>
+
+                <div class="text-font-badge">03</div>
+
+                <div>
+                  <div class="text-size-medium text-weight-light">Install & Deliver</div>
+
+                  <div class="spacer-tiny"></div>
+
+                  <div class="text-size-medium text-weight-light text-style-muted60">From fixture supply to on-site installation, we manage the final execution to bring your retail environment to life.</div>
+                </div>
+
+                <div class="label-list is-bottom is-right">
+                  <div class="label">
+                    <div class="text-size-tiny text-weight-light">Fixture Installation</div>
+                  </div>
+
+                  <div class="label">
+                    <div class="text-size-tiny text-weight-light">Retail Fit-Out</div>
+                  </div>
+
+                  <div class="label">
+                    <div class="text-size-tiny text-weight-light">Final Quality Check</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section_home1_welcome">
+    <div class="padding-global padding-section-medium">
+      <div class="container-default">
+        <div class="header" style="
+                  text-align: center;
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  margin-bottom: 4rem;
+                ">
+          <div style="
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                  ">
+            <h2 animate="title" style="
+                      max-width: 800px;
+                      color: var(--color-base--white);
+                      margin-bottom: 1rem;
+                      font-size: 3rem;
+                    ">The Power of 800 Retail</h2>
+            <p animate="fade-up-2" style="
+                      font-size: 1.25rem;
+                      color: #a9a69d;
+                      font-weight: 400;
+                      max-width: 600px;
+                    ">12 Facilities in One Integrated Campus</p>
+          </div>
+        </div>
+        <div class="home1_welcome_wrap">
+          <div class="home1_welcome_content-wrap">
+            <div class="corner-frame">
+              <div class="corner-frame_top-left"></div>
+              <div class="corner-frame_top-right"></div>
+              <div class="corner-frame_bottom-right"></div>
+              <div class="corner-frame_bottom-left"></div>
+            </div>
+
+            <div class="department-list">
+              <!-- 1. PROJECT MANAGEMENT -->
+              <div class="department-item active">
+                <button class="department-trigger" type="button">
+                  <span class="department-arrow">&rsaquo;</span>
+                  <span class="department-label">Design & Development Department</span>
+                </button>
+
+                <div class="department-expanded">
+                  <div class="department-content">
+                    <p>Leads the creative and technical design process, including concept development, engineering detailing and prototyping of metal and joinery solutions tailored for retail environments.</p>
+
+                    <a href="#contact" class="department-btn">Get In Touch</a>
+                  </div>
+
+                  <div class="department-image">
+                    <img src="https://800retail.com/wp-content/uploads/2025/06/Departmental-Structure_0005_1.-Design-Development-Departmen.jpg" alt="Project Management" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- 2. GENERAL CONTRACTING -->
+              <div class="department-item">
+                <button class="department-trigger" type="button">
+                  <span class="department-arrow">&rsaquo;</span>
+                  <span class="department-label">Machine Department</span>
+                </button>
+
+                <div class="department-expanded">
+                  <div class="department-content">
+                    <p>Precision is at the heart of what we do. Our Machine Department handles cutting, shaping, and refining materials with expert accuracy ensuring every part fits perfectly into your retail or production needs.</p>
+
+                    <a href="#contact" class="department-btn">Get In Touch</a>
+                  </div>
+
+                  <div class="department-image">
+                    <img src="https://800retail.com/wp-content/uploads/2025/06/01_0001_Layer-4.jpg" alt="General Contracting" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- 3. TECHNICAL DESIGN -->
+              <div class="department-item">
+                <button class="department-trigger" type="button">
+                  <span class="department-arrow">&rsaquo;</span>
+                  <span class="department-label">Metal Fabrication Robotic</span>
+                </button>
+
+                <div class="department-expanded">
+                  <div class="department-content">
+                    <p>Executes both manual and robotic fabrication processes, including cutting, welding, bending and forming of metal structures and components for retail fixtures and displays.</p>
+
+                    <a href="#contact" class="department-btn">Get In Touch</a>
+                  </div>
+
+                  <div class="department-image">
+                    <img src="https://800retail.com/wp-content/uploads/2025/06/Departmental-Structure_0001_Metal-Fabrication-Department.jpg" alt="Technical Design" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- 4. CONCEPT DESIGN -->
+              <div class="department-item">
+                <button class="department-trigger" type="button">
+                  <span class="department-arrow">&rsaquo;</span>
+                  <span class="department-label">Metal Fabrication Department</span>
+                </button>
+
+                <div class="department-expanded">
+                  <div class="department-content">
+                    <p>From custom shelves and displays to durable fixtures, our team crafts solutions that are both practical and visually striking. Designed to fit your space, built to support your business.</p>
+
+                    <a href="#contact" class="department-btn">Get In Touch</a>
+                  </div>
+
+                  <div class="department-image">
+                    <img src="https://800retail.com/wp-content/uploads/2025/06/01_0000_Layer-5.jpg" alt="Concept Design" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- 5. MANUFACTURING -->
+              <div class="department-item">
+                <button class="department-trigger" type="button">
+                  <span class="department-arrow">&rsaquo;</span>
+                  <span class="department-label">Lighting Integration Department</span>
+                </button>
+
+                <div class="department-expanded">
+                  <div class="department-content">
+                    <p>From display shelves to architectural accents, our team seamlessly integrates lighting into your fixtures and spaces — enhancing visibility, mood, and the overall customer experience. Smart, sleek, and built to shine.</p>
+
+                    <a href="#contact" class="department-btn">Get In Touch</a>
+                  </div>
+
+                  <div class="department-image">
+                    <img src="https://800retail.com/wp-content/uploads/2025/06/Departmental-Structure_0002_Electrical-Integration-Assembly-Department.jpg" alt="Manufacturing" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- 6. LOGISTICS -->
+              <div class="department-item">
+                <button class="department-trigger" type="button">
+                  <span class="department-arrow">&rsaquo;</span>
+                  <span class="department-label">Powder Coating & Surface Protection</span>
+                </button>
+
+                <div class="department-expanded">
+                  <div class="department-content">
+                    <p>Applies high-performance powder coating and surface treatments to enhance durability, corrosion resistance and aesthetic finish of all metal products.</p>
+
+                    <a href="#contact" class="department-btn">Get In Touch</a>
+                  </div>
+
+                  <div class="department-image">
+                    <img src="https://800retail.com/wp-content/uploads/2025/06/Departmental-Structure_0004_3.Powder-Coating-Surface-Protection-Department.jpg" alt="Logistics" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- 7. INSTALLATION -->
+              <div class="department-item">
+                <button class="department-trigger" type="button">
+                  <span class="department-arrow">&rsaquo;</span>
+                  <span class="department-label">Joinery & Carpentry Works Department</span>
+                </button>
+
+                <div class="department-expanded">
+                  <div class="department-content">
+                    <p>Specializes in precision wood joinery, carpentry, and custom fit-outs using a variety of materials, including solid wood and engineered boards, for modular retail components.</p>
+
+                    <a href="#contact" class="department-btn">Get In Touch</a>
+                  </div>
+
+                  <div class="department-image">
+                    <img src="https://800retail.com/wp-content/uploads/2025/06/01_0001_Layer-4_0003_Layer-1-copy-2.jpg" alt="Installation" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- 8. PROTOTYPING -->
+              <div class="department-item">
+                <button class="department-trigger" type="button">
+                  <span class="department-arrow">&rsaquo;</span>
+                  <span class="department-label">Painting Department</span>
+                </button>
+
+                <div class="department-expanded">
+                  <div class="department-content">
+                    <p>Our Painting Department adds the final touch with precision-applied coatings that protect and enhance every piece. Whether it's bold branding or subtle elegance, we deliver a flawless finish every time.</p>
+
+                    <a href="#contact" class="department-btn">Get In Touch</a>
+                  </div>
+
+                  <div class="department-image">
+                    <img src="https://800retail.com/wp-content/uploads/2025/06/01_0001_Layer-4_0001_Layer-1.jpg" alt="Prototyping and Procurement" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- 9. QUALITY CONTROL -->
+              <div class="department-item">
+                <button class="department-trigger" type="button">
+                  <span class="department-arrow">&rsaquo;</span>
+                  <span class="department-label">QC Department</span>
+                </button>
+
+                <div class="department-expanded">
+                  <div class="department-content">
+                    <p>Our QC team inspects every detail, every time, ensuring that each product meets the highest standards before it reaches you. We don’t just check the boxes we protect your brand’s reputation.</p>
+
+                    <a href="#contact" class="department-btn">Get In Touch</a>
+                  </div>
+
+                  <div class="department-image">
+                    <img src="https://800retail.com/wp-content/uploads/2025/06/RTL-_0007_OC-OUT.jpg" alt="Quality Control" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- 10. MAINTENANCE -->
+              <div class="department-item">
+                <button class="department-trigger" type="button">
+                  <span class="department-arrow">&rsaquo;</span>
+                  <span class="department-label">Packing & Dispatch</span>
+                </button>
+
+                <div class="department-expanded">
+                  <div class="department-content">
+                    <p>Our Packing & Dispatch team ensures every product is carefully packed, protected, and delivered with precision. We make sure your order arrives exactly how you expect ready to shine from day one.</p>
+
+                    <a href="#contact" class="department-btn">Get In Touch</a>
+                  </div>
+
+                  <div class="department-image">
+                    <img src="https://800retail.com/wp-content/uploads/2025/06/01.jpg" alt="Maintenance" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- 11. STORE DESIGN -->
+              <div class="department-item">
+                <button class="department-trigger" type="button">
+                  <span class="department-arrow">&rsaquo;</span>
+                  <span class="department-label">Installation Department</span>
+                </button>
+
+                <div class="department-expanded">
+                  <div class="department-content">
+                    <p>Manages final-stage packaging, safe handling, dispatch logistics and complete on-site installation of fabricated and joinery elements as per client specifications.</p>
+
+                    <a href="#contact" class="department-btn">Get In Touch</a>
+                  </div>
+
+                  <div class="department-image">
+                    <img src="https://800retail.com/wp-content/uploads/2025/06/RTL-_0002_INSTALLATION-DEPT-OUT.jpg" alt="Store Design" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- 12. CONSULTING -->
+              <div class="department-item">
+                <button class="department-trigger" type="button">
+                  <span class="department-arrow">&rsaquo;</span>
+                  <span class="department-label">After Service</span>
+                </button>
+
+                <div class="department-expanded">
+                  <div class="department-content">
+                    <p>Integrates electrical systems into both metal and wood fixtures, including wiring, lighting, LED screen components and control units, ensuring full functional readiness.</p>
+
+                    <a href="#contact" class="department-btn">Get In Touch</a>
+                  </div>
+
+                  <div class="department-image">
+                    <img src="https://800retail.com/wp-content/uploads/2025/06/01_0001_Layer-4_0004_Layer-1-copy.jpg" alt="Consulting" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section_home_divisions">
+    <div class="padding-outer-inline">
+      <div class="padding-global background-color-alternate" style="
+                padding-top: 6rem;
+                padding-bottom: 6rem;
+                border-top: 1px solid rgba(0, 0, 0, 0.05);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+              ">
+        <div class="container-default">
+          <div class="divisions-header" style="
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+                    margin-bottom: 4rem;
+                  ">
+            <div class="text-style-badge" style="
+                      display: inline-flex;
+                      align-items: center;
+                      gap: 0.5rem;
+                      margin: 0 auto;
+                      margin-bottom: 1rem;
+                    ">
+              <div class="badge-dot"></div>
+              <div class="text-color-primary" style="color: var(--color-base--black)">Our Network</div>
+            </div>
+            <h2 class="heading-style-h2" style="color: var(--color-base--black)">16 Specialized Divisions</h2>
+            <p style="
+                      max-width: 600px;
+                      margin: 1rem auto 0;
+                      color: rgba(0, 0, 0, 0.6);
+                      font-size: 1.1rem;
+                      line-height: 1.6;
+                    ">A unified ecosystem of specialized departments driving operational excellence through the 5S methodology.</p>
+          </div>
+
+          <div class="divisions-compact-grid">
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/ST-01.svg' %}" loading="lazy" alt="Management Division" />
+                </div>
+                <h4 class="div-grid-title">Management Division</h4>
+              </div>
+              <div class="div-grid-desc">Implements Seiri (Sort) to eliminate redundant processes, and Seiton (Set in Order) to structure workflows. Seiketsu (Standardise) ensures consistent governance, while Shitsuke (Sustain) promotes long-term organizational discipline and continuous improvement.</div>
+            </div>
+
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/ST-02.svg' %}" loading="lazy" alt="Infrastructure & Facilities Division" />
+                </div>
+                <h4 class="div-grid-title">Infrastructure & Facilities Division</h4>
+              </div>
+              <div class="div-grid-desc">Applies Seiri to declutter storage areas, Seiton to organize logistics tools and utilities, Seiso (Shine) to maintain cleanliness across workshops, and Seiketsu to uphold safety protocols. Shitsuke ensures operational excellence across facilities.</div>
+            </div>
+
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/ST-03.svg' %}" loading="lazy" alt="Business Development & Strategic Partnerships" />
+                </div>
+                <h4 class="div-grid-title">Business Development & Strategic Partnerships</h4>
+              </div>
+              <div class="div-grid-desc">Uses Seiri to focus on viable partnerships, Seiton for managing client records and leads, and Seiketsu to standardize business proposal formats. Shitsuke drives sustained growth through disciplined client engagement.</div>
+            </div>
+
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/ST-04.svg' %}" loading="lazy" alt="Client Consulting & Advisory Services" />
+                </div>
+                <h4 class="div-grid-title">Client Consulting & Advisory Services</h4>
+              </div>
+              <div class="div-grid-desc">Applies Seiri to tailor insights to client goals, Seiton to organize tools and deliverables, and Seiketsu to standardize consulting frameworks. Shitsuke supports consistent, high-impact advisory outcomes.</div>
+            </div>
+
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/ST-05.svg' %}" loading="lazy" alt="Marketing & Digital Communications" />
+                </div>
+                <h4 class="div-grid-title">Marketing & Digital Communications</h4>
+              </div>
+              <div class="div-grid-desc">Uses Seiri to filter outdated content, Seiton to organize media assets and campaigns, Seiketsu for consistent brand tone and visuals, and Shitsuke to sustain digital presence and metrics.</div>
+            </div>
+
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/ST-06.svg' %}" loading="lazy" alt="Design & Engineering Solutions" />
+                </div>
+                <h4 class="div-grid-title">Design & Engineering Solutions</h4>
+              </div>
+              <div class="div-grid-desc">Implements Seiri to remove design redundancies, Seiton to structure CAD libraries and material specs, Seiketsu to apply engineering standards, and Shitsuke to promote disciplined innovation cycles.</div>
+            </div>
+
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/LOGOD-2-02.svg' %}" loading="lazy" alt="Research & Development (R&D)" />
+                </div>
+                <h4 class="div-grid-title">Research & Development (R&D)</h4>
+              </div>
+              <div class="div-grid-desc">Applies Seiri to focus only on relevant prototypes, Seiton to organize testing environments, Seiso to ensure precision conditions, Seiketsu for experimental frameworks, and Shitsuke for continuous idea validation and innovation.</div>
+            </div>
+
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/LOGOD-2-01.svg' %}" loading="lazy" alt="Quality Control (QC)" />
+                </div>
+                <h4 class="div-grid-title">Quality Control (QC)</h4>
+              </div>
+              <div class="div-grid-desc">A core strength of Al Ameen, QC uses Seiri to eliminate non-conforming parts early, Seiton to structure inspection areas, Seiso for spotless inspection labs, Seiketsu to define testing parameters, and Shitsuke to uphold a quality-first culture.</div>
+            </div>
+
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/ST-07.svg' %}" loading="lazy" alt="Machinery & Core Production Division" />
+                </div>
+                <h4 class="div-grid-title">Machinery & Core Production Division</h4>
+              </div>
+              <div class="div-grid-desc">Applies Seiri to remove unused tools, Seiton to organize workstations, Seiso to maintain clean machines, Seiketsu to document best practices, and Shitsuke to reinforce habits through training.</div>
+            </div>
+
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/ST-08.svg' %}" loading="lazy" alt="Fabrication Technologies Division" />
+                </div>
+                <h4 class="div-grid-title">Fabrication Technologies Division</h4>
+              </div>
+              <div class="div-grid-desc">Utilizes Seiri to streamline raw materials, Seiton to mark workstations and tool zones, Seiso for spotless welding and powder coating stations, Seiketsu to document finishing specs, and Shitsuke to ensure continuous quality and efficiency.</div>
+            </div>
+
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/ST-09.svg' %}" loading="lazy" alt="Joinery & Finishing Works Division" />
+                </div>
+                <h4 class="div-grid-title">Joinery & Finishing Works Division</h4>
+              </div>
+              <div class="div-grid-desc">Applies Seiri to optimize raw wood inventory, Seiton to arrange tools and materials, Seiso to ensure dust-free, clean environments, Seiketsu for uniform finish quality, and Shitsuke for craftsmanship standards.</div>
+            </div>
+
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/ST-10.svg' %}" loading="lazy" alt="Installation & Execution Services" />
+                </div>
+                <h4 class="div-grid-title">Installation & Execution Services</h4>
+              </div>
+              <div class="div-grid-desc">Uses Seiri to prepare only needed tools for site work, Seiton to sequence installation steps, Seiso to maintain clean, hazard-free job sites, Seiketsu for installation SOPs, and Shitsuke to ensure on-time, consistent execution.</div>
+            </div>
+
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/ST-11.svg' %}" loading="lazy" alt="Digital Media & LED Display Solutions" />
+                </div>
+                <h4 class="div-grid-title">Digital Media & LED Display Solutions</h4>
+              </div>
+              <div class="div-grid-desc">Applies Seiri to manage components and content, Seiton to label and arrange control systems, Seiso to ensure clear displays, Seiketsu to standardize LED calibration, and Shitsuke for long-term media system performance.</div>
+            </div>
+
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/LOGOOGOOGOOGOOGOOGOOGOOGOOOOOOOGOOG-03.svg' %}" loading="lazy" alt="Stretch Ceiling & Lighting Division" />
+                </div>
+                <h4 class="div-grid-title">Stretch Ceiling & Lighting Division</h4>
+              </div>
+              <div class="div-grid-desc">Implements Seiri to remove outdated modules, Seiton for logical lighting layouts, Seiso for clean finishes and environments, Seiketsu to define install techniques, and Shitsuke to ensure client-ready presentations every time.</div>
+            </div>
+
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/LOGOD-2-04.svg' %}" loading="lazy" alt="Printing & Signage" />
+                </div>
+                <h4 class="div-grid-title">Printing & Signage</h4>
+              </div>
+              <div class="div-grid-desc">Follows Seiri to declutter print queues, Seiton for logical storage of media and inks, Seiso for clean printer areas, Seiketsu to define color standards and templates, and Shitsuke for continuous output quality.</div>
+            </div>
+
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/ST-12.svg' %}" loading="lazy" alt="After-Sales Services" />
+                </div>
+                <h4 class="div-grid-title">After-Sales Services</h4>
+              </div>
+              <div class="div-grid-desc">Delivers ongoing technical support and AMS with Seiri applied to simplify client service records, Seiton to organize manuals and service kits, Seiso to maintain demo equipment, Seiketsu for ticket handling protocols, and Shitsuke to ensure responsive, reliable support.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section_about_values" style="
+            background-color: var(--color-base--black);
+            color: var(--color-base--white);
+          ">
+    <div class="padding-outer-inline">
+      <div class="padding-global padding-section-medium">
+        <div class="container-default overflow-hidden">
+          <div class="home-methodology-wrap">
+            <div class="methodology-text" style="min-width: 0; word-wrap: break-word">
+              <div class="text-style-badge" style="
+                        margin-bottom: 1.5rem;
+                        color: var(--color-base--white);
+                      ">
+                <div class="badge-dot"></div>
+                <div>methodology</div>
+              </div>
+              <h2 class="heading-style-h3" style="
+                        margin-bottom: 1.5rem;
+                        color: var(--color-base--white);
+                      ">
+                Japanese
+                <span style="font-weight: 600; color: #ff6118">5S</span>
+                System Methodology
+              </h2>
+              <p animate="fade-up-2" class="text-size-medium text-weight-light" style="
+                        line-height: 1.6;
+                        color: var(--color-neutral--shade-200);
+                      ">
+                We apply the <strong>5S System</strong> across all divisions to promote operational excellence, safety, and workplace efficiency. Rooted in lean manufacturing principles, the 5S methodology enhances productivity by systematically organizing the workplace. Through the steps each division is empowered to eliminate waste, streamline processes, and uphold high standards. This disciplined approach not only improves day-to-day performance but also fosters a culture of continuous improvement across the organization.
+              </p>
+            </div>
+            <div class="methodology-table-wrap" style="min-width: 0; max-width: 100%; overflow-x: auto">
+              <h3 class="text-size-small text-weight-bold" style="
+                        margin-bottom: 1.5rem;
+                        color: var(--color-base--white);
+                      ">Seiketsu Standardise Establish standards</h3>
+              <table class="five-s-table">
+                <thead>
+                  <tr>
+                    <th>5S System</th>
+                    <th>Definition</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <strong>Seiri</strong>
+                    </td>
+                    <td>Sort</td>
+                    <td>Eliminate what is not needed</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Seiton</strong>
+                    </td>
+                    <td>Set In Order</td>
+                    <td>Organise what remains</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Seiso</strong>
+                    </td>
+                    <td>Shine</td>
+                    <td>Clean the workplace</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Seiketsu</strong>
+                    </td>
+                    <td>Standardise</td>
+                    <td>Establish standards</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Shitsuke</strong>
+                    </td>
+                    <td>Sustain</td>
+                    <td>Maintain and improve</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section_home1_values">
+    <div class="padding-outer-inline">
+      <div class="padding-global padding-section-medium background-color-alternate">
+        <div class="container-default">
+          <div class="header">
+            <div>
+              <div animate="fade-up-1" class="text-style-badge">
+                <div class="badge-dot"></div>
+                <div>Our Values</div>
+              </div>
+              <div class="spacer-xxsmall"></div>
+              <div class="spacer-tiny"></div>
+              <h2 animate="title">A foundation built on purpose, precision, and trust</h2>
+              <div class="spacer-xxsmall"></div>
+              <div class="spacer-tiny"></div>
+              <div animate="fade-up-2" class="text-size-medium text-weight-light text-style-muted">Each project we design and build reflects the principles that guide our work from craftsmanship to sustainability.</div>
+              <div class="spacer-medium"></div>
+            </div>
+          </div>
+          <div class="home1_values_list-wrap">
+            <div class="corner-frame">
+              <div class="corner-frame_top-left is-black"></div>
+              <div class="corner-frame_top-right is-black"></div>
+              <div class="corner-frame_bottom-right is-black"></div>
+              <div class="corner-frame_bottom-left is-black"></div>
+            </div>
+            <div animate="card-stagger" class="home1_values_list">
+              <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
+                <div class="heading-style-h3 text-color-primary" style="font-weight: 600; line-height: 1">300000+</div>
+                <div class="home_values_content">
+                  <div class="text-size-small text-weight-light text-style-muted" style="max-width: 200px">Facility: UAE | KSA | China</div>
+                </div>
+              </div>
+              <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
+                <div class="heading-style-h3 text-color-primary" style="font-weight: 600; line-height: 1">450+</div>
+                <div class="home_values_content">
+                  <div class="text-size-small text-weight-light text-style-muted" style="max-width: 200px">Workforce</div>
+                </div>
+              </div>
+              <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
+                <div class="heading-style-h3 text-color-primary" style="font-weight: 600; line-height: 1">85+</div>
+                <div class="home_values_content">
+                  <div class="text-size-small text-weight-light text-style-muted" style="max-width: 200px">Projects/ Month</div>
+                </div>
+              </div>
+              <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
+                <div class="heading-style-h3 text-color-primary" style="font-weight: 600; line-height: 1">5S</div>
+                <div class="home_values_content">
+                  <div class="text-size-small text-weight-light text-style-muted" style="max-width: 200px">QC System</div>
+                </div>
+              </div>
+              <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
+                <div class="heading-style-h3 text-color-primary" style="font-weight: 600; line-height: 1">75000+</div>
+                <div class="home_values_content">
+                  <div class="text-size-small text-weight-light text-style-muted" style="max-width: 200px">Products | Accessories</div>
+                </div>
+              </div>
+              <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
+                <div class="heading-style-h3 text-color-primary" style="font-weight: 600; line-height: 1">45+</div>
+                <div class="home_values_content">
+                  <div class="text-size-small text-weight-light text-style-muted" style="max-width: 200px">Approved Partners</div>
+                </div>
+              </div>
+              <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
+                <div class="heading-style-h3 text-color-primary" style="font-weight: 600; line-height: 1">10+</div>
+                <div class="home_values_content">
+                  <div class="text-size-small text-weight-light text-style-muted" style="max-width: 200px">Industry Categories</div>
+                </div>
+              </div>
+              <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
+                <div class="heading-style-h3 text-color-primary" style="font-weight: 600; line-height: 1">5+</div>
+                <div class="home_values_content">
+                  <div class="text-size-small text-weight-light text-style-muted" style="max-width: 200px">Countries</div>
+                </div>
+              </div>
+              <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
+                <div class="heading-style-h3 text-color-primary" style="font-weight: 600; line-height: 1">9500+</div>
+                <div class="home_values_content">
+                  <div class="text-size-small text-weight-light text-style-muted" style="max-width: 200px">Projects</div>
+                </div>
+              </div>
+              <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
+                <div class="heading-style-h3 text-color-primary" style="font-weight: 600; line-height: 1">80+</div>
+                <div class="home_values_content">
+                  <div class="text-size-small text-weight-light text-style-muted" style="max-width: 200px">Clientele</div>
+                </div>
+              </div>
+              <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
+                <div class="heading-style-h3 text-color-primary" style="font-weight: 600; line-height: 1">4+</div>
+                <div class="home_values_content">
+                  <div class="text-size-small text-weight-light text-style-muted" style="max-width: 200px">White Labels</div>
+                </div>
+              </div>
+              <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
+                <div class="heading-style-h3 text-color-primary" style="font-weight: 600; line-height: 1">25+</div>
+                <div class="home_values_content">
+                  <div class="text-size-small text-weight-light text-style-muted" style="max-width: 200px">Overseas delivery</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="padding-global background-color-alternate">
+        <div class="container-default">
+          <div class="divider"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section_clients_marquee">
+    <div class="padding-outer-inline">
+      <div class="padding-global background-color-alternate" style="
+                overflow: hidden;
+                border-top: 1px solid rgba(0, 0, 0, 0.05);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+                padding-top: 5rem;
+                padding-bottom: 5rem;
+              ">
+        <div class="container-default">
+          <div class="marquee-header" style="
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+                    margin-bottom: 4rem;
+                  ">
+            <div class="text-style-badge" style="
+                      display: inline-flex;
+                      align-items: center;
+                      gap: 0.5rem;
+                      margin: 0 auto;
+                    ">
+              <div class="badge-dot"></div>
+              <div class="text-color-primary" style="color: var(--color-base--black)">Trusted Clients</div>
+            </div>
+            <h2 class="heading-style-h2" style="margin-top: 1rem; color: var(--color-base--black)">Our Greatest Reward is that knowing we made you smile</h2>
+          </div>
+
+          <div class="client-carousel-wrapper" style="position: relative; width: 100%">
+            <div class="client-carousel-track">
+              <div class="testimonial-card">
+                <div class="testimonial-header">
+                  <div class="testimonial-logo">
+                    <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-001-scaled.png" alt="Adidas" />
+                  </div>
+                  <div class="testimonial-quote-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14.017 21L16.417 14.59C16.417 14.59 15.707 14.75 15.017 14.75C12.757 14.75 10.927 12.92 10.927 10.66C10.927 8.4 12.757 6.57 15.017 6.57C17.277 6.57 19.107 8.4 19.107 10.66C19.107 12.35 18.067 15.42 16.717 18.73C15.827 20.91 14.757 22.81 14.757 22.81L14.017 21ZM5.01697 21L7.41697 14.59C7.41697 14.59 6.70697 14.75 6.01697 14.75C3.75697 14.75 1.92697 12.92 1.92697 10.66C1.92697 8.4 3.75697 6.57 6.01697 6.57C8.27697 6.57 10.107 8.4 10.107 10.66C10.107 12.35 9.06697 15.42 7.71697 18.73C6.82697 20.91 5.75697 22.81 5.75697 22.81L5.01697 21Z" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="testimonial-body">
+                  <p class="testimonial-text">"Thank you, Asics, for partnering with us! We value your trust and collaboration. Together, we stride forward with confidence and excellence honoring our shared journey and success."</p>
+                </div>
+                <div class="testimonial-footer">
+                  <h3 class="testimonial-client">Adidas</h3>
+                  <p class="testimonial-subtitle">Global Sportswear Brand</p>
+                </div>
+              </div>
+              <div class="testimonial-card">
+                <div class="testimonial-header">
+                  <div class="testimonial-logo">
+                    <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-010-scaled.png" alt="Skechers" />
+                  </div>
+                  <div class="testimonial-quote-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14.017 21L16.417 14.59C16.417 14.59 15.707 14.75 15.017 14.75C12.757 14.75 10.927 12.92 10.927 10.66C10.927 8.4 12.757 6.57 15.017 6.57C17.277 6.57 19.107 8.4 19.107 10.66C19.107 12.35 18.067 15.42 16.717 18.73C15.827 20.91 14.757 22.81 14.757 22.81L14.017 21ZM5.01697 21L7.41697 14.59C7.41697 14.59 6.70697 14.75 6.01697 14.75C3.75697 14.75 1.92697 12.92 1.92697 10.66C1.92697 8.4 3.75697 6.57 6.01697 6.57C8.27697 6.57 10.107 8.4 10.107 10.66C10.107 12.35 9.06697 15.42 7.71697 18.73C6.82697 20.91 5.75697 22.81 5.75697 22.81L5.01697 21Z" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="testimonial-body">
+                  <p class="testimonial-text">"We deeply appreciate Skechers for placing your trust in us! Thank you for your ongoing partnership together we walk strong, stepping toward success and shared growth."</p>
+                </div>
+                <div class="testimonial-footer">
+                  <h3 class="testimonial-client">Skechers</h3>
+                  <p class="testimonial-subtitle">Footwear & Lifestyle Brand</p>
+                </div>
+              </div>
+              <div class="testimonial-card">
+                <div class="testimonial-header">
+                  <div class="testimonial-logo">
+                    <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-002-scaled.png" alt="Birkenstock" />
+                  </div>
+                  <div class="testimonial-quote-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14.017 21L16.417 14.59C16.417 14.59 15.707 14.75 15.017 14.75C12.757 14.75 10.927 12.92 10.927 10.66C10.927 8.4 12.757 6.57 15.017 6.57C17.277 6.57 19.107 8.4 19.107 10.66C19.107 12.35 18.067 15.42 16.717 18.73C15.827 20.91 14.757 22.81 14.757 22.81L14.017 21ZM5.01697 21L7.41697 14.59C7.41697 14.59 6.70697 14.75 6.01697 14.75C3.75697 14.75 1.92697 12.92 1.92697 10.66C1.92697 8.4 3.75697 6.57 6.01697 6.57C8.27697 6.57 10.107 8.4 10.107 10.66C10.107 12.35 9.06697 15.42 7.71697 18.73C6.82697 20.91 5.75697 22.81 5.75697 22.81L5.01697 21Z" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="testimonial-body">
+                  <p class="testimonial-text">"Thank you, Asics, for partnering with us! We value your trust and collaboration. Together, we stride forward with confidence and excellence honoring our shared journey and success."</p>
+                </div>
+                <div class="testimonial-footer">
+                  <h3 class="testimonial-client">Birkenstock</h3>
+                  <p class="testimonial-subtitle">Premium Footwear Brand</p>
+                </div>
+              </div>
+              <div class="testimonial-card">
+                <div class="testimonial-header">
+                  <div class="testimonial-logo">
+                    <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-003-scaled.png" alt="Asics" />
+                  </div>
+                  <div class="testimonial-quote-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14.017 21L16.417 14.59C16.417 14.59 15.707 14.75 15.017 14.75C12.757 14.75 10.927 12.92 10.927 10.66C10.927 8.4 12.757 6.57 15.017 6.57C17.277 6.57 19.107 8.4 19.107 10.66C19.107 12.35 18.067 15.42 16.717 18.73C15.827 20.91 14.757 22.81 14.757 22.81L14.017 21ZM5.01697 21L7.41697 14.59C7.41697 14.59 6.70697 14.75 6.01697 14.75C3.75697 14.75 1.92697 12.92 1.92697 10.66C1.92697 8.4 3.75697 6.57 6.01697 6.57C8.27697 6.57 10.107 8.4 10.107 10.66C10.107 12.35 9.06697 15.42 7.71697 18.73C6.82697 20.91 5.75697 22.81 5.75697 22.81L5.01697 21Z" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="testimonial-body">
+                  <p class="testimonial-text">"We are grateful to Apparel Group for your trust and partnership! Together we style success, blending fashion and quality. Thank you for continuing this valued journey with us."</p>
+                </div>
+                <div class="testimonial-footer">
+                  <h3 class="testimonial-client">Asics</h3>
+                  <p class="testimonial-subtitle">Performance Sports Brand</p>
+                </div>
+              </div>
+              <div class="testimonial-card">
+                <div class="testimonial-header">
+                  <div class="testimonial-logo">
+                    <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-006-scaled.png" alt="Apparel Group" />
+                  </div>
+                  <div class="testimonial-quote-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14.017 21L16.417 14.59C16.417 14.59 15.707 14.75 15.017 14.75C12.757 14.75 10.927 12.92 10.927 10.66C10.927 8.4 12.757 6.57 15.017 6.57C17.277 6.57 19.107 8.4 19.107 10.66C19.107 12.35 18.067 15.42 16.717 18.73C15.827 20.91 14.757 22.81 14.757 22.81L14.017 21ZM5.01697 21L7.41697 14.59C7.41697 14.59 6.70697 14.75 6.01697 14.75C3.75697 14.75 1.92697 12.92 1.92697 10.66C1.92697 8.4 3.75697 6.57 6.01697 6.57C8.27697 6.57 10.107 8.4 10.107 10.66C10.107 12.35 9.06697 15.42 7.71697 18.73C6.82697 20.91 5.75697 22.81 5.75697 22.81L5.01697 21Z" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="testimonial-body">
+                  <p class="testimonial-text">"We are grateful to Apparel Group for your trust and partnership! Together we style success, blending fashion and quality. Thank you for continuing this valued journey with us."</p>
+                </div>
+                <div class="testimonial-footer">
+                  <h3 class="testimonial-client">Apparel Group</h3>
+                  <p class="testimonial-subtitle">Retail Partner</p>
+                </div>
+              </div>
+              <div class="testimonial-card">
+                <div class="testimonial-header">
+                  <div class="testimonial-logo">
+                    <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-007-scaled.png" alt="Landmark Group" />
+                  </div>
+                  <div class="testimonial-quote-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14.017 21L16.417 14.59C16.417 14.59 15.707 14.75 15.017 14.75C12.757 14.75 10.927 12.92 10.927 10.66C10.927 8.4 12.757 6.57 15.017 6.57C17.277 6.57 19.107 8.4 19.107 10.66C19.107 12.35 18.067 15.42 16.717 18.73C15.827 20.91 14.757 22.81 14.757 22.81L14.017 21ZM5.01697 21L7.41697 14.59C7.41697 14.59 6.70697 14.75 6.01697 14.75C3.75697 14.75 1.92697 12.92 1.92697 10.66C1.92697 8.4 3.75697 6.57 6.01697 6.57C8.27697 6.57 10.107 8.4 10.107 10.66C10.107 12.35 9.06697 15.42 7.71697 18.73C6.82697 20.91 5.75697 22.81 5.75697 22.81L5.01697 21Z" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="testimonial-body">
+                  <p class="testimonial-text">"Thank you, Landmark Group, for your confidence and trust in our work! Together we build impact across retail and community. We appreciate this journey of excellence."</p>
+                </div>
+                <div class="testimonial-footer">
+                  <h3 class="testimonial-client">Landmark Group</h3>
+                  <p class="testimonial-subtitle">Retail Conglomerate</p>
+                </div>
+              </div>
+              <div class="testimonial-card">
+                <div class="testimonial-header">
+                  <div class="testimonial-logo">
+                    <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-005-scaled.png" alt="Nesto" />
+                  </div>
+                  <div class="testimonial-quote-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14.017 21L16.417 14.59C16.417 14.59 15.707 14.75 15.017 14.75C12.757 14.75 10.927 12.92 10.927 10.66C10.927 8.4 12.757 6.57 15.017 6.57C17.277 6.57 19.107 8.4 19.107 10.66C19.107 12.35 18.067 15.42 16.717 18.73C15.827 20.91 14.757 22.81 14.757 22.81L14.017 21ZM5.01697 21L7.41697 14.59C7.41697 14.59 6.70697 14.75 6.01697 14.75C3.75697 14.75 1.92697 12.92 1.92697 10.66C1.92697 8.4 3.75697 6.57 6.01697 6.57C8.27697 6.57 10.107 8.4 10.107 10.66C10.107 12.35 9.06697 15.42 7.71697 18.73C6.82697 20.91 5.75697 22.81 5.75697 22.81L5.01697 21Z" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="testimonial-body">
+                  <p class="testimonial-text">"We sincerely thank Nesto for entrusting us with your partnership! Together we serve communities with care and quality. Your trust inspires us toward continued growth."</p>
+                </div>
+                <div class="testimonial-footer">
+                  <h3 class="testimonial-client">Nesto</h3>
+                  <p class="testimonial-subtitle">Hypermarket Chain</p>
+                </div>
+              </div>
+              <div class="testimonial-card">
+                <div class="testimonial-header">
+                  <div class="testimonial-logo">
+                    <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-008-scaled.png" alt="Brands For Less" />
+                  </div>
+                  <div class="testimonial-quote-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14.017 21L16.417 14.59C16.417 14.59 15.707 14.75 15.017 14.75C12.757 14.75 10.927 12.92 10.927 10.66C10.927 8.4 12.757 6.57 15.017 6.57C17.277 6.57 19.107 8.4 19.107 10.66C19.107 12.35 18.067 15.42 16.717 18.73C15.827 20.91 14.757 22.81 14.757 22.81L14.017 21ZM5.01697 21L7.41697 14.59C7.41697 14.59 6.70697 14.75 6.01697 14.75C3.75697 14.75 1.92697 12.92 1.92697 10.66C1.92697 8.4 3.75697 6.57 6.01697 6.57C8.27697 6.57 10.107 8.4 10.107 10.66C10.107 12.35 9.06697 15.42 7.71697 18.73C6.82697 20.91 5.75697 22.81 5.75697 22.81L5.01697 21Z" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="testimonial-body">
+                  <p class="testimonial-text">"We appreciate Brands For Less for your trust and partnership! Together we bring value and style to shoppers. Thank you for joining us on this innovative and rewarding journey."</p>
+                </div>
+                <div class="testimonial-footer">
+                  <h3 class="testimonial-client">Brands For Less</h3>
+                  <p class="testimonial-subtitle">Discount Retailer</p>
+                </div>
+              </div>
+              <div class="testimonial-card">
+                <div class="testimonial-header">
+                  <div class="testimonial-logo">
+                    <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-009-scaled.png" alt="Brand Folio" />
+                  </div>
+                  <div class="testimonial-quote-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14.017 21L16.417 14.59C16.417 14.59 15.707 14.75 15.017 14.75C12.757 14.75 10.927 12.92 10.927 10.66C10.927 8.4 12.757 6.57 15.017 6.57C17.277 6.57 19.107 8.4 19.107 10.66C19.107 12.35 18.067 15.42 16.717 18.73C15.827 20.91 14.757 22.81 14.757 22.81L14.017 21ZM5.01697 21L7.41697 14.59C7.41697 14.59 6.70697 14.75 6.01697 14.75C3.75697 14.75 1.92697 12.92 1.92697 10.66C1.92697 8.4 3.75697 6.57 6.01697 6.57C8.27697 6.57 10.107 8.4 10.107 10.66C10.107 12.35 9.06697 15.42 7.71697 18.73C6.82697 20.91 5.75697 22.81 5.75697 22.81L5.01697 21Z" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="testimonial-body">
+                  <p class="testimonial-text">"Thank you, Brand Folio, for your trust and collaboration! Together we elevate identity and creativity. We value our joint path forward grateful for your partnership every step."</p>
+                </div>
+                <div class="testimonial-footer">
+                  <h3 class="testimonial-client">Brand Folio</h3>
+                  <p class="testimonial-subtitle">Retail Group</p>
+                </div>
+              </div>
+              <div class="testimonial-card">
+                <div class="testimonial-header">
+                  <div class="testimonial-logo">
+                    <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-004-scaled.png" alt="Reebok" />
+                  </div>
+                  <div class="testimonial-quote-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14.017 21L16.417 14.59C16.417 14.59 15.707 14.75 15.017 14.75C12.757 14.75 10.927 12.92 10.927 10.66C10.927 8.4 12.757 6.57 15.017 6.57C17.277 6.57 19.107 8.4 19.107 10.66C19.107 12.35 18.067 15.42 16.717 18.73C15.827 20.91 14.757 22.81 14.757 22.81L14.017 21ZM5.01697 21L7.41697 14.59C7.41697 14.59 6.70697 14.75 6.01697 14.75C3.75697 14.75 1.92697 12.92 1.92697 10.66C1.92697 8.4 3.75697 6.57 6.01697 6.57C8.27697 6.57 10.107 8.4 10.107 10.66C10.107 12.35 9.06697 15.42 7.71697 18.73C6.82697 20.91 5.75697 22.81 5.75697 22.81L5.01697 21Z" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="testimonial-body">
+                  <p class="testimonial-text">"Thank you, Reebok, for your trust and collaboration! Together we power performance and style. Your confidence in us fuels our commitment here is to continued success together."</p>
+                </div>
+                <div class="testimonial-footer">
+                  <h3 class="testimonial-client">Reebok</h3>
+                  <p class="testimonial-subtitle">Sports Footwear</p>
+                </div>
+              </div>
+              <div class="testimonial-card">
+                <div class="testimonial-header">
+                  <div class="testimonial-logo">
+                    <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-001-scaled.png" alt="Adidas" />
+                  </div>
+                  <div class="testimonial-quote-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14.017 21L16.417 14.59C16.417 14.59 15.707 14.75 15.017 14.75C12.757 14.75 10.927 12.92 10.927 10.66C10.927 8.4 12.757 6.57 15.017 6.57C17.277 6.57 19.107 8.4 19.107 10.66C19.107 12.35 18.067 15.42 16.717 18.73C15.827 20.91 14.757 22.81 14.757 22.81L14.017 21ZM5.01697 21L7.41697 14.59C7.41697 14.59 6.70697 14.75 6.01697 14.75C3.75697 14.75 1.92697 12.92 1.92697 10.66C1.92697 8.4 3.75697 6.57 6.01697 6.57C8.27697 6.57 10.107 8.4 10.107 10.66C10.107 12.35 9.06697 15.42 7.71697 18.73C6.82697 20.91 5.75697 22.81 5.75697 22.81L5.01697 21Z" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="testimonial-body">
+                  <p class="testimonial-text">"Thank you, Asics, for partnering with us! We value your trust and collaboration. Together, we stride forward with confidence and excellence honoring our shared journey and success."</p>
+                </div>
+                <div class="testimonial-footer">
+                  <h3 class="testimonial-client">Adidas</h3>
+                  <p class="testimonial-subtitle">Global Sportswear Brand</p>
+                </div>
+              </div>
+              <div class="testimonial-card">
+                <div class="testimonial-header">
+                  <div class="testimonial-logo">
+                    <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-010-scaled.png" alt="Skechers" />
+                  </div>
+                  <div class="testimonial-quote-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14.017 21L16.417 14.59C16.417 14.59 15.707 14.75 15.017 14.75C12.757 14.75 10.927 12.92 10.927 10.66C10.927 8.4 12.757 6.57 15.017 6.57C17.277 6.57 19.107 8.4 19.107 10.66C19.107 12.35 18.067 15.42 16.717 18.73C15.827 20.91 14.757 22.81 14.757 22.81L14.017 21ZM5.01697 21L7.41697 14.59C7.41697 14.59 6.70697 14.75 6.01697 14.75C3.75697 14.75 1.92697 12.92 1.92697 10.66C1.92697 8.4 3.75697 6.57 6.01697 6.57C8.27697 6.57 10.107 8.4 10.107 10.66C10.107 12.35 9.06697 15.42 7.71697 18.73C6.82697 20.91 5.75697 22.81 5.75697 22.81L5.01697 21Z" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="testimonial-body">
+                  <p class="testimonial-text">"We deeply appreciate Skechers for placing your trust in us! Thank you for your ongoing partnership together we walk strong, stepping toward success and shared growth."</p>
+                </div>
+                <div class="testimonial-footer">
+                  <h3 class="testimonial-client">Skechers</h3>
+                  <p class="testimonial-subtitle">Footwear & Lifestyle Brand</p>
+                </div>
+              </div>
+              <div class="testimonial-card">
+                <div class="testimonial-header">
+                  <div class="testimonial-logo">
+                    <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-002-scaled.png" alt="Birkenstock" />
+                  </div>
+                  <div class="testimonial-quote-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14.017 21L16.417 14.59C16.417 14.59 15.707 14.75 15.017 14.75C12.757 14.75 10.927 12.92 10.927 10.66C10.927 8.4 12.757 6.57 15.017 6.57C17.277 6.57 19.107 8.4 19.107 10.66C19.107 12.35 18.067 15.42 16.717 18.73C15.827 20.91 14.757 22.81 14.757 22.81L14.017 21ZM5.01697 21L7.41697 14.59C7.41697 14.59 6.70697 14.75 6.01697 14.75C3.75697 14.75 1.92697 12.92 1.92697 10.66C1.92697 8.4 3.75697 6.57 6.01697 6.57C8.27697 6.57 10.107 8.4 10.107 10.66C10.107 12.35 9.06697 15.42 7.71697 18.73C6.82697 20.91 5.75697 22.81 5.75697 22.81L5.01697 21Z" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="testimonial-body">
+                  <p class="testimonial-text">"Thank you, Asics, for partnering with us! We value your trust and collaboration. Together, we stride forward with confidence and excellence honoring our shared journey and success."</p>
+                </div>
+                <div class="testimonial-footer">
+                  <h3 class="testimonial-client">Birkenstock</h3>
+                  <p class="testimonial-subtitle">Premium Footwear Brand</p>
+                </div>
+              </div>
+              <div class="testimonial-card">
+                <div class="testimonial-header">
+                  <div class="testimonial-logo">
+                    <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-003-scaled.png" alt="Asics" />
+                  </div>
+                  <div class="testimonial-quote-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14.017 21L16.417 14.59C16.417 14.59 15.707 14.75 15.017 14.75C12.757 14.75 10.927 12.92 10.927 10.66C10.927 8.4 12.757 6.57 15.017 6.57C17.277 6.57 19.107 8.4 19.107 10.66C19.107 12.35 18.067 15.42 16.717 18.73C15.827 20.91 14.757 22.81 14.757 22.81L14.017 21ZM5.01697 21L7.41697 14.59C7.41697 14.59 6.70697 14.75 6.01697 14.75C3.75697 14.75 1.92697 12.92 1.92697 10.66C1.92697 8.4 3.75697 6.57 6.01697 6.57C8.27697 6.57 10.107 8.4 10.107 10.66C10.107 12.35 9.06697 15.42 7.71697 18.73C6.82697 20.91 5.75697 22.81 5.75697 22.81L5.01697 21Z" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="testimonial-body">
+                  <p class="testimonial-text">"We are grateful to Apparel Group for your trust and partnership! Together we style success, blending fashion and quality. Thank you for continuing this valued journey with us."</p>
+                </div>
+                <div class="testimonial-footer">
+                  <h3 class="testimonial-client">Asics</h3>
+                  <p class="testimonial-subtitle">Performance Sports Brand</p>
+                </div>
+              </div>
+              <div class="testimonial-card">
+                <div class="testimonial-header">
+                  <div class="testimonial-logo">
+                    <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-006-scaled.png" alt="Apparel Group" />
+                  </div>
+                  <div class="testimonial-quote-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14.017 21L16.417 14.59C16.417 14.59 15.707 14.75 15.017 14.75C12.757 14.75 10.927 12.92 10.927 10.66C10.927 8.4 12.757 6.57 15.017 6.57C17.277 6.57 19.107 8.4 19.107 10.66C19.107 12.35 18.067 15.42 16.717 18.73C15.827 20.91 14.757 22.81 14.757 22.81L14.017 21ZM5.01697 21L7.41697 14.59C7.41697 14.59 6.70697 14.75 6.01697 14.75C3.75697 14.75 1.92697 12.92 1.92697 10.66C1.92697 8.4 3.75697 6.57 6.01697 6.57C8.27697 6.57 10.107 8.4 10.107 10.66C10.107 12.35 9.06697 15.42 7.71697 18.73C6.82697 20.91 5.75697 22.81 5.75697 22.81L5.01697 21Z" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="testimonial-body">
+                  <p class="testimonial-text">"We are grateful to Apparel Group for your trust and partnership! Together we style success, blending fashion and quality. Thank you for continuing this valued journey with us."</p>
+                </div>
+                <div class="testimonial-footer">
+                  <h3 class="testimonial-client">Apparel Group</h3>
+                  <p class="testimonial-subtitle">Retail Partner</p>
+                </div>
+              </div>
+              <div class="testimonial-card">
+                <div class="testimonial-header">
+                  <div class="testimonial-logo">
+                    <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-007-scaled.png" alt="Landmark Group" />
+                  </div>
+                  <div class="testimonial-quote-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14.017 21L16.417 14.59C16.417 14.59 15.707 14.75 15.017 14.75C12.757 14.75 10.927 12.92 10.927 10.66C10.927 8.4 12.757 6.57 15.017 6.57C17.277 6.57 19.107 8.4 19.107 10.66C19.107 12.35 18.067 15.42 16.717 18.73C15.827 20.91 14.757 22.81 14.757 22.81L14.017 21ZM5.01697 21L7.41697 14.59C7.41697 14.59 6.70697 14.75 6.01697 14.75C3.75697 14.75 1.92697 12.92 1.92697 10.66C1.92697 8.4 3.75697 6.57 6.01697 6.57C8.27697 6.57 10.107 8.4 10.107 10.66C10.107 12.35 9.06697 15.42 7.71697 18.73C6.82697 20.91 5.75697 22.81 5.75697 22.81L5.01697 21Z" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="testimonial-body">
+                  <p class="testimonial-text">"Thank you, Landmark Group, for your confidence and trust in our work! Together we build impact across retail and community. We appreciate this journey of excellence."</p>
+                </div>
+                <div class="testimonial-footer">
+                  <h3 class="testimonial-client">Landmark Group</h3>
+                  <p class="testimonial-subtitle">Retail Conglomerate</p>
+                </div>
+              </div>
+              <div class="testimonial-card">
+                <div class="testimonial-header">
+                  <div class="testimonial-logo">
+                    <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-005-scaled.png" alt="Nesto" />
+                  </div>
+                  <div class="testimonial-quote-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14.017 21L16.417 14.59C16.417 14.59 15.707 14.75 15.017 14.75C12.757 14.75 10.927 12.92 10.927 10.66C10.927 8.4 12.757 6.57 15.017 6.57C17.277 6.57 19.107 8.4 19.107 10.66C19.107 12.35 18.067 15.42 16.717 18.73C15.827 20.91 14.757 22.81 14.757 22.81L14.017 21ZM5.01697 21L7.41697 14.59C7.41697 14.59 6.70697 14.75 6.01697 14.75C3.75697 14.75 1.92697 12.92 1.92697 10.66C1.92697 8.4 3.75697 6.57 6.01697 6.57C8.27697 6.57 10.107 8.4 10.107 10.66C10.107 12.35 9.06697 15.42 7.71697 18.73C6.82697 20.91 5.75697 22.81 5.75697 22.81L5.01697 21Z" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="testimonial-body">
+                  <p class="testimonial-text">"We sincerely thank Nesto for entrusting us with your partnership! Together we serve communities with care and quality. Your trust inspires us toward continued growth."</p>
+                </div>
+                <div class="testimonial-footer">
+                  <h3 class="testimonial-client">Nesto</h3>
+                  <p class="testimonial-subtitle">Hypermarket Chain</p>
+                </div>
+              </div>
+              <div class="testimonial-card">
+                <div class="testimonial-header">
+                  <div class="testimonial-logo">
+                    <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-008-scaled.png" alt="Brands For Less" />
+                  </div>
+                  <div class="testimonial-quote-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14.017 21L16.417 14.59C16.417 14.59 15.707 14.75 15.017 14.75C12.757 14.75 10.927 12.92 10.927 10.66C10.927 8.4 12.757 6.57 15.017 6.57C17.277 6.57 19.107 8.4 19.107 10.66C19.107 12.35 18.067 15.42 16.717 18.73C15.827 20.91 14.757 22.81 14.757 22.81L14.017 21ZM5.01697 21L7.41697 14.59C7.41697 14.59 6.70697 14.75 6.01697 14.75C3.75697 14.75 1.92697 12.92 1.92697 10.66C1.92697 8.4 3.75697 6.57 6.01697 6.57C8.27697 6.57 10.107 8.4 10.107 10.66C10.107 12.35 9.06697 15.42 7.71697 18.73C6.82697 20.91 5.75697 22.81 5.75697 22.81L5.01697 21Z" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="testimonial-body">
+                  <p class="testimonial-text">"We appreciate Brands For Less for your trust and partnership! Together we bring value and style to shoppers. Thank you for joining us on this innovative and rewarding journey."</p>
+                </div>
+                <div class="testimonial-footer">
+                  <h3 class="testimonial-client">Brands For Less</h3>
+                  <p class="testimonial-subtitle">Discount Retailer</p>
+                </div>
+              </div>
+              <div class="testimonial-card">
+                <div class="testimonial-header">
+                  <div class="testimonial-logo">
+                    <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-009-scaled.png" alt="Brand Folio" />
+                  </div>
+                  <div class="testimonial-quote-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14.017 21L16.417 14.59C16.417 14.59 15.707 14.75 15.017 14.75C12.757 14.75 10.927 12.92 10.927 10.66C10.927 8.4 12.757 6.57 15.017 6.57C17.277 6.57 19.107 8.4 19.107 10.66C19.107 12.35 18.067 15.42 16.717 18.73C15.827 20.91 14.757 22.81 14.757 22.81L14.017 21ZM5.01697 21L7.41697 14.59C7.41697 14.59 6.70697 14.75 6.01697 14.75C3.75697 14.75 1.92697 12.92 1.92697 10.66C1.92697 8.4 3.75697 6.57 6.01697 6.57C8.27697 6.57 10.107 8.4 10.107 10.66C10.107 12.35 9.06697 15.42 7.71697 18.73C6.82697 20.91 5.75697 22.81 5.75697 22.81L5.01697 21Z" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="testimonial-body">
+                  <p class="testimonial-text">"Thank you, Brand Folio, for your trust and collaboration! Together we elevate identity and creativity. We value our joint path forward grateful for your partnership every step."</p>
+                </div>
+                <div class="testimonial-footer">
+                  <h3 class="testimonial-client">Brand Folio</h3>
+                  <p class="testimonial-subtitle">Retail Group</p>
+                </div>
+              </div>
+              <div class="testimonial-card">
+                <div class="testimonial-header">
+                  <div class="testimonial-logo">
+                    <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-004-scaled.png" alt="Reebok" />
+                  </div>
+                  <div class="testimonial-quote-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14.017 21L16.417 14.59C16.417 14.59 15.707 14.75 15.017 14.75C12.757 14.75 10.927 12.92 10.927 10.66C10.927 8.4 12.757 6.57 15.017 6.57C17.277 6.57 19.107 8.4 19.107 10.66C19.107 12.35 18.067 15.42 16.717 18.73C15.827 20.91 14.757 22.81 14.757 22.81L14.017 21ZM5.01697 21L7.41697 14.59C7.41697 14.59 6.70697 14.75 6.01697 14.75C3.75697 14.75 1.92697 12.92 1.92697 10.66C1.92697 8.4 3.75697 6.57 6.01697 6.57C8.27697 6.57 10.107 8.4 10.107 10.66C10.107 12.35 9.06697 15.42 7.71697 18.73C6.82697 20.91 5.75697 22.81 5.75697 22.81L5.01697 21Z" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="testimonial-body">
+                  <p class="testimonial-text">"Thank you, Reebok, for your trust and collaboration! Together we power performance and style. Your confidence in us fuels our commitment here is to continued success together."</p>
+                </div>
+                <div class="testimonial-footer">
+                  <h3 class="testimonial-client">Reebok</h3>
+                  <p class="testimonial-subtitle">Sports Footwear</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="client-carousel-nav" style="
+                      display: flex;
+                      justify-content: center;
+                      gap: 1rem;
+                      margin-top: 2rem;
+                    ">
+              <button class="client-carousel-prev" style="
+                        background: var(--color-base--white);
+                        border: 1px solid rgba(0, 0, 0, 0.1);
+                        width: 48px;
+                        height: 48px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        color: var(--color-base--black);
+                      ">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+              <button class="client-carousel-next" style="
+                        background: var(--color-base--white);
+                        border: 1px solid rgba(0, 0, 0, 0.1);
+                        width: 48px;
+                        height: 48px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        color: var(--color-base--black);
+                      ">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section_home1_blog">
+    <div class="padding-outer-inline">
+      <div class="padding-global padding-section-medium background-color-alternate">
+        <div class="container-default">
+          <div class="header">
+            <div class="header-content">
+              <div animate="fade-up-1" class="text-style-badge">
+                <div class="badge-dot"></div>
+                <div>Blog</div>
+              </div>
+              <div class="spacer-xxsmall"></div>
+              <div class="spacer-tiny"></div>
+              <h2 animate="title">Insights & Innovation</h2>
+              <div class="spacer-xxsmall"></div>
+              <div class="spacer-tiny"></div>
+              <div animate="fade-up-2" class="text-size-medium text-weight-light text-style-muted">Explore expert perspectives on retail fit-outs, bespoke manufacturing, and digital LED solutions — stories that inspire smarter commercial spaces.</div>
+            </div>
+            <a animate="fade-up-2" button="" href="pages/blog.html" class="button is-secondary w-inline-block">
+              <div class="button-mask">
+                <div button-text="" class="button-text">Go to Blog</div>
+                <div button-text="" class="button-text-hover">Go to Blog</div>
+              </div>
+            </a>
+          </div>
+          <div class="spacer-medium"></div>
+          <div class="home1_blog_wrap">
+            <div class="w-dyn-list">
+              <div role="list" class="home1_blog_list w-dyn-items">
+                <div animate="fade-up-3" role="listitem" class="home1_blog_item w-dyn-item">
+                  <a animate="blog-hover" href="pages/blog/how-thoughtful-design-improves-everyday-living.html" class="home1_blog_card w-inline-block">
+                    <div class="home1_blog_card-img-wrap">
+                      <img src="{% static 'website/assets/images/img/retail_fitout_1787649185482.jpg' %}" loading="lazy" sizes="(max-width: 2464px) 100vw, 2464px" alt="800Retail" class="blog_card-img" />
+                    </div>
+                    <div class="home1_blog_card-content">
+                      <h3 class="text-font-body text-size-large">The Future of Retail Fit-Outs: Blending Aesthetics with Functionality</h3>
+                      <div class="text-size-small text-weight-light text-style-muted">Discover how architectural decisions impact comfort, efficiency, and lifestyle â€” and why great design always starts with human need.</div>
+                      <div class="label-list">
+                        <div class="label">
+                          <div class="text-size-tiny text-weight-light">Retail Design</div>
+                        </div>
+                        <div class="label">
+                          <div class="text-size-tiny text-weight-light">April 1, 2026</div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="w-dyn-list">
+              <div role="list" class="w-dyn-items">
+                <div animate="fade-up-3" role="listitem" class="w-dyn-item">
+                  <a animate="blog-hover" href="pages/blog/the-art-of-precision-inside-construction-methods.html" class="blog_card w-inline-block">
+                    <div class="blog_card-img-wrap">
+                      <img loading="lazy" src="{% static 'website/assets/images/img/fixture_manufacturing_1787649246147.jpg' %}" alt="" sizes="100vw" class="blog_card-img" />
+                    </div>
+                    <div class="blog_card-content">
+                      <h3 class="text-font-body text-size-large">Bespoke Fixture Manufacturing: Precision at Scale</h3>
+                      <div class="spacer-xxsmall"></div>
+                      <div class="text-size-small text-weight-light text-style-muted">Learn how skilled craftsmanship and state-of-the-art machinery work together to deliver flawless custom retail displays on tight timelines.</div>
+                      <div class="spacer-xsmall"></div>
+                      <div class="label-list">
+                        <div class="label is-small">
+                          <div class="text-size-tiny text-weight-light">Manufacturing</div>
+                        </div>
+                        <div class="label is-small">
+                          <div class="text-size-tiny text-weight-light">April 1, 2026</div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div animate="fade-up-3" role="listitem" class="w-dyn-item">
+                  <a animate="blog-hover" href="pages/blog/building-for-the-future-sustainable-practices-that-last.html" class="blog_card w-inline-block">
+                    <div class="blog_card-img-wrap">
+                      <img loading="lazy" src="{% static 'website/assets/images/img/led_display_1787649220452.jpg' %}" alt="" sizes="100vw" class="blog_card-img" />
+                    </div>
+                    <div class="blog_card-content">
+                      <h3 class="text-font-body text-size-large">Next-Gen LED Displays: Captivating the Modern Shopper</h3>
+                      <div class="spacer-xxsmall"></div>
+                      <div class="text-size-small text-weight-light text-style-muted">A deep dive into how high-resolution digital LED solutions are becoming the centerpiece of immersive and futuristic storefront designs.</div>
+                      <div class="spacer-xsmall"></div>
+                      <div class="label-list">
+                        <div class="label is-small">
+                          <div class="text-size-tiny text-weight-light">LED Technology</div>
+                        </div>
+                        <div class="label is-small">
+                          <div class="text-size-tiny text-weight-light">April 1, 2026</div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="padding-global background-color-alternate">
+        <div class="container-default">
+          <div class="divider"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block script %}
+  <script src="{% static 'website/assets/js/index.js' %}" type="text/javascript"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const track = document.querySelector('.client-carousel-track')
+      const btnPrev = document.querySelector('.client-carousel-prev')
+      const btnNext = document.querySelector('.client-carousel-next')
+    
+      if (track && btnPrev && btnNext) {
+        btnNext.addEventListener('click', () => {
+          const card = track.querySelector('.testimonial-card')
+          if (card) {
+            const cardWidth = card.offsetWidth
+            const gap = parseInt(window.getComputedStyle(track).gap) || 32
+            track.scrollBy({ left: cardWidth + gap, behavior: 'smooth' })
+          }
+        })
+    
+        btnPrev.addEventListener('click', () => {
+          const card = track.querySelector('.testimonial-card')
+          if (card) {
+            const cardWidth = card.offsetWidth
+            const gap = parseInt(window.getComputedStyle(track).gap) || 32
+            track.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' })
+          }
+        })
+      }
+    })
+  </script>
+{% endblock %}

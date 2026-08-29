@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.dashboard',
+    'apps.website',
     'ckeditor',
     'ckeditor_uploader',
     'widget_tweaks',
@@ -111,6 +112,15 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+# Rest Framefork DRF
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',  
+    ],
+}
+
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -169,3 +179,7 @@ LOGIN_URL = "login"
 
 RECAPTCHA_SITE_KEY = config('RECAPTCHA_SITE_KEY', default='')
 
+
+# Email Configuration
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'noreply@800retail.com'

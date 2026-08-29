@@ -1,0 +1,812 @@
+﻿{% extends 'website/Base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+        <section class="section_blog_hero">
+          <div class="padding-global padding-section-medium">
+            <div class="container-default">
+              <div class="blog_hero_wrap">
+                <div animate="load-hero-1" class="blog_hero_left">
+                  <div animate="" class="text-style-badge">
+                    <div class="badge-dot"></div>
+                    <div class="text-color-alternate">Blog</div>
+                  </div>
+                  <div class="spacer-small"></div>
+                  <h1 animate="load-hero-title">
+                    Insights for Better Building
+                  </h1>
+                  <div class="spacer-xxsmall"></div>
+                  <div class="spacer-tiny"></div>
+                  <div class="text-size-small text-weight-light">
+                    Explore expert perspectives on design, construction, and
+                    innovation â€” stories that inspire smarter spaces and
+                    stronger foundations
+                  </div>
+                </div>
+                <div animate="load-hero-2" class="blog_hero_right">
+                  <div class="form-footer w-form">
+                    <form
+                      id="wf-form-Blog-Newsletter"
+                      name="wf-form-Blog-Newsletter"
+                      data-name="Blog Newsletter"
+                      method="get"
+                      data-wf-page-id="69d6406f48d1384d08598bae"
+                      data-wf-element-id="9537f4e8-f347-8540-2bdc-3de2aaf7c741"
+                    >
+                      <label for="Email-Address-3" class="form_label is-blog"
+                        >Subscribe to our newsletter</label
+                      >
+                      <div class="blog_hero_field">
+                        <input
+                          class="form_input is-blog w-input"
+                          maxlength="256"
+                          name="Email-Address"
+                          data-name="Email Address"
+                          placeholder="Email Address"
+                          type="email"
+                          id="Email-Address"
+                          required=""
+                        /><input
+                          type="submit"
+                          data-wait="Please wait..."
+                          class="button is-secondary w-button"
+                          value="Join"
+                        />
+                      </div>
+                    </form>
+                    <div class="form_message-success w-form-done">
+                      <div>Thank you! Your submission has been received!</div>
+                    </div>
+                    <div class="form_message-error w-form-fail">
+                      <div>
+                        Oops! Something went wrong while submitting the form.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="corner-frame">
+                    <div class="corner-frame_top-left"></div>
+                    <div class="corner-frame_top-right"></div>
+                    <div class="corner-frame_bottom-right"></div>
+                    <div class="corner-frame_bottom-left"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="spacer-large"></div>
+              <div class="w-dyn-list">
+                <div role="list" class="w-dyn-items">
+                  <div animate="load-hero-3" role="listitem" class="w-dyn-item">
+                    <a
+                      animate="blog-hover"
+                      href="blog/the-future-of-retail-fit-outs.html"
+                      class="blog_hero_card w-inline-block"
+                      ><div class="blog_hero_img-wrap">
+                        <img
+                          src="{% static 'website/assets/images/img/retail_fitout_1787649185482.jpg' %}"
+                          loading="lazy"
+                          alt=""
+                          class="blog_card-img"
+                        />
+                      </div>
+                      <div class="blog_hero_content">
+                        <h2 class="heading-style-h3">
+                          The Future of Retail Fit-Outs: Blending Aesthetics
+                          with Functionality
+                        </h2>
+                        <div class="spacer-tiny"></div>
+                        <div class="spacer-xxsmall"></div>
+                        <div
+                          class="text-size-medium text-weight-light text-style-muted"
+                        >
+                          Discover how architectural decisions impact comfort,
+                          efficiency, and lifestyle â€” and why great design
+                          always starts with human need.
+                        </div>
+                        <div class="spacer-xxsmall"></div>
+                        <div class="spacer-tiny"></div>
+                        <div class="label-list">
+                          <div class="label">
+                            <div class="text-size-tiny text-weight-light">
+                              Retail Design
+                            </div>
+                          </div>
+                          <div class="label">
+                            <div class="text-size-tiny text-weight-light">
+                              April 1, 2026
+                            </div>
+                          </div>
+                        </div>
+                        <div class="spacer-small"></div>
+                        <div animate="" button="" class="button">
+                          <div class="button-mask">
+                            <div button-text="" class="button-text">
+                              Read Article
+                            </div>
+                            <div button-text="" class="button-text-hover">
+                              Read Article
+                            </div>
+                          </div>
+                        </div>
+                      </div></a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section_blog_list">
+          <div class="padding-outer-inline">
+            <div
+              class="padding-global padding-section-small background-color-alternate"
+            >
+              <div class="container-default">
+                <div
+                  data-current="Tab 1"
+                  data-easing="ease"
+                  data-duration-in="300"
+                  data-duration-out="100"
+                  class="tabs w-tabs"
+                >
+                  <div animate="fade-up-1" class="tabs_menu is-blog w-tab-menu">
+                    <a
+                      data-w-tab="Tab 1"
+                      class="tabs_link w-inline-block w-tab-link w--current"
+                      ><div class="text-size-small text-weight-light">
+                        All
+                      </div></a
+                    ><a
+                      data-w-tab="Tab 2"
+                      class="tabs_link w-inline-block w-tab-link"
+                      ><div class="text-size-small text-weight-light">
+                        Retail Design
+                      </div></a
+                    ><a
+                      data-w-tab="Tab 3"
+                      class="tabs_link w-inline-block w-tab-link"
+                      ><div class="text-size-small text-weight-light">
+                        Manufacturing
+                      </div></a
+                    ><a
+                      data-w-tab="Tab 4"
+                      class="tabs_link w-inline-block w-tab-link"
+                      ><div class="text-size-small text-weight-light">
+                        LED Technology
+                      </div></a
+                    >
+                  </div>
+                  <div class="w-tab-content">
+                    <div data-w-tab="Tab 1" class="w-tab-pane w--tab-active">
+                      <div class="spacer-large"></div>
+                      <div class="blog_list_wrap">
+                        <div class="w-dyn-list">
+                          <div
+                            animate="card-stagger"
+                            role="list"
+                            class="blog_list w-dyn-items"
+                          >
+                            <div role="listitem" class="w-dyn-item">
+                              <a
+                                animate="blog-hover"
+                                href="blog/interactive-retail-kiosks.html"
+                                class="blog_card is-light w-inline-block"
+                                ><div class="blog_card-img-wrap">
+                                  <img
+                                    loading="lazy"
+                                    src="{% static 'website/assets/images/img/interactive_kiosk_1787649533408.jpg' %}"
+                                    alt=""
+                                    class="blog_card-img"
+                                  />
+                                </div>
+                                <div class="blog_card-content">
+                                  <h3 class="text-font-body text-size-large">
+                                    Interactive Retail Kiosks: Driving Customer
+                                    Engagement
+                                  </h3>
+                                  <div class="spacer-xxsmall"></div>
+                                  <div
+                                    class="text-size-small text-weight-light text-style-muted"
+                                  >
+                                    Explore how smart systems and connected
+                                    design are redefining the way we experience
+                                    space.
+                                  </div>
+                                  <div class="spacer-xsmall"></div>
+                                  <div class="label-list">
+                                    <div class="label is-small">
+                                      <div
+                                        class="text-size-tiny text-weight-light"
+                                      >
+                                        LED Technology
+                                      </div>
+                                    </div>
+                                    <div class="label is-small">
+                                      <div
+                                        class="text-size-tiny text-weight-light"
+                                      >
+                                        April 1, 2026
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div></a
+                              >
+                            </div>
+                            <div role="listitem" class="w-dyn-item">
+                              <a
+                                animate="blog-hover"
+                                href="blog/made-in-uae-advantage.html"
+                                class="blog_card is-light w-inline-block"
+                                ><div class="blog_card-img-wrap">
+                                  <img
+                                    loading="lazy"
+                                    src="{% static 'website/assets/images/img/made_in_uae_manufacturing_1787649598532.jpg' %}"
+                                    alt=""
+                                    class="blog_card-img"
+                                  />
+                                </div>
+                                <div class="blog_card-content">
+                                  <h3 class="text-font-body text-size-large">
+                                    Made in UAE: The Advantage of Localized
+                                    Manufacturing
+                                  </h3>
+                                  <div class="spacer-xxsmall"></div>
+                                  <div
+                                    class="text-size-small text-weight-light text-style-muted"
+                                  >
+                                    From timelines to materials, we break down
+                                    the essentials every homeowner should
+                                    understand before construction begins.
+                                  </div>
+                                  <div class="spacer-xsmall"></div>
+                                  <div class="label-list">
+                                    <div class="label is-small">
+                                      <div
+                                        class="text-size-tiny text-weight-light"
+                                      >
+                                        Manufacturing
+                                      </div>
+                                    </div>
+                                    <div class="label is-small">
+                                      <div
+                                        class="text-size-tiny text-weight-light"
+                                      >
+                                        April 1, 2026
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div></a
+                              >
+                            </div>
+                            <div role="listitem" class="w-dyn-item">
+                              <a
+                                animate="blog-hover"
+                                href="blog/pharmacy-and-healthcare-fit-outs.html"
+                                class="blog_card is-light w-inline-block"
+                                ><div class="blog_card-img-wrap">
+                                  <img
+                                    loading="lazy"
+                                    src="{% static 'website/assets/images/img/pharmacy_fitout_1787649504980.jpg' %}"
+                                    alt=""
+                                    class="blog_card-img"
+                                  />
+                                </div>
+                                <div class="blog_card-content">
+                                  <h3 class="text-font-body text-size-large">
+                                    Pharmacy & Healthcare Fit-Outs: Merging
+                                    Compliance with Comfort
+                                  </h3>
+                                  <div class="spacer-xxsmall"></div>
+                                  <div
+                                    class="text-size-small text-weight-light text-style-muted"
+                                  >
+                                    Explore how architects are blending natural
+                                    elements with modern structures to create
+                                    healthier, more inspiring environments.
+                                  </div>
+                                  <div class="spacer-xsmall"></div>
+                                  <div class="label-list">
+                                    <div class="label is-small">
+                                      <div
+                                        class="text-size-tiny text-weight-light"
+                                      >
+                                        Retail Design
+                                      </div>
+                                    </div>
+                                    <div class="label is-small">
+                                      <div
+                                        class="text-size-tiny text-weight-light"
+                                      >
+                                        April 1, 2026
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div></a
+                              >
+                            </div>
+                            <div role="listitem" class="w-dyn-item">
+                              <a
+                                animate="blog-hover"
+                                href="blog/next-gen-led-displays.html"
+                                class="blog_card is-light w-inline-block"
+                                ><div class="blog_card-img-wrap">
+                                  <img
+                                    loading="lazy"
+                                    src="{% static 'website/assets/images/img/led_display_1787649220452.jpg' %}"
+                                    alt=""
+                                    class="blog_card-img"
+                                  />
+                                </div>
+                                <div class="blog_card-content">
+                                  <h3 class="text-font-body text-size-large">
+                                    Next-Gen LED Displays: Captivating the
+                                    Modern Shopper
+                                  </h3>
+                                  <div class="spacer-xxsmall"></div>
+                                  <div
+                                    class="text-size-small text-weight-light text-style-muted"
+                                  >
+                                    A deep dive into how high-resolution digital
+                                    LED solutions are becoming the centerpiece
+                                    of immersive and futuristic storefront
+                                    designs.
+                                  </div>
+                                  <div class="spacer-xsmall"></div>
+                                  <div class="label-list">
+                                    <div class="label is-small">
+                                      <div
+                                        class="text-size-tiny text-weight-light"
+                                      >
+                                        LED Technology
+                                      </div>
+                                    </div>
+                                    <div class="label is-small">
+                                      <div
+                                        class="text-size-tiny text-weight-light"
+                                      >
+                                        April 1, 2026
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div></a
+                              >
+                            </div>
+                            <div role="listitem" class="w-dyn-item">
+                              <a
+                                animate="blog-hover"
+                                href="blog/bespoke-fixture-manufacturing.html"
+                                class="blog_card is-light w-inline-block"
+                                ><div class="blog_card-img-wrap">
+                                  <img
+                                    loading="lazy"
+                                    src="{% static 'website/assets/images/img/fixture_manufacturing_1787649246147.jpg' %}"
+                                    alt=""
+                                    class="blog_card-img"
+                                  />
+                                </div>
+                                <div class="blog_card-content">
+                                  <h3 class="text-font-body text-size-large">
+                                    Bespoke Fixture Manufacturing: Precision at
+                                    Scale
+                                  </h3>
+                                  <div class="spacer-xxsmall"></div>
+                                  <div
+                                    class="text-size-small text-weight-light text-style-muted"
+                                  >
+                                    Learn how skilled craftsmanship and
+                                    state-of-the-art machinery work together to
+                                    deliver flawless custom retail displays on
+                                    tight timelines.
+                                  </div>
+                                  <div class="spacer-xsmall"></div>
+                                  <div class="label-list">
+                                    <div class="label is-small">
+                                      <div
+                                        class="text-size-tiny text-weight-light"
+                                      >
+                                        Manufacturing
+                                      </div>
+                                    </div>
+                                    <div class="label is-small">
+                                      <div
+                                        class="text-size-tiny text-weight-light"
+                                      >
+                                        April 1, 2026
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div></a
+                              >
+                            </div>
+                            <div role="listitem" class="w-dyn-item">
+                              <a
+                                animate="blog-hover"
+                                href="blog/the-future-of-retail-fit-outs.html"
+                                class="blog_card is-light w-inline-block"
+                                ><div class="blog_card-img-wrap">
+                                  <img
+                                    loading="lazy"
+                                    src="{% static 'website/assets/images/img/retail_fitout_1787649185482.jpg' %}"
+                                    alt=""
+                                    class="blog_card-img"
+                                  />
+                                </div>
+                                <div class="blog_card-content">
+                                  <h3 class="text-font-body text-size-large">
+                                    The Future of Retail Fit-Outs: Blending
+                                    Aesthetics with Functionality
+                                  </h3>
+                                  <div class="spacer-xxsmall"></div>
+                                  <div
+                                    class="text-size-small text-weight-light text-style-muted"
+                                  >
+                                    Discover how advanced fixture manufacturing
+                                    and architectural lighting are reshaping the
+                                    modern commercial environment for both
+                                    brands and shoppers.
+                                  </div>
+                                  <div class="spacer-xsmall"></div>
+                                  <div class="label-list">
+                                    <div class="label is-small">
+                                      <div
+                                        class="text-size-tiny text-weight-light"
+                                      >
+                                        Retail Design
+                                      </div>
+                                    </div>
+                                    <div class="label is-small">
+                                      <div
+                                        class="text-size-tiny text-weight-light"
+                                      >
+                                        April 1, 2026
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div></a
+                              >
+                            </div>
+                          </div>
+                        </div>
+                        <div class="corner-frame">
+                          <div class="corner-frame_top-left is-black"></div>
+                          <div class="corner-frame_top-right is-black"></div>
+                          <div class="corner-frame_bottom-right is-black"></div>
+                          <div class="corner-frame_bottom-left is-black"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div data-w-tab="Tab 2" class="w-tab-pane">
+                      <div class="spacer-large"></div>
+                      <div class="blog_list_wrap">
+                        <div class="w-dyn-list">
+                          <div role="list" class="blog_list w-dyn-items">
+                            <div role="listitem" class="w-dyn-item">
+                              <a
+                                animate="blog-hover"
+                                href="blog/pharmacy-and-healthcare-fit-outs.html"
+                                class="blog_card w-inline-block"
+                                ><div class="blog_card-img-wrap">
+                                  <img
+                                    loading="lazy"
+                                    src="{% static 'website/assets/images/img/pharmacy_fitout_1787649504980.jpg' %}"
+                                    alt=""
+                                    class="blog_card-img"
+                                  />
+                                </div>
+                                <div class="blog_card-content">
+                                  <h3 class="text-font-body text-size-large">
+                                    Pharmacy & Healthcare Fit-Outs: Merging
+                                    Compliance with Comfort
+                                  </h3>
+                                  <div class="spacer-xxsmall"></div>
+                                  <div
+                                    class="text-size-small text-weight-light text-style-muted"
+                                  >
+                                    Explore how architects are blending natural
+                                    elements with modern structures to create
+                                    healthier, more inspiring environments.
+                                  </div>
+                                  <div class="spacer-xsmall"></div>
+                                  <div class="label-list">
+                                    <div class="label is-small">
+                                      <div
+                                        class="text-size-tiny text-weight-light"
+                                      >
+                                        Retail Design
+                                      </div>
+                                    </div>
+                                    <div class="label is-small">
+                                      <div
+                                        class="text-size-tiny text-weight-light"
+                                      >
+                                        April 1, 2026
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div></a
+                              >
+                            </div>
+                            <div role="listitem" class="w-dyn-item">
+                              <a
+                                animate="blog-hover"
+                                href="blog/the-future-of-retail-fit-outs.html"
+                                class="blog_card w-inline-block"
+                                ><div class="blog_card-img-wrap">
+                                  <img
+                                    loading="lazy"
+                                    src="{% static 'website/assets/images/img/retail_fitout_1787649185482.jpg' %}"
+                                    alt=""
+                                    class="blog_card-img"
+                                  />
+                                </div>
+                                <div class="blog_card-content">
+                                  <h3 class="text-font-body text-size-large">
+                                    The Future of Retail Fit-Outs: Blending
+                                    Aesthetics with Functionality
+                                  </h3>
+                                  <div class="spacer-xxsmall"></div>
+                                  <div
+                                    class="text-size-small text-weight-light text-style-muted"
+                                  >
+                                    Discover how advanced fixture manufacturing
+                                    and architectural lighting are reshaping the
+                                    modern commercial environment for both
+                                    brands and shoppers.
+                                  </div>
+                                  <div class="spacer-xsmall"></div>
+                                  <div class="label-list">
+                                    <div class="label is-small">
+                                      <div
+                                        class="text-size-tiny text-weight-light"
+                                      >
+                                        Retail Design
+                                      </div>
+                                    </div>
+                                    <div class="label is-small">
+                                      <div
+                                        class="text-size-tiny text-weight-light"
+                                      >
+                                        April 1, 2026
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div></a
+                              >
+                            </div>
+                          </div>
+                        </div>
+                        <div class="corner-frame">
+                          <div class="corner-frame_top-left is-black"></div>
+                          <div class="corner-frame_top-right is-black"></div>
+                          <div class="corner-frame_bottom-right is-black"></div>
+                          <div class="corner-frame_bottom-left is-black"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div data-w-tab="Tab 3" class="w-tab-pane">
+                      <div class="spacer-large"></div>
+                      <div class="blog_list_wrap">
+                        <div class="w-dyn-list">
+                          <div role="list" class="blog_list w-dyn-items">
+                            <div role="listitem" class="w-dyn-item">
+                              <a
+                                animate="blog-hover"
+                                href="blog/made-in-uae-advantage.html"
+                                class="blog_card w-inline-block"
+                                ><div class="blog_card-img-wrap">
+                                  <img
+                                    loading="lazy"
+                                    src="{% static 'website/assets/images/img/made_in_uae_manufacturing_1787649598532.jpg' %}"
+                                    alt=""
+                                    class="blog_card-img"
+                                  />
+                                </div>
+                                <div class="blog_card-content">
+                                  <h3 class="text-font-body text-size-large">
+                                    Made in UAE: The Advantage of Localized
+                                    Manufacturing
+                                  </h3>
+                                  <div class="spacer-xxsmall"></div>
+                                  <div
+                                    class="text-size-small text-weight-light text-style-muted"
+                                  >
+                                    From timelines to materials, we break down
+                                    the essentials every homeowner should
+                                    understand before construction begins.
+                                  </div>
+                                  <div class="spacer-xsmall"></div>
+                                  <div class="label-list">
+                                    <div class="label is-small">
+                                      <div
+                                        class="text-size-tiny text-weight-light"
+                                      >
+                                        Manufacturing
+                                      </div>
+                                    </div>
+                                    <div class="label is-small">
+                                      <div
+                                        class="text-size-tiny text-weight-light"
+                                      >
+                                        April 1, 2026
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div></a
+                              >
+                            </div>
+                            <div role="listitem" class="w-dyn-item">
+                              <a
+                                animate="blog-hover"
+                                href="blog/bespoke-fixture-manufacturing.html"
+                                class="blog_card w-inline-block"
+                                ><div class="blog_card-img-wrap">
+                                  <img
+                                    loading="lazy"
+                                    src="{% static 'website/assets/images/img/fixture_manufacturing_1787649246147.jpg' %}"
+                                    alt=""
+                                    class="blog_card-img"
+                                  />
+                                </div>
+                                <div class="blog_card-content">
+                                  <h3 class="text-font-body text-size-large">
+                                    Bespoke Fixture Manufacturing: Precision at
+                                    Scale
+                                  </h3>
+                                  <div class="spacer-xxsmall"></div>
+                                  <div
+                                    class="text-size-small text-weight-light text-style-muted"
+                                  >
+                                    Learn how skilled craftsmanship and
+                                    state-of-the-art machinery work together to
+                                    deliver flawless custom retail displays on
+                                    tight timelines.
+                                  </div>
+                                  <div class="spacer-xsmall"></div>
+                                  <div class="label-list">
+                                    <div class="label is-small">
+                                      <div
+                                        class="text-size-tiny text-weight-light"
+                                      >
+                                        Manufacturing
+                                      </div>
+                                    </div>
+                                    <div class="label is-small">
+                                      <div
+                                        class="text-size-tiny text-weight-light"
+                                      >
+                                        April 1, 2026
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div></a
+                              >
+                            </div>
+                          </div>
+                        </div>
+                        <div class="corner-frame">
+                          <div class="corner-frame_top-left is-black"></div>
+                          <div class="corner-frame_top-right is-black"></div>
+                          <div class="corner-frame_bottom-right is-black"></div>
+                          <div class="corner-frame_bottom-left is-black"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div data-w-tab="Tab 4" class="w-tab-pane">
+                      <div class="spacer-large"></div>
+                      <div class="blog_list_wrap">
+                        <div class="w-dyn-list">
+                          <div role="list" class="blog_list w-dyn-items">
+                            <div role="listitem" class="w-dyn-item">
+                              <a
+                                animate="blog-hover"
+                                href="blog/interactive-retail-kiosks.html"
+                                class="blog_card w-inline-block"
+                                ><div class="blog_card-img-wrap">
+                                  <img
+                                    loading="lazy"
+                                    src="{% static 'website/assets/images/img/interactive_kiosk_1787649533408.jpg' %}"
+                                    alt=""
+                                    class="blog_card-img"
+                                  />
+                                </div>
+                                <div class="blog_card-content">
+                                  <h3 class="text-font-body text-size-large">
+                                    Interactive Retail Kiosks: Driving Customer
+                                    Engagement
+                                  </h3>
+                                  <div class="spacer-xxsmall"></div>
+                                  <div
+                                    class="text-size-small text-weight-light text-style-muted"
+                                  >
+                                    Explore how smart systems and connected
+                                    design are redefining the way we experience
+                                    space.
+                                  </div>
+                                  <div class="spacer-xsmall"></div>
+                                  <div class="label-list">
+                                    <div class="label is-small">
+                                      <div
+                                        class="text-size-tiny text-weight-light"
+                                      >
+                                        LED Technology
+                                      </div>
+                                    </div>
+                                    <div class="label is-small">
+                                      <div
+                                        class="text-size-tiny text-weight-light"
+                                      >
+                                        April 1, 2026
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div></a
+                              >
+                            </div>
+                            <div role="listitem" class="w-dyn-item">
+                              <a
+                                animate="blog-hover"
+                                href="blog/next-gen-led-displays.html"
+                                class="blog_card w-inline-block"
+                                ><div class="blog_card-img-wrap">
+                                  <img
+                                    loading="lazy"
+                                    src="{% static 'website/assets/images/img/led_display_1787649220452.jpg' %}"
+                                    alt=""
+                                    class="blog_card-img"
+                                  />
+                                </div>
+                                <div class="blog_card-content">
+                                  <h3 class="text-font-body text-size-large">
+                                    Next-Gen LED Displays: Captivating the
+                                    Modern Shopper
+                                  </h3>
+                                  <div class="spacer-xxsmall"></div>
+                                  <div
+                                    class="text-size-small text-weight-light text-style-muted"
+                                  >
+                                    A deep dive into how high-resolution digital
+                                    LED solutions are becoming the centerpiece
+                                    of immersive and futuristic storefront
+                                    designs.
+                                  </div>
+                                  <div class="spacer-xsmall"></div>
+                                  <div class="label-list">
+                                    <div class="label is-small">
+                                      <div
+                                        class="text-size-tiny text-weight-light"
+                                      >
+                                        LED Technology
+                                      </div>
+                                    </div>
+                                    <div class="label is-small">
+                                      <div
+                                        class="text-size-tiny text-weight-light"
+                                      >
+                                        April 1, 2026
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div></a
+                              >
+                            </div>
+                          </div>
+                        </div>
+                        <div class="corner-frame">
+                          <div class="corner-frame_top-left is-black"></div>
+                          <div class="corner-frame_top-right is-black"></div>
+                          <div class="corner-frame_bottom-right is-black"></div>
+                          <div class="corner-frame_bottom-left is-black"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+{% endblock content %}
+
+
+
