@@ -1,4 +1,4 @@
-﻿{% extends 'website/Base.html' %}
+{% extends 'website/Base.html' %}
 {% load static %}
 
 {% block head %}
@@ -1843,7 +1843,7 @@
               <div class="spacer-tiny"></div>
               <div animate="fade-up-2" class="text-size-medium text-weight-light text-style-muted">Explore expert perspectives on retail fit-outs, bespoke manufacturing, and digital LED solutions — stories that inspire smarter commercial spaces.</div>
             </div>
-            <a animate="fade-up-2" button="" href="pages/blog.html" class="button is-secondary w-inline-block">
+            <a animate="fade-up-2" button="" href="{% url 'blog' %}" class="button is-secondary w-inline-block">
               <div class="button-mask">
                 <div button-text="" class="button-text">Go to Blog</div>
                 <div button-text="" class="button-text-hover">Go to Blog</div>
@@ -1853,74 +1853,43 @@
           <div class="spacer-medium"></div>
           <div class="home1_blog_wrap">
             <div class="w-dyn-list">
-              <div role="list" class="home1_blog_list w-dyn-items">
+                            <div role="list" class="home1_blog_list w-dyn-items">
+                {% for blog in recent_blogs %}
                 <div animate="fade-up-3" role="listitem" class="home1_blog_item w-dyn-item">
-                  <a animate="blog-hover" href="pages/blog/how-thoughtful-design-improves-everyday-living.html" class="home1_blog_card w-inline-block">
+                  <a animate="blog-hover" href="{% url 'blog_detail' blog.slug %}" class="home1_blog_card w-inline-block">
                     <div class="home1_blog_card-img-wrap">
-                      <img src="{% static 'website/assets/images/img/retail_fitout_1787649185482.jpg' %}" loading="lazy" sizes="(max-width: 2464px) 100vw, 2464px" alt="800Retail" class="blog_card-img" />
+                      {% if blog.featured_image %}
+                      <img src="{{ blog.featured_image.url }}" loading="lazy" alt="{{ blog.title }}" class="blog_card-img" style="width:100%; height:100%; object-fit:cover;" />
+                      {% endif %}
                     </div>
                     <div class="home1_blog_card-content">
-                      <h3 class="text-font-body text-size-large">The Future of Retail Fit-Outs: Blending Aesthetics with Functionality</h3>
-                      <div class="text-size-small text-weight-light text-style-muted">Discover how architectural decisions impact comfort, efficiency, and lifestyle â€” and why great design always starts with human need.</div>
-                      <div class="label-list">
-                        <div class="label">
-                          <div class="text-size-tiny text-weight-light">Retail Design</div>
-                        </div>
-                        <div class="label">
-                          <div class="text-size-tiny text-weight-light">April 1, 2026</div>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="w-dyn-list">
-              <div role="list" class="w-dyn-items">
-                <div animate="fade-up-3" role="listitem" class="w-dyn-item">
-                  <a animate="blog-hover" href="pages/blog/the-art-of-precision-inside-construction-methods.html" class="blog_card w-inline-block">
-                    <div class="blog_card-img-wrap">
-                      <img loading="lazy" src="{% static 'website/assets/images/img/fixture_manufacturing_1787649246147.jpg' %}" alt="" sizes="100vw" class="blog_card-img" />
-                    </div>
-                    <div class="blog_card-content">
-                      <h3 class="text-font-body text-size-large">Bespoke Fixture Manufacturing: Precision at Scale</h3>
+                      <h3 class="text-font-body text-size-large">
+                        {{ blog.title }}
+                      </h3>
                       <div class="spacer-xxsmall"></div>
-                      <div class="text-size-small text-weight-light text-style-muted">Learn how skilled craftsmanship and state-of-the-art machinery work together to deliver flawless custom retail displays on tight timelines.</div>
+                      <div class="text-size-small text-weight-light text-style-muted">
+                        {{ blog.short_description }}
+                      </div>
                       <div class="spacer-xsmall"></div>
                       <div class="label-list">
                         <div class="label is-small">
-                          <div class="text-size-tiny text-weight-light">Manufacturing</div>
+                          <div class="text-size-tiny text-weight-light">
+                            {{ blog.category.category_name }}
+                          </div>
                         </div>
                         <div class="label is-small">
-                          <div class="text-size-tiny text-weight-light">April 1, 2026</div>
+                          <div class="text-size-tiny text-weight-light">
+                            {{ blog.created_at|date:"F d, Y" }}
+                          </div>
                         </div>
                       </div>
                     </div>
                   </a>
                 </div>
-                <div animate="fade-up-3" role="listitem" class="w-dyn-item">
-                  <a animate="blog-hover" href="pages/blog/building-for-the-future-sustainable-practices-that-last.html" class="blog_card w-inline-block">
-                    <div class="blog_card-img-wrap">
-                      <img loading="lazy" src="{% static 'website/assets/images/img/led_display_1787649220452.jpg' %}" alt="" sizes="100vw" class="blog_card-img" />
-                    </div>
-                    <div class="blog_card-content">
-                      <h3 class="text-font-body text-size-large">Next-Gen LED Displays: Captivating the Modern Shopper</h3>
-                      <div class="spacer-xxsmall"></div>
-                      <div class="text-size-small text-weight-light text-style-muted">A deep dive into how high-resolution digital LED solutions are becoming the centerpiece of immersive and futuristic storefront designs.</div>
-                      <div class="spacer-xsmall"></div>
-                      <div class="label-list">
-                        <div class="label is-small">
-                          <div class="text-size-tiny text-weight-light">LED Technology</div>
-                        </div>
-                        <div class="label is-small">
-                          <div class="text-size-tiny text-weight-light">April 1, 2026</div>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
+                {% empty %}
+                <p>No recent news available.</p>
+                {% endfor %}
+              </div></div>
           </div>
         </div>
       </div>

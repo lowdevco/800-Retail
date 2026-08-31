@@ -12535,8 +12535,8 @@ input[type="file"]:focus-visible {
   color: var(--color-base--black);
   margin-bottom: 1.25rem;
 }
-.scope-list {
-  list-style: none;
+.scope-list, .scope-list ul {
+  list-style: none !important;
   padding-left: 0;
   margin: 0;
   display: flex;
@@ -12544,6 +12544,7 @@ input[type="file"]:focus-visible {
   gap: 0.75rem;
 }
 .scope-list li {
+  list-style: none !important;
   position: relative;
   padding-left: 1.5rem;
   font-size: 0.95rem;

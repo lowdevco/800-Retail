@@ -1,4 +1,4 @@
-﻿{% extends 'website/Base.html' %}
+{% extends 'website/Base.html' %}
 
 {% load static %}
 
@@ -154,17 +154,18 @@
                           id="wf-form-Contact-Form-1"
                           name="wf-form-Contact-Form-1"
                           data-name="Contact Form 1"
-                          method="get"
+                          method="post" action="{% url 'submit_contact' %}"
                           class="form_form"
                           data-wf-page-id="69d523c14c4a76362e7f0a88"
                           data-wf-element-id="c4e8f2ba-588a-d51c-212e-078715bed6a9"
                         >
+                          {% csrf_token %}
                           <div class="form_field-wrapper">
                             <input
                               class="form_input w-input"
                               maxlength="256"
-                              name="Full-Name"
-                              data-name="Full Name"
+                              name="name"
+                              data-name="name"
                               placeholder="Full Name"
                               type="text"
                               id="Full-Name"
@@ -175,8 +176,8 @@
                             <input
                               class="form_input w-input"
                               maxlength="256"
-                              name="Email"
-                              data-name="Email"
+                              name="email"
+                              data-name="email"
                               placeholder="Email"
                               type="email"
                               id="Email"
@@ -187,41 +188,111 @@
                             <input
                               class="form_input w-input"
                               maxlength="256"
-                              name="Phone"
-                              data-name="Phone"
+                              name="phone"
+                              data-name="phone"
                               placeholder="Phone (optional)"
                               type="tel"
                               id="Phone"
                             />
                           </div>
+                          
+                          <!--  Subject Dropdown -->
+
+
+                          <div class="form_field-wrapper">
+                            <select 
+                              class="form_input w-input" 
+                              name="subject" 
+                              id="Subject" 
+                              required=""
+                              style="appearance: auto;"
+                            >
+                              <option value="" disabled selected>Select Enquiry Type...</option>
+                              <option value="General Inquiry / Quote">General Inquiry / Quote</option>
+                              <option value="Retail Fit-Out & Construction">Retail Fit-Out & Construction</option>
+                              <option value="Custom Fixtures & Manufacturing">Custom Fixtures & Manufacturing</option>
+                              <option value="Maintenance & After Sales">Maintenance & After Sales</option>
+                            </select>
+                          </div>
+
                           <div class="form_field-wrapper">
                             <textarea
                               id="Message-3"
-                              name="Message"
+                              name="message"
                               maxlength="5000"
-                              data-name="Message"
+                              data-name="message"
                               placeholder="Message"
                               class="form_input is-text-area w-input"
+                              required=""
                             ></textarea>
                           </div>
-                          <input
+                          <button
                             type="submit"
-                            data-wait="Please wait..."
+                            id="submit-contact-btn"
                             class="button is-form-submit w-button"
-                            value="Get Started"
-                          />
+                          >Send Message</button>
                         </form>
-                        <div class="form_message-success w-form-done">
+                        
+                        <div id="contact-success-msg" class="form_message-success w-form-done" style="display: none;">
                           <div>
-                            Thank you! Your submission has been received!
+                            Thank you! Your submission has been received! We will be in touch shortly.
                           </div>
                         </div>
-                        <div class="form_message-error w-form-fail">
-                          <div>
-                            Oops! Something went wrong while submitting the
-                            form.
+                        <div id="contact-error-msg" class="form_message-error w-form-fail" style="display: none;">
+                          <div id="contact-error-text">
+                            Oops! Something went wrong while submitting the form.
                           </div>
                         </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("wf-form-Contact-Form-1");
+    const successMsg = document.getElementById("contact-success-msg");
+    const errorMsg = document.getElementById("contact-error-msg");
+    const errorText = document.getElementById("contact-error-text");
+    const submitBtn = document.getElementById("submit-contact-btn");
+
+    if (form) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        
+        submitBtn.disabled = true;
+        submitBtn.innerText = "Please wait...";
+        successMsg.style.display = "none";
+        errorMsg.style.display = "none";
+
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        fetch("{% url 'submit_contact' %}", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        })
+        .then((response) => response.json().then(res => ({status: response.status, body: res})))
+        .then((res) => {
+          if (res.status === 200) {
+            successMsg.style.display = "block";
+            form.reset();
+          } else {
+            errorMsg.style.display = "block";
+            errorText.innerText = res.body.error || "Oops! Something went wrong.";
+          }
+        })
+        .catch((error) => {
+          errorMsg.style.display = "block";
+          errorText.innerText = "A network error occurred. Please try again.";
+        })
+        .finally(() => {
+          submitBtn.disabled = false;
+          submitBtn.innerText = "Get Started";
+        });
+      });
+    }
+  });
+</script>
                       </div>
                     </div>
                   </div>
@@ -536,6 +607,109 @@
 
 <script src="{% static 'website/assets/js/contact.js' %}" type="text/javascript"></script>
 
+
+<!-- Contact Form AJAX & Validation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+<style>
+    /* Smooth validation & message styles */
+    .error-msg-custom {
+        color: #ff4d4f;
+        font-size: 0.85rem;
+        margin-top: 0.25rem;
+        display: block;
+    }
+    .form_input.error {
+        border-color: #ff4d4f !important;
+        background-color: #fff1f0 !important;
+    }
+    .w-form-done, .w-form-fail {
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 15px;
+        text-align: center;
+        display: none;
+    }
+    .w-form-done {
+        background-color: #f6ffed;
+        border: 1px solid #b7eb8f;
+        color: #389e0d;
+    }
+    .w-form-fail {
+        background-color: #fff2f0;
+        border: 1px solid #ffccc7;
+        color: #cf1322;
+    }
+    .btn-sending {
+        opacity: 0.7;
+        cursor: not-allowed;
+    }
+    /* Spinner animation for button */
+    @keyframes spinner-border {
+      to { transform: rotate(360deg); }
+    }
+</style>
+<script>
+$(document).ready(function() {
+    var $form = $('#wf-form-Contact-Form-1');
+    var $submitBtn = $('#submit-contact-btn');
+    var $successMsg = $('#contact-success-msg');
+    var $errorMsg = $('#contact-error-msg');
+    
+    // Initialize jQuery Validate
+    $form.validate({
+        errorClass: "error",
+        errorElement: "span",
+        errorPlacement: function(error, element) {
+            error.addClass('error-msg-custom');
+            error.insertAfter(element);
+        },
+        rules: {
+            name: { required: true, minlength: 2 },
+            email: { required: true, email: true },
+            subject: { required: true },
+            message: { required: true, minlength: 10 }
+        },
+        messages: {
+            name: "Please enter your full name",
+            email: "Please enter a valid email address",
+            subject: "Please select an enquiry type",
+            message: "Please write a message (at least 10 characters)"
+        },
+        submitHandler: function(form, event) {
+            event.preventDefault();
+            
+            var originalText = $submitBtn.text();
+            $submitBtn.html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="margin-right:8px; display:inline-block; width:1rem; height:1rem; border:0.2em solid currentColor; border-right-color:transparent; border-radius:50%; animation:spinner-border .75s linear infinite;"></span> Sending...').addClass('btn-sending').prop('disabled', true);
+            $errorMsg.slideUp(200);
+            
+            var formData = new FormData(form);
+            
+            $.ajax({
+                url: $form.attr('action'),
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    $form.slideUp(400, function() {
+                        $successMsg.html('<div>' + response.success + '</div>').slideDown(400);
+                    });
+                },
+                error: function(xhr) {
+                    var errorText = "An unexpected error occurred. Please try again.";
+                    if (xhr.responseJSON && xhr.responseJSON.error) {
+                        errorText = xhr.responseJSON.error;
+                    }
+                    $errorMsg.html('<div>' + errorText + '</div>').slideDown(400);
+                    $submitBtn.text(originalText).removeClass('btn-sending').prop('disabled', false);
+                }
+            });
+            return false;
+        }
+    });
+});
+</script>
 {% endblock script %}
+
 
 

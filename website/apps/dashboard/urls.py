@@ -83,4 +83,19 @@ urlpatterns = [
     path('module-priority/', views.module_priority, name='module_priority'),
 
 
+    # --- DATA MODULE ---
+    path('projects/', views.projects_list, name='projects_list'),
+    path('projects/add/', views.add_project, name='add_project'),
+    path('projects/edit/<int:pk>/', views.edit_project, name='edit_project'),
+    path('projects/delete/<int:pk>/', views.delete_project, name='delete_project'),
+    path('products/', views.products_list, name='products_list'),
+    path('products/add/', views.add_product, name='add_product'),
+    path('products/edit/<int:pk>/', views.edit_product, name='edit_product'),
+    path('products/delete/<int:pk>/', views.delete_product, name='delete_product'),
+
+    path('product-categories/', views.product_categories, name='product_categories'),
+    path('product-categories/add/', views.add_product_category, name='add_product_category'),
+    path('product-categories/edit/<int:pk>/', views.edit_product_category, name='edit_product_category'),
+    path('product-categories/delete/<int:pk>/', views.delete_product_category, name='delete_product_category'),
+
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

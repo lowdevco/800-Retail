@@ -7,13 +7,33 @@
 
     <meta content="width=device-width, initial-scale=1" name="viewport" />
 
-    <link href="{% static 'website/assets/css/main.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'website/assets/css/main.css' %}?v=1.1" rel="stylesheet" type="text/css" />
 
     <script src="{% static 'website/assets/js/head-scripts.js' %}"></script>
 
-    <title> {% block title %} 800 Retail {% endblock title %} </title>
+    <title>
+      {% block title %}
+        {% if page.meta_title %}
+          {{ page.meta_title }}
+        {% elif page.title %}
+          {{ page.title }}
+        {% else %}
+          800 Retail
+        {% endif %}
+      {% endblock title %}
+    </title>
+
+    {% if page.meta_description %}
+    <meta name="description" content="{{ page.meta_description }}" />
+    {% endif %}
+
+    {% if page.canonical_tag %}
+    <link rel="canonical" href="{{ page.canonical_tag }}" />
+    {% endif %}
 
     {% block head %}{% endblock head %}
+
+    <meta name="referrer" content="strict-origin-when-cross-origin">
 
   </head>
 

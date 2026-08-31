@@ -77,120 +77,73 @@
 
         <!-- Products Grid -->
         <div class="products-grid" id="products-grid" animate="fade-up-2">
-          <!-- Injected via JS -->
+            {% for p in products %}
+            <div class="modern-row product-card" data-category="{{ p.category }}">
+                <div class="modern-media-wrap">
+                    <div class="modern-category-tag">{{ p.category }}</div>
+                    {% if p.video_url %}
+                        <iframe src="{{ p.video_url }}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    {% elif p.image %}
+                        <img src="{{ p.image }}" alt="{{ p.title }}" class="modern-row-img" loading="lazy" />
+                    {% endif %}
+                </div>
+                <div class="modern-content">
+                    <h3 class="modern-title">{{ p.title }}</h3>
+                    
+                    <div class="modern-meta">
+                        {% if p.store_name %}
+                            <div class="meta-block"><span class="meta-label">Store Name</span><span class="meta-value">{{ p.store_name }}</span></div>
+                        {% endif %}
+                        {% if p.location %}
+                            <div class="meta-block"><span class="meta-label">Location</span><span class="meta-value">{{ p.location }}</span></div>
+                        {% endif %}
+                        {% if p.store_type %}
+                            <div class="meta-block"><span class="meta-label">Store Type</span><span class="meta-value">{{ p.store_type }}</span></div>
+                        {% endif %}
+                        {% if p.store_size %}
+                            <div class="meta-block"><span class="meta-label">Store Size</span><span class="meta-value">{{ p.store_size }}</span></div>
+                        {% endif %}
+                    </div>
+
+                    {% if p.scope_of_project %}
+                    <div class="scope-section">
+                        <div class="scope-title">Scope of Project:</div>
+                        <div class="scope-list">
+                            {{ p.scope_of_project|safe }}
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
         </div>
       </div>
     </div>
   </section>
+{% endblock %}
 
-
-     <script src="{% static 'website/assets/data/products.js' %}" type="text/javascript"></script>
+{% block script %}
     <script type="text/javascript">
       document.addEventListener("DOMContentLoaded", () => {
-        const grid = document.getElementById("products-grid");
         const filterBtns = document.querySelectorAll(".product-filter-btn");
-
-        if (!grid || typeof productsData === "undefined") return;
-
-        const renderCards = (filterCategory) => {
-          let html = "";
-          productsData.forEach((p) => {
-            if (filterCategory === "All" || p.category === filterCategory) {
-              let metaHtml = '<div class="modern-meta">';
-              const allowedMeta = [
-                "Location",
-                "Store Type",
-                "Store Size",
-                "Type",
-                "Application",
-                "Material",
-              ];
-              let hasMeta = false;
-
-              // Always show Store Name if available
-              if (p.details && p.details["Store Name"]) {
-                metaHtml += `<div class="meta-block"><span class="meta-label">Store Name</span><span class="meta-value">${p.details["Store Name"]}</span></div>`;
-                hasMeta = true;
-              }
-
-              for (const [key, value] of Object.entries(p.details || {})) {
-                if (
-                  key !== "Store Name" &&
-                  allowedMeta.includes(key) &&
-                  value &&
-                  value.trim() !== ""
-                ) {
-                  metaHtml += `<div class="meta-block"><span class="meta-label">${key}</span><span class="meta-value">${value}</span></div>`;
-                  hasMeta = true;
-                }
-              }
-              metaHtml += "</div>";
-              if (!hasMeta) metaHtml = "";
-
-              let scopeHtml = "";
-              if (
-                p.details &&
-                p.details["Scope of Project"] &&
-                p.details["Scope of Project"].length > 0
-              ) {
-                scopeHtml += `
-                        <div class="scope-section">
-                          <div class="scope-title">Scope of Project:</div>
-                          <ul class="scope-list">
-                      `;
-                p.details["Scope of Project"].forEach((item) => {
-                  scopeHtml += `<li>${item}</li>`;
-                });
-                scopeHtml += `
-                          </ul>
-                        </div>
-                      `;
-              }
-
-              let mediaHtml = "";
-              if (p.video) {
-                let vidUrl = p.video.includes("watch?v=")
-                  ? p.video.replace("watch?v=", "embed/")
-                  : p.video;
-                mediaHtml = `<iframe src="${vidUrl}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-              } else if (p.image) {
-                mediaHtml = `<img src="{% static '${p.image}' %}" alt="${p.title}" class="modern-row-img" loading="lazy" onerror="this.src="{% static 'website/assets/images/project2.jpg' %}"" />`;
-              }
-
-              html += `
-                      <div class="modern-row">
-                        <div class="modern-media-wrap">
-                          <div class="modern-category-tag">${p.category}</div>
-                          ${mediaHtml}
-                        </div>
-                        <div class="modern-content">
-                          <h3 class="modern-title">${p.title}</h3>
-                          ${metaHtml}
-                          ${scopeHtml}
-                        </div>
-                      </div>
-                    `;
-            }
-          });
-
-          grid.style.opacity = 0;
-          setTimeout(() => {
-            grid.innerHTML = html;
-            grid.style.opacity = 1;
-          }, 200);
-        };
-
-        grid.style.transition = "opacity 0.3s ease";
-        renderCards("All");
+        const cards = document.querySelectorAll(".product-card");
 
         filterBtns.forEach((btn) => {
           btn.addEventListener("click", (e) => {
             filterBtns.forEach((b) => b.classList.remove("active"));
             e.target.classList.add("active");
-            renderCards(e.target.getAttribute("data-filter"));
+            
+            const filterCategory = e.target.getAttribute("data-filter");
+            
+            cards.forEach(card => {
+                if (filterCategory === "All" || card.getAttribute("data-category") === filterCategory) {
+                    card.style.display = "flex";
+                } else {
+                    card.style.display = "none";
+                }
+            });
           });
         });
       });
     </script>
-
 {% endblock %}

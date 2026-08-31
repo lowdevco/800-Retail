@@ -117,11 +117,6 @@ ChildFormSet = inlineformset_factory(Module, Child, fields=(
 
 class PageForm(forms.ModelForm):
 
-    description = forms.CharField(
-        widget=CKEditorWidget(),
-        required=False
-    )
-
     class Meta:
         model = Page
         fields = [
@@ -134,7 +129,7 @@ class PageForm(forms.ModelForm):
             'description',
             'show_in_menu',   # Added for nav
             'meta_title',
-            'meta_keywords',
+            'canonical_tag',
             'meta_description',
         ]
 
@@ -151,7 +146,7 @@ class PageForm(forms.ModelForm):
             'show_in_menu': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
 
             'meta_title': forms.TextInput(attrs={'class': 'form-control'}),
-            'meta_keywords': forms.TextInput(attrs={'class': 'form-control'}),
+            'canonical_tag': forms.TextInput(attrs={'class': 'form-control'}),
             'meta_description': forms.Textarea(attrs={
                 'class': 'form-control',
                 'rows': 4
@@ -227,9 +222,48 @@ class BlogPostForm(forms.ModelForm):
                   'short_description', 'meta_tags', 'blog_body', 'status', 'is_featured')
         widgets = {
             'slug': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Custom URL slug (optional)'}),
-            'meta_tags': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'e.g.,Cloth Care, Dry cleaning..'}),
+            'meta_tags': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'e.g.,Retail Fixture, Led...'}),
         }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['slug'].required = False
+
+
+from .models import Project, Product
+class ProjectForm(forms.ModelForm):
+    class Meta:
+        model = Project
+        fields = '__all__'
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control'}),
+            'store_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'location': forms.TextInput(attrs={'class': 'form-control'}),
+            'thumbnail': forms.TextInput(attrs={'class': 'form-control'}),
+            'video_id': forms.TextInput(attrs={'class': 'form-control'}),
+        }
+
+class ProductForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = '__all__'
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control'}),
+            'category': forms.Select(attrs={'class': 'form-control'}),
+            'image': forms.TextInput(attrs={'class': 'form-control'}),
+            'video_url': forms.TextInput(attrs={'class': 'form-control'}),
+            'store_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'location': forms.TextInput(attrs={'class': 'form-control'}),
+            'store_type': forms.TextInput(attrs={'class': 'form-control'}),
+            'store_size': forms.TextInput(attrs={'class': 'form-control'}),
+        }
+from .models import ProductCategory
+
+class ProductCategoryForm(forms.ModelForm):
+    class Meta:
+        model = ProductCategory
+        fields = '__all__'
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control'}),
+        }
+

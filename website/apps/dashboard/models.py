@@ -128,11 +128,11 @@ class Page(models.Model):
         verbose_name="Meta Title"
     )
 
-    meta_keywords = models.CharField(
+    canonical_tag = models.CharField(
         max_length=255,
         blank=True,
         null=True,
-        verbose_name="Meta Keywords"
+        verbose_name="Canonical Tag"
     )
     show_in_menu = models.BooleanField(default=True)
 
@@ -228,7 +228,7 @@ class Blog(models.Model):
     short_description = models.TextField(max_length=500)
     meta_tags = models.CharField(max_length=255, blank=True, null=True,
                                  help_text="Comma-separated tags (e.g., Laundry Care, Dry cleaning Tips)")
-    blog_body = RichTextField()
+    blog_body = RichTextUploadingField()
     status = models.CharField(
         max_length=20, choices=STATUS_CHOICES, default='Draft')
     is_featured = models.BooleanField(default=False)
@@ -333,3 +333,78 @@ def auto_delete_file_on_change(sender, instance, **kwargs):
 
     if old_file and old_file != new_file:
         delete_media(old_file)
+
+
+class Project(models.Model):
+    title = models.CharField(max_length=200)
+    store_name = models.CharField(max_length=200)
+    location = models.CharField(max_length=200)
+    thumbnail = models.CharField(max_length=500, help_text='Paste image URL from File Manager/Gallery')
+    video_id = models.CharField(max_length=100, blank=True, null=True, help_text='YouTube Video ID (e.g., Ym-lgWHk9AY)')
+    scope = RichTextUploadingField(blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+
+    def save(self, *args, **kwargs):
+        if self.thumbnail and '/website/media/' in self.thumbnail:
+            self.thumbnail = self.thumbnail.replace('/website/media/', '/media/')
+        if self.video_id:
+            import re
+            # Extract src if user pasted iframe
+            match = re.search(r'src="([^"]+)"', self.video_id)
+            if match:
+                self.video_id = match.group(1)
+            # Extract video ID from embed URL
+            if 'youtube.com/embed/' in self.video_id:
+                self.video_id = self.video_id.split('youtube.com/embed/')[1].split('?')[0]
+            # Ensure it is just the ID
+            self.video_id = self.video_id.replace('https://', '').replace('http://', '').replace('www.youtube.com/watch?v=', '')
+            if '&' in self.video_id:
+                self.video_id = self.video_id.split('&')[0]
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.title
+
+
+class ProductCategory(models.Model):
+    name = models.CharField(max_length=100)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name_plural = 'Product Categories'
+
+
+    def __str__(self):
+        return self.name
+
+class Product(models.Model):
+    title = models.CharField(max_length=200)
+    category = models.ForeignKey(ProductCategory, on_delete=models.SET_NULL, null=True, blank=True)
+    image = models.CharField(max_length=500, help_text='Paste image URL from File Manager/Gallery')
+    video_url = models.CharField(max_length=500, blank=True, null=True, help_text='Full YouTube Embed URL')
+    store_name = models.CharField(max_length=200, blank=True)
+    location = models.CharField(max_length=200, blank=True)
+    store_type = models.CharField(max_length=200, blank=True)
+    store_size = models.CharField(max_length=100, blank=True)
+    scope_of_project = RichTextUploadingField(blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+
+
+    def save(self, *args, **kwargs):
+        if self.image and '/website/media/' in self.image:
+            self.image = self.image.replace('/website/media/', '/media/')
+        if self.video_url:
+            import re
+            # Extract src if user pasted iframe
+            match = re.search(r'src="([^"]+)"', self.video_url)
+            if match:
+                self.video_url = match.group(1)
+            # Ensure it has http/https
+            if self.video_url.startswith('www.'):
+                self.video_url = 'https://' + self.video_url
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.title

@@ -1,5 +1,6 @@
 import json
 from django.shortcuts import render
+from django.core.cache import cache
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import EmailMultiAlternatives
@@ -10,36 +11,59 @@ from apps.dashboard.models import ContactEnquiry, CompanyDetails
 
 
 
+from apps.dashboard.models import Page, Project, Product, Blog
+
+def get_page_context(slug):
+    try:
+        return {'page': Page.objects.get(slug=slug)}
+    except Page.DoesNotExist:
+        return {}
+
 def home(request):
-    return render(request, 'website/pages/index.html')
+    context = get_page_context('home')
+    context['recent_blogs'] = Blog.objects.filter(status='Published').order_by('-created_at')[:3]
+    return render(request, 'website/pages/index.html', context)
 
 def about(request):
-    return render(request, 'website/pages/about.html')
+    return render(request, 'website/pages/about.html', get_page_context('about'))
 
 def ceo_message(request):
-    return render(request, 'website/pages/ceo-message.html')
+    return render(request, 'website/pages/ceo-message.html', get_page_context('ceo_message'))
 
 def global_facilities(request):
-    return render(request, 'website/pages/global-facilities.html')
+    return render(request, 'website/pages/global-facilities.html', get_page_context('global_facilities'))
 
 def divisions(request):
-    return render(request, 'website/pages/divisions.html')
+    return render(request, 'website/pages/divisions.html', get_page_context('divisions'))
 
 def product(request):
-    return render(request, 'website/pages/products.html')
+    context = get_page_context('product')
+    context['products'] = Product.objects.all().order_by('-created_at')
+    return render(request, 'website/pages/products.html', context)
 
 def project(request):
-    return render(request, 'website/pages/projects.html')
+    context = get_page_context('project')
+    context['projects'] = Project.objects.all().order_by('-created_at')
+    return render(request, 'website/pages/projects.html', context)
 
 def client(request):
-    return render(request, 'website/pages/clients.html')
+    return render(request, 'website/pages/clients.html', get_page_context('client'))
 
 def blog(request):
-    return render(request, 'website/pages/blog.html')
+    context = get_page_context('blog')
+    context['blogs'] = Blog.objects.filter(status='Published').order_by('-created_at')
+    return render(request, 'website/pages/blog.html', context)
 
 def contact(request):
-    return render(request, 'website/pages/contact.html')
+    return render(request, 'website/pages/contact.html', get_page_context('contact'))
 
+
+
+def get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        return x_forwarded_for.split(',')[0]
+    return request.META.get('REMOTE_ADDR')
 
 @csrf_exempt
 def submit_contact(request):
@@ -51,6 +75,14 @@ def submit_contact(request):
             else:
                 data = request.POST
 
+            
+            ip = get_client_ip(request)
+            cache_key = f"contact_limit_{ip}"
+            attempts = cache.get(cache_key, 0)
+            if attempts >= 3:
+                return JsonResponse({'error': 'You have submitted too many requests. Please wait an hour before trying again.'}, status=429)
+            cache.set(cache_key, attempts + 1, 3600) # 1 hour timeout
+            
             name = data.get('name')
             email = data.get('email')
             phone = data.get('phone', '')
@@ -111,3 +143,12 @@ def submit_contact(request):
             return JsonResponse({'error': str(e)}, status=500)
     
     return JsonResponse({'error': 'Invalid request method.'}, status=405)
+
+from django.shortcuts import get_object_or_404
+
+def blog_detail(request, slug):
+    blog = get_object_or_404(Blog, slug=slug, status='Published')
+    related_news = Blog.objects.filter(status='Published', category=blog.category).exclude(id=blog.id).first()
+    if not related_news:
+        related_news = Blog.objects.filter(status='Published').exclude(id=blog.id).first()
+    return render(request, 'website/pages/blog_detail.html', {'blog': blog, 'related_news': related_news})

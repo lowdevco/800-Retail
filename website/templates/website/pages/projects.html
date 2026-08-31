@@ -1,4 +1,4 @@
-﻿{% extends 'website/Base.html' %}
+{% extends 'website/Base.html' %}
 
 {% load static %}
 
@@ -88,8 +88,36 @@
         <div class="container-default">
           <div class="projects_list_wrap">
             <div class="w-dyn-list">
-              <div role="list" class="projects_list w-dyn-items" id="projects-container" style="display: block">
-                <!-- Cards will be dynamically injected here by projects-renderer.js -->
+                {% for project in projects %}
+                <div animate="fade-up-1" role="listitem" class="w-dyn-item" style="margin-bottom: 4rem;">
+                  <div class="project-horizontal-card {% if forloop.counter|divisibleby:2 %}reverse{% endif %}">
+                    <div class="project-horizontal-media" data-video-id="{{ project.video_id }}">
+                      <img src="{{ project.thumbnail }}" alt="{{ project.title }}" class="project-horizontal-img">
+                    </div>
+                    <div class="project-horizontal-content">
+                      <h3 class="heading-style-h3" style="color: var(--color-base--black); margin-bottom: 1.5rem; font-family: var(--fonts--heading); font-weight: bold;">
+                        {{ project.title }}
+                      </h3>
+                      <div class="project-horizontal-meta">
+                        <div>
+                          <strong style="color: var(--color-base--black); font-weight: 600;">Store Name:</strong>
+                          {{ project.store_name }}
+                        </div>
+                        <div>
+                          <strong style="color: var(--color-base--black); font-weight: 600;">Location:</strong>
+                          {{ project.location }}
+                        </div>
+                      </div>
+                      <div class="project-horizontal-scope">
+                        <h4>Project Specifics</h4>
+                        <div>
+                          {{ project.scope|safe }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
               </div>
             </div>
           </div>
@@ -100,57 +128,50 @@
 {% endblock %}
 
 {% block script %}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
-    <script src="{% static 'website/assets/data/projects.js' %}" type="text/javascript"></script>
-    <script type="text/javascript">
-      document.addEventListener("DOMContentLoaded", () => {
-        const container = document.getElementById("projects-container");
-        if (!container) return;
 
-        let html = "";
-        projectsData.forEach((project, index) => {
-          const isReverse = index % 2 !== 0; // Alternating layout
-          const reverseClass = isReverse ? "reverse" : "";
+    /*
+     * YouTube video click handling
+     */
 
-          // Build bullets
-          const scopeBullets = project.scope
-            .map((point) => `<li>${point}</li>`)
-            .join("");
+    const mediaElements = document.querySelectorAll(
+        ".project-horizontal-media"
+    );
 
-          // Video iframe template
-          const videoIframe = `<iframe src='https://www.youtube.com/embed/${project.videoId}?autoplay=1' frameborder='0' allow='autoplay; fullscreen' style='position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: var(--radius--default);'></iframe>`;
 
-          html += `
-              <div animate="fade-up-1" role="listitem" class="w-dyn-item" style="margin-bottom: 4rem;">
-                <div class="project-horizontal-card ${reverseClass}">
-                  
-                  <div class="project-horizontal-media" onclick="this.innerHTML=\`${videoIframe}\`;">
-                    <img src="${project.thumbnail}" alt="${project.title}" class="project-horizontal-img" />
-                  </div>
+    mediaElements.forEach(function (media) {
 
-                  <div class="project-horizontal-content">
-                    <h3 class="heading-style-h3" style="color: var(--color-base--black); margin-bottom: 1.5rem; font-family: var(--fonts--heading); font-weight: bold;">${project.title}</h3>
-                    
-                    <div class="project-horizontal-meta">
-                      <div><strong style="color: var(--color-base--black); font-weight: 600;">Store Name:</strong> ${project.storeName}</div>
-                      <div><strong style="color: var(--color-base--black); font-weight: 600;">Location:</strong> ${project.location}</div>
-                    </div>
+        media.addEventListener("click", function () {
 
-                    <div class="project-horizontal-scope">
-                      <h4> Project Specifics</h4>
-                      <ul>
-                        ${scopeBullets}
-                      </ul>
-                    </div>
-                  </div>
+            const videoId = media.dataset.videoId;
 
-                </div>
-              </div>
+            if (!videoId) return;
+
+            media.innerHTML = `
+                <iframe
+                    src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0"
+                    title="Project Video"
+                    frameborder="0"
+                    allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+                    allowfullscreen
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    style="
+                        position: absolute;
+                        inset: 0;
+                        width: 100%;
+                        height: 100%;
+                        border: 0;
+                    "
+                ></iframe>
             `;
+
         });
 
-        container.innerHTML = html;
-      });
-    </script>
+    });
+
+});
+</script>
 
 {% endblock script %}

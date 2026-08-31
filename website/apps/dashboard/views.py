@@ -73,8 +73,9 @@ def get_dashboard_cards():
          'url': reverse('posts')},
         {'title': 'Files', 'count': FileManager.objects.count(
         ), 'icon': 'fas fa-folder-open', 'url': reverse('file_manager')},
-        {'title': 'Gallery', 'count': Gallery.objects.count(
-        ), 'icon': 'fas fa-images', 'url': reverse('gallery_view')},
+        {'title': 'Gallery', 'count': Gallery.objects.count(), 'icon': 'fas fa-images', 'url': reverse('gallery_view')},
+        {'title': 'Projects', 'count': Project.objects.count(), 'icon': 'fas fa-project-diagram', 'url': reverse('projects_list')},
+        {'title': 'Products', 'count': Product.objects.count(), 'icon': 'fas fa-box-open', 'url': reverse('products_list')},
     ]
 
 
@@ -748,3 +749,124 @@ def module_priority(request):
         messages.success(request, 'Module positions updated successfully.')
         return redirect('module_priority')
     return render(request, 'dashboard/pages/module_priority.html', {'modules': modules})
+
+# --- DATA MODULE VIEWS ---
+from .models import Project, Product
+from .forms import ProjectForm, ProductForm
+from django.contrib import messages
+
+@login_required
+def projects_list(request):
+    projects = Project.objects.all().order_by('-created_at')
+    return render(request, 'dashboard/pages/data/projects_list.html', {'projects': projects})
+
+@login_required
+def add_project(request):
+    if request.method == 'POST':
+        form = ProjectForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Project added successfully!')
+            return redirect('projects_list')
+    else:
+        form = ProjectForm()
+    return render(request, 'dashboard/pages/data/add_project.html', {'form': form})
+
+@login_required
+def edit_project(request, pk):
+    project = get_object_or_404(Project, pk=pk)
+    if request.method == 'POST':
+        form = ProjectForm(request.POST, instance=project)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Project updated successfully!')
+            return redirect('projects_list')
+    else:
+        form = ProjectForm(instance=project)
+    return render(request, 'dashboard/pages/data/edit_project.html', {'form': form, 'project': project})
+
+@login_required
+def delete_project(request, pk):
+    project = get_object_or_404(Project, pk=pk)
+    project.delete()
+    messages.success(request, 'Project deleted.')
+    return redirect('projects_list')
+
+@login_required
+def products_list(request):
+    products = Product.objects.all().order_by('-created_at')
+    return render(request, 'dashboard/pages/data/products_list.html', {'products': products})
+
+@login_required
+def add_product(request):
+    if request.method == 'POST':
+        form = ProductForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Product added successfully!')
+            return redirect('products_list')
+    else:
+        form = ProductForm()
+    return render(request, 'dashboard/pages/data/add_product.html', {'form': form})
+
+@login_required
+def edit_product(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    if request.method == 'POST':
+        form = ProductForm(request.POST, instance=product)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Product updated successfully!')
+            return redirect('products_list')
+    else:
+        form = ProductForm(instance=product)
+    return render(request, 'dashboard/pages/data/edit_product.html', {'form': form, 'product': product})
+
+@login_required
+def delete_product(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    product.delete()
+    messages.success(request, 'Product deleted.')
+    return redirect('products_list')
+
+
+from .models import ProductCategory
+from .forms import ProductCategoryForm
+
+@login_required
+def product_categories(request):
+    categories = ProductCategory.objects.all().order_by('-created_at')
+    return render(request, 'dashboard/pages/data/product_categories.html', {'categories': categories})
+
+@login_required
+def add_product_category(request):
+    if request.method == 'POST':
+        form = ProductCategoryForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Category added successfully!')
+            return redirect('product_categories')
+    else:
+        form = ProductCategoryForm()
+    return render(request, 'dashboard/pages/data/add_product_category.html', {'form': form})
+
+@login_required
+def edit_product_category(request, pk):
+    category = get_object_or_404(ProductCategory, pk=pk)
+    if request.method == 'POST':
+        form = ProductCategoryForm(request.POST, instance=category)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Category updated successfully!')
+            return redirect('product_categories')
+    else:
+        form = ProductCategoryForm(instance=category)
+    return render(request, 'dashboard/pages/data/edit_product_category.html', {'form': form, 'category': category})
+
+@login_required
+def delete_product_category(request, pk):
+    category = get_object_or_404(ProductCategory, pk=pk)
+    category.delete()
+    messages.success(request, 'Category deleted.')
+    return redirect('product_categories')
+
