@@ -1,5 +1,95 @@
   {% load static %}
 
+  <style>
+    /* Custom Mobile Nav Redesign */
+    @media screen and (max-width: 991px) {
+      /* Main Mobile Menu Container */
+      .w-nav[data-collapse="medium"] .w-nav-menu {
+        background-color: #1a1b18 !important; /* Deep dark theme */
+        padding: 1rem 1rem 3rem 1rem !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        height: 100vh;
+        overflow-y: auto;
+      }
+      
+      /* Top level links */
+      .w-nav-menu .nav-link,
+      .w-nav-menu .nav-dropdown-toggle {
+        color: #fafaf7 !important;
+        font-size: 1.15rem !important;
+        font-weight: 500 !important;
+        padding: 1rem 1.25rem !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        transition: all 0.3s ease;
+        text-align: left;
+      }
+      
+      /* Hover/Active states */
+      .w-nav-menu .nav-link:hover,
+      .w-nav-menu .nav-dropdown-toggle:hover {
+        background-color: rgba(255, 255, 255, 0.05) !important;
+        padding-left: 1.5rem !important;
+        color: var(--accent) !important; /* Brand accent */
+      }
+
+      /* Dropdown Sub-links (Dropdown Lists) */
+      .w-nav-menu .simple-dropdown-list {
+        background-color: rgba(0,0,0,0.2) !important;
+        padding: 0.5rem 0 0.5rem 1.5rem !important;
+        border: none !important;
+        box-shadow: none !important;
+        position: relative !important;
+      }
+
+      .w-nav-menu .simple-dropdown-list.w--open {
+        display: block !important;
+      }
+
+      .w-nav-menu .simple-dropdown-link {
+        color: #b0b0b0 !important;
+        font-size: 1rem !important;
+        padding: 0.75rem 1rem !important;
+        border-left: 2px solid rgba(255, 255, 255, 0.1);
+        margin-bottom: 0.25rem;
+        transition: all 0.2s ease;
+        display: block;
+      }
+
+      .w-nav-menu .simple-dropdown-link:hover,
+      .w-nav-menu .simple-dropdown-link:active {
+        color: #fafaf7 !important;
+        border-left: 2px solid var(--accent) !important;
+        background-color: rgba(255, 255, 255, 0.03);
+      }
+      
+      /* Dropdown Icon Adjustments */
+      .w-nav-menu .w-icon-nav-menu,
+      .w-nav-menu .w-icon-dropdown-toggle {
+        color: #fafaf7 !important;
+      }
+
+      /* Mobile CTA Button */
+      .mobile-cta-wrapper {
+        display: block !important;
+        margin-top: 1.5rem;
+        padding: 0 1.25rem;
+      }
+      .mobile-cta-wrapper .button {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+      }
+    }
+    
+    @media screen and (min-width: 992px) {
+      .mobile-cta-wrapper {
+        display: none !important;
+      }
+    }
+  </style>
+
+
   <div
         data-animation="default"
         class="navbar w-nav"
