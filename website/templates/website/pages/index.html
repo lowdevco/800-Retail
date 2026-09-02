@@ -177,6 +177,7 @@
       object-fit: contain;
       filter: grayscale(100%) contrast(1000%);
       transition: filter 0.3s ease;
+      border-radius:0px;
     }
     .div-grid-card:hover .div-grid-icon img {
       filter: grayscale(100%) contrast(1000%) invert(1);
@@ -246,6 +247,96 @@
       }
     }
   </style>
+
+<style>
+
+.client-carousel-wrapper {
+  position: relative;
+}
+.client-carousel-nav {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  margin-top: -1rem;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  z-index: 10;
+}
+.client-carousel-prev,
+.client-carousel-next {
+  pointer-events: auto;
+  background: var(--color-base--white) !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+  border: none !important;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--color-base--black);
+}
+.client-carousel-prev {
+  transform: translateX(-50%);
+}
+.client-carousel-next {
+  transform: translateX(50%);
+}
+@media (max-width: 991px) {
+  .client-carousel-nav {
+    display: none !important;
+  }
+}
+
+.logo-marquee-section {
+  padding: 4rem 0 1rem 0;
+  background-color: transparent;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  width: 100%;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+.logo-marquee-track {
+  display: flex;
+  gap: 5rem;
+  align-items: center;
+  animation: marquee 25s linear infinite;
+  white-space: nowrap;
+  width: max-content;
+}
+.logo-marquee-track:hover {
+  animation-play-state: paused;
+}
+.logo-marquee-item {
+  flex-shrink: 0;
+  width: 160px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-marquee-item img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: all 0.4s ease;
+}
+.logo-marquee-item:hover img {
+  transform: scale(1.15);
+}
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 2.5rem)); }
+}
+</style>
+
 {% endblock %}
 
 {% block content %}
@@ -263,7 +354,7 @@
                 <div class="home1_hero_left">
                   <div animate="" class="text-style-badge">
                     <div class="badge-dot"></div>
-                    <div class="text-color-alternate">Welcome to 800 Retail Solutions</div>
+                    <div class="text-color-alternate">Welcome to the Next Level</div>
                   </div>
                   <div class="spacer-small"></div>
                   <div>
@@ -294,6 +385,10 @@
       </div>
     </div>
   </section>
+
+  
+
+</div>
 
   <section class="section_home1_welcome">
     <div class="padding-global padding-section-medium">
@@ -676,6 +771,10 @@
     </div>
   </section>
 
+  
+
+</div>
+
   <section class="section_home1_welcome">
     <div class="padding-global padding-section-medium">
       <div class="container-default">
@@ -715,246 +814,332 @@
             </div>
 
             <div class="department-list">
-              <!-- 1. PROJECT MANAGEMENT -->
-              <div class="department-item active">
+              <!-- 1. DESIGN & SPACE MANAGEMENT -->
+              <div class="department-item active" style="background-color: #a5d8f3; color: #1c1c16; border-right-color: rgba(255,255,255,0.2);">
                 <button class="department-trigger" type="button">
                   <span class="department-arrow">&rsaquo;</span>
-                  <span class="department-label">Design & Development Department</span>
+                  <span class="department-label" style="font-weight: 500; font-size: 14px;">Design & Space Management</span>
                 </button>
 
                 <div class="department-expanded">
                   <div class="department-content">
-                    <p>Leads the creative and technical design process, including concept development, engineering detailing and prototyping of metal and joinery solutions tailored for retail environments.</p>
-
-                    <a href="#contact" class="department-btn">Get In Touch</a>
+                    <ul style="list-style-type: none; padding-left: 0; margin-bottom: 2rem;">
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Consulting Team
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Space Management Team
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Product Designers
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Concept Makers
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Rendering & Walkthrough
+                      </li>
+                    </ul>
+                    <a href="#contact" class="department-btn" style="border-color: #1c1c16; color: #1c1c16;">Get In Touch</a>
                   </div>
 
                   <div class="department-image">
-                    <img src="https://800retail.com/wp-content/uploads/2025/06/Departmental-Structure_0005_1.-Design-Development-Departmen.jpg" alt="Project Management" />
+                    <img src="https://800retail.com/wp-content/uploads/2025/06/Departmental-Structure_0005_1.-Design-Development-Departmen.jpg" alt="Design & Space Management" />
                   </div>
                 </div>
               </div>
-
-              <!-- 2. GENERAL CONTRACTING -->
-              <div class="department-item">
+              <!-- 2. PROJECT MANAGEMENT -->
+              <div class="department-item" style="background-color: #79c0e5; color: #1c1c16; border-right-color: rgba(255,255,255,0.2);">
                 <button class="department-trigger" type="button">
                   <span class="department-arrow">&rsaquo;</span>
-                  <span class="department-label">Machine Department</span>
+                  <span class="department-label" style="font-weight: 500; font-size: 14px;">Project Management</span>
                 </button>
 
                 <div class="department-expanded">
                   <div class="department-content">
-                    <p>Precision is at the heart of what we do. Our Machine Department handles cutting, shaping, and refining materials with expert accuracy ensuring every part fits perfectly into your retail or production needs.</p>
-
-                    <a href="#contact" class="department-btn">Get In Touch</a>
+                    <ul style="list-style-type: none; padding-left: 0; margin-bottom: 2rem;">
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Project Management Team
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Design & Engineering Department
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        QC Department
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Research & Development (R&D)
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Production Planning & Control (PPC) Department
+                      </li>
+                    </ul>
+                    <a href="#contact" class="department-btn" style="border-color: #1c1c16; color: #1c1c16;">Get In Touch</a>
                   </div>
 
                   <div class="department-image">
-                    <img src="https://800retail.com/wp-content/uploads/2025/06/01_0001_Layer-4.jpg" alt="General Contracting" />
+                    <img src="https://800retail.com/wp-content/uploads/2025/06/01_0001_Layer-4.jpg" alt="Project Management" />
                   </div>
                 </div>
               </div>
-
-              <!-- 3. TECHNICAL DESIGN -->
-              <div class="department-item">
+              <!-- 3. FABRICATION -->
+              <div class="department-item" style="background-color: #6a6b6c; color: #ffffff; border-right-color: rgba(255,255,255,0.2);">
                 <button class="department-trigger" type="button">
                   <span class="department-arrow">&rsaquo;</span>
-                  <span class="department-label">Metal Fabrication Robotic</span>
+                  <span class="department-label" style="font-weight: 500; font-size: 14px;">Fabrication</span>
                 </button>
 
                 <div class="department-expanded">
                   <div class="department-content">
-                    <p>Executes both manual and robotic fabrication processes, including cutting, welding, bending and forming of metal structures and components for retail fixtures and displays.</p>
-
-                    <a href="#contact" class="department-btn">Get In Touch</a>
+                    <ul style="list-style-type: none; padding-left: 0; margin-bottom: 2rem;">
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Machining & Tooling Department
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Fabrication Robo
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Fabrication Welding
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Post-Production Finishing Department
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Electrical Integration Department
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Finishing Department
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Packing
+                      </li>
+                    </ul>
+                    <a href="#contact" class="department-btn" style="border-color: #ffffff; color: #ffffff;">Get In Touch</a>
                   </div>
 
                   <div class="department-image">
-                    <img src="https://800retail.com/wp-content/uploads/2025/06/Departmental-Structure_0001_Metal-Fabrication-Department.jpg" alt="Technical Design" />
+                    <img src="https://800retail.com/wp-content/uploads/2025/06/Departmental-Structure_0001_Metal-Fabrication-Department.jpg" alt="Fabrication" />
                   </div>
                 </div>
               </div>
-
-              <!-- 4. CONCEPT DESIGN -->
-              <div class="department-item">
+              <!-- 4. JOINERY & CARPENTRY -->
+              <div class="department-item" style="background-color: #f8b800; color: #1c1c16; border-right-color: rgba(255,255,255,0.2);">
                 <button class="department-trigger" type="button">
                   <span class="department-arrow">&rsaquo;</span>
-                  <span class="department-label">Metal Fabrication Department</span>
+                  <span class="department-label" style="font-weight: 500; font-size: 14px;">Joinery & Carpentry</span>
                 </button>
 
                 <div class="department-expanded">
                   <div class="department-content">
-                    <p>From custom shelves and displays to durable fixtures, our team crafts solutions that are both practical and visually striking. Designed to fit your space, built to support your business.</p>
-
-                    <a href="#contact" class="department-btn">Get In Touch</a>
+                    <ul style="list-style-type: none; padding-left: 0; margin-bottom: 2rem;">
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Joinery Department
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Carpentry Department
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Assembling Area
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Painting & Polishing Department
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Packing
+                      </li>
+                    </ul>
+                    <a href="#contact" class="department-btn" style="border-color: #1c1c16; color: #1c1c16;">Get In Touch</a>
                   </div>
 
                   <div class="department-image">
-                    <img src="https://800retail.com/wp-content/uploads/2025/06/01_0000_Layer-5.jpg" alt="Concept Design" />
+                    <img src="https://800retail.com/wp-content/uploads/2025/06/01_0000_Layer-5.jpg" alt="Joinery & Carpentry" />
                   </div>
                 </div>
               </div>
-
-              <!-- 5. MANUFACTURING -->
-              <div class="department-item">
+              <!-- 5. LED DISPLAY SOLUTIONS -->
+              <div class="department-item" style="background-color: #0067b8; color: #ffffff; border-right-color: rgba(255,255,255,0.2);">
                 <button class="department-trigger" type="button">
                   <span class="department-arrow">&rsaquo;</span>
-                  <span class="department-label">Lighting Integration Department</span>
+                  <span class="department-label" style="font-weight: 500; font-size: 14px;">LED Display Solutions</span>
                 </button>
 
                 <div class="department-expanded">
                   <div class="department-content">
-                    <p>From display shelves to architectural accents, our team seamlessly integrates lighting into your fixtures and spaces — enhancing visibility, mood, and the overall customer experience. Smart, sleek, and built to shine.</p>
-
-                    <a href="#contact" class="department-btn">Get In Touch</a>
+                    <ul style="list-style-type: none; padding-left: 0; margin-bottom: 2rem;">
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Manufacturing Department
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Assembling Department
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Execution Services
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Content Management Services
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Technical Service Centre
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        After Maintenance Team
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Packing
+                      </li>
+                    </ul>
+                    <a href="#contact" class="department-btn" style="border-color: #ffffff; color: #ffffff;">Get In Touch</a>
                   </div>
 
                   <div class="department-image">
-                    <img src="https://800retail.com/wp-content/uploads/2025/06/Departmental-Structure_0002_Electrical-Integration-Assembly-Department.jpg" alt="Manufacturing" />
+                    <img src="https://800retail.com/wp-content/uploads/2025/06/Departmental-Structure_0002_Electrical-Integration-Assembly-Department.jpg" alt="LED Display Solutions" />
                   </div>
                 </div>
               </div>
-
-              <!-- 6. LOGISTICS -->
-              <div class="department-item">
+              <!-- 6. PRINTING & SIGNAGE -->
+              <div class="department-item" style="background-color: #e797d1; color: #1c1c16; border-right-color: rgba(255,255,255,0.2);">
                 <button class="department-trigger" type="button">
                   <span class="department-arrow">&rsaquo;</span>
-                  <span class="department-label">Powder Coating & Surface Protection</span>
+                  <span class="department-label" style="font-weight: 500; font-size: 14px;">Printing & Signage</span>
                 </button>
 
                 <div class="department-expanded">
                   <div class="department-content">
-                    <p>Applies high-performance powder coating and surface treatments to enhance durability, corrosion resistance and aesthetic finish of all metal products.</p>
-
-                    <a href="#contact" class="department-btn">Get In Touch</a>
+                    <ul style="list-style-type: none; padding-left: 0; margin-bottom: 2rem;">
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Digital Printing
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Production Team
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Execution Services
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Signage Fabrication
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Packing
+                      </li>
+                    </ul>
+                    <a href="#contact" class="department-btn" style="border-color: #1c1c16; color: #1c1c16;">Get In Touch</a>
                   </div>
 
                   <div class="department-image">
-                    <img src="https://800retail.com/wp-content/uploads/2025/06/Departmental-Structure_0004_3.Powder-Coating-Surface-Protection-Department.jpg" alt="Logistics" />
+                    <img src="https://800retail.com/wp-content/uploads/2025/06/Departmental-Structure_0004_3.Powder-Coating-Surface-Protection-Department.jpg" alt="Printing & Signage" />
                   </div>
                 </div>
               </div>
-
-              <!-- 7. INSTALLATION -->
-              <div class="department-item">
+              <!-- 7. STRETCH CEILING & LIGHTING -->
+              <div class="department-item" style="background-color: #ffff00; color: #1c1c16; border-right-color: rgba(255,255,255,0.2);">
                 <button class="department-trigger" type="button">
                   <span class="department-arrow">&rsaquo;</span>
-                  <span class="department-label">Joinery & Carpentry Works Department</span>
+                  <span class="department-label" style="font-weight: 500; font-size: 14px;">Stretch Ceiling & Lighting</span>
                 </button>
 
                 <div class="department-expanded">
                   <div class="department-content">
-                    <p>Specializes in precision wood joinery, carpentry, and custom fit-outs using a variety of materials, including solid wood and engineered boards, for modular retail components.</p>
-
-                    <a href="#contact" class="department-btn">Get In Touch</a>
+                    <ul style="list-style-type: none; padding-left: 0; margin-bottom: 2rem;">
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Designing
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Production
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Execution Services
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Lighting Supply & Installation
+                      </li>
+                    </ul>
+                    <a href="#contact" class="department-btn" style="border-color: #1c1c16; color: #1c1c16;">Get In Touch</a>
                   </div>
 
                   <div class="department-image">
-                    <img src="https://800retail.com/wp-content/uploads/2025/06/01_0001_Layer-4_0003_Layer-1-copy-2.jpg" alt="Installation" />
+                    <img src="https://800retail.com/wp-content/uploads/2025/06/01_0001_Layer-4_0003_Layer-1-copy-2.jpg" alt="Stretch Ceiling & Lighting" />
                   </div>
                 </div>
               </div>
-
-              <!-- 8. PROTOTYPING -->
-              <div class="department-item">
+              <!-- 8. LOGISTICS & INSTALLATION -->
+              <div class="department-item" style="background-color: #ac5b25; color: #ffffff; border-right-color: rgba(255,255,255,0.2);">
                 <button class="department-trigger" type="button">
                   <span class="department-arrow">&rsaquo;</span>
-                  <span class="department-label">Painting Department</span>
+                  <span class="department-label" style="font-weight: 500; font-size: 14px;">Logistics & Installation</span>
                 </button>
 
                 <div class="department-expanded">
                   <div class="department-content">
-                    <p>Our Painting Department adds the final touch with precision-applied coatings that protect and enhance every piece. Whether it's bold branding or subtle elegance, we deliver a flawless finish every time.</p>
-
-                    <a href="#contact" class="department-btn">Get In Touch</a>
+                    <ul style="list-style-type: none; padding-left: 0; margin-bottom: 2rem;">
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Logistics Department
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Transportation Department
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Packing & Palletizing
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        After Service
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Installation Department
+                      </li>
+                    </ul>
+                    <a href="#contact" class="department-btn" style="border-color: #ffffff; color: #ffffff;">Get In Touch</a>
                   </div>
 
                   <div class="department-image">
-                    <img src="https://800retail.com/wp-content/uploads/2025/06/01_0001_Layer-4_0001_Layer-1.jpg" alt="Prototyping and Procurement" />
-                  </div>
-                </div>
-              </div>
-
-              <!-- 9. QUALITY CONTROL -->
-              <div class="department-item">
-                <button class="department-trigger" type="button">
-                  <span class="department-arrow">&rsaquo;</span>
-                  <span class="department-label">QC Department</span>
-                </button>
-
-                <div class="department-expanded">
-                  <div class="department-content">
-                    <p>Our QC team inspects every detail, every time, ensuring that each product meets the highest standards before it reaches you. We don’t just check the boxes we protect your brand’s reputation.</p>
-
-                    <a href="#contact" class="department-btn">Get In Touch</a>
-                  </div>
-
-                  <div class="department-image">
-                    <img src="https://800retail.com/wp-content/uploads/2025/06/RTL-_0007_OC-OUT.jpg" alt="Quality Control" />
-                  </div>
-                </div>
-              </div>
-
-              <!-- 10. MAINTENANCE -->
-              <div class="department-item">
-                <button class="department-trigger" type="button">
-                  <span class="department-arrow">&rsaquo;</span>
-                  <span class="department-label">Packing & Dispatch</span>
-                </button>
-
-                <div class="department-expanded">
-                  <div class="department-content">
-                    <p>Our Packing & Dispatch team ensures every product is carefully packed, protected, and delivered with precision. We make sure your order arrives exactly how you expect ready to shine from day one.</p>
-
-                    <a href="#contact" class="department-btn">Get In Touch</a>
-                  </div>
-
-                  <div class="department-image">
-                    <img src="https://800retail.com/wp-content/uploads/2025/06/01.jpg" alt="Maintenance" />
-                  </div>
-                </div>
-              </div>
-
-              <!-- 11. STORE DESIGN -->
-              <div class="department-item">
-                <button class="department-trigger" type="button">
-                  <span class="department-arrow">&rsaquo;</span>
-                  <span class="department-label">Installation Department</span>
-                </button>
-
-                <div class="department-expanded">
-                  <div class="department-content">
-                    <p>Manages final-stage packaging, safe handling, dispatch logistics and complete on-site installation of fabricated and joinery elements as per client specifications.</p>
-
-                    <a href="#contact" class="department-btn">Get In Touch</a>
-                  </div>
-
-                  <div class="department-image">
-                    <img src="https://800retail.com/wp-content/uploads/2025/06/RTL-_0002_INSTALLATION-DEPT-OUT.jpg" alt="Store Design" />
-                  </div>
-                </div>
-              </div>
-
-              <!-- 12. CONSULTING -->
-              <div class="department-item">
-                <button class="department-trigger" type="button">
-                  <span class="department-arrow">&rsaquo;</span>
-                  <span class="department-label">After Service</span>
-                </button>
-
-                <div class="department-expanded">
-                  <div class="department-content">
-                    <p>Integrates electrical systems into both metal and wood fixtures, including wiring, lighting, LED screen components and control units, ensuring full functional readiness.</p>
-
-                    <a href="#contact" class="department-btn">Get In Touch</a>
-                  </div>
-
-                  <div class="department-image">
-                    <img src="https://800retail.com/wp-content/uploads/2025/06/01_0001_Layer-4_0004_Layer-1-copy.jpg" alt="Consulting" />
+                    <img src="https://800retail.com/wp-content/uploads/2025/06/01_0001_Layer-4_0001_Layer-1.jpg" alt="Logistics & Installation" />
                   </div>
                 </div>
               </div>
             </div>
+          </div>
           </div>
         </div>
       </div>
@@ -988,175 +1173,162 @@
               <div class="badge-dot"></div>
               <div class="text-color-primary" style="color: var(--color-base--black)">Our Network</div>
             </div>
-            <h2 class="heading-style-h2" style="color: var(--color-base--black)">16 Specialized Divisions</h2>
+            <h2 class="heading-style-h2" style="color: var(--color-base--black)">Industry Expertise</h2>
             <p style="
                       max-width: 600px;
                       margin: 1rem auto 0;
                       color: rgba(0, 0, 0, 0.6);
                       font-size: 1.1rem;
                       line-height: 1.6;
-                    ">A unified ecosystem of specialized departments driving operational excellence through the 5S methodology.</p>
+                    ">A unified ecosystem of specialized departments led by industry experts, delivering innovative solutions and best practices across all sectors.</p>
           </div>
 
           <div class="divisions-compact-grid">
             <div class="div-grid-card">
               <div class="div-grid-header">
                 <div class="div-grid-icon">
-                  <img src="{% static 'website/assets/images/img/ST-01.svg' %}" loading="lazy" alt="Management Division" />
+                  <img src="{% static 'website/assets/images/img/IE-1.svg' %}" loading="lazy" alt="Luxury & Designer Stores" />
                 </div>
-                <h4 class="div-grid-title">Management Division</h4>
+                <h4 class="div-grid-title">Luxury & Designer Stores</h4>
               </div>
-              <div class="div-grid-desc">Implements Seiri (Sort) to eliminate redundant processes, and Seiton (Set in Order) to structure workflows. Seiketsu (Standardise) ensures consistent governance, while Shitsuke (Sustain) promotes long-term organizational discipline and continuous improvement.</div>
+              <div class="div-grid-desc">Crafting bespoke environments with premium finishes, custom joinery, and specialized lighting to elevate high-end brand experiences.</div>
             </div>
-
             <div class="div-grid-card">
               <div class="div-grid-header">
                 <div class="div-grid-icon">
-                  <img src="{% static 'website/assets/images/img/ST-02.svg' %}" loading="lazy" alt="Infrastructure & Facilities Division" />
+                  <img src="{% static 'website/assets/images/img/IE-2.svg' %}" loading="lazy" alt="Fashion & Apparel" />
                 </div>
-                <h4 class="div-grid-title">Infrastructure & Facilities Division</h4>
+                <h4 class="div-grid-title">Fashion & Apparel</h4>
               </div>
-              <div class="div-grid-desc">Applies Seiri to declutter storage areas, Seiton to organize logistics tools and utilities, Seiso (Shine) to maintain cleanliness across workshops, and Seiketsu to uphold safety protocols. Shitsuke ensures operational excellence across facilities.</div>
+              <div class="div-grid-desc">Delivering flexible racking, dynamic display systems, and optimized fitting rooms designed for high-traffic retail environments.</div>
             </div>
-
             <div class="div-grid-card">
               <div class="div-grid-header">
                 <div class="div-grid-icon">
-                  <img src="{% static 'website/assets/images/img/ST-03.svg' %}" loading="lazy" alt="Business Development & Strategic Partnerships" />
+                  <img src="{% static 'website/assets/images/img/IE-3.svg' %}" loading="lazy" alt="Footwear & Accessories" />
                 </div>
-                <h4 class="div-grid-title">Business Development & Strategic Partnerships</h4>
+                <h4 class="div-grid-title">Footwear & Accessories</h4>
               </div>
-              <div class="div-grid-desc">Uses Seiri to focus on viable partnerships, Seiton for managing client records and leads, and Seiketsu to standardize business proposal formats. Shitsuke drives sustained growth through disciplined client engagement.</div>
+              <div class="div-grid-desc">Designing specialized shelving and custom modular displays that highlight product details and maximize floor capacity.</div>
             </div>
-
             <div class="div-grid-card">
               <div class="div-grid-header">
                 <div class="div-grid-icon">
-                  <img src="{% static 'website/assets/images/img/ST-04.svg' %}" loading="lazy" alt="Client Consulting & Advisory Services" />
+                  <img src="{% static 'website/assets/images/img/IE-4.svg' %}" loading="lazy" alt="Jewelry & Accessories" />
                 </div>
-                <h4 class="div-grid-title">Client Consulting & Advisory Services</h4>
+                <h4 class="div-grid-title">Jewelry & Accessories</h4>
               </div>
-              <div class="div-grid-desc">Applies Seiri to tailor insights to client goals, Seiton to organize tools and deliverables, and Seiketsu to standardize consulting frameworks. Shitsuke supports consistent, high-impact advisory outcomes.</div>
+              <div class="div-grid-desc">Engineering secure, illuminated display cases and elegant counters that accentuate brilliance while meeting strict security standards.</div>
             </div>
-
             <div class="div-grid-card">
               <div class="div-grid-header">
                 <div class="div-grid-icon">
-                  <img src="{% static 'website/assets/images/img/ST-05.svg' %}" loading="lazy" alt="Marketing & Digital Communications" />
+                  <img src="{% static 'website/assets/images/img/IE-5.svg' %}" loading="lazy" alt="Home & Living" />
                 </div>
-                <h4 class="div-grid-title">Marketing & Digital Communications</h4>
+                <h4 class="div-grid-title">Home & Living</h4>
               </div>
-              <div class="div-grid-desc">Uses Seiri to filter outdated content, Seiton to organize media assets and campaigns, Seiketsu for consistent brand tone and visuals, and Shitsuke to sustain digital presence and metrics.</div>
+              <div class="div-grid-desc">Creating expansive, inviting room setups and lifestyle zones that help customers visualize furniture and decor in a natural setting.</div>
             </div>
-
             <div class="div-grid-card">
               <div class="div-grid-header">
                 <div class="div-grid-icon">
-                  <img src="{% static 'website/assets/images/img/ST-06.svg' %}" loading="lazy" alt="Design & Engineering Solutions" />
+                  <img src="{% static 'website/assets/images/img/IE-6.svg' %}" loading="lazy" alt="Hypermarket" />
                 </div>
-                <h4 class="div-grid-title">Design & Engineering Solutions</h4>
+                <h4 class="div-grid-title">Hypermarket</h4>
               </div>
-              <div class="div-grid-desc">Implements Seiri to remove design redundancies, Seiton to structure CAD libraries and material specs, Seiketsu to apply engineering standards, and Shitsuke to promote disciplined innovation cycles.</div>
+              <div class="div-grid-desc">Developing durable heavy-duty shelving, clear wayfinding, and efficient checkout zones built for high volume and fast turnover.</div>
             </div>
-
             <div class="div-grid-card">
               <div class="div-grid-header">
                 <div class="div-grid-icon">
-                  <img src="{% static 'website/assets/images/img/LOGOD-2-02.svg' %}" loading="lazy" alt="Research & Development (R&D)" />
+                  <img src="{% static 'website/assets/images/img/IE-7.svg' %}" loading="lazy" alt="Health & Beauty" />
                 </div>
-                <h4 class="div-grid-title">Research & Development (R&D)</h4>
+                <h4 class="div-grid-title">Health & Beauty</h4>
               </div>
-              <div class="div-grid-desc">Applies Seiri to focus only on relevant prototypes, Seiton to organize testing environments, Seiso to ensure precision conditions, Seiketsu for experimental frameworks, and Shitsuke for continuous idea validation and innovation.</div>
+              <div class="div-grid-desc">Implementing clean, hygienic fit-outs with specialized lighting and sleek gondolas perfect for cosmetics and personal care products.</div>
             </div>
-
             <div class="div-grid-card">
               <div class="div-grid-header">
                 <div class="div-grid-icon">
-                  <img src="{% static 'website/assets/images/img/LOGOD-2-01.svg' %}" loading="lazy" alt="Quality Control (QC)" />
+                  <img src="{% static 'website/assets/images/img/IE-8.svg' %}" loading="lazy" alt="Convenience Stores & Stationery" />
                 </div>
-                <h4 class="div-grid-title">Quality Control (QC)</h4>
+                <h4 class="div-grid-title">Convenience Stores & Stationery</h4>
               </div>
-              <div class="div-grid-desc">A core strength of Al Ameen, QC uses Seiri to eliminate non-conforming parts early, Seiton to structure inspection areas, Seiso for spotless inspection labs, Seiketsu to define testing parameters, and Shitsuke to uphold a quality-first culture.</div>
+              <div class="div-grid-desc">Maximizing compact spaces with versatile, high-density shelving designed for quick browsing and impulse purchases.</div>
             </div>
-
             <div class="div-grid-card">
               <div class="div-grid-header">
                 <div class="div-grid-icon">
-                  <img src="{% static 'website/assets/images/img/ST-07.svg' %}" loading="lazy" alt="Machinery & Core Production Division" />
+                  <img src="{% static 'website/assets/images/img/IE-9.svg' %}" loading="lazy" alt="Electronics & Technology" />
                 </div>
-                <h4 class="div-grid-title">Machinery & Core Production Division</h4>
+                <h4 class="div-grid-title">Electronics & Technology</h4>
               </div>
-              <div class="div-grid-desc">Applies Seiri to remove unused tools, Seiton to organize workstations, Seiso to maintain clean machines, Seiketsu to document best practices, and Shitsuke to reinforce habits through training.</div>
+              <div class="div-grid-desc">Integrating smart wiring, interactive product podiums, and secure anti-theft displays for modern tech environments.</div>
             </div>
-
             <div class="div-grid-card">
               <div class="div-grid-header">
                 <div class="div-grid-icon">
-                  <img src="{% static 'website/assets/images/img/ST-08.svg' %}" loading="lazy" alt="Fabrication Technologies Division" />
+                  <img src="{% static 'website/assets/images/img/IE-10.svg' %}" loading="lazy" alt="Kids & Toys" />
                 </div>
-                <h4 class="div-grid-title">Fabrication Technologies Division</h4>
+                <h4 class="div-grid-title">Kids & Toys</h4>
               </div>
-              <div class="div-grid-desc">Utilizes Seiri to streamline raw materials, Seiton to mark workstations and tool zones, Seiso for spotless welding and powder coating stations, Seiketsu to document finishing specs, and Shitsuke to ensure continuous quality and efficiency.</div>
+              <div class="div-grid-desc">Building vibrant, safe, and engaging environments with durable materials, playful color schemes, and accessible low-height displays.</div>
             </div>
-
             <div class="div-grid-card">
               <div class="div-grid-header">
                 <div class="div-grid-icon">
-                  <img src="{% static 'website/assets/images/img/ST-09.svg' %}" loading="lazy" alt="Joinery & Finishing Works Division" />
+                  <img src="{% static 'website/assets/images/img/IE-11.svg' %}" loading="lazy" alt="Travel & Luggage" />
                 </div>
-                <h4 class="div-grid-title">Joinery & Finishing Works Division</h4>
+                <h4 class="div-grid-title">Travel & Luggage</h4>
               </div>
-              <div class="div-grid-desc">Applies Seiri to optimize raw wood inventory, Seiton to arrange tools and materials, Seiso to ensure dust-free, clean environments, Seiketsu for uniform finish quality, and Shitsuke for craftsmanship standards.</div>
+              <div class="div-grid-desc">Constructing robust, spacious display areas capable of holding bulky items while maintaining an organized, premium aesthetic.</div>
             </div>
-
             <div class="div-grid-card">
               <div class="div-grid-header">
                 <div class="div-grid-icon">
-                  <img src="{% static 'website/assets/images/img/ST-10.svg' %}" loading="lazy" alt="Installation & Execution Services" />
+                  <img src="{% static 'website/assets/images/img/IE-12.svg' %}" loading="lazy" alt="Pharmacy" />
                 </div>
-                <h4 class="div-grid-title">Installation & Execution Services</h4>
+                <h4 class="div-grid-title">Pharmacy</h4>
               </div>
-              <div class="div-grid-desc">Uses Seiri to prepare only needed tools for site work, Seiton to sequence installation steps, Seiso to maintain clean, hazard-free job sites, Seiketsu for installation SOPs, and Shitsuke to ensure on-time, consistent execution.</div>
+              <div class="div-grid-desc">Ensuring regulatory compliance with secure prescription counters, clinical shelving, and sterile environment standards.</div>
             </div>
-
             <div class="div-grid-card">
               <div class="div-grid-header">
                 <div class="div-grid-icon">
-                  <img src="{% static 'website/assets/images/img/ST-11.svg' %}" loading="lazy" alt="Digital Media & LED Display Solutions" />
+                  <img src="{% static 'website/assets/images/img/IE-13.svg' %}" loading="lazy" alt="Kitchenware & Home Appliances" />
                 </div>
-                <h4 class="div-grid-title">Digital Media & LED Display Solutions</h4>
+                <h4 class="div-grid-title">Kitchenware & Home Appliances</h4>
               </div>
-              <div class="div-grid-desc">Applies Seiri to manage components and content, Seiton to label and arrange control systems, Seiso to ensure clear displays, Seiketsu to standardize LED calibration, and Shitsuke for long-term media system performance.</div>
+              <div class="div-grid-desc">Designing heavy-duty, reinforced display units that safely showcase heavy appliances with integrated power solutions.</div>
             </div>
-
             <div class="div-grid-card">
               <div class="div-grid-header">
                 <div class="div-grid-icon">
-                  <img src="{% static 'website/assets/images/img/LOGOOGOOGOOGOOGOOGOOGOOGOOOOOOOGOOG-03.svg' %}" loading="lazy" alt="Stretch Ceiling & Lighting Division" />
+                  <img src="{% static 'website/assets/images/img/IE-14.svg' %}" loading="lazy" alt="Optical Stores" />
                 </div>
-                <h4 class="div-grid-title">Stretch Ceiling & Lighting Division</h4>
+                <h4 class="div-grid-title">Optical Stores</h4>
               </div>
-              <div class="div-grid-desc">Implements Seiri to remove outdated modules, Seiton for logical lighting layouts, Seiso for clean finishes and environments, Seiketsu to define install techniques, and Shitsuke to ensure client-ready presentations every time.</div>
+              <div class="div-grid-desc">Providing bright, clean aesthetics with specialized backlit displays and comfortable consultation areas for precision eyecare.</div>
             </div>
-
             <div class="div-grid-card">
               <div class="div-grid-header">
                 <div class="div-grid-icon">
-                  <img src="{% static 'website/assets/images/img/LOGOD-2-04.svg' %}" loading="lazy" alt="Printing & Signage" />
+                  <img src="{% static 'website/assets/images/img/IE-15.svg' %}" loading="lazy" alt="Automotive Supplies" />
                 </div>
-                <h4 class="div-grid-title">Printing & Signage</h4>
+                <h4 class="div-grid-title">Automotive Supplies</h4>
               </div>
-              <div class="div-grid-desc">Follows Seiri to declutter print queues, Seiton for logical storage of media and inks, Seiso for clean printer areas, Seiketsu to define color standards and templates, and Shitsuke for continuous output quality.</div>
+              <div class="div-grid-desc">Delivering industrial-grade racking and tough, easy-to-clean surfaces ideal for heavy parts and mechanical accessories.</div>
             </div>
-
             <div class="div-grid-card">
               <div class="div-grid-header">
                 <div class="div-grid-icon">
-                  <img src="{% static 'website/assets/images/img/ST-12.svg' %}" loading="lazy" alt="After-Sales Services" />
+                  <img src="{% static 'website/assets/images/img/IE-16.svg' %}" loading="lazy" alt="Food & Beverage" />
                 </div>
-                <h4 class="div-grid-title">After-Sales Services</h4>
+                <h4 class="div-grid-title">Food & Beverage</h4>
               </div>
-              <div class="div-grid-desc">Delivers ongoing technical support and AMS with Seiri applied to simplify client service records, Seiton to organize manuals and service kits, Seiso to maintain demo equipment, Seiketsu for ticket handling protocols, and Shitsuke to ensure responsive, reliable support.</div>
+              <div class="div-grid-desc">Executing complete restaurant and cafe fit-outs, from commercial kitchens and dining areas to bespoke service counters.</div>
+            </div>
+          
             </div>
           </div>
         </div>
@@ -1281,73 +1453,73 @@
             </div>
             <div animate="card-stagger" class="home1_values_list">
               <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
-                <div class="heading-style-h3 text-color-primary" style="font-weight: 600; line-height: 1">300000+</div>
+                <div class="heading-style-h3 " style="font-weight: 600; line-height: 1">300000<sup>+</sup></div>
                 <div class="home_values_content">
                   <div class="text-size-small text-weight-light text-style-muted" style="max-width: 200px">Facility: UAE | KSA | China</div>
                 </div>
               </div>
               <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
-                <div class="heading-style-h3 text-color-primary" style="font-weight: 600; line-height: 1">450+</div>
+                <div class="heading-style-h3  " style="font-weight: 600; line-height: 1">450<sup>+</sup></div>
                 <div class="home_values_content">
                   <div class="text-size-small text-weight-light text-style-muted" style="max-width: 200px">Workforce</div>
                 </div>
               </div>
               <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
-                <div class="heading-style-h3 text-color-primary" style="font-weight: 600; line-height: 1">85+</div>
+                <div class="heading-style-h3  " style="font-weight: 600; line-height: 1">85<sup>+</sup></div>
                 <div class="home_values_content">
                   <div class="text-size-small text-weight-light text-style-muted" style="max-width: 200px">Projects/ Month</div>
                 </div>
               </div>
               <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
-                <div class="heading-style-h3 text-color-primary" style="font-weight: 600; line-height: 1">5S</div>
+                <div class="heading-style-h3  " style="font-weight: 600; line-height: 1">5S</div>
                 <div class="home_values_content">
                   <div class="text-size-small text-weight-light text-style-muted" style="max-width: 200px">QC System</div>
                 </div>
               </div>
               <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
-                <div class="heading-style-h3 text-color-primary" style="font-weight: 600; line-height: 1">75000+</div>
+                <div class="heading-style-h3  " style="font-weight: 600; line-height: 1">75000<sup>+</sup></div>
                 <div class="home_values_content">
                   <div class="text-size-small text-weight-light text-style-muted" style="max-width: 200px">Products | Accessories</div>
                 </div>
               </div>
               <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
-                <div class="heading-style-h3 text-color-primary" style="font-weight: 600; line-height: 1">45+</div>
+                <div class="heading-style-h3  " style="font-weight: 600; line-height: 1">45<sup>+</sup></div>
                 <div class="home_values_content">
                   <div class="text-size-small text-weight-light text-style-muted" style="max-width: 200px">Approved Partners</div>
                 </div>
               </div>
               <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
-                <div class="heading-style-h3 text-color-primary" style="font-weight: 600; line-height: 1">10+</div>
+                <div class="heading-style-h3  " style="font-weight: 600; line-height: 1">10<sup>+</sup></div>
                 <div class="home_values_content">
                   <div class="text-size-small text-weight-light text-style-muted" style="max-width: 200px">Industry Categories</div>
                 </div>
               </div>
               <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
-                <div class="heading-style-h3 text-color-primary" style="font-weight: 600; line-height: 1">5+</div>
+                <div class="heading-style-h3  " style="font-weight: 600; line-height: 1">5<sup>+</sup></div>
                 <div class="home_values_content">
                   <div class="text-size-small text-weight-light text-style-muted" style="max-width: 200px">Countries</div>
                 </div>
               </div>
               <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
-                <div class="heading-style-h3 text-color-primary" style="font-weight: 600; line-height: 1">9500+</div>
+                <div class="heading-style-h3  " style="font-weight: 600; line-height: 1">9500<sup>+</sup></div>
                 <div class="home_values_content">
                   <div class="text-size-small text-weight-light text-style-muted" style="max-width: 200px">Projects</div>
                 </div>
               </div>
               <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
-                <div class="heading-style-h3 text-color-primary" style="font-weight: 600; line-height: 1">80+</div>
+                <div class="heading-style-h3  " style="font-weight: 600; line-height: 1">80<sup>+</sup></div>
                 <div class="home_values_content">
                   <div class="text-size-small text-weight-light text-style-muted" style="max-width: 200px">Clientele</div>
                 </div>
               </div>
               <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
-                <div class="heading-style-h3 text-color-primary" style="font-weight: 600; line-height: 1">4+</div>
+                <div class="heading-style-h3  " style="font-weight: 600; line-height: 1">4<sup>+</sup></div>
                 <div class="home_values_content">
                   <div class="text-size-small text-weight-light text-style-muted" style="max-width: 200px">White Labels</div>
                 </div>
               </div>
               <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
-                <div class="heading-style-h3 text-color-primary" style="font-weight: 600; line-height: 1">25+</div>
+                <div class="heading-style-h3" style="font-weight: 600; line-height: 1">25<sup>+</sup></div>
                 <div class="home_values_content">
                   <div class="text-size-small text-weight-light text-style-muted" style="max-width: 200px">Overseas delivery</div>
                 </div>
@@ -1395,8 +1567,9 @@
           </div>
 
           <div class="client-carousel-wrapper" style="position: relative; width: 100%">
+            <div class="track-tight-wrapper" style="position: relative; height: max-content; width: 100%;">
             <div class="client-carousel-track">
-              <div class="testimonial-card">
+              <div class="testimonial-card" id="index-testimonial">
                 <div class="testimonial-header">
                   <div class="testimonial-logo">
                     <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-001-scaled.png" alt="Adidas" />
@@ -1415,7 +1588,7 @@
                   <p class="testimonial-subtitle">Global Sportswear Brand</p>
                 </div>
               </div>
-              <div class="testimonial-card">
+              <div class="testimonial-card" id="index-testimonial">
                 <div class="testimonial-header">
                   <div class="testimonial-logo">
                     <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-010-scaled.png" alt="Skechers" />
@@ -1434,7 +1607,7 @@
                   <p class="testimonial-subtitle">Footwear & Lifestyle Brand</p>
                 </div>
               </div>
-              <div class="testimonial-card">
+              <div class="testimonial-card" id="index-testimonial">
                 <div class="testimonial-header">
                   <div class="testimonial-logo">
                     <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-002-scaled.png" alt="Birkenstock" />
@@ -1453,7 +1626,7 @@
                   <p class="testimonial-subtitle">Premium Footwear Brand</p>
                 </div>
               </div>
-              <div class="testimonial-card">
+              <div class="testimonial-card" id="index-testimonial">
                 <div class="testimonial-header">
                   <div class="testimonial-logo">
                     <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-003-scaled.png" alt="Asics" />
@@ -1472,7 +1645,7 @@
                   <p class="testimonial-subtitle">Performance Sports Brand</p>
                 </div>
               </div>
-              <div class="testimonial-card">
+              <div class="testimonial-card" id="index-testimonial">
                 <div class="testimonial-header">
                   <div class="testimonial-logo">
                     <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-006-scaled.png" alt="Apparel Group" />
@@ -1491,7 +1664,7 @@
                   <p class="testimonial-subtitle">Retail Partner</p>
                 </div>
               </div>
-              <div class="testimonial-card">
+              <div class="testimonial-card" id="index-testimonial">
                 <div class="testimonial-header">
                   <div class="testimonial-logo">
                     <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-007-scaled.png" alt="Landmark Group" />
@@ -1510,7 +1683,7 @@
                   <p class="testimonial-subtitle">Retail Conglomerate</p>
                 </div>
               </div>
-              <div class="testimonial-card">
+              <div class="testimonial-card" id="index-testimonial">
                 <div class="testimonial-header">
                   <div class="testimonial-logo">
                     <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-005-scaled.png" alt="Nesto" />
@@ -1529,7 +1702,7 @@
                   <p class="testimonial-subtitle">Hypermarket Chain</p>
                 </div>
               </div>
-              <div class="testimonial-card">
+              <div class="testimonial-card" id="index-testimonial">
                 <div class="testimonial-header">
                   <div class="testimonial-logo">
                     <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-008-scaled.png" alt="Brands For Less" />
@@ -1548,7 +1721,7 @@
                   <p class="testimonial-subtitle">Discount Retailer</p>
                 </div>
               </div>
-              <div class="testimonial-card">
+              <div class="testimonial-card" id="index-testimonial">
                 <div class="testimonial-header">
                   <div class="testimonial-logo">
                     <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-009-scaled.png" alt="Brand Folio" />
@@ -1567,7 +1740,7 @@
                   <p class="testimonial-subtitle">Retail Group</p>
                 </div>
               </div>
-              <div class="testimonial-card">
+              <div class="testimonial-card" id="index-testimonial">
                 <div class="testimonial-header">
                   <div class="testimonial-logo">
                     <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-004-scaled.png" alt="Reebok" />
@@ -1586,7 +1759,7 @@
                   <p class="testimonial-subtitle">Sports Footwear</p>
                 </div>
               </div>
-              <div class="testimonial-card">
+              <div class="testimonial-card" id="index-testimonial">
                 <div class="testimonial-header">
                   <div class="testimonial-logo">
                     <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-001-scaled.png" alt="Adidas" />
@@ -1605,7 +1778,7 @@
                   <p class="testimonial-subtitle">Global Sportswear Brand</p>
                 </div>
               </div>
-              <div class="testimonial-card">
+              <div class="testimonial-card" id="index-testimonial">
                 <div class="testimonial-header">
                   <div class="testimonial-logo">
                     <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-010-scaled.png" alt="Skechers" />
@@ -1624,7 +1797,7 @@
                   <p class="testimonial-subtitle">Footwear & Lifestyle Brand</p>
                 </div>
               </div>
-              <div class="testimonial-card">
+              <div class="testimonial-card" id="index-testimonial">
                 <div class="testimonial-header">
                   <div class="testimonial-logo">
                     <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-002-scaled.png" alt="Birkenstock" />
@@ -1643,7 +1816,7 @@
                   <p class="testimonial-subtitle">Premium Footwear Brand</p>
                 </div>
               </div>
-              <div class="testimonial-card">
+              <div class="testimonial-card" id="index-testimonial">
                 <div class="testimonial-header">
                   <div class="testimonial-logo">
                     <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-003-scaled.png" alt="Asics" />
@@ -1662,7 +1835,7 @@
                   <p class="testimonial-subtitle">Performance Sports Brand</p>
                 </div>
               </div>
-              <div class="testimonial-card">
+              <div class="testimonial-card" id="index-testimonial">
                 <div class="testimonial-header">
                   <div class="testimonial-logo">
                     <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-006-scaled.png" alt="Apparel Group" />
@@ -1681,7 +1854,7 @@
                   <p class="testimonial-subtitle">Retail Partner</p>
                 </div>
               </div>
-              <div class="testimonial-card">
+              <div class="testimonial-card" id="index-testimonial">
                 <div class="testimonial-header">
                   <div class="testimonial-logo">
                     <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-007-scaled.png" alt="Landmark Group" />
@@ -1700,7 +1873,7 @@
                   <p class="testimonial-subtitle">Retail Conglomerate</p>
                 </div>
               </div>
-              <div class="testimonial-card">
+              <div class="testimonial-card" id="index-testimonial">
                 <div class="testimonial-header">
                   <div class="testimonial-logo">
                     <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-005-scaled.png" alt="Nesto" />
@@ -1719,7 +1892,7 @@
                   <p class="testimonial-subtitle">Hypermarket Chain</p>
                 </div>
               </div>
-              <div class="testimonial-card">
+              <div class="testimonial-card" id="index-testimonial">
                 <div class="testimonial-header">
                   <div class="testimonial-logo">
                     <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-008-scaled.png" alt="Brands For Less" />
@@ -1738,7 +1911,7 @@
                   <p class="testimonial-subtitle">Discount Retailer</p>
                 </div>
               </div>
-              <div class="testimonial-card">
+              <div class="testimonial-card" id="index-testimonial">
                 <div class="testimonial-header">
                   <div class="testimonial-logo">
                     <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-009-scaled.png" alt="Brand Folio" />
@@ -1757,7 +1930,7 @@
                   <p class="testimonial-subtitle">Retail Group</p>
                 </div>
               </div>
-              <div class="testimonial-card">
+              <div class="testimonial-card" id="index-testimonial">
                 <div class="testimonial-header">
                   <div class="testimonial-logo">
                     <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-004-scaled.png" alt="Reebok" />
@@ -1779,52 +1952,53 @@
             </div>
 
             <!-- Navigation Buttons -->
-            <div class="client-carousel-nav" style="
-                      display: flex;
-                      justify-content: center;
-                      gap: 1rem;
-                      margin-top: 2rem;
-                    ">
-              <button class="client-carousel-prev" style="
-                        background: var(--color-base--white);
-                        border: 1px solid rgba(0, 0, 0, 0.1);
-                        width: 48px;
-                        height: 48px;
-                        border-radius: 50%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        cursor: pointer;
-                        transition: all 0.3s ease;
-                        color: var(--color-base--black);
-                      ">
+            <div class="client-carousel-nav">
+              <button class="client-carousel-prev">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <polyline points="15 18 9 12 15 6"></polyline>
                 </svg>
               </button>
-              <button class="client-carousel-next" style="
-                        background: var(--color-base--white);
-                        border: 1px solid rgba(0, 0, 0, 0.1);
-                        width: 48px;
-                        height: 48px;
-                        border-radius: 50%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        cursor: pointer;
-                        transition: all 0.3s ease;
-                        color: var(--color-base--black);
-                      ">
+              <button class="client-carousel-next">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <polyline points="9 18 15 12 9 6"></polyline>
                 </svg>
               </button>
             </div>
+            </div>
+
+
+
+<div class="logo-marquee-section">
+  <div class="logo-marquee-track">
+    <div class="logo-marquee-item"><img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-001-scaled.png" alt="Adidas" loading="lazy" /></div>
+<div class="logo-marquee-item"><img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-010-scaled.png" alt="Skechers" loading="lazy" /></div>
+<div class="logo-marquee-item"><img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-002-scaled.png" alt="Birkenstock" loading="lazy" /></div>
+<div class="logo-marquee-item"><img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-003-scaled.png" alt="Asics" loading="lazy" /></div>
+<div class="logo-marquee-item"><img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-006-scaled.png" alt="Apparel Group" loading="lazy" /></div>
+<div class="logo-marquee-item"><img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-007-scaled.png" alt="Landmark Group" loading="lazy" /></div>
+<div class="logo-marquee-item"><img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-005-scaled.png" alt="Nesto" loading="lazy" /></div>
+<div class="logo-marquee-item"><img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-008-scaled.png" alt="Brands For Less" loading="lazy" /></div>
+<div class="logo-marquee-item"><img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-009-scaled.png" alt="Brand Folio" loading="lazy" /></div>
+<div class="logo-marquee-item"><img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-004-scaled.png" alt="Reebok" loading="lazy" /></div>
+    <div class="logo-marquee-item"><img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-001-scaled.png" alt="Adidas" loading="lazy" /></div>
+<div class="logo-marquee-item"><img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-010-scaled.png" alt="Skechers" loading="lazy" /></div>
+<div class="logo-marquee-item"><img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-002-scaled.png" alt="Birkenstock" loading="lazy" /></div>
+<div class="logo-marquee-item"><img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-003-scaled.png" alt="Asics" loading="lazy" /></div>
+<div class="logo-marquee-item"><img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-006-scaled.png" alt="Apparel Group" loading="lazy" /></div>
+<div class="logo-marquee-item"><img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-007-scaled.png" alt="Landmark Group" loading="lazy" /></div>
+<div class="logo-marquee-item"><img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-005-scaled.png" alt="Nesto" loading="lazy" /></div>
+<div class="logo-marquee-item"><img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-008-scaled.png" alt="Brands For Less" loading="lazy" /></div>
+<div class="logo-marquee-item"><img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-009-scaled.png" alt="Brand Folio" loading="lazy" /></div>
+<div class="logo-marquee-item"><img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-004-scaled.png" alt="Reebok" loading="lazy" /></div>
+  </div>
+</div>
+
           </div>
         </div>
       </div>
     </div>
   </section>
+
 
   <section class="section_home1_blog">
     <div class="padding-outer-inline">
@@ -1852,17 +2026,60 @@
           </div>
           <div class="spacer-medium"></div>
           <div class="home1_blog_wrap">
+            <!-- First Blog (Large) -->
             <div class="w-dyn-list">
-                            <div role="list" class="home1_blog_list w-dyn-items">
-                {% for blog in recent_blogs %}
+              <div role="list" class="home1_blog_list w-dyn-items">
+                {% if recent_blogs|length > 0 %}
+                {% with blog=recent_blogs.0 %}
                 <div animate="fade-up-3" role="listitem" class="home1_blog_item w-dyn-item">
                   <a animate="blog-hover" href="{% url 'blog_detail' blog.slug %}" class="home1_blog_card w-inline-block">
                     <div class="home1_blog_card-img-wrap">
                       {% if blog.featured_image %}
-                      <img src="{{ blog.featured_image.url }}" loading="lazy" alt="{{ blog.title }}" class="blog_card-img" style="width:100%; height:100%; object-fit:cover;" />
+                      <img src="{{ blog.featured_image.url }}" loading="lazy" sizes="(max-width: 2464px) 100vw, 2464px" alt="{{ blog.title }}" class="blog_card-img" style="width:100%; height:100%; object-fit:cover;" />
                       {% endif %}
                     </div>
                     <div class="home1_blog_card-content">
+                      <h3 class="text-font-body text-size-large">
+                        {{ blog.title }}
+                      </h3>
+                      <div class="text-size-small text-weight-light text-style-muted">
+                        {{ blog.short_description }}
+                      </div>
+                      <div class="label-list">
+                        <div class="label">
+                          <div class="text-size-tiny text-weight-light">
+                            {{ blog.category.category_name }}
+                          </div>
+                        </div>
+                        <div class="label">
+                          <div class="text-size-tiny text-weight-light">
+                            {{ blog.created_at|date:"F d, Y" }}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                {% endwith %}
+                {% else %}
+                <p>No recent news available.</p>
+                {% endif %}
+              </div>
+            </div>
+
+            <!-- Second and Third Blogs (Small) -->
+            {% if recent_blogs|length > 1 %}
+            <div class="w-dyn-list">
+              <div role="list" class="w-dyn-items">
+                {% for blog in recent_blogs|slice:"1:3" %}
+                <div animate="fade-up-3" role="listitem" class="w-dyn-item">
+                  <a animate="blog-hover" href="{% url 'blog_detail' blog.slug %}" class="blog_card w-inline-block">
+                    <div class="blog_card-img-wrap">
+                      {% if blog.featured_image %}
+                      <img loading="lazy" src="{{ blog.featured_image.url }}" alt="{{ blog.title }}" sizes="100vw" class="blog_card-img" style="width:100%; height:100%; object-fit:cover;" />
+                      {% endif %}
+                    </div>
+                    <div class="blog_card-content">
                       <h3 class="text-font-body text-size-large">
                         {{ blog.title }}
                       </h3>
@@ -1886,11 +2103,11 @@
                     </div>
                   </a>
                 </div>
-                {% empty %}
-                <p>No recent news available.</p>
                 {% endfor %}
-              </div></div>
-          </div>
+              </div>
+            </div>
+            {% endif %}
+          </div></div>
         </div>
       </div>
       <div class="padding-global background-color-alternate">

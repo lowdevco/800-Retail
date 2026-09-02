@@ -7,10 +7,6 @@ from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.conf import settings
 from apps.dashboard.models import ContactEnquiry, CompanyDetails
-
-
-
-
 from apps.dashboard.models import Page, Project, Product, Blog
 
 def get_page_context(slug):
@@ -21,7 +17,28 @@ def get_page_context(slug):
 
 def home(request):
     context = get_page_context('home')
-    context['recent_blogs'] = Blog.objects.filter(status='Published').order_by('-created_at')[:3]
+    
+    recent_blogs = Blog.objects.filter(status='Published').select_related('category').order_by('-created_at')
+    
+    # Try to get 3 blogs from separate categories
+    distinct_blogs = []
+    seen_categories = set()
+    for blog in recent_blogs:
+        if blog.category_id not in seen_categories:
+            distinct_blogs.append(blog)
+            seen_categories.add(blog.category_id)
+        if len(distinct_blogs) == 3:
+            break
+            
+    # If we couldn't get 3 from separate categories, fill the rest with the most recent ones not already picked
+    if len(distinct_blogs) < 3:
+        for blog in recent_blogs:
+            if blog not in distinct_blogs:
+                distinct_blogs.append(blog)
+            if len(distinct_blogs) == 3:
+                break
+                
+    context['recent_blogs'] = distinct_blogs
     return render(request, 'website/pages/index.html', context)
 
 def about(request):
