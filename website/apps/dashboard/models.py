@@ -106,7 +106,7 @@ class Page(models.Model):
 
     slug = models.SlugField(
         unique=True,
-        help_text="URL friendly name (e.g. about-us, contact)",
+        help_text="URL friendly name (e.g. Blog, contact)",
         verbose_name="URL"
     )
 

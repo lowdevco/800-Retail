@@ -41,8 +41,8 @@ def home(request):
     context['recent_blogs'] = distinct_blogs
     return render(request, 'website/pages/index.html', context)
 
-def about(request):
-    return render(request, 'website/pages/about.html', get_page_context('about'))
+def the_group(request):
+    return render(request, 'website/pages/the-group.html', get_page_context('about'))
 
 def ceo_message(request):
     return render(request, 'website/pages/ceo-message.html', get_page_context('ceo_message'))

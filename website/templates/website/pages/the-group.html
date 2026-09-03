@@ -1,0 +1,1269 @@
+﻿{% extends 'website/Base.html' %}
+{% load static %}
+
+{% block head %}
+
+  <style>
+
+    .divisions-compact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      border-left: 1px solid rgba(0, 0, 0, 0.1);
+      background: var(--color-base--white);
+    }
+    .div-grid-card {
+      border-right: 1px solid rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: all 0.3s ease;
+      background: transparent;
+      cursor: default;
+    }
+    .div-grid-card:hover {
+      background: var(--color-base--black);
+      transform: translateY(-4px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      border-color: transparent;
+      z-index: 2;
+    }
+    .div-grid-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 0;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* removed background-color and padding */
+    }
+    .div-grid-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: grayscale(100%) contrast(1000%);
+      transition: filter 0.3s ease;
+      border-radius:0px;
+    }
+    .div-grid-card:hover .div-grid-icon img {
+      filter: grayscale(100%) contrast(1000%) invert(1);
+    }
+    .div-grid-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .div-grid-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      font-family: var(--fonts--heading);
+      color: var(--color-base--black);
+      margin-bottom: 0;
+      transition: color 0.3s ease;
+      line-height: 1.2;
+    }
+    .div-grid-card:hover .div-grid-title {
+      color: var(--color-base--white);
+    }
+    .div-grid-desc {
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: rgba(0, 0, 0, 0.6);
+      transition: color 0.3s ease;
+      margin: 0;
+    }
+    .div-grid-desc ul {
+      padding-left: 1rem;
+      margin-top: 0.5rem;
+    }
+    .div-grid-card:hover .div-grid-desc {
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    @media screen and (max-width: 1024px) {
+      .divisions-compact-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media screen and (max-width: 767px) {
+      .divisions-compact-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .div-grid-card {
+        padding: 1.5rem;
+      }
+    }
+    @media screen and (max-width: 479px) {
+      .divisions-compact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+
+  </style>
+
+{% endblock head %}
+
+
+
+{% block content %}
+
+        <section class="section_about_hero">
+          <img
+            src="{% static 'website/assets/images/layer-top.svg' %}"
+            loading="lazy"
+            alt=""
+            class="hero-layer"
+          />
+          <div class="padding-global padding-section-medium z-index-1">
+            <div class="container-large">
+              <div animate="load-hero-1" class="header is-centered">
+                <div animate="" class="text-style-badge">
+                  <div class="badge-dot"></div>
+                  <div class="text-color-alternate">The Group</div>
+                </div>
+                <div class="spacer-small"></div>
+                <h1 animate="load-hero-title">
+                  Designing. Manufacturing. Delivering.
+                </h1>
+                <div class="spacer-xxsmall"></div>
+                <div class="spacer-tiny"></div>
+                <div class="text-size-small text-weight-light">
+                  From concept to completion, we create complete retail
+                  environments built around your brand.
+                </div>
+                <div class="spacer-small"></div>
+                <a
+                  button=""
+                  href="projects.html"
+                  class="button is-alternative w-inline-block"
+                  ><div class="button-mask">
+                    <div button-text="" class="button-text">Our Works</div>
+                    <div button-text="" class="button-text-hover">
+                      Our Works
+                    </div>
+                  </div></a
+                >
+              </div>
+              <div class="spacer-large"></div>
+            </div>
+            <div animate="load-hero-2" class="gallery_marquee">
+              <div class="gallery_marquee-group">
+                <div class="gallery_marquee-item">
+                  <img
+                    sizes="(max-width: 2464px) 100vw, 2464px"
+
+                    alt="800Retail"
+                    src="{% static 'website/assets/images/projects/image-1.jpg' %}"
+                    loading="lazy"
+                    class="gallery_marquee-img"
+                  />
+                </div>
+                <div class="gallery_marquee-item">
+                  <img
+                    sizes="(max-width: 1856px) 100vw, 1856px"
+
+                    alt="800Retail"
+                    src="{% static 'website/assets/images/projects/aco-dubai-hills.jpg' %}"
+                    loading="lazy"
+                    class="gallery_marquee-img"
+                  />
+                </div>
+                <div class="gallery_marquee-item">
+                  <img
+                    sizes="(max-width: 2464px) 100vw, 2464px"
+
+                    alt="800Retail"
+                    src="{% static 'website/assets/images/projects/adidas-dubai-outlet.png' %}"
+                    loading="lazy"
+                    class="gallery_marquee-img"
+                  />
+                </div>
+                <div class="gallery_marquee-item">
+                  <img
+                    sizes="(max-width: 1856px) 100vw, 1856px"
+
+                    alt="800Retail"
+                    src="{% static 'website/assets/images/projects/retail-fashion.jpg' %}"
+                    loading="lazy"
+                    class="gallery_marquee-img"
+                  />
+                </div>
+                <div class="gallery_marquee-item">
+                  <img
+                    sizes="(max-width: 2464px) 100vw, 2464px"
+  
+                    alt="800Retail"
+                    src="{% static 'website/assets/images/projects/shoes-store.jpg' %}"
+                    loading="lazy"
+                    class="gallery_marquee-img"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="section_roadmap"
+          style="
+            background-color: var(--color-base--black);
+            color: var(--color-base--white);
+            padding: 10rem 0;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+          "
+        >
+          <div class="padding-global">
+            <div class="container-default">
+              <div
+                class="roadmap-header"
+                style="text-align: center; margin-bottom: 8rem"
+              >
+                <h2
+                  class="heading-style-h2"
+                  style="
+                    color: white;
+                    font-size: clamp(2.5rem, 5vw, 4rem);
+                    font-family: var(--fonts--heading);
+                    font-weight: bold;
+                    letter-spacing: -1px;
+                    margin-bottom: 1rem;
+                  "
+                >
+                  Our <span style="color: var(--secondary)">Evolution</span>
+                </h2>
+                <p
+                  class="text-size-medium"
+                  style="
+                    color: var(--color-neutral--shade-400);
+                    max-width: 600px;
+                    margin: 0 auto;
+                    line-height: 1.6;
+                  "
+                >
+                  The journey, philosophy, and technology that define 800 Retail
+                  Solutions.
+                </p>
+              </div>
+
+              <div class="roadmap-container">
+                <div class="roadmap-line-wrap">
+                  <div class="roadmap-line"></div>
+                  <div class="roadmap-line-progress"></div>
+                </div>
+
+                <!-- Milestone 1 -->
+                <div class="roadmap-node left">
+                  <div class="roadmap-dot"></div>
+                  <div class="roadmap-content">
+                    <div class="roadmap-step">01</div>
+                    <h3 class="roadmap-title">The Origin</h3>
+                    <p class="roadmap-desc">
+                      Al Ameen Group, the largest fixture manufacturing company
+                      in the Middle East, strives to create a culture of value
+                      in the retail sector. We are committed to delivering
+                      functional, innovative, and revolutionary solutions.
+                    </p>
+                    <p class="roadmap-desc">
+                      We collaborate closely with clients to deliver the
+                      highest-quality products, proudly representing home-grown
+                      brands with the "Made in UAE" national mark—a symbol of
+                      trust for locally manufactured solutions.
+                    </p>
+                    <div class="roadmap-img-wrap">
+                      <img
+                        src="{% static 'website/assets/images/origin-story-1.jpg' %}"
+                        alt="Manufacturing Facility"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Milestone 2 -->
+                <div class="roadmap-node right">
+                  <div class="roadmap-dot"></div>
+                  <div class="roadmap-content">
+                    <div class="roadmap-step">02</div>
+                    <h3 class="roadmap-title">Philosophy</h3>
+                    <p
+                      class="roadmap-desc"
+                      style="
+                        color: var(--secondary);
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+                        font-size: 0.85rem;
+                        font-weight: 600;
+                      "
+                    >
+                      Take on Tomorrow
+                    </p>
+                    <p class="roadmap-desc">
+                      We embrace retail through creative thinking, innovative
+                      design, and the manufacture of unique products. Our
+                      strategy conveys our clients' stories, visions, and brand
+                      values.
+                    </p>
+                    <p class="roadmap-desc">
+                      Our mission is to deliver forward-looking solutions that
+                      challenge conventional thinking to create inspiring,
+                      innovative, and sustainable spaces.
+                    </p>
+                    <div class="roadmap-img-wrap">
+                      <img
+                        src="{% static 'website/assets/images/origin-story-2.jpg' %}"
+                        alt="Retail Design"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Milestone 3 -->
+                <div class="roadmap-node left">
+                  <div class="roadmap-dot"></div>
+                  <div class="roadmap-content">
+                    <div class="roadmap-step">03</div>
+                    <h3 class="roadmap-title">Vision</h3>
+                    <p class="roadmap-desc">
+                      We are building the world's largest retail solutions
+                      production centre, combining innovation, technology, and
+                      world-class manufacturing. Through a forward-looking
+                      culture, we create smarter, scalable solutions that help
+                      brands deliver better retail experiences.
+                    </p>
+                    <p class="roadmap-desc">
+                      We are also developing the next generation of retail
+                      leaders through knowledge, collaboration, and hands-on
+                      experience. By investing in people and innovation, we
+                      aim to shape the future of retail and create lasting
+                      value for our clients and partners.
+                    </p>
+                    <div class="roadmap-img-wrap">
+                      <img
+                        src="{% static 'website/assets/images/origin-story-3.jpg' %}"
+                        alt="LED Technology"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section_about_mission">
+          <div class="padding-outer-inline">
+            <div
+              class="padding-global padding-section-medium background-color-alternate"
+            >
+              <div class="container-default">
+                <style>
+                .ceo-clean-grid {
+                  display: grid;
+                  grid-template-columns: 1fr;
+                  gap: 2rem;
+                }
+                @media (min-width: 992px) {
+                  .ceo-clean-grid {
+                    grid-template-columns: 3.5fr 8.5fr;
+                    gap: 3rem;
+                  }
+                }
+                .ceo-clean-text-cols {
+                  column-count: 1;
+                }
+                @media (min-width: 768px) {
+                  .ceo-clean-text-cols {
+                    column-count: 2;
+                    column-gap: 2.5rem;
+                  }
+                }
+                .ceo-clean-text-cols p {
+                  font-size: 0.95rem;
+                  line-height: 1.5;
+                  margin-top: 0;
+                  margin-bottom: 0.8rem;
+                  break-inside: avoid;
+                  color: var(--color-base--black);
+                }
+                .ceo-clean-img {
+                  width: 100%;
+                  border-radius: 6px;
+                  margin-bottom: 1rem;
+                  background-color: #f8f8f8;
+                }
+                </style>
+                
+                <!-- Standard Badge -->
+                <div animate="fade-up-1" class="text-style-badge" style="margin-bottom: 1rem;">
+                  <div class="badge-dot"></div>
+                  <div>CEO MESSAGE</div>
+                </div>
+                
+                <!-- Compact Heading -->
+                <h3 animate="fade-up-2" class="heading-style-h3" style="font-size: clamp(1.2rem, 2vw, 1.5rem); line-height: 1.4; max-width: 95%; margin-bottom: 2rem;">
+                  Every space we build has a soul because behind every project, there's a person, a purpose, a vision.
+                </h3>
+
+                <div class="ceo-clean-grid">
+                  <!-- Author Column -->
+                  <div>
+                    <img
+                      src="{% static 'website/assets/images/brand/CEO-bg-white.png' %}"
+                      alt="Muhammed Manaf"
+                      loading="lazy"
+                      class="ceo-clean-img"
+                    />
+                    <div class="heading-style-h6" style="margin-bottom: 0.2rem; font-size: 1.1rem;">Muhammed Manaf</div>
+                    <div class="text-size-small text-style-muted" style="margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.8rem;">CEO of AL Ameen Group</div>
+                    <img
+                      src="{% static 'website/assets/images/brand/Sign.svg  ' %}"
+                      loading="lazy"
+                      alt="Signature"
+                      style="height: 40px;"
+                    />
+                  </div>
+                  
+                  <!-- Text Columns -->
+                  <div class="ceo-clean-text-cols">
+                    <p>At Al Ameen, what we create is rooted in more than just fixtures. It's built on values, relationships, and a deep sense of responsibility.</p>
+                    <p>For me, it's never about how big or small the project is. It's about meaning. It's about understanding what truly matters to you and turning that into something real. A space that reflects your story. A place that brings pride, comfort, and joy.</p>
+                    <p>That moment when a client walks through their completed project and quietly smiles &mdash; that's everything to me. No award or milestone compares to that feeling.</p>
+                    <p>This isn't just my work, it's my purpose. And every single project is a reflection of the trust you place in us. For that, I carry immense gratitude and thank you for always being in this journey along with us.</p>
+                    <p>At 800 Retail Solutions, we believe every successful retail environment begins with a clear vision. Our role is to transform that vision into spaces that strengthen brand identity, enhance customer experiences and perform in the real world.</p>
+                    <p>For us, retail is more than creating attractive spaces. It is about understanding how people interact with brands and translating that understanding into purposeful environments that are functional, engaging and built to last.</p>
+                    <p>From the initial concept through design, manufacturing and installation, we bring every stage together under one integrated approach, ensuring consistency, quality and attention to detail from beginning to end.</p>
+                    <p>With in-house expertise across retail architecture, product design, fabrication, joinery and integrated LED solutions, we maintain direct control throughout the entire process.</p>
+                    <p style="font-weight: 600;">Our focus is simple: delivering commercially effective, visually distinctive and purpose-built retail environments from concept to completion.</p>
+                  </div>
+                </div>
+</div>
+            </div>
+            <div class="padding-global background-color-alternate">
+              <div class="container-default"><div class="divider"></div></div>
+            </div>
+          </div>
+        </section>
+   
+        <section class="global-facilities">
+          <!-- Global Facilities Header -->
+          <div class="padding-outer-inline" style="background-color: var(--color-base--white); padding-top: 6rem; padding-bottom: 2rem;">
+            <div class="padding-global">
+              <div class="container-default">
+                <div animate="fade-up-1" class="text-style-badge">
+                  <div class="badge-dot"></div>
+                  <div style="color: var(--color-base--black);">GLOBAL FACILITIES</div>
+                </div>
+                <div class="spacer-small"></div>
+                <h2 animate="fade-up-2" class="heading-style-h3" style="color: var(--color-base--black); max-width: 900px;">
+                  World-class manufacturing and design hubs powering our global presence.
+                </h2>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- UAE Facility  -->
+          <section class="section_facility" style="background-color: var(--color-base--white); color: var(--color-base--black);">
+            <div class="padding-outer-inline"><div class="padding-global padding-section-medium">
+              <div class="container-default">
+                <div class="facility-grid">
+                  <div animate="fade-up-1" class="facility-image-wrapper">
+                                      <div class="corner-frame">
+                    <div class="corner-frame_top-left is-black"></div>
+                    <div class="corner-frame_top-right is-black"></div>
+                    <div class="corner-frame_bottom-right is-black"></div>
+                    <div class="corner-frame_bottom-left is-black"></div>
+                  </div>
+                    <img src="{% static 'website/assets/images/flags/UAE.png' %}" alt="UAE Facility" class="facility-image" />
+                    <div class="facility-flag-badge">
+                      <img src="{% static 'website/assets/images/flags/UAE.svg' %}" alt="UAE" />
+                      <span>UAE HEADQUARTERS</span>
+                    </div>
+                  </div>
+                  <div class="facility-content">
+                    <h2 animate="fade-up-1" class="heading-style-h3" style="color: var(--color-base--black);"><strong>United Arab Emirates</strong></h2>
+                    <div animate="fade-up-1" class="facility-stats" style="border-color: rgba(0,0,0,0.1);">
+                      <div class="stat-item">
+                        <div class="stat-value">300,000+</div>
+                        <div class="stat-label" style="color: rgba(0,0,0,0.75);">Square Feet</div>
+                      </div>
+                      <div class="stat-item">
+                        <div class="stat-value">450+</div>
+                        <div class="stat-label" style="color: rgba(0,0,0,0.75);">Skilled Workforce</div>
+                      </div>
+                    </div>
+                    <p animate="fade-up-2" class="text-size-medium text-weight-light" style="color: rgba(0,0,0,0.75); margin-bottom: 1rem; line-height: 1.6;">
+                      Operating from a state-of-the-art manufacturing facility spanning over 300,000 square feet and powered by a skilled workforce of over 450 employees, Al Ameen excels in delivering high-quality solutions across retail and commercial fixtures, LED display panels, architectural lightboxes, and custom fabrication.
+                    </p>
+                    <p animate="fade-up-2" class="text-size-small text-weight-light" style="color: rgba(0,0,0,0.75); line-height: 1.6;">
+                      With a proven track record of completing more than 9500+ store counters in over 25 countries, the group has established a strong global footprint marked by precision, reliability, and innovation. Al Ameen also features a dedicated experience center in Dubai, offering clients a first-hand look at our craftsmanship.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- KSA Facility  -->
+          <section class="section_facility background-color-alternate" style="color: var(--color-base--black);">
+            <div class="padding-outer-inline"><div class="padding-global padding-section-medium">
+              <div class="container-default">
+                <div class="facility-grid reverse">
+                  <div class="facility-content">
+                    <h2 animate="fade-up-1" class="heading-style-h3" style="color: var(--color-base--black);"><strong>Kingdom of Saudi Arabia</strong></h2>
+                    <div animate="fade-up-1" class="facility-stats" style="border-color: rgba(0,0,0,0.1);">
+                      <div class="stat-item">
+                        <div class="stat-value">40,000+</div>
+                        <div class="stat-label" style="color: rgba(0,0,0,0.75);">Square Feet</div>
+                      </div>
+                      <div class="stat-item">
+                        <div class="stat-value">50+</div>
+                        <div class="stat-label" style="color: rgba(0,0,0,0.75);">Skilled Team</div>
+                      </div>
+                    </div>
+                    <p animate="fade-up-2" class="text-size-medium text-weight-light" style="color: rgba(0,0,0,0.75); margin-bottom: 1rem; line-height: 1.6;">
+                      Our dedicated manufacturing facility in Riyadh spans over 40,000 square feet and is supported by a skilled team of 50+ employees, with plans in place to expand operations in response to increasing market demand.
+                    </p>
+                    <p animate="fade-up-2" class="text-size-small text-weight-light" style="color: rgba(0,0,0,0.75); line-height: 1.6;">
+                      We proudly operate experience centers in both Riyadh and Jeddah, offering clients the opportunity to engage with our design innovation, product quality, and manufacturing capabilities firsthand. With comprehensive service coverage across Saudi Arabia, we provide efficient and localized project execution.
+                    </p>
+                  </div>
+                  <div animate="fade-up-1" class="facility-image-wrapper reverse-img">
+                                      <div class="corner-frame">
+                    <div class="corner-frame_top-left is-black"></div>
+                    <div class="corner-frame_top-right is-black"></div>
+                    <div class="corner-frame_bottom-right is-black"></div>
+                    <div class="corner-frame_bottom-left is-black"></div>
+                  </div>
+                    <img src="{% static 'website/assets/images/flags/KSA.png' %}" alt="KSA Facility" class="facility-image" />
+                    <div class="facility-flag-badge">
+                      <img src="{% static 'website/assets/images/flags/KSA.svg' %}" alt="KSA" />
+                      <span>KSA FACILITY</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- CHINA Facility  -->
+          <section class="section_facility" style="background-color: var(--color-base--white); color: var(--color-base--black);">
+            <div class="padding-outer-inline"><div class="padding-global padding-section-medium">
+              <div class="container-default">
+                <div class="facility-grid">
+                  <div animate="fade-up-1" class="facility-image-wrapper">
+                                      <div class="corner-frame">
+                    <div class="corner-frame_top-left is-black"></div>
+                    <div class="corner-frame_top-right is-black"></div>
+                    <div class="corner-frame_bottom-right is-black"></div>
+                    <div class="corner-frame_bottom-left is-black"></div>
+                  </div>
+                    <img src="{% static 'website/assets/images/flags/CHINA.png' %}" alt="China Facility" class="facility-image" />
+                    <div class="facility-flag-badge">
+                      <img src="{% static 'website/assets/images/flags/CHINA.svg' %}" alt="CHINA" />
+                      <span>CHINA SOURCING HUB</span>
+                    </div>
+                  </div>
+                  <div class="facility-content">
+                    <h2 animate="fade-up-1" class="heading-style-h3" style="color: var(--color-base--black);"><strong>China</strong></h2>
+                    <div animate="fade-up-1" class="facility-stats" style="border-color: rgba(0,0,0,0.1);">
+                      <div class="stat-item">
+                        <div class="stat-value">46,000+</div>
+                        <div class="stat-label" style="color: rgba(0,0,0,0.75);">Square Feet Total</div>
+                      </div>
+                      <div class="stat-item">
+                        <div class="stat-value">Hub</div>
+                        <div class="stat-label" style="color: rgba(0,0,0,0.75);">Global Sourcing</div>
+                      </div>
+                    </div>
+                    <p animate="fade-up-2" class="text-size-medium text-weight-light" style="color: rgba(0,0,0,0.75); margin-bottom: 1rem; line-height: 1.6;">
+                      Al Ameen continues to expand its international capabilities with a dedicated procurement and sourcing hub in Foshan, China. This facility features a 6,000+ square foot experience and procurement center that serves as a crucial platform for material selection and collaboration with vendors across Asia.
+                    </p>
+                    <p animate="fade-up-2" class="text-size-small text-weight-light" style="color: rgba(0,0,0,0.75); line-height: 1.6;">
+                      To further strengthen our manufacturing footprint, a new 40,000+ square foot furniture production facility is currently under development in Foshan. Al Ameen's China operations play a strategic role in enabling agile sourcing, cost-efficient production, and robust supply chain integration for projects worldwide.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- INDIA Facility  -->
+          <section class="section_facility background-color-alternate" style="color: var(--color-base--black);">
+            <div class="padding-outer-inline"><div class="padding-global padding-section-medium">
+              <div class="container-default">
+                <div class="facility-grid reverse">
+                  <div class="facility-content">
+                    <h2 animate="fade-up-1" class="heading-style-h3" style="color: var(--color-base--black);"><strong>India</strong></h2>
+                    <div animate="fade-up-1" class="facility-stats" style="border-color: rgba(0,0,0,0.1);">
+                      <div class="stat-item">
+                        <div class="stat-value">TBC</div>
+                        <div class="stat-label" style="color: rgba(0,0,0,0.75);">Planned Facility Size</div>
+                      </div>
+                      <div class="stat-item">
+                        <div class="stat-value">2027</div>
+                        <div class="stat-label" style="color: rgba(0,0,0,0.75);">Expected Expansion</div>
+                      </div>
+                    </div>
+                    <p animate="fade-up-2" class="text-size-medium text-weight-light" style="color: rgba(0,0,0,0.75); margin-bottom: 1rem; line-height: 1.6;">
+                      Al Ameen is preparing to expand its presence into India, with the launch of local operations expected by December 2027. This planned expansion will strengthen our regional capabilities and bring our design, procurement, and manufacturing expertise closer to clients across the Indian market.
+                    </p>
+                    <p animate="fade-up-2" class="text-size-small text-weight-light" style="color: rgba(0,0,0,0.75); line-height: 1.6;">
+                      Facility details, including the final location, capacity, and team size, will be confirmed as development progresses. Our planned India operations will support efficient, localized project execution while maintaining the quality and standards that define Al Ameen's work worldwide.
+                    </p>
+                  </div>
+                  <div animate="fade-up-1" class="facility-image-wrapper reverse-img">
+                                      <div class="corner-frame">
+                    <div class="corner-frame_top-left is-black"></div>
+                    <div class="corner-frame_top-right is-black"></div>
+                    <div class="corner-frame_bottom-right is-black"></div>
+                    <div class="corner-frame_bottom-left is-black"></div>
+                  </div>
+                    <img src="{% static 'website/assets/images/flags/INDIA.png' %}" alt="INDIA Facility" class="facility-image" />
+                    <div class="facility-flag-badge">
+                      <img src="{% static 'website/assets/images/flags/INDIA.svg' %}" alt="INDIA" />
+                      <span>INDIA FACILITY</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+          </section>
+
+          </section>
+
+  <section class="section_home_divisions">
+    <div class="padding-outer-inline">
+      <div class="padding-global background-color-alternate" style="
+                padding-top: 6rem;
+                padding-bottom: 6rem;
+                border-top: 1px solid rgba(0, 0, 0, 0.05);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+              ">
+        <div class="container-default">
+          <div class="divisions-header" style="
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+                    margin-bottom: 4rem;
+                  ">
+            <div class="text-style-badge" style="
+                      display: inline-flex;
+                      align-items: center;
+                      gap: 0.5rem;
+                      margin: 0 auto;
+                      margin-bottom: 1rem;
+                    ">
+              <div class="badge-dot"></div>
+              <div class="text-color-primary" style="color: var(--color-base--black)">Our departments</div>
+            </div>
+            <h2 class="heading-style-h2" style="color: var(--color-base--black)">Our Retail Expertise</h2>
+            <p style="
+                      max-width: 600px;
+                      margin: 1rem auto 0;
+                      color: rgba(0, 0, 0, 0.6);
+                      font-size: 1.1rem;
+                      line-height: 1.6;
+                    ">Our specialized departments bring together dedicated experts who collaborate to deliver exceptional retail solutions across every stage of the journey.</p>
+          </div>
+
+          <div class="divisions-compact-grid">
+
+
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-1.svg' %}" loading="lazy" alt="Luxury & Designer Stores" />
+                </div>
+                <h4 class="div-grid-title">Luxury & Designer Stores</h4>
+              </div>
+              <div class="div-grid-desc">Crafting bespoke environments with premium finishes, custom joinery, and specialized lighting to elevate high-end brand experiences.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-2.svg' %}" loading="lazy" alt="Fashion & Apparel" />
+                </div>
+                <h4 class="div-grid-title">Fashion & Apparel</h4>
+              </div>
+              <div class="div-grid-desc">Delivering flexible racking, dynamic display systems, and optimized fitting rooms designed for high-traffic retail environments.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-3.svg' %}" loading="lazy" alt="Footwear & Accessories" />
+                </div>
+                <h4 class="div-grid-title">Footwear & Accessories</h4>
+              </div>
+              <div class="div-grid-desc">Designing specialized shelving and custom modular displays that highlight product details and maximize floor capacity.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-4.svg' %}" loading="lazy" alt="Jewelry & Accessories" />
+                </div>
+                <h4 class="div-grid-title">Jewelry & Accessories</h4>
+              </div>
+              <div class="div-grid-desc">Engineering secure, illuminated display cases and elegant counters that accentuate brilliance while meeting strict security standards.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-5.svg' %}" loading="lazy" alt="Home & Living" />
+                </div>
+                <h4 class="div-grid-title">Home & Living</h4>
+              </div>
+              <div class="div-grid-desc">Creating expansive, inviting room setups and lifestyle zones that help customers visualize furniture and decor in a natural setting.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-6.svg' %}" loading="lazy" alt="Hypermarket" />
+                </div>
+                <h4 class="div-grid-title">Hypermarket</h4>
+              </div>
+              <div class="div-grid-desc">Developing durable heavy-duty shelving, clear wayfinding, and efficient checkout zones built for high volume and fast turnover.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-7.svg' %}" loading="lazy" alt="Health & Beauty" />
+                </div>
+                <h4 class="div-grid-title">Health & Beauty</h4>
+              </div>
+              <div class="div-grid-desc">Implementing clean, hygienic fit-outs with specialized lighting and sleek gondolas perfect for cosmetics and personal care products.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-8.svg' %}" loading="lazy" alt="Convenience Stores & Stationery" />
+                </div>
+                <h4 class="div-grid-title">Convenience Stores & Stationery</h4>
+              </div>
+              <div class="div-grid-desc">Maximizing compact spaces with versatile, high-density shelving designed for quick browsing and impulse purchases.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-9.svg' %}" loading="lazy" alt="Electronics & Technology" />
+                </div>
+                <h4 class="div-grid-title">Electronics & Technology</h4>
+              </div>
+              <div class="div-grid-desc">Integrating smart wiring, interactive product podiums, and secure anti-theft displays for modern tech environments.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-10.svg' %}" loading="lazy" alt="Kids & Toys" />
+                </div>
+                <h4 class="div-grid-title">Kids & Toys</h4>
+              </div>
+              <div class="div-grid-desc">Building vibrant, safe, and engaging environments with durable materials, playful color schemes, and accessible low-height displays.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-11.svg' %}" loading="lazy" alt="Travel & Luggage" />
+                </div>
+                <h4 class="div-grid-title">Travel & Luggage</h4>
+              </div>
+              <div class="div-grid-desc">Constructing robust, spacious display areas capable of holding bulky items while maintaining an organized, premium aesthetic.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-12.svg' %}" loading="lazy" alt="Pharmacy" />
+                </div>
+                <h4 class="div-grid-title">Pharmacy</h4>
+              </div>
+              <div class="div-grid-desc">Ensuring regulatory compliance with secure prescription counters, clinical shelving, and sterile environment standards.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-13.svg' %}" loading="lazy" alt="Kitchenware & Home Appliances" />
+                </div>
+                <h4 class="div-grid-title">Kitchenware & Home Appliances</h4>
+              </div>
+              <div class="div-grid-desc">Designing heavy-duty, reinforced display units that safely showcase heavy appliances with integrated power solutions.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-14.svg' %}" loading="lazy" alt="Optical Stores" />
+                </div>
+                <h4 class="div-grid-title">Optical Stores</h4>
+              </div>
+              <div class="div-grid-desc">Providing bright, clean aesthetics with specialized backlit displays and comfortable consultation areas for precision eyecare.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-15.svg' %}" loading="lazy" alt="Automotive Supplies" />
+                </div>
+                <h4 class="div-grid-title">Automotive Supplies</h4>
+              </div>
+              <div class="div-grid-desc">Delivering industrial-grade racking and tough, easy-to-clean surfaces ideal for heavy parts and mechanical accessories.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-16.svg' %}" loading="lazy" alt="Food & Beverage" />
+                </div>
+                <h4 class="div-grid-title">Food & Beverage</h4>
+              </div>
+              <div class="div-grid-desc">Executing complete restaurant and cafe fit-outs, from commercial kitchens and dining areas to bespoke service counters.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-1.svg' %}" loading="lazy" alt="Luxury & Designer Stores" />
+                </div>
+                <h4 class="div-grid-title">Luxury & Designer Stores</h4>
+              </div>
+              <div class="div-grid-desc">Crafting bespoke environments with premium finishes, custom joinery, and specialized lighting to elevate high-end brand experiences.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-2.svg' %}" loading="lazy" alt="Fashion & Apparel" />
+                </div>
+                <h4 class="div-grid-title">Fashion & Apparel</h4>
+              </div>
+              <div class="div-grid-desc">Delivering flexible racking, dynamic display systems, and optimized fitting rooms designed for high-traffic retail environments.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-3.svg' %}" loading="lazy" alt="Footwear & Accessories" />
+                </div>
+                <h4 class="div-grid-title">Footwear & Accessories</h4>
+              </div>
+              <div class="div-grid-desc">Designing specialized shelving and custom modular displays that highlight product details and maximize floor capacity.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-4.svg' %}" loading="lazy" alt="Jewelry & Accessories" />
+                </div>
+                <h4 class="div-grid-title">Jewelry & Accessories</h4>
+              </div>
+              <div class="div-grid-desc">Engineering secure, illuminated display cases and elegant counters that accentuate brilliance while meeting strict security standards.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-5.svg' %}" loading="lazy" alt="Home & Living" />
+                </div>
+                <h4 class="div-grid-title">Home & Living</h4>
+              </div>
+              <div class="div-grid-desc">Creating expansive, inviting room setups and lifestyle zones that help customers visualize furniture and decor in a natural setting.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-6.svg' %}" loading="lazy" alt="Hypermarket" />
+                </div>
+                <h4 class="div-grid-title">Hypermarket</h4>
+              </div>
+              <div class="div-grid-desc">Developing durable heavy-duty shelving, clear wayfinding, and efficient checkout zones built for high volume and fast turnover.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-7.svg' %}" loading="lazy" alt="Health & Beauty" />
+                </div>
+                <h4 class="div-grid-title">Health & Beauty</h4>
+              </div>
+              <div class="div-grid-desc">Implementing clean, hygienic fit-outs with specialized lighting and sleek gondolas perfect for cosmetics and personal care products.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-8.svg' %}" loading="lazy" alt="Convenience Stores & Stationery" />
+                </div>
+                <h4 class="div-grid-title">Convenience Stores & Stationery</h4>
+              </div>
+              <div class="div-grid-desc">Maximizing compact spaces with versatile, high-density shelving designed for quick browsing and impulse purchases.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-9.svg' %}" loading="lazy" alt="Electronics & Technology" />
+                </div>
+                <h4 class="div-grid-title">Electronics & Technology</h4>
+              </div>
+              <div class="div-grid-desc">Integrating smart wiring, interactive product podiums, and secure anti-theft displays for modern tech environments.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-10.svg' %}" loading="lazy" alt="Kids & Toys" />
+                </div>
+                <h4 class="div-grid-title">Kids & Toys</h4>
+              </div>
+              <div class="div-grid-desc">Building vibrant, safe, and engaging environments with durable materials, playful color schemes, and accessible low-height displays.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-11.svg' %}" loading="lazy" alt="Travel & Luggage" />
+                </div>
+                <h4 class="div-grid-title">Travel & Luggage</h4>
+              </div>
+              <div class="div-grid-desc">Constructing robust, spacious display areas capable of holding bulky items while maintaining an organized, premium aesthetic.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-12.svg' %}" loading="lazy" alt="Pharmacy" />
+                </div>
+                <h4 class="div-grid-title">Pharmacy</h4>
+              </div>
+              <div class="div-grid-desc">Ensuring regulatory compliance with secure prescription counters, clinical shelving, and sterile environment standards.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-13.svg' %}" loading="lazy" alt="Kitchenware & Home Appliances" />
+                </div>
+                <h4 class="div-grid-title">Kitchenware & Home Appliances</h4>
+              </div>
+              <div class="div-grid-desc">Designing heavy-duty, reinforced display units that safely showcase heavy appliances with integrated power solutions.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-14.svg' %}" loading="lazy" alt="Optical Stores" />
+                </div>
+                <h4 class="div-grid-title">Optical Stores</h4>
+              </div>
+              <div class="div-grid-desc">Providing bright, clean aesthetics with specialized backlit displays and comfortable consultation areas for precision eyecare.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-15.svg' %}" loading="lazy" alt="Automotive Supplies" />
+                </div>
+                <h4 class="div-grid-title">Automotive Supplies</h4>
+              </div>
+              <div class="div-grid-desc">Delivering industrial-grade racking and tough, easy-to-clean surfaces ideal for heavy parts and mechanical accessories.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-16.svg' %}" loading="lazy" alt="Food & Beverage" />
+                </div>
+                <h4 class="div-grid-title">Food & Beverage</h4>
+              </div>
+              <div class="div-grid-desc">Executing complete restaurant and cafe fit-outs, from commercial kitchens and dining areas to bespoke service counters.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-1.svg' %}" loading="lazy" alt="Luxury & Designer Stores" />
+                </div>
+                <h4 class="div-grid-title">Luxury & Designer Stores</h4>
+              </div>
+              <div class="div-grid-desc">Crafting bespoke environments with premium finishes, custom joinery, and specialized lighting to elevate high-end brand experiences.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-2.svg' %}" loading="lazy" alt="Fashion & Apparel" />
+                </div>
+                <h4 class="div-grid-title">Fashion & Apparel</h4>
+              </div>
+              <div class="div-grid-desc">Delivering flexible racking, dynamic display systems, and optimized fitting rooms designed for high-traffic retail environments.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-3.svg' %}" loading="lazy" alt="Footwear & Accessories" />
+                </div>
+                <h4 class="div-grid-title">Footwear & Accessories</h4>
+              </div>
+              <div class="div-grid-desc">Designing specialized shelving and custom modular displays that highlight product details and maximize floor capacity.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-4.svg' %}" loading="lazy" alt="Jewelry & Accessories" />
+                </div>
+                <h4 class="div-grid-title">Jewelry & Accessories</h4>
+              </div>
+              <div class="div-grid-desc">Engineering secure, illuminated display cases and elegant counters that accentuate brilliance while meeting strict security standards.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-5.svg' %}" loading="lazy" alt="Home & Living" />
+                </div>
+                <h4 class="div-grid-title">Home & Living</h4>
+              </div>
+              <div class="div-grid-desc">Creating expansive, inviting room setups and lifestyle zones that help customers visualize furniture and decor in a natural setting.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-6.svg' %}" loading="lazy" alt="Hypermarket" />
+                </div>
+                <h4 class="div-grid-title">Hypermarket</h4>
+              </div>
+              <div class="div-grid-desc">Developing durable heavy-duty shelving, clear wayfinding, and efficient checkout zones built for high volume and fast turnover.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-7.svg' %}" loading="lazy" alt="Health & Beauty" />
+                </div>
+                <h4 class="div-grid-title">Health & Beauty</h4>
+              </div>
+              <div class="div-grid-desc">Implementing clean, hygienic fit-outs with specialized lighting and sleek gondolas perfect for cosmetics and personal care products.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-8.svg' %}" loading="lazy" alt="Convenience Stores & Stationery" />
+                </div>
+                <h4 class="div-grid-title">Convenience Stores & Stationery</h4>
+              </div>
+              <div class="div-grid-desc">Maximizing compact spaces with versatile, high-density shelving designed for quick browsing and impulse purchases.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-9.svg' %}" loading="lazy" alt="Electronics & Technology" />
+                </div>
+                <h4 class="div-grid-title">Electronics & Technology</h4>
+              </div>
+              <div class="div-grid-desc">Integrating smart wiring, interactive product podiums, and secure anti-theft displays for modern tech environments.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-10.svg' %}" loading="lazy" alt="Kids & Toys" />
+                </div>
+                <h4 class="div-grid-title">Kids & Toys</h4>
+              </div>
+              <div class="div-grid-desc">Building vibrant, safe, and engaging environments with durable materials, playful color schemes, and accessible low-height displays.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-11.svg' %}" loading="lazy" alt="Travel & Luggage" />
+                </div>
+                <h4 class="div-grid-title">Travel & Luggage</h4>
+              </div>
+              <div class="div-grid-desc">Constructing robust, spacious display areas capable of holding bulky items while maintaining an organized, premium aesthetic.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-12.svg' %}" loading="lazy" alt="Pharmacy" />
+                </div>
+                <h4 class="div-grid-title">Pharmacy</h4>
+              </div>
+              <div class="div-grid-desc">Ensuring regulatory compliance with secure prescription counters, clinical shelving, and sterile environment standards.</div>
+            </div>
+            <div class="div-grid-card">
+              <div class="div-grid-header">
+                <div class="div-grid-icon">
+                  <img src="{% static 'website/assets/images/img/IE-13.svg' %}" loading="lazy" alt="Kitchenware & Home Appliances" />
+                </div>
+                <h4 class="div-grid-title">Kitchenware & Home Appliances</h4>
+              </div>
+              <div class="div-grid-desc">Designing heavy-duty, reinforced display units that safely showcase heavy appliances with integrated power solutions.</div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+        <section
+          class="section_about_values"
+          style="
+            background-color: var(--color-base--black);
+            color: var(--color-base--white);
+          "
+        >
+          <div class="padding-outer-inline">
+            <div class="padding-global padding-section-medium">
+              <div class="container-default overflow-hidden">
+                <div class="methodology-wrap">
+                  <div
+                    class="methodology-text"
+                    style="min-width: 0; word-wrap: break-word"
+                  >
+                    <div
+                      class="text-style-badge"
+                      style="
+                        margin-bottom: 1.5rem;
+                        color: var(--color-base--white);
+                      "
+                    >
+                      <div class="badge-dot"></div>
+                      <div>methodology</div>
+                    </div>
+                    <h2
+                      class="heading-style-h3"
+                      style="
+                        margin-bottom: 1.5rem;
+                        color: var(--color-base--white);
+                      "
+                    >
+                      Japanese
+                      <span style="font-weight: 600; color: #ff6118">5S</span>
+                      System Methodology
+                    </h2>
+                    <p
+                      animate="fade-up-2"
+                      class="text-size-medium text-weight-light"
+                      style="
+                        line-height: 1.6;
+                        color: var(--color-neutral--shade-200);
+                      "
+                    >
+                      We apply the <strong>5S System</strong> across all
+                      divisions to promote operational excellence, safety, and
+                      workplace efficiency. Rooted in lean manufacturing
+                      principles, the 5S methodology enhances productivity by
+                      systematically organizing the workplace. Through the steps
+                      each division is empowered to eliminate waste, streamline
+                      processes, and uphold high standards. This disciplined
+                      approach not only improves day-to-day performance but also
+                      fosters a culture of continuous improvement across the
+                      organization.
+                    </p>
+                  </div>
+                  <div
+                    class="methodology-table-wrap"
+                    style="min-width: 0; max-width: 100%; overflow-x: auto"
+                  >
+                    <h3
+                      class="text-size-small text-weight-bold"
+                      style="
+                        margin-bottom: 1.5rem;
+                        color: var(--color-base--white);
+                      "
+                    >
+                      Seiketsu Standardise Establish standards
+                    </h3>
+                    <table class="five-s-table">
+                      <thead>
+                        <tr>
+                          <th>5S System</th>
+                          <th>Definition</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><strong>Seiri</strong></td>
+                          <td>Sort</td>
+                          <td>Eliminate what is not needed</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Seiton</strong></td>
+                          <td>Set In Order</td>
+                          <td>Organise what remains</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Seiso</strong></td>
+                          <td>Shine</td>
+                          <td>Clean the workplace</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Seiketsu</strong></td>
+                          <td>Standardise</td>
+                          <td>Establish standards</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Shitsuke</strong></td>
+                          <td>Sustain</td>
+                          <td>Maintain and improve</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+{% endblock content %}
+
+
+{% block script %}
+
+        <script>
+          document.addEventListener("DOMContentLoaded", () => {
+            // Check if gsap is available
+            if (
+              typeof gsap !== "undefined" &&
+              typeof ScrollTrigger !== "undefined"
+            ) {
+              // Draw the line down
+              gsap.to(".roadmap-line-progress", {
+                height: "100%",
+                ease: "none",
+                scrollTrigger: {
+                  trigger: ".roadmap-container",
+                  start: "top center",
+                  end: "bottom center",
+                  scrub: true,
+                },
+              });
+
+              // Animate each node
+              const nodes = gsap.utils.toArray(".roadmap-node");
+              nodes.forEach((node) => {
+                const content = node.querySelector(".roadmap-content");
+                const dot = node.querySelector(".roadmap-dot");
+
+                // Fade and slide up the card
+                gsap.to(content, {
+                  opacity: 1,
+                  y: 0,
+                  duration: 0.8,
+                  ease: "power3.out",
+                  scrollTrigger: {
+                    trigger: node,
+                    start: "top 80%",
+                    toggleActions: "play none none reverse",
+                  },
+                });
+
+                // Light up the diamond dot
+                ScrollTrigger.create({
+                  trigger: dot,
+                  start: "top center",
+                  onEnter: () => dot.classList.add("active"),
+                  onLeaveBack: () => dot.classList.remove("active"),
+                });
+              });
+            }
+          });
+        </script>
+
+{% endblock script %}
