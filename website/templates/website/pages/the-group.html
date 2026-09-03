@@ -107,6 +107,163 @@
 
   </style>
 
+  /* Certification section Style */
+
+    <style>
+    .cert-carousel-container {
+      padding: 1rem 0;
+    }
+    .cert-fade {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 50px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .cert-fade-left {
+      left: 0;
+      background: linear-gradient(to right, var(--color-base--white) 0%, transparent 100%);
+    }
+    .cert-fade-right {
+      right: 0;
+      background: linear-gradient(to left, var(--color-base--white) 0%, transparent 100%);
+    }
+    .cert-carousel-track {
+      display: flex;
+      gap: 2.5rem;
+      width: max-content;
+      animation: scroll-certs 25s linear infinite;
+    }
+    .cert-carousel-container:hover .cert-carousel-track {
+      animation-play-state: paused;
+    }
+    .cert-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      background-color: #ffffff;
+      border: 1px solid rgba(0,0,0,0.04);   
+      padding: 3rem 2rem;
+      width: 360px;
+      min-height: 260px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+      transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    }
+    .cert-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+      border-color: rgba(255, 97, 24, 0.3); /* Vibrant orange secondary */
+    }
+    .cert-icon-wrapper {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: var(--color-base--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    }
+    .cert-icon {
+      width: 40px;
+    }
+    .cert-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: var(--color-base--black);
+    }
+    .cert-desc {
+      font-size: 0.95rem;
+      color: rgba(0,0,0,0.6);
+      line-height: 1.6;
+    }
+    @keyframes scroll-certs {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(calc(-50% - 1.25rem)); 
+      }
+    }
+    </style>
+
+
+
+        <style>
+      .team-gallery-wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      @media (min-width: 992px) {
+        .team-gallery-wrapper {
+          grid-template-columns: 1.45fr 1fr;
+          grid-template-rows: minmax(0, 1fr);
+          height: 65vh;
+          min-height: 500px;
+          max-height: 700px;
+        }
+      }
+      .team-featured-slider {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        min-height: 400px;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      @media (min-width: 992px) {
+        .team-featured-slider {
+          min-height: 0;
+        }
+      }
+      .team-slide {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        opacity: 0;
+        transition: opacity 0.8s ease-in-out;
+        z-index: 1;
+      }
+      .team-slide.active {
+        opacity: 1;
+        z-index: 2;
+      }
+      .team-slide img {
+        width: 100%; height: 100%;
+        object-fit: cover;
+      }
+      .team-static-collage {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+        height: 100%;
+        min-height: 0;
+      }
+      .team-thumb {
+        position: relative;
+        border-radius: 8px;
+        overflow: hidden;
+        min-height: 0;
+      }
+      .thumb-wide {
+        grid-column: span 2;
+      }
+      .team-thumb img {
+        width: 100%; height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+      }
+      .team-thumb:hover img {
+        transform: scale(1.05);
+      }
+    </style>
+
 {% endblock head %}
 
 
@@ -214,7 +371,7 @@
           style="
             background-color: var(--color-base--black);
             color: var(--color-base--white);
-            padding: 10rem 0;
+            padding: 5rem 0;
             position: relative;
             overflow: hidden;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -397,7 +554,6 @@
                 }
                 .ceo-clean-img {
                   width: 100%;
-                  border-radius: 6px;
                   margin-bottom: 1rem;
                   background-color: #f8f8f8;
                 }
@@ -454,9 +610,9 @@
           </div>
         </section>
    
-        <section class="global-facilities">
+        <section class="padding-outer-inline">
           <!-- Global Facilities Header -->
-          <div class="padding-outer-inline" style="background-color: var(--color-base--white); padding-top: 6rem; padding-bottom: 2rem;">
+          <div  style="background-color: var(--color-base--white); padding-top: 6rem; padding-bottom: 2rem;">
             <div class="padding-global">
               <div class="container-default">
                 <div animate="fade-up-1" class="text-style-badge">
@@ -626,7 +782,7 @@
                     </p>
                   </div>
                   <div animate="fade-up-1" class="facility-image-wrapper reverse-img">
-                                      <div class="corner-frame">
+                    <div class="corner-frame">+
                     <div class="corner-frame_top-left is-black"></div>
                     <div class="corner-frame_top-right is-black"></div>
                     <div class="corner-frame_bottom-right is-black"></div>
@@ -1098,7 +1254,123 @@
     </div>
   </section>
 
-        <section
+    <section  class="padding-outer-inline" style="background-color: var(--color-base--white); color: var(--color-base--black);">
+      <div class="section_certifications" >
+        <div class="padding-global padding-section-large">
+          <div class="container-default">
+            
+            <!-- Header -->
+            <div style="display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 5rem;">
+              <div animate="fade-up-1" class="text-style-badge" style="margin-bottom: 1.5rem;">
+                <div class="badge-dot"></div>
+                <div>CERTIFICATIONS & APPROVALS</div>
+              </div>
+              <h2 animate="fade-up-2" class="heading-style-h2" style="max-width: 900px; margin-bottom: 0;">
+                Committed to international standards of quality, sustainability, and excellence.
+              </h2>
+            </div>
+            
+            <!-- Marquee Carousel -->
+            <div class="cert-carousel-container" style="overflow: hidden; width: 100%; position: relative; padding: 2rem 0;">
+               <!-- Fade Overlays -->
+               <div class="cert-fade cert-fade-left"></div>
+               <div class="cert-fade cert-fade-right"></div>
+               
+               <div class="cert-carousel-track">
+                  
+                  <!-- Set 1 -->
+                  <div class="cert-card">
+                     <div class="cert-icon-wrapper">
+                        <img src="{% static 'website/assets/images/Shield-done.svg' %}" class="cert-icon" alt="ISO 9001"/>
+                     </div>
+                     <div class="cert-title">ISO 9001:2015</div>
+                     <div class="cert-desc">Quality Management System ensuring the highest standards of manufacturing.</div>
+                  </div>
+                  
+                  <div class="cert-card">
+                     <div class="cert-icon-wrapper">
+                        <img src="{% static 'website/assets/images/Shield-done.svg' %}" class="cert-icon" alt="ISO 14001"/>
+                     </div>
+                     <div class="cert-title">ISO 14001:2015</div>
+                     <div class="cert-desc">Environmental Management System for sustainable and eco-friendly operations.</div>
+                  </div>
+                  
+                  <div class="cert-card">
+                     <div class="cert-icon-wrapper">
+                        <img src="{% static 'website/assets/images/Shield-done.svg' %}" class="cert-icon" alt="ISO 45001"/>
+                     </div>
+                     <div class="cert-title">ISO 45001:2018</div>
+                     <div class="cert-desc">Occupational Health & Safety management protecting our workforce.</div>
+                  </div>
+
+                  <div class="cert-card">
+                     <div class="cert-icon-wrapper">
+                        <img src="{% static 'website/assets/images/Shield-done.svg' %}" class="cert-icon" alt="FSC Certified"/>
+                     </div>
+                     <div class="cert-title">FSC® Certified</div>
+                     <div class="cert-desc">Sustainable Forestry Practices ensuring responsible sourcing of materials.</div>
+                  </div>
+                  
+                  <div class="cert-card">
+                     <div class="cert-icon-wrapper">
+                        <img src="{% static 'website/assets/images/Shield-done.svg' %}" class="cert-icon" alt="Civil Defence"/>
+                     </div>
+                     <div class="cert-title">Dubai Civil Defence</div>
+                     <div class="cert-desc">Approved Contractor for executing fire-safe structural and joinery works.</div>
+                  </div>
+
+                  <!-- Set 2 (Exact Duplicate for Infinite Loop) -->
+                  <div class="cert-card">
+                     <div class="cert-icon-wrapper">
+                        <img src="{% static 'website/assets/images/Shield-done.svg' %}" class="cert-icon" alt="ISO 9001"/>
+                     </div>
+                     <div class="cert-title">ISO 9001:2015</div>
+                     <div class="cert-desc">Quality Management System ensuring the highest standards of manufacturing.</div>
+                  </div>
+                  
+                  <div class="cert-card">
+                     <div class="cert-icon-wrapper">
+                        <img src="{% static 'website/assets/images/Shield-done.svg' %}" class="cert-icon" alt="ISO 14001"/>
+                     </div>
+                     <div class="cert-title">ISO 14001:2015</div>
+                     <div class="cert-desc">Environmental Management System for sustainable and eco-friendly operations.</div>
+                  </div>
+                  
+                  <div class="cert-card">
+                     <div class="cert-icon-wrapper">
+                        <img src="{% static 'website/assets/images/Shield-done.svg' %}" class="cert-icon" alt="ISO 45001"/>
+                     </div>
+                     <div class="cert-title">ISO 45001:2018</div>
+                     <div class="cert-desc">Occupational Health & Safety management protecting our workforce.</div>
+                  </div>
+
+                  <div class="cert-card">
+                     <div class="cert-icon-wrapper">
+                        <img src="{% static 'website/assets/images/Shield-done.svg' %}" class="cert-icon" alt="FSC Certified"/>
+                     </div>
+                     <div class="cert-title">FSC® Certified</div>
+                     <div class="cert-desc">Sustainable Forestry Practices ensuring responsible sourcing of materials.</div>
+                  </div>
+                  
+                  <div class="cert-card">
+                     <div class="cert-icon-wrapper">
+                        <img src="{% static 'website/assets/images/Shield-done.svg' %}" class="cert-icon" alt="Civil Defence"/>
+                     </div>
+                     <div class="cert-title">Dubai Civil Defence</div>
+                     <div class="cert-desc">Approved Contractor for executing fire-safe structural and joinery works.</div>
+                  </div>
+
+               </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+ </div>
+
+    <section
           class="section_about_values"
           style="
             background-color: var(--color-base--black);
@@ -1208,7 +1480,61 @@
               </div>
             </div>
           </div>
-        </section>
+    </section>
+
+    <section class="padding-outer-inline" style="background-color: var(--color-base--white); color: var(--color-base--black);">
+      <div class="section_team">
+        <div class="padding-global padding-section-large">
+          <div class="container-default">
+            
+            <!-- Header -->
+            <div style="display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 4rem;">
+              <div animate="fade-up-1" class="text-style-badge" style="margin-bottom: 1.5rem;">
+                <div class="badge-dot"></div>
+                <div>OUR TEAM</div>
+              </div>
+              <h2 animate="fade-up-2" class="heading-style-h2" style="max-width: 900px; margin-bottom: 0;">
+                Crafting Unforgettable Retail Environments
+              </h2>
+            </div>
+            
+            <!-- Team Slider and Collage -->
+            <div animate="fade-up-3" class="team-gallery-wrapper">
+              
+              <!-- Left Side: Autoplaying Slider -->
+              <div class="team-featured-slider">
+                 <div class="team-slide active"><img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Team slide 1" loading="lazy" /></div>
+                 <div class="team-slide"><img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Team slide 2" loading="lazy" /></div>
+                 <div class="team-slide"><img src="https://images.unsplash.com/photo-1556761175-5973dc0f32b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Team slide 3" loading="lazy" /></div>
+                 <div class="team-slide"><img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Team slide 4" loading="lazy" /></div>
+              </div>
+              
+              <!-- Right Side: Static Collage -->
+              <div class="team-static-collage">
+                 <div class="team-thumb">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Team static 1" loading="lazy" />
+                 </div>
+                 <div class="team-thumb">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Team static 2" loading="lazy" />
+                 </div>
+                 <div class="team-thumb">
+                    <img src="https://images.unsplash.com/photo-1573167243872-43c6433b9d40?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Team static 3" loading="lazy" />
+                 </div>
+                 <div class="team-thumb">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Team static 4" loading="lazy" />
+                 </div>
+                 <!-- Wide Bottom Image spanning both columns -->
+                 <div class="team-thumb thumb-wide">
+                    <img src="https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Team static wide" loading="lazy" />
+                 </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
 
 
 {% endblock content %}
@@ -1218,6 +1544,17 @@
 
         <script>
           document.addEventListener("DOMContentLoaded", () => {
+            // Team Slider Auto-play
+            const teamSlides = document.querySelectorAll(".team-slide");
+            if (teamSlides.length > 0) {
+              let currentTeamSlide = 0;
+              setInterval(() => {
+                teamSlides[currentTeamSlide].classList.remove("active");
+                currentTeamSlide = (currentTeamSlide + 1) % teamSlides.length;
+                teamSlides[currentTeamSlide].classList.add("active");
+              }, 6000);
+            }
+
             // Check if gsap is available
             if (
               typeof gsap !== "undefined" &&
@@ -1236,6 +1573,7 @@
               });
 
               // Animate each node
+
               const nodes = gsap.utils.toArray(".roadmap-node");
               nodes.forEach((node) => {
                 const content = node.querySelector(".roadmap-content");
@@ -1265,5 +1603,25 @@
             }
           });
         </script>
+
+        
+
+            <script>
+
+            // Slides 
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const slides = document.querySelectorAll('.team-slide');
+      let currentSlide = 0;
+      
+      if (slides.length > 0) {
+        setInterval(() => {
+          slides[currentSlide].classList.remove('active');
+          currentSlide = (currentSlide + 1) % slides.length;
+          slides[currentSlide].classList.add('active');
+        }, 6000); 
+      }
+    });
+    </script>
 
 {% endblock script %}

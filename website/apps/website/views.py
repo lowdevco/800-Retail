@@ -42,7 +42,7 @@ def home(request):
     return render(request, 'website/pages/index.html', context)
 
 def the_group(request):
-    return render(request, 'website/pages/the-group.html', get_page_context('about'))
+    return render(request, 'website/pages/the-group.html', get_page_context('the_group'))
 
 def ceo_message(request):
     return render(request, 'website/pages/ceo-message.html', get_page_context('ceo_message'))
