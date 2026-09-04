@@ -1,0 +1,417 @@
+{% extends 'website/Base.html' %}
+
+{% load static %}
+
+{% block head %}
+  <style>
+    /* Compact Grid for Divisions */
+    .divisions-compact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      border-left: 1px solid rgba(0, 0, 0, 0.1);
+      background: var(--color-base--white);
+    }
+    .div-grid-card {
+      border-right: 1px solid rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: all 0.3s ease;
+      background: transparent;
+      cursor: default;
+    }
+    .div-grid-card:hover {
+      background: var(--color-base--black);
+      transform: translateY(-4px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      border-color: transparent;
+      z-index: 2;
+    }
+    .div-grid-header {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .div-grid-icon h3 {
+      color: var(--secondary);
+      font-family: var(--fonts--badge);
+      font-size: 2rem;
+      margin: 0;
+      line-height: 1;
+    }
+    .div-grid-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      font-family: var(--fonts--heading);
+      color: var(--color-base--black);
+      margin-bottom: 0;
+      transition: color 0.3s ease;
+      line-height: 1.3;
+    }
+    .div-grid-card:hover .div-grid-title {
+      color: var(--color-base--white);
+    }
+    .div-grid-desc {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: rgba(0, 0, 0, 0.6);
+      transition: color 0.3s ease;
+      margin: 0;
+    }
+    .div-grid-card:hover .div-grid-desc {
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    @media screen and (max-width: 1024px) {
+      .divisions-compact-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media screen and (max-width: 767px) {
+      .divisions-compact-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .home-methodology-wrap {
+        grid-template-columns: 1fr !important;
+      }
+      .grid-stack-mobile {
+        grid-template-columns: 1fr !important;
+      }
+    }
+    @media screen and (max-width: 479px) {
+      .divisions-compact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* List styling for advantages */
+    .advantage-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .advantage-list li {
+      position: relative;
+      padding-left: 2rem;
+    }
+    .advantage-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.4rem;
+      width: 10px;
+      height: 10px;
+      background-color: var(--secondary);
+    }
+    .advantage-title {
+      color: var(--color-base--black);
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    .advantage-desc {
+      color: rgba(0,0,0,0.6);
+      display: block;
+      margin-top: 0.4rem;
+      line-height: 1.6;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+  <!-- Hero Section -->
+  <section class="section_retail_hero" style="background-color: var(--color-base--black); padding: 10rem 0 6rem 0; position: relative; overflow: hidden;">
+    <div style="position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; opacity: 0.3;">
+        <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;">
+            <source src="{% static 'website/assets/media/Retail-fixture.mp4' %}" type="video/mp4" />
+        </video>
+    </div>
+    <img src="{% static 'website/assets/images/layer-bottom.svg' %}" loading="lazy" alt="" class="hero-layer" style="position: absolute; bottom: -1px; left: 0; width: 100%; z-index: 1;" />
+    
+    <div class="padding-global padding-section-medium" style="position: relative; z-index: 2;">
+      <div class="container-default">
+        <div style="max-width: 800px;">
+          <div class="text-style-badge" style="margin-bottom: 2rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+            <div class="badge-dot" style="background-color: var(--secondary); width: 8px; height: 8px; border-radius: 50%;"></div>
+            <div style="color: var(--color-base--white); letter-spacing: 2px; text-transform: uppercase; font-size: 0.75rem; font-weight: 600; font-family: var(--fonts--badge);">Retail Fixtures</div>
+          </div>
+          <h1 style="color: var(--color-base--white); font-size: clamp(3rem, 6vw, 4.5rem); line-height: 1.1; margin-bottom: 1.5rem; font-family: var(--fonts--heading); font-weight: bold; letter-spacing: -1px;">Retail Solutions That Shape <span style="color: var(--secondary);">Tomorrow’s Storefronts</span></h1>
+          <p style="color: rgba(255,255,255,0.7); font-size: 1.15rem; line-height: 1.7; max-width: 650px; font-weight: 300;">From concept to complete retail space, we manufacture immersive brand experiences with state-of-the-art facilities across the UAE and Saudi Arabia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Strength Section -->
+  <section class="section_strength" style="background-color: var(--color-base--white); padding: 8rem 0;">
+    <div class="padding-global">
+      <div class="container-default">
+        <div class="grid-stack-mobile" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+            <div>
+                <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-family: var(--fonts--heading); font-weight: bold; margin-bottom: 1.5rem; color: var(--color-base--black); letter-spacing: -1px;">End-to-End <span style="color: var(--secondary);">Manufacturing</span></h2>
+                <p style="color: rgba(0,0,0,0.6); font-size: 1.1rem; line-height: 1.6; margin-bottom: 1.5rem;">Founded in 2004 in the heart of the UAE, 800Retail has evolved from a niche fabricator in Dubai’s Deira district into a cross-border production powerhouse, with state-of-the-art facilities spanning over 300,000 sq. ft. across the United Arab Emirates and Saudi Arabia.</p>
+                <p style="color: rgba(0,0,0,0.6); font-size: 1.1rem; line-height: 1.6;">From the first spark of concept design to the final on-site installation, 800Retail offers end-to-end retail environment solutions for global and regional brands all crafted entirely in-house. Our integrated approach to engineering, fabrication, and installation makes us a true one-stop retail solution partner.</p>
+            </div>
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+                <iframe src="https://www.youtube.com/embed/fSy2M46RKwk" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen></iframe>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Functional Divisions -->
+  <section class="section_divisions" style="background-color: var(--color-neutral--shade-50); padding: 8rem 0;">
+    <div class="padding-global">
+        <div class="container-default">
+            <div style="margin-bottom: 4rem; text-align: center;">
+                <h2 style="font-size: clamp(2.5rem, 5vw, 3.5rem); font-family: var(--fonts--heading); font-weight: bold; color: var(--color-base--black); margin-bottom: 1rem; letter-spacing: -1px;">Functional <span style="color: var(--secondary);">Divisions</span></h2>
+                <p style="color: rgba(0,0,0,0.6); font-size: 1.1rem; line-height: 1.6; max-width: 600px; margin: 0 auto;">Our dedicated departments work in harmony to deliver precision, speed, and quality at every step of your project.</p>
+            </div>
+            
+            <div class="divisions-compact-grid">
+                <div class="div-grid-card">
+                    <div class="div-grid-header">
+                        <div class="div-grid-icon"><h3>01</h3></div>
+                        <h3 class="div-grid-title">Design & Development</h3>
+                    </div>
+                    <div class="div-grid-desc">
+                        <strong style="display:block; margin-bottom: 0.5rem; color:inherit;">Design meets function</strong>
+                        Leads the creative and technical design process, including concept development, engineering detailing and prototyping of metal and joinery solutions.
+                    </div>
+                </div>
+
+                <div class="div-grid-card">
+                    <div class="div-grid-header">
+                        <div class="div-grid-icon"><h3>02</h3></div>
+                        <h3 class="div-grid-title">Machine Department</h3>
+                    </div>
+                    <div class="div-grid-desc">
+                        <strong style="display:block; margin-bottom: 0.5rem; color:inherit;">Elegant by craft</strong>
+                        Precision is at the heart of what we do. Handles cutting, shaping, and refining materials with expert accuracy for your retail or production needs.
+                    </div>
+                </div>
+
+                <div class="div-grid-card">
+                    <div class="div-grid-header">
+                        <div class="div-grid-icon"><h3>03</h3></div>
+                        <h3 class="div-grid-title">Metal Fabrication Robotic</h3>
+                    </div>
+                    <div class="div-grid-desc">
+                        <strong style="display:block; margin-bottom: 0.5rem; color:inherit;">Strength in design</strong>
+                        Executes both manual and robotic fabrication processes, including cutting, welding, bending and forming of metal structures and components.
+                    </div>
+                </div>
+
+                <div class="div-grid-card">
+                    <div class="div-grid-header">
+                        <div class="div-grid-icon"><h3>04</h3></div>
+                        <h3 class="div-grid-title">Metal Fabrication Department</h3>
+                    </div>
+                    <div class="div-grid-desc">
+                        <strong style="display:block; margin-bottom: 0.5rem; color:inherit;">Shaping strength into style</strong>
+                        From custom shelves and displays to durable fixtures, our team crafts solutions that are practical, visually striking, and built to support your business.
+                    </div>
+                </div>
+
+                <div class="div-grid-card">
+                    <div class="div-grid-header">
+                        <div class="div-grid-icon"><h3>05</h3></div>
+                        <h3 class="div-grid-title">Lighting Integration</h3>
+                    </div>
+                    <div class="div-grid-desc">
+                        <strong style="display:block; margin-bottom: 0.5rem; color:inherit;">Lighting that moves with your vision</strong>
+                        Seamlessly integrates lighting into your fixtures and spaces — enhancing visibility, mood, and the overall customer experience. Smart and sleek.
+                    </div>
+                </div>
+
+                <div class="div-grid-card">
+                    <div class="div-grid-header">
+                        <div class="div-grid-icon"><h3>06</h3></div>
+                        <h3 class="div-grid-title">Powder Coating & Surface Protection</h3>
+                    </div>
+                    <div class="div-grid-desc">
+                        <strong style="display:block; margin-bottom: 0.5rem; color:inherit;">Coated to endure</strong>
+                        Applies high-performance powder coating and surface treatments to enhance durability, corrosion resistance and aesthetic finish of all metal products.
+                    </div>
+                </div>
+
+                <div class="div-grid-card">
+                    <div class="div-grid-header">
+                        <div class="div-grid-icon"><h3>07</h3></div>
+                        <h3 class="div-grid-title">Joinery & Carpentry</h3>
+                    </div>
+                    <div class="div-grid-desc">
+                        <strong style="display:block; margin-bottom: 0.5rem; color:inherit;">Precision in every joint</strong>
+                        Specializes in precision wood joinery, carpentry, and custom fit-outs using solid wood and engineered boards for modular retail components.
+                    </div>
+                </div>
+
+                <div class="div-grid-card">
+                    <div class="div-grid-header">
+                        <div class="div-grid-icon"><h3>08</h3></div>
+                        <h3 class="div-grid-title">Painting Department</h3>
+                    </div>
+                    <div class="div-grid-desc">
+                        <strong style="display:block; margin-bottom: 0.5rem; color:inherit;">Precision coatings for durability</strong>
+                        Adds the final touch with precision-applied coatings that protect and enhance every piece, delivering a flawless finish every time.
+                    </div>
+                </div>
+
+                <div class="div-grid-card">
+                    <div class="div-grid-header">
+                        <div class="div-grid-icon"><h3>09</h3></div>
+                        <h3 class="div-grid-title">QC Department</h3>
+                    </div>
+                    <div class="div-grid-desc">
+                        <strong style="display:block; margin-bottom: 0.5rem; color:inherit;">Flawless by inspection</strong>
+                        Inspects every detail, ensuring that each product meets the highest standards before it reaches you. We protect your brand’s reputation.
+                    </div>
+                </div>
+
+                <div class="div-grid-card">
+                    <div class="div-grid-header">
+                        <div class="div-grid-icon"><h3>10</h3></div>
+                        <h3 class="div-grid-title">Packing & Dispatch</h3>
+                    </div>
+                    <div class="div-grid-desc">
+                        <strong style="display:block; margin-bottom: 0.5rem; color:inherit;">Secure packaging & timely delivery</strong>
+                        Ensures every product is carefully packed, protected, and delivered with precision. We make sure your order arrives exactly how you expect.
+                    </div>
+                </div>
+
+                <div class="div-grid-card">
+                    <div class="div-grid-header">
+                        <div class="div-grid-icon"><h3>11</h3></div>
+                        <h3 class="div-grid-title">Installation Department</h3>
+                    </div>
+                    <div class="div-grid-desc">
+                        <strong style="display:block; margin-bottom: 0.5rem; color:inherit;">Built here. Installed there</strong>
+                        Manages final-stage packaging, safe handling, dispatch logistics and complete on-site installation of fabricated and joinery elements.
+                    </div>
+                </div>
+
+                <div class="div-grid-card">
+                    <div class="div-grid-header">
+                        <div class="div-grid-icon"><h3>12</h3></div>
+                        <h3 class="div-grid-title">After Service</h3>
+                    </div>
+                    <div class="div-grid-desc">
+                        <strong style="display:block; margin-bottom: 0.5rem; color:inherit;">Integration done right</strong>
+                        Integrates electrical systems into fixtures, including wiring, lighting, LED screen components and control units, ensuring full functional readiness.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section_cta" style="background-color: var(--color-base--black); padding: 6rem 0; text-align: center; position: relative; overflow: hidden;">
+    <img src="{% static 'website/assets/images/pattern.avif' %}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.1;" alt="" />
+    <div class="padding-global" style="position: relative; z-index: 1;">
+        <div class="container-default">
+            <h2 style="color: var(--color-base--white); font-size: clamp(2.5rem, 5vw, 3.5rem); font-family: var(--fonts--heading); font-weight: bold; margin-bottom: 1rem; letter-spacing: -1px;">Let's Design and Shape <span style="color: var(--secondary);">Your Imagination</span></h2>
+            <p style="color: rgba(255,255,255,0.7); font-size: 1.15rem; margin-bottom: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto; font-weight: 300;">Request your consultation with our in-house team of commercial interior experts.</p>
+            <a href="{% url 'contact' %}" class="button is-secondary w-inline-block" style="display: inline-block;">
+                <div class="button-mask">
+                    <div class="button-text">Request My Consultation</div>
+                    <div class="button-text-hover">Request My Consultation</div>
+                </div>
+            </a>
+        </div>
+    </div>
+  </section>
+
+  <!-- Advantages & R&D -->
+  <section class="section_advantages" style="background-color: var(--color-base--white); padding: 8rem 0;">
+    <div class="padding-global">
+      <div class="container-default">
+        <!-- Feature Row 1 -->
+        <div class="grid-stack-mobile" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 8rem;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; aspect-ratio: 1/1;">
+                <img src="{% static 'website/assets/images/projects/retail-fashion.jpg' %}" alt="Advantage" style="width: 100%; height: 100%; object-fit: cover; grid-column: 1 / 3;" />
+                <img src="{% static 'website/assets/images/projects/image-1.jpg' %}" alt="Advantage" style="width: 100%; height: 100%; object-fit: cover;" />
+                <img src="{% static 'website/assets/images/projects/jackandjones.png' %}" alt="Advantage" style="width: 100%; height: 100%; object-fit: cover;" />
+            </div>
+            <div>
+                <div class="text-style-badge" style="margin-bottom: 1.5rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+                  <div class="badge-dot" style="background-color: var(--secondary); width: 8px; height: 8px; border-radius: 50%;"></div>
+                  <div style="color: var(--color-neutral--shade-600); letter-spacing: 2px; text-transform: uppercase; font-size: 0.75rem; font-weight: 600; font-family: var(--fonts--badge);">Why Choose Us</div>
+                </div>
+                <h2 style="font-size: clamp(2rem, 3.5vw, 2.5rem); font-family: var(--fonts--heading); font-weight: bold; margin-bottom: 2rem; color: var(--color-base--black); letter-spacing: -1px;">The 800Retail <span style="color: var(--secondary);">Advantage</span></h2>
+                <ul class="advantage-list">
+                    <li>
+                        <span class="advantage-title">Vertically Integrated Capabilities</span>
+                        <span class="advantage-desc">Ensure consistent quality and accelerated delivery. We maintain direct control over store design, product design, fabrication, joinery, and integrated LED lighting solutions within our operation.</span>
+                    </li>
+                    <li>
+                        <span class="advantage-title">True End-to-End Partnership</span>
+                        <span class="advantage-desc">Eliminate vendor coordination hassles. We manage your project from initial concept through flawless completion, saving significant time, cost, and complexity.</span>
+                    </li>
+                    <li>
+                        <span class="advantage-title">Sustainability Built-In</span>
+                        <span class="advantage-desc">Create healthier, eco-friendly spaces. 80% sustainable materials reduce long-term operational costs while prioritizing environmental responsibility.</span>
+                    </li>
+                    <li>
+                        <span class="advantage-title">Retail-Ready Prototyping & Mockups</span>
+                        <span class="advantage-desc">Speed up approvals and reduce rework. We offer rapid in-house prototyping and full-scale mockups, enabling real-time evaluation of materials before mass production.</span>
+                    </li>
+                    <li>
+                        <span class="advantage-title">Unmatched 5-Year Defect Liability</span>
+                        <span class="advantage-desc">Gain lasting peace of mind. As the UAE’s largest retail fixture company, we guarantee post-handover support with an industry-leading 5-year defect liability period.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Feature Row 2 -->
+        <div class="grid-stack-mobile" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+                <iframe src="https://www.youtube.com/embed/xzzQS48zwhQ" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen></iframe>
+            </div>
+            <div>
+                <div class="text-style-badge" style="margin-bottom: 1.5rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+                  <div class="badge-dot" style="background-color: var(--secondary); width: 8px; height: 8px; border-radius: 50%;"></div>
+                  <div style="color: var(--color-neutral--shade-600); letter-spacing: 2px; text-transform: uppercase; font-size: 0.75rem; font-weight: 600; font-family: var(--fonts--badge);">Innovation</div>
+                </div>
+                <h2 style="font-size: clamp(2rem, 3.5vw, 2.5rem); font-family: var(--fonts--heading); font-weight: bold; margin-bottom: 2rem; color: var(--color-base--black); letter-spacing: -1px;">Design & R&D <span style="color: var(--secondary);">Excellence</span></h2>
+                <ul class="advantage-list">
+                    <li>
+                        <span class="advantage-title">Retail-Focused Design DNA</span>
+                        <span class="advantage-desc">At 800Retail, design starts with the shopper. We craft fixtures that enhance product visibility, guide customer flow, and elevate brand storytelling optimizing every square meter.</span>
+                    </li>
+                    <li>
+                        <span class="advantage-title">Fully Integrated In-House Design Studio</span>
+                        <span class="advantage-desc">Our in-house team of retail architects, industrial designers, and branding experts work side-by-side with clients translating concepts into visually striking environments.</span>
+                    </li>
+                    <li>
+                        <span class="advantage-title">Rapid Prototyping & Full-Scale Mockups</span>
+                        <span class="advantage-desc">Speed and precision matter. Our on-site prototyping facilities allow for real-time feedback and design validation, ensuring what you see is exactly what you get.</span>
+                    </li>
+                    <li>
+                        <span class="advantage-title">Advanced Materials & Finish R&D</span>
+                        <span class="advantage-desc">We continuously explore and develop new materials, coatings, and lighting integrations tailored for high-impact retail settings. Beautiful, durable, and sustainable.</span>
+                    </li>
+                    <li>
+                        <span class="advantage-title">Smart & Modular Fixture Systems</span>
+                        <span class="advantage-desc">Through our R&D wing, we are pioneering modular, tech-integrated fixtures that adapt to evolving retail needs enabling flexible layouts and enhanced shopper interaction.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
+
+{% block script %}
+{% endblock %}

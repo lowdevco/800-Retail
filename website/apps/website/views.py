@@ -44,11 +44,14 @@ def home(request):
 def the_group(request):
     return render(request, 'website/pages/the-group.html', get_page_context('the_group'))
 
-def ceo_message(request):
-    return render(request, 'website/pages/ceo-message.html', get_page_context('ceo_message'))
+def retail_fixture(request):
+    return render(request, 'website/pages/retail-fixture.html', get_page_context('retail_fixture'))
 
-def global_facilities(request):
-    return render(request, 'website/pages/global-facilities.html', get_page_context('global_facilities'))
+def retail_led(request):
+    return render(request, 'website/pages/retail-led.html', get_page_context('retail_led'))
+
+def retail_lighting(request):
+    return render(request, 'website/pages/retail-lighting.html', get_page_context('retail_lighting'))
 
 def divisions(request):
     return render(request, 'website/pages/divisions.html', get_page_context('divisions'))

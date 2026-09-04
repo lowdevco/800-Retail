@@ -87,6 +87,17 @@
         display: none !important;
       }
     }
+    
+    /* Fix navbar to top of the screen */
+    .navbar {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      z-index: 1000 !important;
+      background-color: #1a1b18 !important; /* Deep dark theme to match brand */
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
   </style>
 
 
@@ -127,17 +138,17 @@
                           >The Group</a
                         >
                         <a
-                          href="{% url 'ceo_message' %}"
+                          href="{% url 'retail_fixture' %}"
                           class="simple-dropdown-link"
                           >Retail Fixture</a
                         >
                         <a
-                          href="{% url 'global_facilities' %}"
+                          href="{% url 'retail_led' %}"
                           class="simple-dropdown-link"
                           >Retail LED</a
                         >
                         <a
-                          href="{% url 'global_facilities' %}"
+                          href="{% url 'retail_lighting' %}"
                           class="simple-dropdown-link"
                           >Retail Lighting</a
                         >

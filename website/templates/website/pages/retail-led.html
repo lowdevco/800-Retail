@@ -1,0 +1,499 @@
+{% extends 'website/Base.html' %}
+
+{% load static %}
+
+{% block head %}
+  <style>
+    /* Compact Grid for Stability Rules / Divisions */
+    .divisions-compact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      border-left: 1px solid rgba(0, 0, 0, 0.1);
+      background: var(--color-base--white);
+    }
+    .div-grid-card {
+      border-right: 1px solid rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: all 0.3s ease;
+      background: transparent;
+      cursor: default;
+    }
+    .div-grid-card:hover {
+      background: var(--color-base--black);
+      transform: translateY(-4px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      border-color: transparent;
+      z-index: 2;
+    }
+    .div-grid-header {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .div-grid-icon h3 {
+      color: var(--secondary);
+      font-family: var(--fonts--badge);
+      font-size: 2rem;
+      margin: 0;
+      line-height: 1;
+    }
+    .div-grid-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      font-family: var(--fonts--heading);
+      color: var(--color-base--black);
+      margin-bottom: 0;
+      transition: color 0.3s ease;
+      line-height: 1.3;
+    }
+    .div-grid-card:hover .div-grid-title {
+      color: var(--color-base--white);
+    }
+    .div-grid-desc {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: rgba(0, 0, 0, 0.6);
+      transition: color 0.3s ease;
+      margin: 0;
+    }
+    .div-grid-card:hover .div-grid-desc {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Product Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+    .product-card {
+      background: var(--color-base--white);
+      border: 1px solid rgba(0,0,0,0.05);
+      border-top: 3px solid var(--color-base--black);
+      padding: 2rem;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .product-card:hover {
+      box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+      transform: translateY(-5px);
+      border-top-color: var(--secondary);
+    }
+    .product-card h3 {
+      font-size: 1.15rem;
+      font-family: var(--fonts--heading);
+      color: var(--color-base--black);
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+    .product-card p {
+      font-size: 0.9rem;
+      color: rgba(0,0,0,0.6);
+      line-height: 1.6;
+      margin: 0;
+    }
+    
+    @media screen and (min-width: 768px) {
+      .order-text-first { order: 1; }
+      .order-img-last { order: 2; }
+    }
+
+    @media screen and (max-width: 1024px) {
+      .divisions-compact-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media screen and (max-width: 767px) {
+      .divisions-compact-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .grid-stack-mobile {
+        grid-template-columns: 1fr !important;
+      }
+      .order-text-first, .order-img-last { order: unset; }
+    }
+    @media screen and (max-width: 479px) {
+      .divisions-compact-grid {
+        grid-template-columns: 1fr;
+      }
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+{% endblock head %}
+
+{% block content %}
+  <!-- Hero Section -->
+  <section class="section_retail_hero" style="background-color: var(--color-base--black); padding: 10rem 0 6rem 0; position: relative; overflow: hidden;">
+    <div style="position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; opacity: 0.3;">
+        <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;">
+            <source src="{% static 'website/assets/media/Retail-LED.mp4' %}" type="video/mp4" />
+        </video>
+    </div>
+    <img src="{% static 'website/assets/images/layer-bottom.svg' %}" loading="lazy" alt="" class="hero-layer" style="position: absolute; bottom: -1px; left: 0; width: 100%; z-index: 1;" />
+    
+    <div class="padding-global padding-section-medium" style="position: relative; z-index: 2;">
+      <div class="container-default">
+        <div style="max-width: 800px;">
+          <div class="text-style-badge" style="margin-bottom: 2rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+            <div class="badge-dot" style="background-color: var(--secondary); width: 8px; height: 8px; border-radius: 50%;"></div>
+            <div style="color: var(--color-base--white); letter-spacing: 2px; text-transform: uppercase; font-size: 0.75rem; font-weight: 600; font-family: var(--fonts--badge);">Retail LED</div>
+          </div>
+          <h1 style="color: var(--color-base--white); font-size: clamp(3rem, 6vw, 4.5rem); line-height: 1.1; margin-bottom: 1.5rem; font-family: var(--fonts--heading); font-weight: bold; letter-spacing: -1px;">Illuminating Your <span style="color: var(--secondary);">Brand Experience</span></h1>
+          <p style="color: rgba(255,255,255,0.7); font-size: 1.15rem; line-height: 1.7; max-width: 650px; font-weight: 300;">Advanced LED display systems, digital signage, and immersive video walls designed to captivate and communicate.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stability Rules (Divisions) -->
+  <section class="section_stability" style="background-color: var(--color-neutral--shade-50); padding: 8rem 0;">
+    <div class="padding-global">
+        <div class="container-default">
+            <div style="margin-bottom: 4rem; text-align: center;">
+                <h2 style="font-size: clamp(2.5rem, 5vw, 3.5rem); font-family: var(--fonts--heading); font-weight: bold; color: var(--color-base--black); margin-bottom: 1rem; letter-spacing: -1px;">Our Stability <span style="color: var(--secondary);">Rules</span></h2>
+                <p style="color: rgba(0,0,0,0.6); font-size: 1.1rem; line-height: 1.6; max-width: 600px; margin: 0 auto;">Dedicated departments working in harmony to deliver precision, speed, and quality in every LED project.</p>
+            </div>
+            
+            <div class="divisions-compact-grid">
+                <div class="div-grid-card">
+                    <div class="div-grid-header">
+                        <div class="div-grid-icon"><h3>01</h3></div>
+                        <h3 class="div-grid-title">Digital Display Production</h3>
+                    </div>
+                    <div class="div-grid-desc">
+                        Manufactures LED display units and digital panels, ensuring quality control, component integration, and assembly for retail, commercial, and architectural applications.
+                    </div>
+                </div>
+
+                <div class="div-grid-card">
+                    <div class="div-grid-header">
+                        <div class="div-grid-icon"><h3>02</h3></div>
+                        <h3 class="div-grid-title">Cloud Development</h3>
+                    </div>
+                    <div class="div-grid-desc">
+                        Designs and produces dynamic digital content, signage animations, and visual media tailored for LED screens, enhancing brand communication.
+                    </div>
+                </div>
+
+                <div class="div-grid-card">
+                    <div class="div-grid-header">
+                        <div class="div-grid-icon"><h3>03</h3></div>
+                        <h3 class="div-grid-title">LED System Design & Engineering</h3>
+                    </div>
+                    <div class="div-grid-desc">
+                        Develops electrical, structural, and mounting systems for seamless LED screen integration, ensuring safety, scalability, and compliance.
+                    </div>
+                </div>
+
+                <div class="div-grid-card">
+                    <div class="div-grid-header">
+                        <div class="div-grid-icon"><h3>04</h3></div>
+                        <h3 class="div-grid-title">Control Systems & Software</h3>
+                    </div>
+                    <div class="div-grid-desc">
+                        Programs screen control systems, integrates cloud systems, and configures network interfaces to enable synchronized, automated, and remotely managed content delivery.
+                    </div>
+                </div>
+
+                <div class="div-grid-card">
+                    <div class="div-grid-header">
+                        <div class="div-grid-icon"><h3>05</h3></div>
+                        <h3 class="div-grid-title">Installation & Commissioning</h3>
+                    </div>
+                    <div class="div-grid-desc">
+                        Manages on-site LED screen setup, alignment, calibration, testing, and final commissioning to ensure optimal performance and readiness for client use.
+                    </div>
+                </div>
+
+                <div class="div-grid-card">
+                    <div class="div-grid-header">
+                        <div class="div-grid-icon"><h3>06</h3></div>
+                        <h3 class="div-grid-title">Maintenance & Technical Support</h3>
+                    </div>
+                    <div class="div-grid-desc">
+                        Delivers ongoing system support including preventive maintenance, diagnostics, repairs, and client training for uninterrupted LED functionality.
+                    </div>
+                </div>
+
+                <div class="div-grid-card">
+                    <div class="div-grid-header">
+                        <div class="div-grid-icon"><h3>07</h3></div>
+                        <h3 class="div-grid-title">Content Creation</h3>
+                    </div>
+                    <div class="div-grid-desc">
+                        Programs screen control systems, integrates cloud systems, and configures network interfaces to enable synchronized content delivery.
+                    </div>
+                </div>
+
+                <div class="div-grid-card">
+                    <div class="div-grid-header">
+                        <div class="div-grid-icon"><h3>08</h3></div>
+                        <h3 class="div-grid-title">Media Development</h3>
+                    </div>
+                    <div class="div-grid-desc">
+                        Designs and produces dynamic digital content, signage animations, and visual media tailored for LED screens, enhancing customer engagement.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- Recent Project -->
+  <section class="section_project" style="background-color: var(--color-base--white); padding: 8rem 0;">
+    <div class="padding-global">
+      <div class="container-default">
+        <div class="grid-stack-mobile" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+            <div>
+                <div class="text-style-badge" style="margin-bottom: 1.5rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+                  <div class="badge-dot" style="background-color: var(--secondary); width: 8px; height: 8px; border-radius: 50%;"></div>
+                  <div style="color: var(--color-neutral--shade-600); letter-spacing: 2px; text-transform: uppercase; font-size: 0.75rem; font-weight: 600; font-family: var(--fonts--badge);">Case Study</div>
+                </div>
+                <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-family: var(--fonts--heading); font-weight: bold; margin-bottom: 1.5rem; color: var(--color-base--black); letter-spacing: -1px;">Our Recent <span style="color: var(--secondary);">Project</span></h2>
+                <p style="color: rgba(0,0,0,0.6); font-size: 1.1rem; line-height: 1.6; margin-bottom: 1.5rem; font-style: italic; border-left: 3px solid var(--secondary); padding-left: 1.5rem;">
+                  "Design Infinity has been a fabulous partner in renovating our modern workspaces. The collaboration was seamless, and achieving the platinum LEED certification was a fantastic bonus. We're excited to work with them again."
+                </p>
+            </div>
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+                <iframe src="https://www.youtube.com/embed/beQHhNSYv-s" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen></iframe>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section_cta" style="background-color: var(--color-base--black); padding: 6rem 0; text-align: center; position: relative; overflow: hidden;">
+    <img src="{% static 'website/assets/images/pattern.avif' %}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.1;" alt="" />
+    <div class="padding-global" style="position: relative; z-index: 1;">
+        <div class="container-default">
+            <h2 style="color: var(--color-base--white); font-size: clamp(2.5rem, 5vw, 3.5rem); font-family: var(--fonts--heading); font-weight: bold; margin-bottom: 1rem; letter-spacing: -1px;">Let's Design and Shape <span style="color: var(--secondary);">Your Imagination</span></h2>
+            <p style="color: rgba(255,255,255,0.7); font-size: 1.15rem; margin-bottom: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto; font-weight: 300;">Request your consultation with our in-house team of commercial interior experts.</p>
+            <a href="{% url 'contact' %}" class="button is-secondary w-inline-block" style="display: inline-block;">
+                <div class="button-mask">
+                    <div class="button-text">Request a Quote</div>
+                    <div class="button-text-hover">Request a Quote</div>
+                </div>
+            </a>
+        </div>
+    </div>
+  </section>
+
+  <!-- LED Screen & Digital Solutions (Products) -->
+  <section class="section_products" style="background-color: var(--color-base--white); padding: 4rem 0 8rem 0;">
+    <div class="padding-global">
+      <div class="container-default">
+        <div style="margin-bottom: 4rem;">
+            <h2 style="font-size: clamp(2.5rem, 4vw, 3rem); font-family: var(--fonts--heading); font-weight: bold; color: var(--color-base--black); margin-bottom: 1rem; letter-spacing: -1px;">LED Screen & <span style="color: var(--secondary);">Digital Solutions</span></h2>
+            <p style="color: rgba(0,0,0,0.6); font-size: 1.1rem; line-height: 1.6; max-width: 600px;">Explore our comprehensive range of specialized display technologies tailored for any environment.</p>
+        </div>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <h3>Semi-Circular Exterior Screens</h3>
+                <p>Designed to stand out, these curved LED screens add a bold, modern touch to any outdoor space flexible in size, flawless in style.</p>
+            </div>
+            <div class="product-card">
+                <h3>Indoor Interconnecting Wall Screens</h3>
+                <p>Perfect for businesses, stores, conference halls, and event venues they create a bold visual identity that truly sets you apart.</p>
+            </div>
+            <div class="product-card">
+                <h3>Multi-Storey Cylindrical Screens</h3>
+                <p>Step into a world of innovation with our multi-storey cylindrical screens an eye-catching design that brings creativity and impact.</p>
+            </div>
+            <div class="product-card">
+                <h3>Indoor and Outdoor Floor Screens</h3>
+                <p>Ready to make a bold move? Our floor screens are designed to impress perfect for clubs, banquet halls, and conference centers.</p>
+            </div>
+            <div class="product-card">
+                <h3>Transparent Outdoor Screens</h3>
+                <p>Stand out from the competition with transparent outdoor screens a unique display solution perfect for malls, markets, and storefronts.</p>
+            </div>
+            <div class="product-card">
+                <h3>Indoor Transparent Screens</h3>
+                <p>A world of elegance on display—engage your customers with sleek internal transparent screens, perfect for businesses and stores.</p>
+            </div>
+            <div class="product-card">
+                <h3>Interactive Transparent Screens</h3>
+                <p>The latest innovation is here. Engage like never before with interactive screens, ideal for commercial hubs and educational institutions.</p>
+            </div>
+            <div class="product-card">
+                <h3>3D Indoor and Outdoor Screens</h3>
+                <p>Bring your brand to life with 3D screens that simulate reality perfect for creating unforgettable product displays.</p>
+            </div>
+            <div class="product-card">
+                <h3>Indoor Ceiling Screens</h3>
+                <p>Captivate your audience with internal ceiling screens delivering content in a bold, immersive, and unforgettable way.</p>
+            </div>
+            <div class="product-card">
+                <h3>Circular Ceiling Screens</h3>
+                <p>Transform any space with indoor circular ceiling screens bursting with color, energy, and a unique decorative flair.</p>
+            </div>
+            <div class="product-card">
+                <h3>Indoor & Outdoor Circular Screens</h3>
+                <p>Stop wishing, start creating with versatile circular screens. Hang or fix them your way, in any size, for any project.</p>
+            </div>
+            <div class="product-card">
+                <h3>Indoor Workstation Screens</h3>
+                <p>Experience innovation at your fingertips with integrated worktable screens perfect for businesses, government offices, and companies.</p>
+            </div>
+            <div class="product-card">
+                <h3>Attractive Outdoor Displays</h3>
+                <p>Think big and stand out with our innovative outdoor screens designed to impress with elegance, style, and powerful visual impact.</p>
+            </div>
+            <div class="product-card">
+                <h3>Curved and Suspended Screens</h3>
+                <p>Perfect for studios, film sets, cinematic displays, media hubs, and interactive halls delivering immersive visuals wherever innovation happens.</p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section (Alternating) -->
+  <section class="section_features" style="background-color: var(--color-neutral--shade-50); padding: 8rem 0;">
+    <div class="padding-global">
+      <div class="container-default">
+        
+        <!-- Feature 1 -->
+        <div class="grid-stack-mobile" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 8rem;">
+            <div>
+                <img src="{% static 'website/assets/images/img/dept_led.png' %}" alt="Indoor Screen" style="width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3; box-shadow: 0 20px 40px rgba(0,0,0,0.1);" />
+            </div>
+            <div>
+                <h2 style="font-size: clamp(2rem, 3.5vw, 2.5rem); font-family: var(--fonts--heading); font-weight: bold; margin-bottom: 1.5rem; color: var(--color-base--black); letter-spacing: -1px;">Indoor <span style="color: var(--secondary);">Screen</span></h2>
+                <p style="color: rgba(0,0,0,0.6); font-size: 1.1rem; line-height: 1.6; margin-bottom: 1rem;">
+                  Elevate your indoor spaces with <strong>Vyvauk Arabia’s high-resolution LED screens</strong>, crafted for retail, corporate, hospitality, and event environments.
+                </p>
+                <p style="color: rgba(0,0,0,0.6); font-size: 1.1rem; line-height: 1.6; margin-bottom: 1rem;">
+                  Designed with sleek, seamless panels and ultra-fine pixel pitch options, our displays ensure vivid clarity even at close range. From standard walls to creative formats like curves or columns, we customize every screen to fit your vision.
+                </p>
+                <p style="color: rgba(0,0,0,0.6); font-size: 1.1rem; line-height: 1.6; margin-bottom: 1rem;">
+                  <strong>Applications:</strong> Retail showrooms, malls, offices, hotels, exhibitions, and more.
+                </p>
+                <p style="color: var(--color-base--black); font-weight: 600; margin-top: 1.5rem;">Built in UAE. Backed by global sourcing. Powered by innovation.</p>
+            </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="grid-stack-mobile" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 8rem;">
+            <div class="order-text-first">
+                <h2 style="font-size: clamp(2rem, 3.5vw, 2.5rem); font-family: var(--fonts--heading); font-weight: bold; margin-bottom: 1.5rem; color: var(--color-base--black); letter-spacing: -1px;">Outdoor <span style="color: var(--secondary);">Screen</span></h2>
+                <p style="color: rgba(0,0,0,0.6); font-size: 1.1rem; line-height: 1.6; margin-bottom: 1rem;">
+                  Make a bold impact with <strong>Vyvauk Arabia’s Outdoor LED Screens</strong>, engineered for visibility, durability, and performance in any weather.
+                </p>
+                <p style="color: rgba(0,0,0,0.6); font-size: 1.1rem; line-height: 1.6; margin-bottom: 1rem;">
+                  Perfect for billboards, building façades, stadiums, retail exteriors, and public spaces our high-brightness panels ensure clear, vibrant display even under direct sunlight.
+                </p>
+                <p style="color: rgba(0,0,0,0.6); font-size: 1.1rem; line-height: 1.6; margin-bottom: 1rem;">
+                  <strong>Applications:</strong> Billboards, retail exteriors, stadiums, events, building wraps, and more.
+                </p>
+                <p style="color: var(--color-base--black); font-weight: 600; margin-top: 1.5rem;">Rugged by design. Brilliant by performance. Always on.</p>
+            </div>
+            <div class="order-img-last">
+                <img src="{% static 'website/assets/images/img/led_display_1787649220452.jpg' %}" alt="Outdoor Screen" style="width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3; box-shadow: 0 20px 40px rgba(0,0,0,0.1);" />
+            </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="grid-stack-mobile" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 8rem;">
+            <div>
+                <img src="{% static 'website/assets/images/img/dept_design.png' %}" alt="Poster Solutions" style="width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3; box-shadow: 0 20px 40px rgba(0,0,0,0.1);" />
+            </div>
+            <div>
+                <h2 style="font-size: clamp(2rem, 3.5vw, 2.5rem); font-family: var(--fonts--heading); font-weight: bold; margin-bottom: 1.5rem; color: var(--color-base--black); letter-spacing: -1px;">Poster <span style="color: var(--secondary);">Solutions</span></h2>
+                <p style="color: rgba(0,0,0,0.6); font-size: 1.1rem; line-height: 1.6; margin-bottom: 1rem;">
+                  Sleek, smart, and eye-catching <strong>Vyvauk Arabia’s Standee Screens</strong> are the modern answer to static signage.
+                </p>
+                <p style="color: rgba(0,0,0,0.6); font-size: 1.1rem; line-height: 1.6; margin-bottom: 1rem;">
+                  Ideal for retail stores, showrooms, lobbies, exhibitions, and hospitality venues, these freestanding digital posters deliver dynamic content in a plug-and-play format.
+                </p>
+                <p style="color: rgba(0,0,0,0.6); font-size: 1.1rem; line-height: 1.6; margin-bottom: 1rem;">
+                  Ultra-slim design, Full HD/4K display, and easy content updates via USB, Wi-Fi, or CMS make them perfect for promotions, branding, or directional messaging.
+                </p>
+                <p style="color: var(--color-base--black); font-weight: 600; margin-top: 1.5rem;">Modern signage. Minimal setup. Maximum impact.</p>
+            </div>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="grid-stack-mobile" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 8rem;">
+            <div class="order-text-first">
+                <h2 style="font-size: clamp(2rem, 3.5vw, 2.5rem); font-family: var(--fonts--heading); font-weight: bold; margin-bottom: 1.5rem; color: var(--color-base--black); letter-spacing: -1px;">Video Processor & <span style="color: var(--secondary);">Control System</span></h2>
+                <p style="color: rgba(0,0,0,0.6); font-size: 1.1rem; line-height: 1.6; margin-bottom: 1rem;">
+                  At the heart of every great LED display is a powerful control system. <strong>Vyvauk Arabia offers advanced video processors and control solutions</strong> that ensure smooth, synchronized, and high-performance content delivery.
+                </p>
+                <p style="color: rgba(0,0,0,0.6); font-size: 1.1rem; line-height: 1.6; margin-bottom: 1rem;">
+                  Our systems support 4K/8K resolution, multi-input switching, real-time monitoring, and seamless signal transmission with low latency.
+                </p>
+                <p style="color: rgba(0,0,0,0.6); font-size: 1.1rem; line-height: 1.6; margin-bottom: 1rem;">
+                  <strong>Applications:</strong> LED walls, multi-display environments, live events, retail networks, control rooms.
+                </p>
+                <p style="color: var(--color-base--black); font-weight: 600; margin-top: 1.5rem;">Precision control. Seamless performance. Total reliability.</p>
+            </div>
+            <div class="order-img-last">
+                <img src="{% static 'website/assets/images/origin-story-3.jpg' %}" alt="Control System" style="width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3; box-shadow: 0 20px 40px rgba(0,0,0,0.1);" />
+            </div>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="grid-stack-mobile" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 8rem;">
+            <div>
+                <img src="{% static 'website/assets/images/origin-story-1.jpg' %}" alt="VYVAUK Cloud" style="width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3; box-shadow: 0 20px 40px rgba(0,0,0,0.1);" />
+            </div>
+            <div>
+                <h2 style="font-size: clamp(2rem, 3.5vw, 2.5rem); font-family: var(--fonts--heading); font-weight: bold; margin-bottom: 1.5rem; color: var(--color-base--black); letter-spacing: -1px;">VYVAUK <span style="color: var(--secondary);">Cloud</span></h2>
+                <p style="color: rgba(0,0,0,0.6); font-size: 1.1rem; line-height: 1.6; margin-bottom: 1rem;">
+                  Take control from anywhere with <strong>Vyvauk Arabia Cloud</strong> our smart platform for remote LED screen management.
+                </p>
+                <p style="color: rgba(0,0,0,0.6); font-size: 1.1rem; line-height: 1.6; margin-bottom: 1rem;">
+                  Instantly update content, monitor screen health, and schedule displays across locations, all from one secure dashboard.
+                </p>
+                <p style="color: rgba(0,0,0,0.6); font-size: 1.1rem; line-height: 1.6; margin-bottom: 1rem;">
+                  <strong>Ideal for:</strong> Retail chains, outdoor media, QSRs, and digital signage networks.
+                </p>
+                <p style="color: var(--color-base--black); font-weight: 600; margin-top: 1.5rem;">Smart. Centralized. Always connected.</p>
+            </div>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="grid-stack-mobile" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+            <div class="order-text-first">
+                <h2 style="font-size: clamp(2rem, 3.5vw, 2.5rem); font-family: var(--fonts--heading); font-weight: bold; margin-bottom: 1.5rem; color: var(--color-base--black); letter-spacing: -1px;">Content <span style="color: var(--secondary);">Management</span></h2>
+                <p style="color: rgba(0,0,0,0.6); font-size: 1.1rem; line-height: 1.6; margin-bottom: 1rem;">
+                  Keep your screens dynamic and relevant with <strong>Vyvauk Arabia’s Content Management Solutions</strong>.
+                </p>
+                <p style="color: rgba(0,0,0,0.6); font-size: 1.1rem; line-height: 1.6; margin-bottom: 1rem;">
+                  From real-time updates to scheduled campaigns, we help you manage what plays, when, and where across all your digital displays.
+                </p>
+                <p style="color: rgba(0,0,0,0.6); font-size: 1.1rem; line-height: 1.6; margin-bottom: 1rem;">
+                  Whether it’s promotional content, branding, or live data integration, our tools ensure your message is always on point and on time.
+                </p>
+                <p style="color: var(--color-base--black); font-weight: 600; margin-top: 1.5rem;">Strategic content. Seamless delivery. Made simple.</p>
+            </div>
+            <div class="order-img-last">
+                <img src="{% static 'website/assets/images/img/interactive_kiosk_1787649533408.jpg' %}" alt="Content Management" style="width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3; box-shadow: 0 20px 40px rgba(0,0,0,0.1);" />
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+{% endblock content %}
+
+{% block script %}
+  <script>
+
+  </script>
+{% endblock script %}

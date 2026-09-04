@@ -1,0 +1,293 @@
+{% extends 'website/Base.html' %}
+
+{% load static %}
+
+{% block head %}
+  <style>
+    /* Styling for the styled lists in the Benefits section */
+    .benefit-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .benefit-list li {
+        position: relative;
+        padding-left: 2rem;
+        margin-bottom: 1.2rem;
+        font-size: 1.1rem;
+        color: rgba(0,0,0,0.7);
+        line-height: 1.5;
+    }
+    .benefit-list li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0.5rem;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: var(--secondary);
+    }
+    .benefit-list li strong {
+        color: var(--color-base--black);
+        font-weight: 700;
+    }
+
+    /* Catalog Grid for Products */
+    .catalog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 2rem;
+    }
+    .catalog-card {
+        background: var(--color-base--white);
+        border: 1px solid rgba(0,0,0,0.05);
+        border-top: 3px solid var(--color-base--black);
+        padding: 2rem;
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+    }
+    .catalog-card:hover {
+        border-top-color: var(--secondary);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        transform: translateY(-5px);
+    }
+    .catalog-card h3 {
+        font-size: 1.1rem;
+        font-family: var(--fonts--heading);
+        color: var(--color-base--black);
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    .catalog-card p {
+        font-size: 0.9rem;
+        color: rgba(0,0,0,0.6);
+        line-height: 1.6;
+        margin: 0;
+    }
+    
+    @media screen and (max-width: 767px) {
+      .grid-stack-mobile {
+        grid-template-columns: 1fr !important;
+      }
+      .catalog-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+{% endblock head %}
+
+{% block content %}
+  <!-- Hero Section -->
+  <section class="section_retail_hero" style="background-color: var(--color-base--black); padding: 10rem 0 6rem 0; position: relative; overflow: hidden;">
+    <div style="position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; opacity: 0.3;">
+        <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;">
+            <source src="{% static 'website/assets/media/Retail-Lighting.mp4' %}" type="video/mp4" />
+        </video>
+    </div>
+    <img src="{% static 'website/assets/images/layer-bottom.svg' %}" loading="lazy" alt="" class="hero-layer" style="position: absolute; bottom: -1px; left: 0; width: 100%; z-index: 1;" />
+    
+    <div class="padding-global padding-section-medium" style="position: relative; z-index: 2;">
+      <div class="container-default">
+        <div style="max-width: 800px;">
+          <div class="text-style-badge" style="margin-bottom: 2rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+            <div class="badge-dot" style="background-color: var(--secondary); width: 8px; height: 8px; border-radius: 50%;"></div>
+            <div style="color: var(--color-base--white); letter-spacing: 2px; text-transform: uppercase; font-size: 0.75rem; font-weight: 600; font-family: var(--fonts--badge);">Retail Lighting & Ceilings</div>
+          </div>
+          <h1 style="color: var(--color-base--white); font-size: clamp(3rem, 6vw, 4.5rem); line-height: 1.1; margin-bottom: 1.5rem; font-family: var(--fonts--heading); font-weight: bold; letter-spacing: -1px;">D'TRACK <span style="color: var(--secondary);">ART OF CEILING</span></h1>
+          <p style="color: rgba(255,255,255,0.7); font-size: 1.15rem; line-height: 1.7; max-width: 650px; font-weight: 300;">A revolutionary ceiling solution designed to address all your interior needs with unmatched versatility and precision.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Introduction / Story Section -->
+  <section class="section_intro" style="background-color: var(--color-base--white); padding: 8rem 0;">
+    <div class="padding-global">
+      <div class="container-default">
+        <div class="grid-stack-mobile" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+            <div>
+                <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-family: var(--fonts--heading); font-weight: bold; margin-bottom: 1.5rem; color: var(--color-base--black); letter-spacing: -1px;">Engineering <span style="color: var(--secondary);">Innovation</span></h2>
+                <p style="color: rgba(0,0,0,0.6); font-size: 1.1rem; line-height: 1.6; margin-bottom: 1rem;">
+                  Born in the United Arab Emirates in 2025, D'Track stands at the forefront of ceiling engineering, driven by innovation and expertise.
+                </p>
+                <p style="color: rgba(0,0,0,0.6); font-size: 1.1rem; line-height: 1.6; margin-bottom: 1rem;">
+                  Founded by Muhammad Manaf, the visionary behind 800 Retail Solutions, D'Track is crafted to be the ultimate answer to a wide range of ceiling challenges. Whether you need to replace gypsum ceilings, upgrade power tracks, install hanging systems, or overhaul grid and wooden fluted ceilings, D'Track offers a comprehensive solution that simplifies and streamlines your project.
+                </p>
+                <p style="color: rgba(0,0,0,0.6); font-size: 1.1rem; line-height: 1.6;">
+                  Our product is engineered for reliability, compatibility, and ease of installation, making it suitable for all types of ceilings. With D'Track, you gain a flexible, durable, and elegant ceiling system that transforms your space effortlessly.
+                </p>
+            </div>
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+                <iframe src="https://www.youtube.com/embed/5-ugGHh2C20" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen></iframe>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Benefits -->
+  <section class="section_benefits" style="background-color: var(--color-neutral--shade-50); padding: 8rem 0;">
+    <div class="padding-global">
+      <div class="container-default">
+        <div class="grid-stack-mobile" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); order: -1;">
+                <iframe src="https://www.youtube.com/embed/R1t6d6uGz34?si=WLEMeTQwyjOrK9NC" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen></iframe>
+            </div>
+            <div>
+                <h2 style="font-size: clamp(2rem, 3.5vw, 2.5rem); font-family: var(--fonts--heading); font-weight: bold; margin-bottom: 2rem; color: var(--color-base--black); letter-spacing: -1px;">D'<span style="color: var(--secondary);">TRACK</span> Key Benefits</h2>
+                
+                <ul class="benefit-list">
+                    <li><strong>Fast Installation Timeline:</strong> Complete installation for up to a 20,000 sq. ft. store in just 3 days.</li>
+                    <li><strong>Cost Saving:</strong> Achieve 50-60% cost savings compared to conventional ceiling and lighting systems.</li>
+                    <li><strong>Closed Ceiling:</strong> Replaces traditional gypsum ceiling at flush or grid levels with fire-rated fabric.</li>
+                    <li><strong>Stretch Ceiling:</strong> No additional frame system required integrated stretch ceiling profile included.</li>
+                    <li><strong>Power Track:</strong> No separate power track needed power supply is integrated within the D'Track.</li>
+                    <li><strong>Art Ceiling:</strong> No extra hanging system or paneling required decorative panels and features can be directly mounted.</li>
+                    <li><strong>Speakers:</strong> Plug-and-play speakers, compliant with EU standards.</li>
+                    <li><strong>Track Lighting:</strong> Compatible with international brands, featuring an integrated power source and 4-line track light system.</li>
+                </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CTA Section -->
+  <section class="section_cta" style="background-color: var(--color-base--black); padding: 6rem 0; text-align: center; position: relative; overflow: hidden;">
+    <img src="{% static 'website/assets/images/pattern.avif' %}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.1;" alt="" />
+    <div class="padding-global" style="position: relative; z-index: 1;">
+        <div class="container-default">
+            <h2 style="color: var(--color-base--white); font-size: clamp(2.5rem, 5vw, 3.5rem); font-family: var(--fonts--heading); font-weight: bold; margin-bottom: 1rem; letter-spacing: -1px;">Let's Design and Shape <span style="color: var(--secondary);">Your Imagination</span></h2>
+            <p style="color: rgba(255,255,255,0.7); font-size: 1.15rem; margin-bottom: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto; font-weight: 300;">Request your consultation with our in-house team of commercial interior experts.</p>
+            <a href="{% url 'contact' %}" class="button is-secondary w-inline-block" style="display: inline-block;">
+                <div class="button-mask">
+                    <div class="button-text">Request a Quote</div>
+                    <div class="button-text-hover">Request a Quote</div>
+                </div>
+            </a>
+        </div>
+    </div>
+  </section>
+
+
+  <!-- Catalog Grid -->
+  <section class="section_catalog" style="background-color: var(--color-base--white); padding: 8rem 0;">
+    <div class="padding-global">
+      <div class="container-default">
+        <div style="margin-bottom: 4rem; text-align: center;">
+            <h2 style="font-size: clamp(2.5rem, 4vw, 3.5rem); font-family: var(--fonts--heading); font-weight: bold; color: var(--color-base--black); margin-bottom: 1rem; letter-spacing: -1px;">System <span style="color: var(--secondary);">Components</span></h2>
+            <p style="color: rgba(0,0,0,0.6); font-size: 1.1rem; line-height: 1.6; max-width: 600px; margin: 0 auto;">Explore the complete ecosystem of tracks, joints, lighting, and lightboxes designed for seamless integration.</p>
+        </div>
+
+        <div class="catalog-grid">
+            <div class="catalog-card">
+                <h3>D'Track Main Rails</h3>
+                <p>Smart connectors that keep your lighting tracks perfectly aligned and powered clean, seamless, and reliable.</p>
+            </div>
+            <div class="catalog-card">
+                <h3>Linear Joint</h3>
+                <p>Connects two track rails end-to-end, forming a seamless, straight path without angles. Essential for extending tracks smoothly.</p>
+            </div>
+            <div class="catalog-card">
+                <h3>L-Joint</h3>
+                <p>Joins two track rails at a right angle. Commonly used when tracks need to change direction, such as turning a corner.</p>
+            </div>
+            <div class="catalog-card">
+                <h3>T-Joint</h3>
+                <p>Forms a "T" shape to branch out a track into multiple directions from a single point, enabling complex junctions.</p>
+            </div>
+            <div class="catalog-card">
+                <h3>+ Joint (Cross)</h3>
+                <p>Four track rails meet at a central point. Allows for highly intricate and interconnected track layouts.</p>
+            </div>
+            <div class="catalog-card">
+                <h3>End Cap</h3>
+                <p>Provides a clean and finished look to the end of the rail, concealing exposed ends and preventing dust accumulation.</p>
+            </div>
+            <div class="catalog-card">
+                <h3>End Cap with Power Hole</h3>
+                <p>A clean finish to the end of the rail while allowing easy access for electrical connections.</p>
+            </div>
+            <div class="catalog-card">
+                <h3>Hanging Suspension Wire</h3>
+                <p>Utilized to support track rails, ensuring stability and alignment in elevated or overhead track systems.</p>
+            </div>
+            <div class="catalog-card">
+                <h3>Track Light (35W)</h3>
+                <p>CCT: 4000K | Lumen: 4140 LM | Power: 35W | Colour: Black. Perfect directional lighting for retail.</p>
+            </div>
+            <div class="catalog-card">
+                <h3>Track Light (40W)</h3>
+                <p>CCT: 4000K | Lumen: 4140 LM | Power: 40W | Colour: White. High performance adjustable spots.</p>
+            </div>
+            <div class="catalog-card">
+                <h3>Visual Poster System</h3>
+                <p>Projector lights ideal for projecting custom designs onto any surfaces, using specially crafted lens slides.</p>
+            </div>
+            <div class="catalog-card">
+                <h3>Adjustable Linear Track Lights</h3>
+                <p>CCT: 4000K | Power: 42W | Size: 900 mm. Sleek powder-coated finish in Black/White.</p>
+            </div>
+            <div class="catalog-card">
+                <h3>Adjustable Grid Track Lights</h3>
+                <p>CCT: 4000K | Power: 42W | Driver: Tridonic/Osram/Philips | Size: 900 mm.</p>
+            </div>
+            <div class="catalog-card">
+                <h3>Linear Pendant Light</h3>
+                <p>CCT: 4000K | Power: 80W | Size: L 3000 mm. Powerful ambient illumination for corridors.</p>
+            </div>
+            <div class="catalog-card">
+                <h3>Backlit LED Bar</h3>
+                <p>Provide bright, uniform illumination for fabric light boxes, enhancing the visibility and vibrancy of graphics.</p>
+            </div>
+            <div class="catalog-card">
+                <h3>Retail Lightbox</h3>
+                <p>Dual-Sided Pillar Fabric Light Box, a sophisticated solution designed to transform pillars into dynamic visual canvases.</p>
+            </div>
+            
+            <!-- P-Series Lightboxes -->
+            <div class="catalog-card">
+                <h3>P20 Lightbox Profile</h3>
+                <p>Depth: 20 mm | Frame: Aluminium | Graphics: Single-Sided | Application: Wall Mounted.</p>
+            </div>
+            <div class="catalog-card">
+                <h3>P30 Lightbox Profile</h3>
+                <p>Depth: 30 mm | Frame: Aluminium | Graphics: Single-Sided | Application: Wall Mounted.</p>
+            </div>
+            <div class="catalog-card">
+                <h3>P40 Lightbox Profile</h3>
+                <p>Depth: 40 mm | Frame: Aluminium | Graphics: Single-Sided | Application: Wall Mounted.</p>
+            </div>
+            <div class="catalog-card">
+                <h3>P58 Lightbox Profile</h3>
+                <p>Depth: 58 mm | Frame: Aluminium | Graphics: Single-Sided | Application: Wall Mounted.</p>
+            </div>
+            <div class="catalog-card">
+                <h3>P60 Lightbox Profile</h3>
+                <p>Depth: 60 mm | Frame: Aluminium | Graphics: Single-Sided | Application: Wall Mounted.</p>
+            </div>
+            <div class="catalog-card">
+                <h3>P80 Lightbox Profile</h3>
+                <p>Depth: 80 mm | Frame: Aluminium | Graphics: Single-Sided | Application: Wall Mounted.</p>
+            </div>
+            <div class="catalog-card">
+                <h3>L-Shape Profile</h3>
+                <p>Frame: Aluminium | Graphics: Single-Sided. For corner edges and dimensional displays.</p>
+            </div>
+            <div class="catalog-card">
+                <h3>Power Supply Unit</h3>
+                <p>Reliable and efficient power conversion tailored for D'Track and lightbox integrations.</p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock content %}
+
+{% block script %}
+{% endblock script %}

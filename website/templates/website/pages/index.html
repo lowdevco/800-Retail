@@ -365,12 +365,12 @@
                   <div class="text-size-medium text-weight-light">From concept to completion, we create retail spaces that perform, inspire, and last</div>
                   <div class="spacer-small"></div>
                   <div class="button-group">
-                    <a animate="" button="" href="pages/projects/crestview-cultural-center.html" class="button is-secondary w-inline-block">
+                    <a animate="" button="" href="{% url 'project' %}" class="button is-secondary w-inline-block">
                       <div class="button-mask">
                         <div button-text="" class="button-text">View Our Projects</div>
                         <div button-text="" class="button-text-hover">View Our Projects</div>
                       </div>
-                    </a><a button="" href="pages/contact.html" class="button is-alternative w-inline-block">
+                    </a><a button="" href="{% url 'contact' %}" class="button is-alternative w-inline-block">
                       <div class="button-mask">
                         <div button-text="" class="button-text">Contact Us</div>
                         <div button-text="" class="button-text-hover">Contact Us</div>
@@ -406,7 +406,7 @@
         <div class="spacer-large"></div>
         <div class="home1_welcome_wrap-top">
           <div animate="fade-up-2" class="home3_hero_left">
-            <div data-poster-url="{% static 'website/assets/images/video-2-poster.jpg' %}" data-video-urls="{% static 'website/assets/media/video-1.mp4' %}" data-autoplay="true" data-loop="true" data-wf-ignore="true" class="background-video w-background-video w-background-video-atom">
+            <div data-poster-url="{% static 'website/assets/images/video-2-poster.jpg' %}" data-video-urls="{% static 'website/assets/video/video-1.mp4' %}" data-autoplay="true" data-loop="true" data-wf-ignore="true" class="background-video w-background-video w-background-video-atom">
               <video id="7990fe26-a00c-6402-5ad0-5365f93fab76-video" autoplay="" loop="" style="
                         background-image: url({% static 'website/assets/images/video-2-poster.jpg' %});
                       " muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover">
@@ -1591,7 +1591,7 @@
               <div class="testimonial-card" id="index-testimonial">
                 <div class="testimonial-header">
                   <div class="testimonial-logo">
-                    <img src="{% static 'website/assets/images/clients/skechers.svg' %}" alt="Skechers" />
+                    <img src="{% static 'website/assets/images/clients/Skechers.svg' %}" alt="Skechers" />
                   </div>
                   <div class="testimonial-quote-icon">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)" xmlns="http://www.w3.org/2000/svg">
@@ -1610,7 +1610,7 @@
               <div class="testimonial-card" id="index-testimonial">
                 <div class="testimonial-header">
                   <div class="testimonial-logo">
-                    <img src="{% static 'website/assets/images/clients/birkenstock.svg' %}" alt="Birkenstock" />
+                    <img src="{% static 'website/assets/images/clients/Birkenstock.svg' %}" alt="Birkenstock" />
                   </div>
                   <div class="testimonial-quote-icon">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)" xmlns="http://www.w3.org/2000/svg">
@@ -1743,7 +1743,7 @@
               <div class="testimonial-card" id="index-testimonial">
                 <div class="testimonial-header">
                   <div class="testimonial-logo">
-                    <img src="{% static 'website/assets/images/clients/reebok.svg' %}" alt="Reebok" />
+                    <img src="{% static 'website/assets/images/clients/Reebok.svg' %}" alt="Reebok" />
                   </div>
                   <div class="testimonial-quote-icon">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)" xmlns="http://www.w3.org/2000/svg">
@@ -1781,7 +1781,7 @@
               <div class="testimonial-card" id="index-testimonial">
                 <div class="testimonial-header">
                   <div class="testimonial-logo">
-                    <img src="{% static 'website/assets/images/clients/skechers.svg' %}" alt="Skechers" />
+                    <img src="{% static 'website/assets/images/clients/Skechers.svg' %}" alt="Skechers" />
                   </div>
                   <div class="testimonial-quote-icon">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)" xmlns="http://www.w3.org/2000/svg">
@@ -1800,7 +1800,7 @@
               <div class="testimonial-card" id="index-testimonial">
                 <div class="testimonial-header">
                   <div class="testimonial-logo">
-                    <img src="{% static 'website/assets/images/clients/birkenstock.svg' %}" alt="Birkenstock" />
+                    <img src="{% static 'website/assets/images/clients/Birkenstock.svg' %}" alt="Birkenstock" />
                   </div>
                   <div class="testimonial-quote-icon">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)" xmlns="http://www.w3.org/2000/svg">
@@ -1933,7 +1933,7 @@
               <div class="testimonial-card" id="index-testimonial">
                 <div class="testimonial-header">
                   <div class="testimonial-logo">
-                    <img src="{% static 'website/assets/images/clients/reebok.svg' %}" alt="Reebok" />
+                    <img src="{% static 'website/assets/images/clients/Reebok.svg' %}" alt="Reebok" />
                   </div>
                   <div class="testimonial-quote-icon">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)" xmlns="http://www.w3.org/2000/svg">
@@ -1971,25 +1971,25 @@
 <div class="logo-marquee-section">
   <div class="logo-marquee-track">
     <div class="logo-marquee-item"><img src="{% static 'website/assets/images/clients/adidas.svg' %}" alt="Adidas" loading="lazy" /></div>
-<div class="logo-marquee-item"><img src="{% static 'website/assets/images/clients/skechers.svg' %}" alt="Skechers" loading="lazy" /></div>
-<div class="logo-marquee-item"><img src="{% static 'website/assets/images/clients/birkenstock.svg' %}" alt="Birkenstock" loading="lazy" /></div>
+<div class="logo-marquee-item"><img src="{% static 'website/assets/images/clients/Skechers.svg' %}" alt="Skechers" loading="lazy" /></div>
+<div class="logo-marquee-item"><img src="{% static 'website/assets/images/clients/Birkenstock.svg' %}" alt="Birkenstock" loading="lazy" /></div>
 <div class="logo-marquee-item"><img src="{% static 'website/assets/images/clients/asics.svg' %}" alt="Asics" loading="lazy" /></div>
 <div class="logo-marquee-item"><img src="{% static 'website/assets/images/clients/Apparel_group.png' %}" alt="Apparel Group" loading="lazy" /></div>
 <div class="logo-marquee-item"><img src="{% static 'website/assets/images/clients/Landmark_group.svg' %}" alt="Landmark Group" loading="lazy" /></div>
 <div class="logo-marquee-item"><img src="{% static 'website/assets/images/clients/Nesto.png' %}" alt="Nesto" loading="lazy" /></div>
 <div class="logo-marquee-item"><img src="{% static 'website/assets/images/clients/Brands_for_less.png' %}" alt="Brands For Less" loading="lazy" /></div>
 <div class="logo-marquee-item"><img src="{% static 'website/assets/images/clients/Brand_folio.jpg' %}" alt="Brand Folio" loading="lazy" /></div>
-<div class="logo-marquee-item"><img src="{% static 'website/assets/images/clients/reebok.svg' %}" alt="Reebok" loading="lazy" /></div>
+<div class="logo-marquee-item"><img src="{% static 'website/assets/images/clients/Reebok.svg' %}" alt="Reebok" loading="lazy" /></div>
     <div class="logo-marquee-item"><img src="{% static 'website/assets/images/clients/adidas.svg' %}" alt="Adidas" loading="lazy" /></div>
-<div class="logo-marquee-item"><img src="{% static 'website/assets/images/clients/skechers.svg' %}" alt="Skechers" loading="lazy" /></div>
-<div class="logo-marquee-item"><img src="{% static 'website/assets/images/clients/birkenstock.svg' %}" alt="Birkenstock" loading="lazy" /></div>
+<div class="logo-marquee-item"><img src="{% static 'website/assets/images/clients/Skechers.svg' %}" alt="Skechers" loading="lazy" /></div>
+<div class="logo-marquee-item"><img src="{% static 'website/assets/images/clients/Birkenstock.svg' %}" alt="Birkenstock" loading="lazy" /></div>
 <div class="logo-marquee-item"><img src="{% static 'website/assets/images/clients/asics.svg' %}" alt="Asics" loading="lazy" /></div>
 <div class="logo-marquee-item"><img src="{% static 'website/assets/images/clients/Apparel_group.png' %}" alt="Apparel Group" loading="lazy" /></div>
 <div class="logo-marquee-item"><img src="{% static 'website/assets/images/clients/Landmark_group.svg' %}" alt="Landmark Group" loading="lazy" /></div>
 <div class="logo-marquee-item"><img src="{% static 'website/assets/images/clients/Nesto.png' %}" alt="Nesto" loading="lazy" /></div>
 <div class="logo-marquee-item"><img src="{% static 'website/assets/images/clients/Brands_for_less.png' %}" alt="Brands For Less" loading="lazy" /></div>
 <div class="logo-marquee-item"><img src="{% static 'website/assets/images/clients/Brand_folio.jpg' %}" alt="Brand Folio" loading="lazy" /></div>
-<div class="logo-marquee-item"><img src="{% static 'website/assets/images/clients/reebok.svg' %}" alt="Reebok" loading="lazy" /></div>
+<div class="logo-marquee-item"><img src="{% static 'website/assets/images/clients/Reebok.svg' %}" alt="Reebok" loading="lazy" /></div>
   </div>
 </div>
 
