@@ -9,6 +9,10 @@ from django.conf import settings
 from apps.dashboard.models import ContactEnquiry, CompanyDetails
 from apps.dashboard.models import Page, Project, Product, Blog
 
+
+def custom_404(request, exception):
+    return render(request, '404.html', status=404)
+
 def get_page_context(slug):
     try:
         return {'page': Page.objects.get(slug=slug)}

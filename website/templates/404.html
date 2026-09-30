@@ -1,0 +1,36 @@
+{% extends 'website/Base.html' %}
+{% load static %}
+
+{% block title %}Page Not Found - 404 | 800 Retail{% endblock %}
+
+{% block content %}
+<div class="padding-outer-inline">
+  <section class="_404 background-color-alternate">
+    <div class="padding-global padding-section-small">
+      <div class="container-default">
+        <div class="centered-404" style="display: flex; flex-direction: column; align-items: center; text-align: center; justify-content: center; min-height: 60vh;">
+          <div class="text-style-badge" style="margin: 0 auto; display: inline-flex;">
+            <div class="badge-dot"></div>
+            <div>404</div>
+          </div>
+          <div class="spacer-xsmall"></div>
+          <div class="max-width-medium" style="margin: 0 auto;">
+            <h1 style="margin-bottom: 0.5rem;">Oops! Page not found</h1>
+            <div class="text-size-small text-style-muted60">
+              The page you're looking for doesn't exist, moved, or never existed in the first place.
+            </div>
+          </div>
+          <div style="margin-top: 2rem;">
+            <a href="{% url 'home' %}" class="button w-inline-block">
+              <div class="button-mask">
+                <div class="button-text">Go Back Home</div>
+                <div class="button-text-hover">Go Back Home</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock content %}
