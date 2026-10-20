@@ -10,6 +10,7 @@ SECRET_KEY = config('DJANGO_KEY')
 DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = [
+    "demo.800retail.com",
     "localhost",
     "127.0.0.1",
     "eight00-retail.onrender.com",
@@ -17,6 +18,7 @@ ALLOWED_HOSTS = [
 
 
 CSRF_TRUSTED_ORIGINS = [
+    "http://demo.800retail.com",
     "http://localhost:8000",
     "http://127.0.0.1:8000",
     "https://eight00-retail.onrender.com",

@@ -46,4 +46,8 @@ desktop.ini
 # Misc
 
 website.zip
+website-local/
+tmp/
+passenger_wsgi.py
+Website-updates.md
 ______________

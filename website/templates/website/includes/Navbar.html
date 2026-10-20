@@ -88,6 +88,11 @@
       }
     }
     
+    /* No divider after the menu now that the Get a Quote button is gone */
+    .nav-menu-wrapper {
+      border-right: none !important;
+    }
+
     /* Fix navbar to top of the screen */
     .navbar {
       position: fixed !important;
@@ -112,7 +117,7 @@
         data-duration="400"
         data-doc-height="1"
       >
-        <header class="nav-content">
+        <header class="nav-content"><meta charset="utf-8">
           <div class="container w-container">
             <div class="nav-wrapper">
               <a href="{% url 'home' %}" class="nav-brand w-nav-brand"
@@ -140,7 +145,7 @@
                         <a
                           href="{% url 'retail_fixture' %}"
                           class="simple-dropdown-link"
-                          >Retail Fixture</a
+                          >Retail Fixtures</a
                         >
                         <a
                           href="{% url 'retail_led' %}"
@@ -151,24 +156,6 @@
                           href="{% url 'retail_lighting' %}"
                           class="simple-dropdown-link"
                           >Retail Lighting</a
-                        >
-                      </nav>
-                    </div>
-
-                    <div data-delay="0" data-hover="true" class="nav-dropdown">
-                      <div class="nav-dropdown-toggle">
-                        <div>Capabilities</div>
-                      </div>
-                      <nav class="simple-dropdown-list">
-                        <a
-                          href="{% url 'divisions' %}"
-                          class="simple-dropdown-link"
-                          >Divisions</a
-                        >
-                        <a
-                          href="{% url 'product' %}"
-                          class="simple-dropdown-link"
-                          >Products & Solutions</a
                         >
                       </nav>
                     </div>
@@ -188,6 +175,16 @@
                           class="simple-dropdown-link"
                           >Our Clientele</a
                         >
+                        <a
+                          href="{% url 'divisions' %}"
+                          class="simple-dropdown-link"
+                          >Divisions</a
+                        >
+                        <a
+                          href="{% url 'product' %}"
+                          class="simple-dropdown-link"
+                          >Products & Solutions</a
+                        >
                       </nav>
                     </div>
 
@@ -204,14 +201,6 @@
                       <div class="nav-menu-btn-line-bottom"></div>
                     </div>
                   </div>
-                </div>
-                <div
-                  class="nav-right-button hide-mobile"
-                  style="display: flex; align-items: center"
-                >
-                  <a href="{% url 'contact' %}" class="button w-inline-block">
-                    <div>Get a Quote</div>
-                  </a>
                 </div>
               </div>
             </div>

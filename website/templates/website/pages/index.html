@@ -337,6 +337,16 @@
 }
 </style>
 
+<style>
+/* Hero fills exactly one screen below the fixed navbar */
+.section_home1_hero { padding-top: 4.75rem; }
+.home1_hero_wrap { min-height: calc(100vh - 4.75rem); min-height: calc(100svh - 4.75rem); }
+@media screen and (max-width: 991px) {
+  .section_home1_hero { padding-top: 3.9rem; }
+  .home1_hero_wrap { min-height: calc(100vh - 3.9rem); min-height: calc(100svh - 3.9rem); }
+}
+</style>
+
 {% endblock %}
 
 {% block content %}
@@ -358,7 +368,7 @@
                   </div>
                   <div class="spacer-small"></div>
                   <div>
-                    <h1>Largest Retail Solution in the World</h1>
+                    <h1>Largest Retail Customization Centre in the World</h1>
                   </div>
                 </div>
                 <div class="home1_hero_right">
@@ -367,8 +377,8 @@
                   <div class="button-group">
                     <a animate="" button="" href="{% url 'project' %}" class="button is-secondary w-inline-block">
                       <div class="button-mask">
-                        <div button-text="" class="button-text">View Our Projects</div>
-                        <div button-text="" class="button-text-hover">View Our Projects</div>
+                        <div button-text="" class="button-text">Add More</div>
+                        <div button-text="" class="button-text-hover">Add More</div>
                       </div>
                     </a><a button="" href="{% url 'contact' %}" class="button is-alternative w-inline-block">
                       <div class="button-mask">
@@ -397,10 +407,10 @@
           <div class="max-width-medium">
             <div animate="fade-up-1" class="text-style-badge">
               <div class="badge-dot"></div>
-              <div class="text-color-alternate">Welcome to 800 Retail Solutions</div>
+              <div class="text-color-alternate">The World of 800</div>
             </div>
             <div class="spacer-small"></div>
-            <h3 animate="fade-up-2">“A trusted partner in creating exceptional retail spaces, delivering thoughtful design, precision manufacturing, and seamless execution from concept to completion.”</h3>
+            <h3 animate="fade-up-2">“A trusted partner in creating exceptional Retail Spaces, delivering thoughtful design, precision manufacturing and seamless execution from concept to completion”</h3>
           </div>
         </div>
         <div class="spacer-large"></div>
@@ -453,7 +463,7 @@
                   <img src="{% static 'website/assets/images/flags/UAE.svg' %}" loading="lazy" alt="" class="icon-height-medium" />
                 </div>
                 <div>
-                  <div class="text-size-small text-weight-light">UAE since 1997</div>
+                  <div class="text-size-small text-weight-light">UAE since 2004</div>
                   <div class="text-size-small text-weight-light text-style-muted">Delivering complete retail solutions with decades of experience across the region</div>
                 </div>
               </div>
@@ -480,7 +490,7 @@
                   <img src="{% static 'website/assets/images/flags/INDIA.svg' %}" loading="lazy" alt="" class="icon-height-medium" />
                 </div>
                 <div>
-                  <div class="text-size-small text-weight-light">INDIA (coming Soon)</div>
+                  <div class="text-size-small text-weight-light">INDIA (January 2027)</div>
                   <div class="text-size-small text-weight-light text-style-muted">Bringing our retail expertise to India as we prepare for our next expansion</div>
                 </div>
               </div>
@@ -509,18 +519,47 @@
                     ">
               <div animate="fade-up-1" class="text-style-badge">
                 <div class="badge-dot"></div>
-                <div>Our Expertise</div>
+                <div>Expertise of 800</div>
               </div>
               <div class="spacer-xxsmall"></div>
               <div class="spacer-tiny"></div>
-              <h2 animate="title" style="max-width: 800px">Building Global Retail Environments for Generations</h2>
+              <h2 animate="title" style="max-width: 900px; font-size: clamp(2.5rem, 5vw, 4.25rem); line-height: 1.1">Building Global Retail Environments</h2>
             </div>
           </div>
           <div class="expertise_list">
             <a animate="fade-up-1" href="{% url 'divisions' %}" class="expertise_card w-inline-block">
-              <img src="{% static 'website/assets/images/img/retail_fixtures.png' %}" loading="lazy" sizes="(max-width: 2464px) 100vw, 2464px" alt="Retail Fixtures" class="expertise_card-img" />
+              <img src="{% static 'website/assets/images/img/retail_fitout.png' %}" loading="lazy" sizes="(max-width: 2464px) 100vw, 2464px" alt="Retail Concept" class="expertise_card-img" />
               <div class="expertise_card-layer-wrap">
                 <img src="{% static 'website/assets/images/layer-left.svg' %}" loading="lazy" alt="" class="expertise_card-layer-img" />
+              </div>
+              <div class="expertise_card-content">
+                <h3>Retail Concept</h3>
+                <div class="expertise_card-info">
+                  <div class="label-list">
+                    <div class="label">
+                      <div class="text-size-tiny text-weight-light">Concept Design</div>
+                    </div>
+                    <div class="label">
+                      <div class="text-size-tiny text-weight-light">Space Management</div>
+                    </div>
+                    <div class="label">
+                      <div class="text-size-tiny text-weight-light">Rendering & Walkthrough</div>
+                    </div>
+                  </div>
+                  <div button="" class="button is-alternative is-small">
+                    <div class="button-mask">
+                      <div button-text="" class="button-text is-alternative">Learn More</div>
+                      <div button-text="" class="button-text-hover is-alternative">Learn More</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <a animate="fade-up-2" href="{% url 'retail_fixture' %}" class="expertise_card w-inline-block">
+              <img src="{% static 'website/assets/images/img/retail_fixtures.png' %}" loading="lazy" sizes="100vw" alt="Retail Fixtures" class="expertise_card-img" />
+              <div class="expertise_card-layer-wrap">
+                <img src="{% static 'website/assets/images/layer-right.svg' %}" loading="lazy" alt="" class="expertise_card-layer-img is-right" />
               </div>
               <div class="expertise_card-content">
                 <h3>Retail Fixtures</h3>
@@ -546,10 +585,10 @@
               </div>
             </a>
 
-            <a animate="fade-up-2" href="{% url 'divisions' %}" class="expertise_card w-inline-block">
-              <img src="{% static 'website/assets/images/img/retail_led.png' %}" loading="lazy" sizes="100vw" alt="Retail LED" class="expertise_card-img" />
+            <a animate="fade-up-1" href="{% url 'retail_led' %}" class="expertise_card w-inline-block">
+              <img src="{% static 'website/assets/images/img/retail_led.png' %}" loading="lazy" sizes="(max-width: 2464px) 100vw, 2464px" alt="Retail LED" class="expertise_card-img" />
               <div class="expertise_card-layer-wrap">
-                <img src="{% static 'website/assets/images/layer-right.svg' %}" loading="lazy" alt="" class="expertise_card-layer-img is-right" />
+                <img src="{% static 'website/assets/images/layer-left.svg' %}" loading="lazy" alt="" class="expertise_card-layer-img" />
               </div>
               <div class="expertise_card-content">
                 <h3>Retail LED</h3>
@@ -575,10 +614,10 @@
               </div>
             </a>
 
-            <a animate="fade-up-1" href="{% url 'divisions' %}" class="expertise_card w-inline-block">
-              <img src="{% static 'website/assets/images/img/retail_lighting.png' %}" loading="lazy" sizes="(max-width: 2464px) 100vw, 2464px" alt="Retail Lighting" class="expertise_card-img" />
+            <a animate="fade-up-2" href="{% url 'retail_lighting' %}" class="expertise_card w-inline-block">
+              <img src="{% static 'website/assets/images/img/retail_lighting.png' %}" loading="lazy" sizes="100vw" alt="Retail Lighting" class="expertise_card-img" />
               <div class="expertise_card-layer-wrap">
-                <img src="{% static 'website/assets/images/layer-left.svg' %}" loading="lazy" alt="" class="expertise_card-layer-img" />
+                <img src="{% static 'website/assets/images/layer-right.svg' %}" loading="lazy" alt="" class="expertise_card-layer-img is-right" />
               </div>
               <div class="expertise_card-content">
                 <h3>Retail Lighting</h3>
@@ -592,35 +631,6 @@
                     </div>
                     <div class="label">
                       <div class="text-size-tiny text-weight-light">Sustainable</div>
-                    </div>
-                  </div>
-                  <div button="" class="button is-alternative is-small">
-                    <div class="button-mask">
-                      <div button-text="" class="button-text is-alternative">Learn More</div>
-                      <div button-text="" class="button-text-hover is-alternative">Learn More</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-
-            <a animate="fade-up-2" href="{% url 'divisions' %}" class="expertise_card w-inline-block">
-              <img src="{% static 'website/assets/images/img/retail_fitout.png' %}" loading="lazy" sizes="100vw" alt="Retail Fitout" class="expertise_card-img" />
-              <div class="expertise_card-layer-wrap">
-                <img src="{% static 'website/assets/images/layer-right.svg' %}" loading="lazy" alt="" class="expertise_card-layer-img is-right" />
-              </div>
-              <div class="expertise_card-content">
-                <h3>Retail Fitout</h3>
-                <div class="expertise_card-info">
-                  <div class="label-list">
-                    <div class="label">
-                      <div class="text-size-tiny text-weight-light">Interior Fit-out</div>
-                    </div>
-                    <div class="label">
-                      <div class="text-size-tiny text-weight-light">Concept Design</div>
-                    </div>
-                    <div class="label">
-                      <div class="text-size-tiny text-weight-light">Installation</div>
                     </div>
                   </div>
                   <div button="" class="button is-alternative is-small">
@@ -795,13 +805,13 @@
                       color: var(--color-base--white);
                       margin-bottom: 1rem;
                       font-size: 3rem;
-                    ">The Power of 800 Retail</h2>
+                    ">Power of 800</h2>
             <p animate="fade-up-2" style="
                       font-size: 1.25rem;
                       color: #a9a69d;
                       font-weight: 400;
                       max-width: 600px;
-                    ">8 Facilities in One Integrated Campus</p>
+                    ">11 Facilities in One Integrated Campus</p>
           </div>
         </div>
         <div class="home1_welcome_wrap">
@@ -845,7 +855,7 @@
                         Rendering & Walkthrough
                       </li>
                     </ul>
-                    <a href="#contact" class="department-btn" style="border-color: #1c1c16; color: #1c1c16;">Get In Touch</a>
+                    <a href="{% url 'contact' %}" class="department-btn" style="border-color: #1c1c16; color: #1c1c16;">Know More About 800</a>
                   </div>
 
                   <div class="department-image">
@@ -873,7 +883,7 @@
                       </li>
                       <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        QC Department
+                        Production Planning & Control (PPC) Department
                       </li>
                       <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -881,10 +891,18 @@
                       </li>
                       <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Production Planning & Control (PPC) Department
+                        Re Engineering
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Value Engineering
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        QA / QC Department
                       </li>
                     </ul>
-                    <a href="#contact" class="department-btn" style="border-color: #1c1c16; color: #1c1c16;">Get In Touch</a>
+                    <a href="{% url 'contact' %}" class="department-btn" style="border-color: #1c1c16; color: #1c1c16;">Know More About 800</a>
                   </div>
 
                   <div class="department-image">
@@ -892,11 +910,11 @@
                   </div>
                 </div>
               </div>
-              <!-- 3. FABRICATION -->
-              <div class="department-item" style="background-color: #6a6b6c; color: #ffffff; border-right-color: rgba(255,255,255,0.2);">
+              <!-- 3. MACHINERIES DEPARTMENT – METAL -->
+              <div class="department-item" style="background-color: #4a4b4c; color: #ffffff; border-right-color: rgba(255,255,255,0.2);">
                 <button class="department-trigger" type="button">
                   <span class="department-arrow">&rsaquo;</span>
-                  <span class="department-label" style="font-weight: 500; font-size: 14px;">Fabrication</span>
+                  <span class="department-label" style="font-weight: 500; font-size: 14px;">Machineries Department – Metal</span>
                 </button>
 
                 <div class="department-expanded">
@@ -904,43 +922,148 @@
                     <ul style="list-style-type: none; padding-left: 0; margin-bottom: 2rem;">
                       <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Machining & Tooling Department
+                        Laser Cutting & Precision Processing
                       </li>
                       <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Fabrication Robo
+                        Automated Panel Processing (Salvagnini & Amoda)
                       </li>
                       <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Fabrication Welding
+                        CNC Forming & Bending
                       </li>
                       <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Post-Production Finishing Department
+                        Wire Forming & Shelving Systems
                       </li>
                       <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Electrical Integration Department
-                      </li>
-                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Finishing Department
-                      </li>
-                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Packing
+                        Metal Crafting
                       </li>
                     </ul>
-                    <a href="#contact" class="department-btn" style="border-color: #ffffff; color: #ffffff;">Get In Touch</a>
+                    <a href="{% url 'contact' %}" class="department-btn" style="border-color: #ffffff; color: #ffffff;">Know More About 800</a>
                   </div>
 
                   <div class="department-image">
-                    <img src="{% static 'website/assets/images/img/dept_fabrication.png' %}" alt="Fabrication" />
+                    <img src="{% static 'website/assets/images/img/made_in_uae_manufacturing_1787649598532.jpg' %}" alt="Machineries Department – Metal" />
                   </div>
                 </div>
               </div>
-              <!-- 4. JOINERY & CARPENTRY -->
+              <!-- 4. FABRICATION – METAL -->
+              <div class="department-item" style="background-color: #6a6b6c; color: #ffffff; border-right-color: rgba(255,255,255,0.2);">
+                <button class="department-trigger" type="button">
+                  <span class="department-arrow">&rsaquo;</span>
+                  <span class="department-label" style="font-weight: 500; font-size: 14px;">Fabrication – Metal</span>
+                </button>
+
+                <div class="department-expanded">
+                  <div class="department-content">
+                    <ul style="list-style-type: none; padding-left: 0; margin-bottom: 2rem;">
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Robot Welding
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Skilled Fabrication & Assembly
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Customized Fabrication
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Electrical & Lighting Integration
+                      </li>
+                    </ul>
+                    <a href="{% url 'contact' %}" class="department-btn" style="border-color: #ffffff; color: #ffffff;">Know More About 800</a>
+                  </div>
+
+                  <div class="department-image">
+                    <img src="{% static 'website/assets/images/img/dept_fabrication.png' %}" alt="Fabrication – Metal" />
+                  </div>
+                </div>
+              </div>
+              <!-- 5. POWDER COATING DEPARTMENT -->
+              <div class="department-item" style="background-color: #9ea3a8; color: #1c1c16; border-right-color: rgba(255,255,255,0.2);">
+                <button class="department-trigger" type="button">
+                  <span class="department-arrow">&rsaquo;</span>
+                  <span class="department-label" style="font-weight: 500; font-size: 14px;">Powder Coating Department</span>
+                </button>
+
+                <div class="department-expanded">
+                  <div class="department-content">
+                    <ul style="list-style-type: none; padding-left: 0; margin-bottom: 2rem;">
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Surface Treatment
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Powder Coating
+                      </li>
+                    </ul>
+                    <a href="{% url 'contact' %}" class="department-btn" style="border-color: #1c1c16; color: #1c1c16;">Know More About 800</a>
+                  </div>
+
+                  <div class="department-image">
+                    <img src="{% static 'website/assets/images/img/fixture_manufacturing_1787649246147.jpg' %}" alt="Powder Coating Department" />
+                  </div>
+                </div>
+              </div>
+              <!-- 6. SMART JOINERY -->
               <div class="department-item" style="background-color: #f8b800; color: #1c1c16; border-right-color: rgba(255,255,255,0.2);">
+                <button class="department-trigger" type="button">
+                  <span class="department-arrow">&rsaquo;</span>
+                  <span class="department-label" style="font-weight: 500; font-size: 14px;">Smart Joinery</span>
+                </button>
+
+                <div class="department-expanded">
+                  <div class="department-content">
+                    <ul style="list-style-type: none; padding-left: 0; margin-bottom: 1.25rem;">
+                      <li style="margin-bottom: 0.35rem; font-size: 0.95rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.35rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Automated Panel Processing Subdivision
+                      </li>
+                      <li style="margin-bottom: 0.35rem; font-size: 0.95rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.35rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Panel Lamination & Veneering
+                      </li>
+                      <li style="margin-bottom: 0.35rem; font-size: 0.95rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.35rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Automated Panel Cutting & Nesting
+                      </li>
+                      <li style="margin-bottom: 0.35rem; font-size: 0.95rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.35rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        CNC Machining & Routing
+                      </li>
+                      <li style="margin-bottom: 0.35rem; font-size: 0.95rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.35rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Automated Edge Banding (Straight, Angled, Curve)
+                      </li>
+                      <li style="margin-bottom: 0.35rem; font-size: 0.95rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.35rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Automated Panel Assembly
+                      </li>
+                      <li style="margin-bottom: 0.35rem; font-size: 0.95rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.35rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Hardware & Fittings Integration
+                      </li>
+                      <li style="margin-bottom: 0.35rem; font-size: 0.95rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.35rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Quality Inspection & Dispatch Preparation
+                      </li>
+                    </ul>
+                    <a href="{% url 'contact' %}" class="department-btn" style="border-color: #1c1c16; color: #1c1c16;">Know More About 800</a>
+                  </div>
+
+                  <div class="department-image">
+                    <img src="{% static 'website/assets/images/img/dept_joinery.png' %}" alt="Smart Joinery" />
+                  </div>
+                </div>
+              </div>
+              <!-- 7. JOINERY & CARPENTRY -->
+              <div class="department-item" style="background-color: #d99a00; color: #1c1c16; border-right-color: rgba(255,255,255,0.2);">
                 <button class="department-trigger" type="button">
                   <span class="department-arrow">&rsaquo;</span>
                   <span class="department-label" style="font-weight: 500; font-size: 14px;">Joinery & Carpentry</span>
@@ -948,41 +1071,61 @@
 
                 <div class="department-expanded">
                   <div class="department-content">
-                    <ul style="list-style-type: none; padding-left: 0; margin-bottom: 2rem;">
-                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                    <ul style="list-style-type: none; padding-left: 0; margin-bottom: 1.25rem;">
+                      <li style="margin-bottom: 0.35rem; font-size: 0.95rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.35rem; display: flex; align-items: center; gap: 10px;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Joinery Department
+                        Conventional Wood Machining
                       </li>
-                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                      <li style="margin-bottom: 0.35rem; font-size: 0.95rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.35rem; display: flex; align-items: center; gap: 10px;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Carpentry Department
+                        Semi-Automated Wood Processing
                       </li>
-                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                      <li style="margin-bottom: 0.35rem; font-size: 0.95rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.35rem; display: flex; align-items: center; gap: 10px;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Assembling Area
+                        Skilled Joinery & Custom Fabrication
                       </li>
-                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                      <li style="margin-bottom: 0.35rem; font-size: 0.95rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.35rem; display: flex; align-items: center; gap: 10px;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Painting & Polishing Department
+                        Carpentry & Woodworking
                       </li>
-                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                      <li style="margin-bottom: 0.35rem; font-size: 0.95rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.35rem; display: flex; align-items: center; gap: 10px;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Packing
+                        Furniture & Fixture Assembly
+                      </li>
+                      <li style="margin-bottom: 0.35rem; font-size: 0.95rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.35rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Decorative Woodwork & Detailing
+                      </li>
+                      <li style="margin-bottom: 0.35rem; font-size: 0.95rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.35rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Wooden Framework & Structural Assembly
+                      </li>
+                      <li style="margin-bottom: 0.35rem; font-size: 0.95rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.35rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Hardware & Accessories Installation
+                      </li>
+                      <li style="margin-bottom: 0.35rem; font-size: 0.95rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.35rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Wood Surface Preparation & Finishing
+                      </li>
+                      <li style="margin-bottom: 0.35rem; font-size: 0.95rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.35rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Joinery Quality Control
                       </li>
                     </ul>
-                    <a href="#contact" class="department-btn" style="border-color: #1c1c16; color: #1c1c16;">Get In Touch</a>
+                    <a href="{% url 'contact' %}" class="department-btn" style="border-color: #1c1c16; color: #1c1c16;">Know More About 800</a>
                   </div>
 
                   <div class="department-image">
-                    <img src="{% static 'website/assets/images/img/dept_joinery.png' %}" alt="Joinery & Carpentry" />
+                    <img src="{% static 'website/assets/images/img/retail_fixtures.png' %}" alt="Joinery & Carpentry" />
                   </div>
                 </div>
               </div>
-              <!-- 5. LED DISPLAY SOLUTIONS -->
-              <div class="department-item" style="background-color: #0067b8; color: #ffffff; border-right-color: rgba(255,255,255,0.2);">
+              <!-- 8. UPHOLSTERY DEPARTMENT -->
+              <div class="department-item" style="background-color: #7b4f9e; color: #ffffff; border-right-color: rgba(255,255,255,0.2);">
                 <button class="department-trigger" type="button">
                   <span class="department-arrow">&rsaquo;</span>
-                  <span class="department-label" style="font-weight: 500; font-size: 14px;">LED Display Solutions</span>
+                  <span class="department-label" style="font-weight: 500; font-size: 14px;">Upholstery Department</span>
                 </button>
 
                 <div class="department-expanded">
@@ -990,42 +1133,42 @@
                     <ul style="list-style-type: none; padding-left: 0; margin-bottom: 2rem;">
                       <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Manufacturing Department
+                        Material Cutting & Preparation
                       </li>
                       <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Assembling Department
+                        Foam Processing & Cushioning
                       </li>
                       <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Execution Services
+                        Industrial Sewing & Stitching
                       </li>
                       <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Content Management Services
+                        Furniture Upholstery & Fabric Wrapping
                       </li>
                       <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Technical Service Centre
+                        Decorative & Custom Upholstery
                       </li>
                       <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        After Maintenance Team
+                        Embroidery & Labelling
                       </li>
                       <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Packing
+                        Assembly, Finishing & Quality Control
                       </li>
                     </ul>
-                    <a href="#contact" class="department-btn" style="border-color: #ffffff; color: #ffffff;">Get In Touch</a>
+                    <a href="{% url 'contact' %}" class="department-btn" style="border-color: #ffffff; color: #ffffff;">Know More About 800</a>
                   </div>
 
                   <div class="department-image">
-                    <img src="{% static 'website/assets/images/img/dept_led.png' %}" alt="LED Display Solutions" />
+                    <img src="{% static 'website/assets/images/img/retail_fitout_1787649185482.jpg' %}" alt="Upholstery Department" />
                   </div>
                 </div>
               </div>
-              <!-- 6. PRINTING & SIGNAGE -->
+              <!-- 9. PRINTING & SIGNAGE -->
               <div class="department-item" style="background-color: #e797d1; color: #1c1c16; border-right-color: rgba(255,255,255,0.2);">
                 <button class="department-trigger" type="button">
                   <span class="department-arrow">&rsaquo;</span>
@@ -1045,18 +1188,14 @@
                       </li>
                       <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Execution Services
-                      </li>
-                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                         Signage Fabrication
                       </li>
                       <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Packing
+                        Execution Services
                       </li>
                     </ul>
-                    <a href="#contact" class="department-btn" style="border-color: #1c1c16; color: #1c1c16;">Get In Touch</a>
+                    <a href="{% url 'contact' %}" class="department-btn" style="border-color: #1c1c16; color: #1c1c16;">Know More About 800</a>
                   </div>
 
                   <div class="department-image">
@@ -1064,11 +1203,11 @@
                   </div>
                 </div>
               </div>
-              <!-- 7. STRETCH CEILING & LIGHTING -->
-              <div class="department-item" style="background-color: #ffff00; color: #1c1c16; border-right-color: rgba(255,255,255,0.2);">
+              <!-- 10. LED DISPLAY -->
+              <div class="department-item" style="background-color: #0067b8; color: #ffffff; border-right-color: rgba(255,255,255,0.2);">
                 <button class="department-trigger" type="button">
                   <span class="department-arrow">&rsaquo;</span>
-                  <span class="department-label" style="font-weight: 500; font-size: 14px;">Stretch Ceiling & Lighting</span>
+                  <span class="department-label" style="font-weight: 500; font-size: 14px;">LED Display</span>
                 </button>
 
                 <div class="department-expanded">
@@ -1076,11 +1215,11 @@
                     <ul style="list-style-type: none; padding-left: 0; margin-bottom: 2rem;">
                       <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Designing
+                        Production Centre
                       </li>
                       <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Production
+                        Assembling Department
                       </li>
                       <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -1088,22 +1227,30 @@
                       </li>
                       <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Lighting Supply & Installation
+                        Content Management Services
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Technical Service Centre
+                      </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        After Maintenance
                       </li>
                     </ul>
-                    <a href="#contact" class="department-btn" style="border-color: #1c1c16; color: #1c1c16;">Get In Touch</a>
+                    <a href="{% url 'contact' %}" class="department-btn" style="border-color: #ffffff; color: #ffffff;">Know More About 800</a>
                   </div>
 
                   <div class="department-image">
-                    <img src="{% static 'website/assets/images/img/dept_ceiling.png' %}" alt="Stretch Ceiling & Lighting" />
+                    <img src="{% static 'website/assets/images/img/dept_led.png' %}" alt="LED Display" />
                   </div>
                 </div>
               </div>
-              <!-- 8. LOGISTICS & INSTALLATION -->
+              <!-- 11. LOGISTICS DEPARTMENT (LOCAL & OVERSEAS) -->
               <div class="department-item" style="background-color: #ac5b25; color: #ffffff; border-right-color: rgba(255,255,255,0.2);">
                 <button class="department-trigger" type="button">
                   <span class="department-arrow">&rsaquo;</span>
-                  <span class="department-label" style="font-weight: 500; font-size: 14px;">Logistics & Installation</span>
+                  <span class="department-label" style="font-weight: 500; font-size: 14px;">Logistics Department (Local & Overseas)</span>
                 </button>
 
                 <div class="department-expanded">
@@ -1111,30 +1258,26 @@
                     <ul style="list-style-type: none; padding-left: 0; margin-bottom: 2rem;">
                       <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Logistics Department
-                      </li>
-                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Transportation Department
-                      </li>
-                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                         Packing & Palletizing
                       </li>
                       <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        After Service
+                        Fleet Management
                       </li>
                       <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                         Installation Department
                       </li>
+                      <li style="margin-bottom: 0.6rem; font-size: 1.1rem; border-bottom: 1px solid rgba(128,128,128,0.2); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        After-Sales Service
+                      </li>
                     </ul>
-                    <a href="#contact" class="department-btn" style="border-color: #ffffff; color: #ffffff;">Get In Touch</a>
+                    <a href="{% url 'contact' %}" class="department-btn" style="border-color: #ffffff; color: #ffffff;">Know More About 800</a>
                   </div>
 
                   <div class="department-image">
-                    <img src="{% static 'website/assets/images/img/dept_logistics.png' %}" alt="Logistics & Installation" />
+                    <img src="{% static 'website/assets/images/img/dept_logistics.png' %}" alt="Logistics Department (Local & Overseas)" />
                   </div>
                 </div>
               </div>
@@ -1173,14 +1316,14 @@
               <div class="badge-dot"></div>
               <div class="text-color-primary" style="color: var(--color-base--black)">Our Network</div>
             </div>
-            <h2 class="heading-style-h2" style="color: var(--color-base--black)">Industry Expertise</h2>
+            <h2 class="heading-style-h2" style="color: var(--color-base--black)">Expertise of 800</h2>
             <p style="
                       max-width: 600px;
                       margin: 1rem auto 0;
                       color: rgba(0, 0, 0, 0.6);
                       font-size: 1.1rem;
                       line-height: 1.6;
-                    ">A unified ecosystem of specialized departments led by industry experts, delivering innovative solutions and best practices across all sectors.</p>
+                    ">A unified ecosystem of specialized Departments led by industry experts, delivering innovative solutions and best practices across all sectors.</p>
           </div>
 
           <div class="divisions-compact-grid">
@@ -1371,7 +1514,7 @@
               <h3 class="text-size-small text-weight-bold" style="
                         margin-bottom: 1.5rem;
                         color: var(--color-base--white);
-                      ">Seiketsu Standardise Establish standards</h3>
+                      ">Seiketsu Standardize Establish standards</h3>
               <table class="five-s-table">
                 <thead>
                   <tr>
@@ -1406,7 +1549,7 @@
                     <td>
                       <strong>Seiketsu</strong>
                     </td>
-                    <td>Standardise</td>
+                    <td>Standardize</td>
                     <td>Establish standards</td>
                   </tr>
                   <tr>
@@ -1433,14 +1576,14 @@
             <div>
               <div animate="fade-up-1" class="text-style-badge">
                 <div class="badge-dot"></div>
-                <div>Our Values</div>
+                <div>Value of 800</div>
               </div>
               <div class="spacer-xxsmall"></div>
               <div class="spacer-tiny"></div>
-              <h2 animate="title">A foundation built on purpose, precision, and trust</h2>
+              <h2 animate="title">A foundation built on Purpose, Precision and Trust</h2>
               <div class="spacer-xxsmall"></div>
               <div class="spacer-tiny"></div>
-              <div animate="fade-up-2" class="text-size-medium text-weight-light text-style-muted">Each project we design and build reflects the principles that guide our work from craftsmanship to sustainability.</div>
+              <div animate="fade-up-2" class="text-size-medium text-weight-light text-style-muted">Each Project we design and build, reflects the principles that guide our work from craftsmanship to sustainability.</div>
               <div class="spacer-medium"></div>
             </div>
           </div>
@@ -1453,75 +1596,86 @@
             </div>
             <div animate="card-stagger" class="home1_values_list">
               <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
-                <div class="heading-style-h3 " style="font-weight: 600; line-height: 1">300000<sup>+</sup></div>
+                <div class="heading-style-h3" style="font-weight: 600; line-height: 1">6000<sup>+</sup></div>
                 <div class="home_values_content">
-                  <div class="text-size-small text-weight-light text-style-muted" style="max-width: 200px">Facility: UAE | KSA | China</div>
+                  <div class="text-size-small text-weight-light" style="max-width: 220px">Sq. Ft. Showroom space</div>
+                  <div class="text-size-tiny text-weight-light text-style-muted" style="max-width: 220px; margin-top: 0.25rem">Dubai, UAE</div>
                 </div>
               </div>
               <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
-                <div class="heading-style-h3  " style="font-weight: 600; line-height: 1">450<sup>+</sup></div>
+                <div class="heading-style-h3" style="font-weight: 600; line-height: 1">8000<sup>+</sup></div>
                 <div class="home_values_content">
-                  <div class="text-size-small text-weight-light text-style-muted" style="max-width: 200px">Workforce</div>
+                  <div class="text-size-small text-weight-light" style="max-width: 220px">Sq. Ft. Showroom space</div>
+                  <div class="text-size-tiny text-weight-light text-style-muted" style="max-width: 220px; margin-top: 0.25rem">Riyadh, Jeddah KSA</div>
                 </div>
               </div>
               <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
-                <div class="heading-style-h3  " style="font-weight: 600; line-height: 1">85<sup>+</sup></div>
+                <div class="heading-style-h3" style="font-weight: 600; line-height: 1">6000<sup>+</sup></div>
                 <div class="home_values_content">
-                  <div class="text-size-small text-weight-light text-style-muted" style="max-width: 200px">Projects/ Month</div>
+                  <div class="text-size-small text-weight-light" style="max-width: 220px">Sq. Ft. Showroom space</div>
+                  <div class="text-size-tiny text-weight-light text-style-muted" style="max-width: 220px; margin-top: 0.25rem">Guangzhou, China</div>
                 </div>
               </div>
               <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
-                <div class="heading-style-h3  " style="font-weight: 600; line-height: 1">5S</div>
+                <div class="heading-style-h3" style="font-weight: 600; line-height: 1">350,000<sup>+</sup></div>
                 <div class="home_values_content">
-                  <div class="text-size-small text-weight-light text-style-muted" style="max-width: 200px">QC System</div>
+                  <div class="text-size-small text-weight-light" style="max-width: 220px">Sq. Ft. Factory space</div>
+                  <div class="text-size-tiny text-weight-light text-style-muted" style="max-width: 220px; margin-top: 0.25rem">UAE and KSA</div>
                 </div>
               </div>
               <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
-                <div class="heading-style-h3  " style="font-weight: 600; line-height: 1">75000<sup>+</sup></div>
+                <div class="heading-style-h3" style="font-weight: 600; line-height: 1">30000<sup>+</sup></div>
                 <div class="home_values_content">
-                  <div class="text-size-small text-weight-light text-style-muted" style="max-width: 200px">Products | Accessories</div>
+                  <div class="text-size-small text-weight-light" style="max-width: 220px">Sq. Ft. LED Solution and Tech Hub</div>
+                  <div class="text-size-tiny text-weight-light text-style-muted" style="max-width: 220px; margin-top: 0.25rem">Gurgaon, India</div>
                 </div>
               </div>
               <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
-                <div class="heading-style-h3  " style="font-weight: 600; line-height: 1">45<sup>+</sup></div>
+                <div class="heading-style-h3" style="font-weight: 600; line-height: 1">4000<sup>+</sup></div>
                 <div class="home_values_content">
-                  <div class="text-size-small text-weight-light text-style-muted" style="max-width: 200px">Approved Partners</div>
+                  <div class="text-size-small text-weight-light" style="max-width: 220px">Sq. Ft. Source Center space</div>
+                  <div class="text-size-tiny text-weight-light text-style-muted" style="max-width: 220px; margin-top: 0.25rem">UAE</div>
                 </div>
               </div>
               <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
-                <div class="heading-style-h3  " style="font-weight: 600; line-height: 1">10<sup>+</sup></div>
+                <div class="heading-style-h3" style="font-weight: 600; line-height: 1">350<sup>+</sup></div>
                 <div class="home_values_content">
-                  <div class="text-size-small text-weight-light text-style-muted" style="max-width: 200px">Industry Categories</div>
+                  <div class="text-size-small text-weight-light" style="max-width: 220px">People Employed</div>
+                  <div class="text-size-tiny text-weight-light text-style-muted" style="max-width: 220px; margin-top: 0.25rem">Skilled &amp; Semi skilled UAE, KSA and China</div>
                 </div>
               </div>
               <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
-                <div class="heading-style-h3  " style="font-weight: 600; line-height: 1">5<sup>+</sup></div>
+                <div class="heading-style-h3" style="font-weight: 600; line-height: 1">13<sup>+</sup></div>
                 <div class="home_values_content">
-                  <div class="text-size-small text-weight-light text-style-muted" style="max-width: 200px">Countries</div>
+                  <div class="text-size-small text-weight-light" style="max-width: 220px">Manufacturing Verticals</div>
+                  <div class="text-size-tiny text-weight-light text-style-muted" style="max-width: 220px; margin-top: 0.25rem">In retail store solutions UAE, KSA, and China</div>
                 </div>
               </div>
               <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
-                <div class="heading-style-h3  " style="font-weight: 600; line-height: 1">9500<sup>+</sup></div>
+                <div class="heading-style-h3" style="font-weight: 600; line-height: 1">12500<sup>+</sup></div>
                 <div class="home_values_content">
-                  <div class="text-size-small text-weight-light text-style-muted" style="max-width: 200px">Projects</div>
-                </div>
-              </div>
-              <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
-                <div class="heading-style-h3  " style="font-weight: 600; line-height: 1">80<sup>+</sup></div>
-                <div class="home_values_content">
-                  <div class="text-size-small text-weight-light text-style-muted" style="max-width: 200px">Clientele</div>
-                </div>
-              </div>
-              <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
-                <div class="heading-style-h3  " style="font-weight: 600; line-height: 1">4<sup>+</sup></div>
-                <div class="home_values_content">
-                  <div class="text-size-small text-weight-light text-style-muted" style="max-width: 200px">White Labels</div>
+                  <div class="text-size-small text-weight-light" style="max-width: 220px">Projects</div>
+                  <div class="text-size-tiny text-weight-light text-style-muted" style="max-width: 220px; margin-top: 0.25rem">Successfully completed</div>
                 </div>
               </div>
               <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
                 <div class="heading-style-h3" style="font-weight: 600; line-height: 1">25<sup>+</sup></div>
                 <div class="home_values_content">
-                  <div class="text-size-small text-weight-light text-style-muted" style="max-width: 200px">Overseas delivery</div>
+                  <div class="text-size-small text-weight-light" style="max-width: 220px">Countries</div>
+                  <div class="text-size-tiny text-weight-light text-style-muted" style="max-width: 220px; margin-top: 0.25rem">Global presence</div>
+                </div>
+              </div>
+              <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
+                <div class="heading-style-h3" style="font-weight: 600; line-height: 1">100<sup>+</sup></div>
+                <div class="home_values_content">
+                  <div class="text-size-small text-weight-light" style="max-width: 220px">Million AED</div>
+                  <div class="text-size-tiny text-weight-light text-style-muted" style="max-width: 220px; margin-top: 0.25rem">Financial performance</div>
+                </div>
+              </div>
+              <div class="home_values_item" style="align-items: center; text-align: center; gap: 1rem">
+                <div class="heading-style-h3" style="font-weight: 600; line-height: 1">10<sup>+</sup></div>
+                <div class="home_values_content">
+                  <div class="text-size-small text-weight-light" style="max-width: 220px">Project Managements</div>
                 </div>
               </div>
             </div>
@@ -1561,9 +1715,9 @@
                       margin: 0 auto;
                     ">
               <div class="badge-dot"></div>
-              <div class="text-color-primary" style="color: var(--color-base--black)">Trusted Clients</div>
+              <div class="text-color-primary" style="color: var(--color-base--black)">Pillars of 800</div>
             </div>
-            <h2 class="heading-style-h2" style="margin-top: 1rem; color: var(--color-base--black)">Our Greatest Reward is that knowing we made you smile</h2>
+            <h2 class="heading-style-h2" style="margin-top: 1rem; color: var(--color-base--black)">Our Greatest Reward is knowing we made you Smile</h2>
           </div>
 
           <div class="client-carousel-wrapper" style="position: relative; width: 100%">
