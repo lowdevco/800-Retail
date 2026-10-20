@@ -277,88 +277,204 @@
             class="hero-layer"
           />
           <div class="padding-global padding-section-medium z-index-1">
-            <div class="container-large">
-              <div animate="load-hero-1" class="header is-centered">
-                <div animate="" class="text-style-badge">
+            <div class="container-default">
+              <div animate="load-hero-1" class="header is-centered" style="width: 100%; max-width: 100%; margin: 0 auto; padding-bottom: 2.5rem;">
+                <div animate="" class="text-style-badge" style="margin-bottom: 1.5rem;">
                   <div class="badge-dot"></div>
                   <div class="text-color-alternate">The Group</div>
                 </div>
-                <div class="spacer-small"></div>
-                <h1 animate="load-hero-title">
-                  Designing. Manufacturing. Delivering.
+
+                <!-- Main Hero Typography -->
+                <h1 animate="load-hero-title" style="font-size: clamp(2.1rem, 3.8vw, 3.2rem); font-weight: 600; line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 1.15rem; color: #ffffff;">
+                  Design. Engineer. Manufacture. Deliver.
                 </h1>
-                <div class="spacer-xxsmall"></div>
-                <div class="spacer-tiny"></div>
-                <div class="text-size-small text-weight-light">
-                  From concept to completion, we create complete retail
-                  environments built around your brand.
-                </div>
-                <div class="spacer-small"></div>
-                <a
-                  button=""
-                  href="projects.html"
-                  class="button is-alternative w-inline-block"
-                  ><div class="button-mask">
-                    <div button-text="" class="button-text">Our Works</div>
-                    <div button-text="" class="button-text-hover">
-                      Our Works
+                
+                <p style="font-size: clamp(1rem, 1.6vw, 1.15rem); font-weight: 300; line-height: 1.6; color: rgba(255, 255, 255, 0.75); max-width: 720px; margin: 0 auto 3.5rem auto;">
+                  From concept to completion, we create complete retail environments built around your brand.
+                </p>
+
+                <!-- Combined Unified Glass Box -->
+                <style>
+                  .hero-unified-box {
+                    background: rgba(255, 255, 255, 0.025);
+                    border: 1px solid rgba(255, 255, 255, 0.08);
+                    border-radius: 8px;
+                    padding: 3.5rem;
+                    text-align: left;
+                    backdrop-filter: blur(12px);
+                    -webkit-backdrop-filter: blur(12px);
+                    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+                  }
+                  .hero-unified-box:hover {
+                    border-color: rgba(255, 255, 255, 0.16);
+                    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+                  }
+                  .hero-unified-grid {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    gap: 3rem;
+                    align-items: stretch;
+                  }
+                  @media (min-width: 992px) {
+                    .hero-unified-grid {
+                      grid-template-columns: 1.15fr 1fr;
+                      gap: 4.5rem;
+                    }
+                  }
+                  .hero-unified-col {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                  }
+                  .hero-header-sync {
+                    min-height: 2.2rem;
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 1.5rem;
+                  }
+                  .hero-eyebrow-accent {
+                    font-size: 1.15rem;
+                    line-height: 1.35;
+                    font-weight: 600;
+                    color: #ffffff;
+                    letter-spacing: -0.01em;
+                    margin: 0;
+                  }
+                  .hero-right-header-lead {
+                    font-size: 0.96rem;
+                    line-height: 1.6;
+                    color: rgba(255, 255, 255, 0.9);
+                    font-weight: 400;
+                    margin: 0;
+                  }
+                  .hero-unified-col p {
+                    font-size: 0.95rem;
+                    line-height: 1.72;
+                    color: rgba(255, 255, 255, 0.74);
+                    margin-top: 0;
+                    margin-bottom: 1.25rem;
+                    font-weight: 300;
+                    letter-spacing: -0.005em;
+                  }
+                  .hero-unified-col p:last-child {
+                    margin-bottom: 0;
+                  }
+                  .hero-growth-punchline {
+                    font-size: 1.02rem;
+                    font-weight: 500;
+                    line-height: 1.5;
+                    color: #ffffff;
+                    letter-spacing: -0.01em;
+                    margin-top: auto;
+                    padding-top: 1rem;
+                    margin-bottom: 0 !important;
+                    border-top: 1px solid rgba(255, 255, 255, 0.08);
+                  }
+                  .hero-bullet-list {
+                    list-style: none;
+                    padding: 0;
+                    margin: auto 0 0 0;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.85rem;
+                    padding-top: 1rem;
+                    border-top: 1px solid rgba(255, 255, 255, 0.08);
+                  }
+                  .hero-bullet-item {
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 0.85rem;
+                    font-size: 0.93rem;
+                    line-height: 1.55;
+                    color: rgba(255, 255, 255, 0.84);
+                    font-weight: 300;
+                  }
+                  .hero-bullet-square {
+                    width: 6px;
+                    height: 6px;
+                    background-color: var(--secondary, #F92D18);
+                    border-radius: 1px;
+                    flex-shrink: 0;
+                    margin-top: 0.45rem;
+                  }
+                  @media (max-width: 767px) {
+                    .hero-unified-box {
+                      padding: 2rem 1.5rem;
+                    }
+                    .hero-header-sync {
+                      min-height: auto;
+                      margin-bottom: 1rem;
+                    }
+                  }
+                </style>
+
+                <div class="hero-unified-box">
+                  <div class="hero-unified-grid">
+                    <!-- Left Column -->
+                    <div class="hero-unified-col">
+                      <div>
+                        <div class="hero-header-sync">
+                          <h3 class="hero-eyebrow-accent">
+                            Retail solutions that shape tomorrow’s storefronts
+                          </h3>
+                        </div>
+                        <p>
+                          At Al Ameen Group of Companies, we don’t just manufacture retail fixtures &mdash; we build immersive brand experiences.
+                        </p>
+                        <p>
+                          Founded in 2004 in the heart of the UAE, Al Ameen has transformed from a niche fabricator in Dubai’s Deira district into a cross-border production powerhouse, with state-of-the-art facilities spanning over 350,000 sq. ft. across United Arab Emirates and Saudi Arabia.
+                        </p>
+                        <p>
+                          Al Ameen Group proudly announces its new division in Gurgaon, India, marking another milestone in our global expansion. This strategic addition strengthens our manufacturing capabilities and extends our retail solutions expertise into the Indian market.
+                        </p>
+                      </div>
+                      <p class="hero-growth-punchline">
+                        A growing global presence, driven by innovation and built for the future.
+                      </p>
                     </div>
-                  </div></a
-                >
-              </div>
-              <div class="spacer-large"></div>
-            </div>
-            <div animate="load-hero-2" class="gallery_marquee">
-              <div class="gallery_marquee-group">
-                <div class="gallery_marquee-item">
-                  <img
-                    sizes="(max-width: 2464px) 100vw, 2464px"
 
-                    alt="800Retail"
-                    src="{% static 'website/assets/images/projects/image-1.jpg' %}"
-                    loading="lazy"
-                    class="gallery_marquee-img"
-                  />
-                </div>
-                <div class="gallery_marquee-item">
-                  <img
-                    sizes="(max-width: 1856px) 100vw, 1856px"
+                    <!-- Right Column -->
+                    <div class="hero-unified-col">
+                      <div>
+                        <div class="hero-header-sync">
+                          <p class="hero-right-header-lead">
+                            End-to-end retail environments crafted with precision and consistency.
+                          </p>
+                        </div>
+                        <p>
+                          From the first spark of concept design to the last bolt installed on-site, AAGC delivers end-to-end retail environments for global and regional brands &mdash; all crafted in-house. Our ability to engineer, fabricate, and install full-scale retail units makes us a true one-stop solution partner.
+                        </p>
+                      </div>
 
-                    alt="800Retail"
-                    src="{% static 'website/assets/images/projects/aco-dubai-hills.jpg' %}"
-                    loading="lazy"
-                    class="gallery_marquee-img"
-                  />
+                      <ul class="hero-bullet-list">
+                        <li class="hero-bullet-item">
+                          <span class="hero-bullet-square"></span>
+                          <span>Full manufacturing capabilities in UAE &amp; KSA</span>
+                        </li>
+                        <li class="hero-bullet-item">
+                          <span class="hero-bullet-square"></span>
+                          <span>12,500+ projects delivered across 25+ countries</span>
+                        </li>
+                        <li class="hero-bullet-item">
+                          <span class="hero-bullet-square"></span>
+                          <span>Teams for fixtures, LED displays &amp; Lighting &amp; Ceiling solution and Signages</span>
+                        </li>
+                        <li class="hero-bullet-item">
+                          <span class="hero-bullet-square"></span>
+                          <span>Serving the region’s leading fashion, sports &amp; luxury brands</span>
+                        </li>
+                        <li class="hero-bullet-item">
+                          <span class="hero-bullet-square"></span>
+                          <span>100% in-house LED display &amp; EU-Standard lighting solutions</span>
+                        </li>
+                        <li class="hero-bullet-item">
+                          <span class="hero-bullet-square"></span>
+                          <span>Backed by over 350 skilled professionals &amp; decades of expertise</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-                <div class="gallery_marquee-item">
-                  <img
-                    sizes="(max-width: 2464px) 100vw, 2464px"
-
-                    alt="800Retail"
-                    src="{% static 'website/assets/images/projects/adidas-dubai-outlet.png' %}"
-                    loading="lazy"
-                    class="gallery_marquee-img"
-                  />
-                </div>
-                <div class="gallery_marquee-item">
-                  <img
-                    sizes="(max-width: 1856px) 100vw, 1856px"
-
-                    alt="800Retail"
-                    src="{% static 'website/assets/images/projects/retail-fashion.jpg' %}"
-                    loading="lazy"
-                    class="gallery_marquee-img"
-                  />
-                </div>
-                <div class="gallery_marquee-item">
-                  <img
-                    sizes="(max-width: 2464px) 100vw, 2464px"
-  
-                    alt="800Retail"
-                    src="{% static 'website/assets/images/projects/shoes-store.jpg' %}"
-                    loading="lazy"
-                    class="gallery_marquee-img"
-                  />
                 </div>
               </div>
             </div>
@@ -523,85 +639,131 @@
             >
               <div class="container-default">
                 <style>
-                .ceo-clean-grid {
+                .ceo-section-wrapper {
                   display: grid;
                   grid-template-columns: 1fr;
-                  gap: 2rem;
+                  gap: 2.5rem;
                 }
                 @media (min-width: 992px) {
-                  .ceo-clean-grid {
-                    grid-template-columns: 3.5fr 8.5fr;
-                    gap: 3rem;
+                  .ceo-section-wrapper {
+                    grid-template-columns: 290px 1fr 1fr;
+                    gap: 3.5rem;
+                    align-items: stretch;
                   }
                 }
-                .ceo-clean-text-cols {
-                  column-count: 1;
+                .ceo-profile-card {
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-between;
                 }
-                @media (min-width: 768px) {
-                  .ceo-clean-text-cols {
-                    column-count: 2;
-                    column-gap: 2.5rem;
-                  }
-                }
-                .ceo-clean-text-cols p {
-                  font-size: 0.95rem;
-                  line-height: 1.5;
-                  margin-top: 0;
-                  margin-bottom: 0.8rem;
-                  break-inside: avoid;
-                  color: var(--color-base--black);
-                }
-                .ceo-clean-img {
+                .ceo-profile-img {
                   width: 100%;
+                  aspect-ratio: 1 / 1.12;
+                  object-fit: cover;
+                  object-position: top center;
+                  background-color: #f0f0f0;
+                  border-radius: 4px;
+                  margin-bottom: 1.25rem;
+                }
+                .ceo-profile-meta {
+                  margin-top: auto;
+                  padding-top: 0.5rem;
+                }
+                .ceo-author-name {
+                  font-size: 1.15rem;
+                  font-weight: 600;
+                  color: var(--color-base--black);
+                  margin-bottom: 0.2rem;
+                  letter-spacing: -0.01em;
+                }
+                .ceo-author-title {
+                  font-size: 0.78rem;
+                  text-transform: uppercase;
+                  letter-spacing: 0.08em;
+                  color: rgba(0, 0, 0, 0.55);
                   margin-bottom: 1rem;
-                  background-color: #f8f8f8;
+                  font-weight: 500;
+                }
+                .ceo-sign-img {
+                  height: 38px;
+                  opacity: 0.88;
+                }
+                .ceo-text-col {
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-between;
+                }
+                .ceo-text-col p {
+                  font-size: 0.95rem;
+                  line-height: 1.72;
+                  color: rgba(0, 0, 0, 0.76);
+                  margin-top: 0;
+                  margin-bottom: 1.25rem;
+                  letter-spacing: -0.01em;
+                }
+                .ceo-text-col p:last-child {
+                  margin-bottom: 0;
+                }
+                .ceo-closing-highlight {
+                  font-weight: 600;
+                  color: var(--color-base--black) !important;
+                  font-size: 0.98rem;
+                  line-height: 1.65 !important;
+                  padding-top: 0.4rem;
                 }
                 </style>
                 
                 <!-- Standard Badge -->
-                <div animate="fade-up-1" class="text-style-badge" style="margin-bottom: 1rem;">
+                <div animate="fade-up-1" class="text-style-badge" style="margin-bottom: 1.25rem;">
                   <div class="badge-dot"></div>
                   <div>CEO MESSAGE</div>
                 </div>
                 
                 <!-- Compact Heading -->
-                <h3 animate="fade-up-2" class="heading-style-h3" style="font-size: clamp(1.2rem, 2vw, 1.5rem); line-height: 1.4; max-width: 95%; margin-bottom: 2rem;">
+                <h3 animate="fade-up-2" class="heading-style-h3" style="font-size: clamp(1.35rem, 2.2vw, 1.85rem); line-height: 1.35; font-weight: 400; max-width: 960px; margin-bottom: 3rem; color: var(--color-base--black); letter-spacing: -0.02em;">
                   Every space we build has a soul because behind every project, there's a person, a purpose, a vision.
                 </h3>
 
-                <div class="ceo-clean-grid">
+                <div class="ceo-section-wrapper">
                   <!-- Author Column -->
-                  <div>
+                  <div class="ceo-profile-card">
                     <img
                       src="{% static 'website/assets/images/brand/CEO-bg-white.png' %}"
                       alt="Muhammed Manaf"
                       loading="lazy"
-                      class="ceo-clean-img"
+                      class="ceo-profile-img"
                     />
-                    <div class="heading-style-h6" style="margin-bottom: 0.2rem; font-size: 1.1rem;">Muhammed Manaf</div>
-                    <div class="text-size-small text-style-muted" style="margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.8rem;">CEO of AL Ameen Group</div>
-                    <img
-                      src="{% static 'website/assets/images/brand/Sign.svg' %}"
-                      loading="lazy"
-                      alt="Signature"
-                      style="height: 40px;"
-                    />
+                    <div class="ceo-profile-meta">
+                      <div class="ceo-author-name">Muhammed Manaf</div>
+                      <div class="ceo-author-title">CEO of AL Ameen Group</div>
+                      <img
+                        src="{% static 'website/assets/images/brand/Sign.svg' %}"
+                        loading="lazy"
+                        alt="Signature"
+                        class="ceo-sign-img"
+                      />
+                    </div>
                   </div>
                   
-                  <!-- Text Columns -->
-                  <div class="ceo-clean-text-cols">
+                  <!-- Column 1 (Left: Personal Vision & Relationship) -->
+                  <div class="ceo-text-col">
                     <p>At Al Ameen, what we create is rooted in more than just fixtures. It's built on values, relationships, and a deep sense of responsibility.</p>
                     <p>For me, it's never about how big or small the project is. It's about meaning. It's about understanding what truly matters to you and turning that into something real. A space that reflects your story. A place that brings pride, comfort, and joy.</p>
                     <p>That moment when a client walks through their completed project and quietly smiles &mdash; that's everything to me. No award or milestone compares to that feeling.</p>
                     <p>This isn't just my work, it's my purpose. And every single project is a reflection of the trust you place in us. For that, I carry immense gratitude and thank you for always being in this journey along with us.</p>
+                  </div>
+
+                  <!-- Column 2 (Right: Execution & Philosophy) -->
+                  <div class="ceo-text-col">
                     <p>At 800 Retail Solutions, we believe every successful retail environment begins with a clear vision. Our role is to transform that vision into spaces that strengthen brand identity, enhance customer experiences and perform in the real world.</p>
                     <p>For us, retail is more than creating attractive spaces. It is about understanding how people interact with brands and translating that understanding into purposeful environments that are functional, engaging and built to last.</p>
                     <p>From the initial concept through design, manufacturing and installation, we bring every stage together under one integrated approach, ensuring consistency, quality and attention to detail from beginning to end.</p>
-                    <p>With in-house expertise across retail architecture, product design, fabrication, joinery and integrated LED solutions, we maintain direct control throughout the entire process.</p>
-                    <p style="font-weight: 600;">Our focus is simple: delivering commercially effective, visually distinctive and purpose-built retail environments from concept to completion.</p>
+                    <p class="ceo-closing-highlight">
+                      Our focus is simple: delivering commercially effective, visually distinctive and purpose-built retail environments from concept to completion.
+                    </p>
                   </div>
                 </div>
-</div>
+              </div>
             </div>
             <div class="padding-global background-color-alternate">
               <div class="container-default"><div class="divider"></div></div>

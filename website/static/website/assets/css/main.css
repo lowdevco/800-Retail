@@ -1912,7 +1912,7 @@ textarea.w-select {
   --line-height--button-small: 150%;
   --color-neutral--shade-100: #e0ded5;
   --color-neutral--shade-50: #e8e6e0;
-  --secondary: #ff6118;
+  --secondary: #F92D18;
   --color-neutral--border-color: #fff3;
   --color-neutral--shade-500: #c2c1ba;
   --color-neutral--shade-600: #bab9b2;
@@ -8025,7 +8025,7 @@ blockquote {
     --line-height--button-small: 150%;
     --color-neutral--shade-100: #e0ded5;
     --color-neutral--shade-50: #e8e6e0;
-    --secondary: #ff6118;
+    --secondary: #F92D18;
     --color-neutral--border-color: #fff3;
     --color-neutral--shade-500: #c2c1ba;
     --color-neutral--shade-600: #bab9b2;
@@ -8743,7 +8743,7 @@ blockquote {
     --line-height--button-small: 150%;
     --color-neutral--shade-100: #e0ded5;
     --color-neutral--shade-50: #e8e6e0;
-    --secondary: #ff6118;
+    --secondary: #F92D18;
     --color-neutral--border-color: #fff3;
     --color-neutral--shade-500: #c2c1ba;
     --color-neutral--shade-600: #bab9b2;
@@ -9384,7 +9384,7 @@ blockquote {
     --line-height--button-small: 150%;
     --color-neutral--shade-100: #e0ded5;
     --color-neutral--shade-50: #e8e6e0;
-    --secondary: #ff6118;
+    --secondary: #F92D18;
     --color-neutral--border-color: #fff3;
     --color-neutral--shade-500: #c2c1ba;
     --color-neutral--shade-600: #bab9b2;
@@ -12990,7 +12990,7 @@ input[type="file"]:focus-visible {
 }
 
 .project-horizontal-scope li::marker {
-  color: #ff6118; /* YouTube Red / Brand Red */
+  color: #F92D18; /* YouTube Red / Brand Red */
 }
 
 /* ========================================================================== */
@@ -13053,4 +13053,15 @@ input[type="file"]:focus-visible {
     padding: 0.75rem 1rem !important;
     font-size: 0.9rem !important;
   }
+}
+
+/* Globally hide scrollbar while preserving scroll functionality */
+html, body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+  width: 0;
+  height: 0;
 }

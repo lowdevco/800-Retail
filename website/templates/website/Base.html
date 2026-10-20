@@ -7,7 +7,7 @@
 
     <meta content="width=device-width, initial-scale=1" name="viewport" />
 
-    <link href="{% static 'website/assets/css/main.css' %}?v=1.1" rel="stylesheet" type="text/css" />
+    <link href="{% static 'website/assets/css/main.css' %}" rel="stylesheet" type="text/css" />
 
     <script src="{% static 'website/assets/js/head-scripts.js' %}"></script>
 
@@ -31,7 +31,58 @@
     <link rel="canonical" href="{{ page.canonical_tag }}" />
     {% endif %}
 
-    {% block head %}{% endblock head %}
+        {% block head %}{% endblock head %}
+
+    <style>
+      /* ========================================================= */
+      /* CLEAN INDUSTRIAL BADGE: SHORT SOLID LEFT LINE ONLY        */
+      /* ========================================================= */
+      .badge-dot {
+        display: none !important;
+      }
+
+      .text-style-badge,
+      .badge {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        gap: 0.85rem !important;
+        font-family: "Roboto Mono", monospace !important;
+        font-size: 1.15rem !important;
+        line-height: 1 !important;
+        font-weight: 800 !important;
+        letter-spacing: 0.22em !important;
+        text-transform: uppercase !important;
+        color: #F92D18 !important;
+        padding: 0.25rem 0 !important;
+        margin-bottom: 0.5rem !important;
+        cursor: default !important;
+      }
+
+      /* Single short solid left line */
+      .text-style-badge::before,
+      .badge::before {
+        content: "" !important;
+        display: inline-block !important;
+        width: 24px !important;
+        height: 2px !important;
+        background: #F92D18 !important;
+        transform: translateY(1px) !important;
+      }
+
+      /* Inner text inherits red color */
+      .text-style-badge > *,
+      .badge > *,
+      .text-style-badge .text-color-primary,
+      .text-style-badge .text-color-alternate {
+        color: #F92D18 !important;
+        font-size: inherit !important;
+        line-height: inherit !important;
+        letter-spacing: inherit !important;
+        font-family: inherit !important;
+        font-weight: inherit !important;
+      }
+    </style>
 
     <meta name="referrer" content="strict-origin-when-cross-origin">
 
