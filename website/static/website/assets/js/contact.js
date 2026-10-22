@@ -90,6 +90,24 @@ document.addEventListener("DOMContentLoaded", () => {
         },
       ],
     },
+    india: {
+      geodata: am5geodata_indiaLow,
+      zoomLevel: 1.2,
+      zoomPoint: { longitude: 79.0, latitude: 22.0 },
+      stores: [
+        {
+          id: "india-1",
+          title: "Babas Electronics",
+          desc: "Plot No. 124, Sector-8, IMT Manesar, Gurgaon, Haryana 122051, India",
+          phone: "+91 99104 66544",
+          email: "director@babaselectronics.com",
+          lat: 28.3740746,
+          long: 76.8967095,
+          iframeSrc:
+            "https://maps.google.com/maps?q=BABAS+ELECTRONICS,+Plot+No.+124,+Sector+8,+IMT+Manesar,+Gurugram,+Haryana+122051&ll=28.3740746,76.8967095&z=16&hl=en&output=embed",
+        },
+      ],
+    },
   };
 
   // 2. Setup Address Cards
@@ -202,7 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
     pointSeries.bullets.push(function () {
       const circle = am5.Circle.new(root, {
         radius: 7,
-        fill: am5.color(0xff6118),
+        fill: am5.color(0xf92d18), // brand red
         stroke: am5.color(0x555555),
         strokeWidth: 2,
         tooltipText: "{title}",

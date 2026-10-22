@@ -4,6 +4,7 @@ from django.db.models.signals import pre_save, post_delete
 import os
 from ckeditor import widgets
 from django.db import models
+from django.core.validators import FileExtensionValidator
 from django.contrib.auth.models import User
 # pyrefly: ignore [missing-import]
 from ckeditor_uploader.fields import RichTextUploadingField
@@ -280,6 +281,76 @@ class CompanyDetails(models.Model):
         verbose_name_plural = "Company Details"
 
 
+# ---------------------------------------------------------------
+# Data module: content shown on the public website
+# ---------------------------------------------------------------
+
+LOGO_EXTENSIONS = ['svg', 'png', 'jpg', 'jpeg', 'webp', 'gif', 'avif']
+
+
+class Client(models.Model):
+    """A client brand. Feeds the Home testimonial cards, the Home logo
+    marquee and the Our Clientele page."""
+    name = models.CharField(max_length=150)
+    logo = models.FileField(
+        upload_to='clients/',
+        validators=[FileExtensionValidator(LOGO_EXTENSIONS)],
+        help_text='SVG or PNG with a transparent background works best.')
+    industry = models.CharField(
+        max_length=150, blank=True,
+        help_text='Shown under the name, e.g. "Global Sportswear Brand".')
+    message = models.TextField(
+        blank=True,
+        help_text='Testimonial / thank-you message shown on the card. Quotes are added automatically.')
+    order = models.PositiveIntegerField(
+        default=0, help_text='Lower numbers appear first.')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['order', 'id']
+
+    def __str__(self):
+        return self.name
+
+
+class Certification(models.Model):
+    """Certifications & Approvals carousel on The Group page."""
+    name = models.CharField(max_length=150)
+    description = models.TextField(blank=True)
+    logo = models.FileField(
+        upload_to='certifications/', blank=True, null=True,
+        validators=[FileExtensionValidator(LOGO_EXTENSIONS)],
+        help_text='Optional. Leave empty to show the default shield icon.')
+    order = models.PositiveIntegerField(
+        default=0, help_text='Lower numbers appear first.')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['order', 'id']
+
+    def __str__(self):
+        return self.name
+
+
+class TeamPhoto(models.Model):
+    """Photos for the Our Team slideshow on The Group page."""
+    image = models.ImageField(
+        upload_to='team/',
+        help_text='Landscape photos look best (at least 1600px wide).')
+    caption = models.CharField(
+        max_length=200, blank=True,
+        help_text='Optional short caption shown on the photo.')
+    order = models.PositiveIntegerField(
+        default=0, help_text='Lower numbers appear first.')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['order', 'id']
+
+    def __str__(self):
+        return self.caption or f'Team photo {self.pk}'
+
+
 # Define which fields to clean up for each model
 
 MEDIA_MODELS = {
@@ -288,6 +359,9 @@ MEDIA_MODELS = {
     FileManager: "image",
     CompanyDetails: "company_logo",
     Blog: "featured_image",
+    Client: "logo",
+    Certification: "logo",
+    TeamPhoto: "image",
 }
 
 
@@ -333,38 +407,6 @@ def auto_delete_file_on_change(sender, instance, **kwargs):
 
     if old_file and old_file != new_file:
         delete_media(old_file)
-
-
-class Project(models.Model):
-    title = models.CharField(max_length=200)
-    store_name = models.CharField(max_length=200)
-    location = models.CharField(max_length=200)
-    thumbnail = models.CharField(max_length=500, help_text='Paste image URL from File Manager/Gallery')
-    video_id = models.CharField(max_length=100, blank=True, null=True, help_text='YouTube Video ID (e.g., Ym-lgWHk9AY)')
-    scope = RichTextUploadingField(blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-
-
-    def save(self, *args, **kwargs):
-        if self.thumbnail and '/website/media/' in self.thumbnail:
-            self.thumbnail = self.thumbnail.replace('/website/media/', '/media/')
-        if self.video_id:
-            import re
-            # Extract src if user pasted iframe
-            match = re.search(r'src="([^"]+)"', self.video_id)
-            if match:
-                self.video_id = match.group(1)
-            # Extract video ID from embed URL
-            if 'youtube.com/embed/' in self.video_id:
-                self.video_id = self.video_id.split('youtube.com/embed/')[1].split('?')[0]
-            # Ensure it is just the ID
-            self.video_id = self.video_id.replace('https://', '').replace('http://', '').replace('www.youtube.com/watch?v=', '')
-            if '&' in self.video_id:
-                self.video_id = self.video_id.split('&')[0]
-        super().save(*args, **kwargs)
-
-    def __str__(self):
-        return self.title
 
 
 class ProductCategory(models.Model):

@@ -6,7 +6,6 @@ from django.conf import settings
 
 def global_user_profile(request):
 
-    print(f"Processing user: {request.user}")
 
     if request.user.is_authenticated:
         try:

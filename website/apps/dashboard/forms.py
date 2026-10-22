@@ -230,19 +230,7 @@ class BlogPostForm(forms.ModelForm):
         self.fields['slug'].required = False
 
 
-from .models import Project, Product
-class ProjectForm(forms.ModelForm):
-    class Meta:
-        model = Project
-        fields = '__all__'
-        widgets = {
-            'title': forms.TextInput(attrs={'class': 'form-control'}),
-            'store_name': forms.TextInput(attrs={'class': 'form-control'}),
-            'location': forms.TextInput(attrs={'class': 'form-control'}),
-            'thumbnail': forms.TextInput(attrs={'class': 'form-control'}),
-            'video_id': forms.TextInput(attrs={'class': 'form-control'}),
-        }
-
+from .models import Product
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
@@ -267,3 +255,46 @@ class ProductCategoryForm(forms.ModelForm):
             'name': forms.TextInput(attrs={'class': 'form-control'}),
         }
 
+
+
+# --- Data module: Clients / Certifications / Team Photos ---
+from .models import Client, Certification, TeamPhoto
+
+
+class ClientForm(forms.ModelForm):
+    class Meta:
+        model = Client
+        fields = ['name', 'logo', 'industry', 'message', 'order']
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'e.g. Adidas'}),
+            'logo': forms.ClearableFileInput(attrs={'class': 'form-control', 'accept': '.svg,.png,.jpg,.jpeg,.webp,.gif,.avif'}),
+            'industry': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'e.g. Global Sportswear Brand'}),
+            'message': forms.Textarea(attrs={'class': 'form-control', 'rows': 4}),
+            'order': forms.NumberInput(attrs={'class': 'form-control'}),
+        }
+        labels = {'order': 'Display order'}
+
+
+class CertificationForm(forms.ModelForm):
+    class Meta:
+        model = Certification
+        fields = ['name', 'logo', 'description', 'order']
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'e.g. ISO 9001:2015'}),
+            'logo': forms.ClearableFileInput(attrs={'class': 'form-control', 'accept': '.svg,.png,.jpg,.jpeg,.webp,.gif,.avif'}),
+            'description': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
+            'order': forms.NumberInput(attrs={'class': 'form-control'}),
+        }
+        labels = {'order': 'Display order'}
+
+
+class TeamPhotoForm(forms.ModelForm):
+    class Meta:
+        model = TeamPhoto
+        fields = ['image', 'caption', 'order']
+        widgets = {
+            'image': forms.ClearableFileInput(attrs={'class': 'form-control', 'accept': 'image/*'}),
+            'caption': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Optional, e.g. UAE National Day 2025'}),
+            'order': forms.NumberInput(attrs={'class': 'form-control'}),
+        }
+        labels = {'order': 'Display order'}

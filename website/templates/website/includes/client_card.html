@@ -1,0 +1,25 @@
+{% comment %}
+  Testimonial card for one Client (from CMS > Data > Clients).
+  Used on Home (carousel) and Our Clientele (grid).
+  Optional: card_id (Home uses "index-testimonial"),
+            animate_delay (Our Clientele staggered fade-in, e.g. "100ms").
+{% endcomment %}
+<div class="testimonial-card"{% if card_id %} id="{{ card_id }}"{% endif %}{% if animate_delay %} animate="fade-up-1" style="animation-delay: {{ animate_delay }}"{% endif %}>
+  <div class="testimonial-header">
+    <div class="testimonial-logo">
+      <img src="{{ client.logo.url }}" alt="{{ client.name }}" loading="lazy" />
+    </div>
+    <div class="testimonial-quote-icon">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M14.017 21L16.417 14.59C16.417 14.59 15.707 14.75 15.017 14.75C12.757 14.75 10.927 12.92 10.927 10.66C10.927 8.4 12.757 6.57 15.017 6.57C17.277 6.57 19.107 8.4 19.107 10.66C19.107 12.35 18.067 15.42 16.717 18.73C15.827 20.91 14.757 22.81 14.757 22.81L14.017 21ZM5.01697 21L7.41697 14.59C7.41697 14.59 6.70697 14.75 6.01697 14.75C3.75697 14.75 1.92697 12.92 1.92697 10.66C1.92697 8.4 3.75697 6.57 6.01697 6.57C8.27697 6.57 10.107 8.4 10.107 10.66C10.107 12.35 9.06697 15.42 7.71697 18.73C6.82697 20.91 5.75697 22.81 5.75697 22.81L5.01697 21Z" />
+      </svg>
+    </div>
+  </div>
+  <div class="testimonial-body">
+    {% if client.message %}<p class="testimonial-text">"{{ client.message }}"</p>{% endif %}
+  </div>
+  <div class="testimonial-footer">
+    <h3 class="testimonial-client">{{ client.name }}</h3>
+    {% if client.industry %}<p class="testimonial-subtitle">{{ client.industry }}</p>{% endif %}
+  </div>
+</div>

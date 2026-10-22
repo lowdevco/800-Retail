@@ -1,0 +1,87 @@
+{% extends 'dashboard/LayoutMain.html' %}
+{% load static widget_tweaks %}
+
+{% block content %}
+    <div class="pagetitle">
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{% url cfg.list_url %}">{{ cfg.plural }}</a></li>
+                <li class="breadcrumb-item active">{% if instance %}Edit{% else %}Add{% endif %} {{ cfg.singular }}</li>
+            </ol>
+        </nav>
+    </div>
+
+    <section class="section profile">
+        <div class="content">
+            <div class="usergroup card border-0 shadow-sm modern-card">
+                <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                    <span>{% if instance %}Edit{% else %}Add New{% endif %} {{ cfg.singular }}</span>
+                    <a href="{% url cfg.list_url %}" class="btn btn-light btn-sm">
+                        <i class="fas fa-arrow-left"></i> Back to List
+                    </a>
+                </div>
+                <div class="card-body mt-3">
+                    <p class="text-muted small mb-4">{{ cfg.help }}</p>
+
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        {% if form.errors %}
+                            <div class="alert alert-danger">
+                                <ul class="mb-0">
+                                    {% for field in form %}{% for error in field.errors %}
+                                        <li><strong>{{ field.label }}:</strong> {{ error }}</li>
+                                    {% endfor %}{% endfor %}
+                                    {% for error in form.non_field_errors %}<li>{{ error }}</li>{% endfor %}
+                                </ul>
+                            </div>
+                        {% endif %}
+
+                        <div class="row">
+                            <div class="col-12">
+                                {% for field in form %}
+                                    <div class="form-group mb-3">
+                                        <label for="{{ field.id_for_label }}" class="form-label fw-semibold">
+                                            {{ field.label }}{% if field.field.required %} <span class="text-danger">*</span>{% endif %}
+                                        </label>
+
+                                        {% if field.name == 'logo' or field.name == 'image' %}
+                                            {% with current=field.value %}
+                                                {% if current and current.url %}
+                                                    <div class="mb-2 p-2 border rounded d-inline-block" style="background:#f6f6f2;">
+                                                        <img src="{{ current.url }}" alt="Current" style="max-height:{% if field.name == 'image' %}140px{% else %}70px{% endif %}; max-width:280px; object-fit:contain;">
+                                                    </div>
+                                                    <div class="small text-muted mb-1">Choose a new file to replace the current one.</div>
+                                                {% endif %}
+                                            {% endwith %}
+                                            <input type="file" name="{{ field.html_name }}" id="{{ field.id_for_label }}" class="form-control" accept="{{ field.field.widget.attrs.accept }}">
+                                            {% if not field.field.required and field.value %}
+                                                <div class="form-check mt-2">
+                                                    <input class="form-check-input" type="checkbox" name="{{ field.html_name }}-clear" id="{{ field.id_for_label }}-clear">
+                                                    <label class="form-check-label small" for="{{ field.id_for_label }}-clear">Remove current file</label>
+                                                </div>
+                                            {% endif %}
+                                        {% else %}
+                                            {% render_field field class="form-control" %}
+                                        {% endif %}
+
+                                        {% if field.help_text %}
+                                            <small class="form-text text-muted">{{ field.help_text|safe }}</small>
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <div class="text-right mt-4">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> {% if instance %}Save Changes{% else %}Add {{ cfg.singular }}{% endif %}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

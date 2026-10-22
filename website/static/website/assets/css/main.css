@@ -4028,18 +4028,20 @@ blockquote {
   height: 100%;
   position: absolute;
   inset: 0%;
+  width: 100%;
+  object-position: bottom;
 }
 .home1_hero_content {
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
   background-color: #0000004d;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
   position: relative;
 }
 .home1_hero_grid {
-  grid-column-gap: 1.5rem;
-  grid-row-gap: 1.5rem;
+  grid-column-gap: 2rem;
+  grid-row-gap: 2rem;
   color: var(--color-base--white);
   justify-content: space-between;
   align-items: flex-end;

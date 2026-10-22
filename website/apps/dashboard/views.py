@@ -74,7 +74,6 @@ def get_dashboard_cards():
         {'title': 'Files', 'count': FileManager.objects.count(
         ), 'icon': 'fas fa-folder-open', 'url': reverse('file_manager')},
         {'title': 'Gallery', 'count': Gallery.objects.count(), 'icon': 'fas fa-images', 'url': reverse('gallery_view')},
-        {'title': 'Projects', 'count': Project.objects.count(), 'icon': 'fas fa-project-diagram', 'url': reverse('projects_list')},
         {'title': 'Products', 'count': Product.objects.count(), 'icon': 'fas fa-box-open', 'url': reverse('products_list')},
     ]
 
@@ -751,46 +750,9 @@ def module_priority(request):
     return render(request, 'dashboard/pages/module_priority.html', {'modules': modules})
 
 # --- DATA MODULE VIEWS ---
-from .models import Project, Product
-from .forms import ProjectForm, ProductForm
+from .models import Product
+from .forms import ProductForm
 from django.contrib import messages
-
-@login_required
-def projects_list(request):
-    projects = Project.objects.all().order_by('-created_at')
-    return render(request, 'dashboard/pages/data/projects_list.html', {'projects': projects})
-
-@login_required
-def add_project(request):
-    if request.method == 'POST':
-        form = ProjectForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Project added successfully!')
-            return redirect('projects_list')
-    else:
-        form = ProjectForm()
-    return render(request, 'dashboard/pages/data/add_project.html', {'form': form})
-
-@login_required
-def edit_project(request, pk):
-    project = get_object_or_404(Project, pk=pk)
-    if request.method == 'POST':
-        form = ProjectForm(request.POST, instance=project)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Project updated successfully!')
-            return redirect('projects_list')
-    else:
-        form = ProjectForm(instance=project)
-    return render(request, 'dashboard/pages/data/edit_project.html', {'form': form, 'project': project})
-
-@login_required
-def delete_project(request, pk):
-    project = get_object_or_404(Project, pk=pk)
-    project.delete()
-    messages.success(request, 'Project deleted.')
-    return redirect('projects_list')
 
 @login_required
 def products_list(request):
@@ -870,3 +832,93 @@ def delete_product_category(request, pk):
     messages.success(request, 'Category deleted.')
     return redirect('product_categories')
 
+
+
+# --- DATA MODULE: Clients / Certifications / Team Photos ---
+from .models import Client, Certification, TeamPhoto
+from .forms import ClientForm, CertificationForm, TeamPhotoForm
+
+# One config per content type keeps the three CRUD screens identical.
+DATA_SECTIONS = {
+    'client': {
+        'model': Client, 'form': ClientForm,
+        'singular': 'Client', 'plural': 'Clients',
+        'list_url': 'clients_list', 'add_url': 'add_client',
+        'edit_url': 'edit_client', 'delete_url': 'delete_client',
+        'help': 'Clients appear on the Home page (testimonial cards and logo marquee) and on the Our Clientele page.',
+    },
+    'certification': {
+        'model': Certification, 'form': CertificationForm,
+        'singular': 'Certification', 'plural': 'Certifications',
+        'list_url': 'certifications_list', 'add_url': 'add_certification',
+        'edit_url': 'edit_certification', 'delete_url': 'delete_certification',
+        'help': 'Certifications appear in the "Certifications & Approvals" carousel on The Group page.',
+    },
+    'team': {
+        'model': TeamPhoto, 'form': TeamPhotoForm,
+        'singular': 'Team Photo', 'plural': 'Team Photos',
+        'list_url': 'team_photos_list', 'add_url': 'add_team_photo',
+        'edit_url': 'edit_team_photo', 'delete_url': 'delete_team_photo',
+        'help': 'Team photos appear in the "Our Team" slideshow on The Group page.',
+    },
+}
+
+
+def _data_list(request, key):
+    cfg = DATA_SECTIONS[key]
+    items = cfg['model'].objects.all()
+    return render(request, f'dashboard/pages/data/{key}_list.html', {'items': items, 'cfg': cfg})
+
+
+def _data_form(request, key, pk=None):
+    cfg = DATA_SECTIONS[key]
+    instance = get_object_or_404(cfg['model'], pk=pk) if pk else None
+    if request.method == 'POST':
+        form = cfg['form'](request.POST, request.FILES, instance=instance)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f"{cfg['singular']} {'updated' if instance else 'added'} successfully!")
+            return redirect(cfg['list_url'])
+    else:
+        initial = {}
+        if instance is None:
+            last = cfg['model'].objects.order_by('-order').first()
+            initial['order'] = (last.order + 1) if last else 1
+        form = cfg['form'](instance=instance, initial=initial)
+    return render(request, 'dashboard/pages/data/data_form.html',
+                  {'form': form, 'cfg': cfg, 'instance': instance})
+
+
+def _data_delete(request, key, pk):
+    cfg = DATA_SECTIONS[key]
+    get_object_or_404(cfg['model'], pk=pk).delete()
+    messages.success(request, f"{cfg['singular']} deleted.")
+    return redirect(cfg['list_url'])
+
+
+@login_required
+def clients_list(request): return _data_list(request, 'client')
+@login_required
+def add_client(request): return _data_form(request, 'client')
+@login_required
+def edit_client(request, pk): return _data_form(request, 'client', pk)
+@login_required
+def delete_client(request, pk): return _data_delete(request, 'client', pk)
+
+@login_required
+def certifications_list(request): return _data_list(request, 'certification')
+@login_required
+def add_certification(request): return _data_form(request, 'certification')
+@login_required
+def edit_certification(request, pk): return _data_form(request, 'certification', pk)
+@login_required
+def delete_certification(request, pk): return _data_delete(request, 'certification', pk)
+
+@login_required
+def team_photos_list(request): return _data_list(request, 'team')
+@login_required
+def add_team_photo(request): return _data_form(request, 'team')
+@login_required
+def edit_team_photo(request, pk): return _data_form(request, 'team', pk)
+@login_required
+def delete_team_photo(request, pk): return _data_delete(request, 'team', pk)

@@ -84,10 +84,6 @@ urlpatterns = [
 
 
     # --- DATA MODULE ---
-    path('projects/', views.projects_list, name='projects_list'),
-    path('projects/add/', views.add_project, name='add_project'),
-    path('projects/edit/<int:pk>/', views.edit_project, name='edit_project'),
-    path('projects/delete/<int:pk>/', views.delete_project, name='delete_project'),
     path('products/', views.products_list, name='products_list'),
     path('products/add/', views.add_product, name='add_product'),
     path('products/edit/<int:pk>/', views.edit_product, name='edit_product'),
@@ -97,5 +93,20 @@ urlpatterns = [
     path('product-categories/add/', views.add_product_category, name='add_product_category'),
     path('product-categories/edit/<int:pk>/', views.edit_product_category, name='edit_product_category'),
     path('product-categories/delete/<int:pk>/', views.delete_product_category, name='delete_product_category'),
+
+    path('clients/', views.clients_list, name='clients_list'),
+    path('clients/add/', views.add_client, name='add_client'),
+    path('clients/edit/<int:pk>/', views.edit_client, name='edit_client'),
+    path('clients/delete/<int:pk>/', views.delete_client, name='delete_client'),
+
+    path('certifications/', views.certifications_list, name='certifications_list'),
+    path('certifications/add/', views.add_certification, name='add_certification'),
+    path('certifications/edit/<int:pk>/', views.edit_certification, name='edit_certification'),
+    path('certifications/delete/<int:pk>/', views.delete_certification, name='delete_certification'),
+
+    path('team-photos/', views.team_photos_list, name='team_photos_list'),
+    path('team-photos/add/', views.add_team_photo, name='add_team_photo'),
+    path('team-photos/edit/<int:pk>/', views.edit_team_photo, name='edit_team_photo'),
+    path('team-photos/delete/<int:pk>/', views.delete_team_photo, name='delete_team_photo'),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

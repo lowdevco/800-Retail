@@ -16,7 +16,7 @@ Retail solutions, projects, services, and capabilities.
 
 ### Live Links
 
-[ Website](https://800retail.com/)    [ Render Deployment ](https://eight00-retail.onrender.com/)
+[ Website](https://demo.800retail.com/)    [ Render Deployment ](https://eight00-retail.onrender.com/)
 
 <br>
 

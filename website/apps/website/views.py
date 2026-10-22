@@ -7,7 +7,7 @@ from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.conf import settings
 from apps.dashboard.models import ContactEnquiry, CompanyDetails
-from apps.dashboard.models import Page, Project, Product, Blog
+from apps.dashboard.models import Page, Product, Blog, Client, Certification, TeamPhoto
 
 
 def custom_404(request, exception):
@@ -43,10 +43,17 @@ def home(request):
                 break
                 
     context['recent_blogs'] = distinct_blogs
+    context['clients'] = Client.objects.all()
     return render(request, 'website/pages/index.html', context)
 
 def the_group(request):
-    return render(request, 'website/pages/the-group.html', get_page_context('the_group'))
+    context = get_page_context('the_group')
+    context['certifications'] = Certification.objects.all()
+    context['team_photos'] = TeamPhoto.objects.all()
+    return render(request, 'website/pages/the-group.html', context)
+
+def retail_concept(request):
+    return render(request, 'website/pages/retail-concept.html', get_page_context('retail_concept'))
 
 def retail_fixture(request):
     return render(request, 'website/pages/retail-fixture.html', get_page_context('retail_fixture'))
@@ -57,21 +64,15 @@ def retail_led(request):
 def retail_lighting(request):
     return render(request, 'website/pages/retail-lighting.html', get_page_context('retail_lighting'))
 
-def divisions(request):
-    return render(request, 'website/pages/divisions.html', get_page_context('divisions'))
-
 def product(request):
     context = get_page_context('product')
     context['products'] = Product.objects.all().order_by('-created_at')
     return render(request, 'website/pages/products.html', context)
 
-def project(request):
-    context = get_page_context('project')
-    context['projects'] = Project.objects.all().order_by('-created_at')
-    return render(request, 'website/pages/projects.html', context)
-
 def client(request):
-    return render(request, 'website/pages/clients.html', get_page_context('client'))
+    context = get_page_context('client')
+    context['clients'] = Client.objects.all()
+    return render(request, 'website/pages/clients.html', context)
 
 def blog(request):
     context = get_page_context('blog')

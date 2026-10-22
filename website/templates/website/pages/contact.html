@@ -12,6 +12,7 @@
   <script src="https://cdn.amcharts.com/lib/5/geodata/uaeLow.js"></script>
   <script src="https://cdn.amcharts.com/lib/5/geodata/saudiArabiaLow.js"></script>
   <script src="https://cdn.amcharts.com/lib/5/geodata/chinaLow.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/geodata/indiaLow.js"></script>
   
     
 <style>
@@ -233,66 +234,7 @@
                           >Send Message</button>
                         </form>
                         
-                        <div id="contact-success-msg" class="form_message-success w-form-done" style="display: none;">
-                          <div>
-                            Thank you! Your submission has been received! We will be in touch shortly.
-                          </div>
-                        </div>
-                        <div id="contact-error-msg" class="form_message-error w-form-fail" style="display: none;">
-                          <div id="contact-error-text">
-                            Oops! Something went wrong while submitting the form.
-                          </div>
-                        </div>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("wf-form-Contact-Form-1");
-    const successMsg = document.getElementById("contact-success-msg");
-    const errorMsg = document.getElementById("contact-error-msg");
-    const errorText = document.getElementById("contact-error-text");
-    const submitBtn = document.getElementById("submit-contact-btn");
-
-    if (form) {
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        
-        submitBtn.disabled = true;
-        submitBtn.innerText = "Please wait...";
-        successMsg.style.display = "none";
-        errorMsg.style.display = "none";
-
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData.entries());
-
-        fetch("{% url 'submit_contact' %}", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        })
-        .then((response) => response.json().then(res => ({status: response.status, body: res})))
-        .then((res) => {
-          if (res.status === 200) {
-            successMsg.style.display = "block";
-            form.reset();
-          } else {
-            errorMsg.style.display = "block";
-            errorText.innerText = res.body.error || "Oops! Something went wrong.";
-          }
-        })
-        .catch((error) => {
-          errorMsg.style.display = "block";
-          errorText.innerText = "A network error occurred. Please try again.";
-        })
-        .finally(() => {
-          submitBtn.disabled = false;
-          submitBtn.innerText = "Get Started";
-        });
-      });
-    }
-  });
-</script>
+                        <!-- Send result is shown as a toast (see script block at the bottom) -->
                       </div>
                     </div>
                   </div>
@@ -441,6 +383,7 @@
                     <button class="region-tab is-active" data-region="uae">United Arab Emirates</button>
                     <button class="region-tab" data-region="ksa">Saudi Arabia</button>
                     <button class="region-tab" data-region="china">China</button>
+                    <button class="region-tab" data-region="india">India</button>
                   </div>
                 </div>
 
@@ -609,7 +552,6 @@
 
 
 <!-- Contact Form AJAX & Validation -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
 <style>
     /* Smooth validation & message styles */
     .error-msg-custom {
@@ -622,23 +564,65 @@
         border-color: #ff4d4f !important;
         background-color: #fff1f0 !important;
     }
-    .w-form-done, .w-form-fail {
-        padding: 20px;
-        border-radius: 8px;
-        margin-top: 15px;
-        text-align: center;
-        display: none;
+    /* ---------- Toast notifications (contact form result) ---------- */
+    .site-toast-stack {
+        position: fixed;
+        right: 1.5rem;
+        bottom: 1.5rem;
+        z-index: 2000;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        max-width: min(420px, calc(100vw - 2rem));
+        pointer-events: none;
     }
-    .w-form-done {
-        background-color: #f6ffed;
-        border: 1px solid #b7eb8f;
-        color: #389e0d;
+    @media (max-width: 767px) {
+        .site-toast-stack { left: 1rem; right: 1rem; bottom: 1rem; max-width: none; }
     }
-    .w-form-fail {
-        background-color: #fff2f0;
-        border: 1px solid #ffccc7;
-        color: #cf1322;
+    .site-toast {
+        pointer-events: auto;
+        display: flex;
+        align-items: flex-start;
+        gap: 0.85rem;
+        padding: 1rem 1rem 1rem 1.15rem;
+        background: #1a1b18;
+        color: #fafaf7;
+        border-left: 3px solid #455033;
+        box-shadow: 0 12px 32px rgba(0,0,0,0.28);
+        font-size: 0.95rem;
+        line-height: 1.45;
+        opacity: 0;
+        transform: translateY(12px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
     }
+    .site-toast.is-visible { opacity: 1; transform: translateY(0); }
+    .site-toast.is-error { border-left-color: #F92D18; }
+    .site-toast-icon {
+        flex-shrink: 0;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #455033;
+        margin-top: 1px;
+    }
+    .site-toast.is-error .site-toast-icon { background: #F92D18; }
+    .site-toast-title { font-weight: 600; margin-bottom: 0.15rem; }
+    .site-toast-text { color: rgba(250,250,247,0.75); }
+    .site-toast-close {
+        margin-left: auto;
+        flex-shrink: 0;
+        background: none;
+        border: 0;
+        color: rgba(250,250,247,0.6);
+        font-size: 1.25rem;
+        line-height: 1;
+        cursor: pointer;
+        padding: 0 0.25rem;
+    }
+    .site-toast-close:hover { color: #fafaf7; }
     .btn-sending {
         opacity: 0.7;
         cursor: not-allowed;
@@ -649,63 +633,119 @@
     }
 </style>
 <script>
-$(document).ready(function() {
-    var $form = $('#wf-form-Contact-Form-1');
-    var $submitBtn = $('#submit-contact-btn');
-    var $successMsg = $('#contact-success-msg');
-    var $errorMsg = $('#contact-error-msg');
-    
-    // Initialize jQuery Validate
-    $form.validate({
-        errorClass: "error",
-        errorElement: "span",
-        errorPlacement: function(error, element) {
-            error.addClass('error-msg-custom');
-            error.insertAfter(element);
-        },
-        rules: {
-            name: { required: true, minlength: 2 },
-            email: { required: true, email: true },
-            subject: { required: true },
-            message: { required: true, minlength: 10 }
-        },
-        messages: {
-            name: "Please enter your full name",
-            email: "Please enter a valid email address",
-            subject: "Please select an enquiry type",
-            message: "Please write a message (at least 10 characters)"
-        },
-        submitHandler: function(form, event) {
-            event.preventDefault();
-            
-            var originalText = $submitBtn.text();
-            $submitBtn.html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="margin-right:8px; display:inline-block; width:1rem; height:1rem; border:0.2em solid currentColor; border-right-color:transparent; border-radius:50%; animation:spinner-border .75s linear infinite;"></span> Sending...').addClass('btn-sending').prop('disabled', true);
-            $errorMsg.slideUp(200);
-            
-            var formData = new FormData(form);
-            
-            $.ajax({
-                url: $form.attr('action'),
-                type: 'POST',
-                data: formData,
-                processData: false,
-                contentType: false,
-                success: function(response) {
-                    $form.slideUp(400, function() {
-                        $successMsg.html('<div>' + response.success + '</div>').slideDown(400);
-                    });
-                },
-                error: function(xhr) {
-                    var errorText = "An unexpected error occurred. Please try again.";
-                    if (xhr.responseJSON && xhr.responseJSON.error) {
-                        errorText = xhr.responseJSON.error;
-                    }
-                    $errorMsg.html('<div>' + errorText + '</div>').slideDown(400);
-                    $submitBtn.text(originalText).removeClass('btn-sending').prop('disabled', false);
-                }
-            });
-            return false;
+// Toast helper: showToast('success' | 'error', title, message)
+function showToast(type, title, message) {
+    var stack = document.querySelector('.site-toast-stack');
+    if (!stack) {
+        stack = document.createElement('div');
+        stack.className = 'site-toast-stack';
+        stack.setAttribute('aria-live', 'polite');
+        document.body.appendChild(stack);
+    }
+    var icon = type === 'error'
+        ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>'
+        : '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+    var toast = document.createElement('div');
+    toast.className = 'site-toast' + (type === 'error' ? ' is-error' : '');
+    toast.setAttribute('role', type === 'error' ? 'alert' : 'status');
+    toast.innerHTML =
+        '<div class="site-toast-icon">' + icon + '</div>' +
+        '<div><div class="site-toast-title"></div><div class="site-toast-text"></div></div>' +
+        '<button type="button" class="site-toast-close" aria-label="Dismiss">&times;</button>';
+    toast.querySelector('.site-toast-title').textContent = title;
+    toast.querySelector('.site-toast-text').textContent = message;
+    stack.appendChild(toast);
+    requestAnimationFrame(function () { toast.classList.add('is-visible'); });
+
+    function dismiss() {
+        toast.classList.remove('is-visible');
+        setTimeout(function () { toast.remove(); }, 300);
+    }
+    toast.querySelector('.site-toast-close').addEventListener('click', dismiss);
+    setTimeout(dismiss, type === 'error' ? 8000 : 6000);
+}
+
+// Contact form: validation + AJAX submit (plain JS, the base template loads jQuery after page scripts).
+document.addEventListener('DOMContentLoaded', function () {
+    var form = document.getElementById('wf-form-Contact-Form-1');
+    var submitBtn = document.getElementById('submit-contact-btn');
+    if (!form || !submitBtn) return;
+    var originalText = submitBtn.textContent;
+    form.setAttribute('novalidate', 'novalidate');
+
+    var rules = {
+        name:    { test: function (v) { return v.trim().length >= 2; }, msg: 'Please enter your full name' },
+        email:   { test: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); }, msg: 'Please enter a valid email address' },
+        subject: { test: function (v) { return v.trim() !== ''; }, msg: 'Please select an enquiry type' },
+        message: { test: function (v) { return v.trim().length >= 10; }, msg: 'Please write a message (at least 10 characters)' }
+    };
+
+    function setError(field, msg) {
+        var next = field.nextElementSibling;
+        var existing = next && next.classList.contains('error-msg-custom') ? next : null;
+        if (msg) {
+            field.classList.add('error');
+            if (!existing) {
+                existing = document.createElement('span');
+                existing.className = 'error-msg-custom';
+                field.insertAdjacentElement('afterend', existing);
+            }
+            existing.textContent = msg;
+        } else {
+            field.classList.remove('error');
+            if (existing) existing.remove();
         }
+    }
+
+    function validateField(field) {
+        var rule = rules[field.name];
+        if (!rule) return true;
+        var ok = rule.test(field.value || '');
+        setError(field, ok ? '' : rule.msg);
+        return ok;
+    }
+
+    Object.keys(rules).forEach(function (name) {
+        var field = form.elements[name];
+        if (!field) return;
+        var evt = field.tagName === 'SELECT' ? 'change' : 'input';
+        field.addEventListener(evt, function () { if (field.classList.contains('error')) validateField(field); });
+        field.addEventListener('blur', function () { if (field.value) validateField(field); });
+    });
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var firstInvalid = null;
+        Object.keys(rules).forEach(function (name) {
+            var field = form.elements[name];
+            if (field && !validateField(field) && !firstInvalid) firstInvalid = field;
+        });
+        if (firstInvalid) { firstInvalid.focus(); return; }
+
+        submitBtn.disabled = true;
+        submitBtn.classList.add('btn-sending');
+        submitBtn.innerHTML = '<span aria-hidden="true" style="margin-right:8px; display:inline-block; width:1rem; height:1rem; border:0.2em solid currentColor; border-right-color:transparent; border-radius:50%; animation:spinner-border .75s linear infinite; vertical-align:-2px;"></span> Sending...';
+
+        fetch(form.getAttribute('action'), { method: 'POST', body: new FormData(form) })
+            .then(function (res) {
+                return res.json().catch(function () { return {}; }).then(function (body) { return { ok: res.ok, body: body }; });
+            })
+            .then(function (r) {
+                if (r.ok) {
+                    form.reset();
+                    showToast('success', 'Message sent', r.body.success || 'Thank you! We will be in touch shortly.');
+                } else {
+                    showToast('error', 'Message not sent', r.body.error || 'Something went wrong. Please try again, or email us at ask@800retail.com.');
+                }
+            })
+            .catch(function () {
+                showToast('error', 'Message not sent', 'Network error. Please check your connection and try again.');
+            })
+            .finally(function () {
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('btn-sending');
+                submitBtn.textContent = originalText;
+            });
     });
 });
 </script>

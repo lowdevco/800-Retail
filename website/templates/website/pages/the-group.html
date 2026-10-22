@@ -107,7 +107,6 @@
 
   </style>
 
-  /* Certification section Style */
 
     <style>
     .cert-carousel-container {
@@ -194,72 +193,160 @@
 
 
         <style>
-      .team-gallery-wrapper {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 1rem;
+      /* ---------- Certifications: uploaded logo variant ---------- */
+      .cert-icon-wrapper.has-logo {
+        background-color: #ffffff;
+        border: 1px solid rgba(0,0,0,0.08);
+        overflow: hidden;
       }
-      @media (min-width: 992px) {
-        .team-gallery-wrapper {
-          grid-template-columns: 1.45fr 1fr;
-          grid-template-rows: minmax(0, 1fr);
-          height: 65vh;
-          min-height: 500px;
-          max-height: 700px;
-        }
+      .cert-icon-wrapper.has-logo .cert-icon {
+        width: 64%;
+        height: 64%;
+        object-fit: contain;
       }
-      .team-featured-slider {
+
+      /* ---------- Our Team: showcase slideshow (CMS > Data > Team Photos) ---------- */
+      .team-showcase {
+        width: 100%;
+        max-width: 1600px;
+        margin: 0 auto;
+      }
+      .team-stage {
         position: relative;
         width: 100%;
-        height: 100%;
-        min-height: 400px;
+        aspect-ratio: 4 / 3;
         overflow: hidden;
+        background-color: var(--color-base--black);
       }
-      @media (min-width: 992px) {
-        .team-featured-slider {
-          min-height: 0;
-        }
-      }
-      .team-slide {
-        position: absolute;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        opacity: 0;
-        transition: opacity 0.8s ease-in-out;
-        z-index: 1;
-      }
-      .team-slide.active {
-        opacity: 1;
-        z-index: 2;
-      }
-      .team-slide img {
-        width: 100%; height: 100%;
-        object-fit: cover;
-      }
-      .team-static-collage {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: repeat(3, minmax(0, 1fr));
-        gap: 1rem;
-        height: 100%;
-        min-height: 0;
-      }
-      .team-thumb {
-        position: relative;
+      @media (min-width: 768px) { .team-stage { aspect-ratio: 16 / 9; } }
+      @media (min-width: 1200px) { .team-stage { aspect-ratio: 21 / 9; } }
 
-        overflow: hidden;
-        min-height: 0;
+      .team-stage-slide {
+        position: absolute;
+        inset: 0;
+        margin: 0;
+        opacity: 0;
+        transition: opacity 0.9s ease;
       }
-      .thumb-wide {
-        grid-column: span 2;
-      }
-      .team-thumb img {
-        width: 100%; height: 100%;
+      .team-stage-slide.is-active { opacity: 1; z-index: 1; }
+      .team-stage-slide img {
+        width: 100%;
+        height: 100%;
         object-fit: cover;
-        transition: transform 0.4s ease;
+        transform: scale(1.06);
+        transition: transform 7s ease-out;
       }
-      .team-thumb:hover img {
-        transform: scale(1.05);
+      .team-stage-slide.is-active img { transform: scale(1); }
+
+      /* bottom shade so caption + controls stay readable */
+      .team-stage::after {
+        content: "";
+        position: absolute;
+        left: 0; right: 0; bottom: 0;
+        height: 40%;
+        background: linear-gradient(to top, rgba(26,27,24,0.75), rgba(26,27,24,0));
+        z-index: 2;
+        pointer-events: none;
+      }
+      .team-stage-caption {
+        position: absolute;
+        left: clamp(1.25rem, 3vw, 2.5rem);
+        bottom: clamp(3.25rem, 6vw, 4.5rem);
+        right: 40%;
+        z-index: 3;
+        color: #ffffff;
+        font-family: var(--fonts--heading);
+        font-size: clamp(1rem, 1.6vw, 1.35rem);
+        font-weight: 500;
+        line-height: 1.3;
+      }
+      .team-stage-bar {
+        position: absolute;
+        left: clamp(1.25rem, 3vw, 2.5rem);
+        right: clamp(1.25rem, 3vw, 2.5rem);
+        bottom: clamp(1rem, 2vw, 1.5rem);
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        color: #ffffff;
+      }
+      .team-stage-counter {
+        font-family: var(--fonts--badge);
+        font-size: 0.85rem;
+        letter-spacing: 0.15em;
+        white-space: nowrap;
+      }
+      .team-stage-counter .is-current { color: #F92D18; font-weight: 700; }
+      .team-stage-progress {
+        flex: 1;
+        height: 2px;
+        background: rgba(255,255,255,0.25);
+        overflow: hidden;
+      }
+      .team-stage-progress span {
+        display: block;
+        height: 100%;
+        width: 0;
+        background: #F92D18;
+      }
+      .team-stage-btn {
+        width: 44px;
+        height: 44px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        border: 1px solid rgba(255,255,255,0.35);
+        background: rgba(26,27,24,0.35);
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+      }
+      .team-stage-btn:hover { background: #F92D18; border-color: #F92D18; }
+
+      .team-strip {
+        display: flex;
+        gap: 0.75rem;
+        margin-top: 0.75rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+      }
+      .team-strip::-webkit-scrollbar { display: none; }
+      .team-strip-thumb {
+        position: relative;
+        /* grow to fill the row when there are few photos, scroll when many */
+        flex: 1 0 clamp(110px, 12vw, 180px);
+        aspect-ratio: 16 / 10;
+        padding: 0;
+        border: 0;
+        background: var(--color-base--black);
+        overflow: hidden;
+        cursor: pointer;
+        scroll-snap-align: start;
+        opacity: 0.45;
+        transition: opacity 0.3s ease;
+      }
+      .team-strip-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .team-strip-thumb::before {
+        content: "";
+        position: absolute;
+        left: 0; top: 0;
+        height: 3px;
+        width: 0;
+        background: #F92D18;
+        z-index: 1;
+        transition: width 0.4s ease;
+      }
+      .team-strip-thumb:hover { opacity: 0.8; }
+      .team-strip-thumb.is-active { opacity: 1; }
+      .team-strip-thumb.is-active::before { width: 100%; }
+
+      @media (prefers-reduced-motion: reduce) {
+        .team-stage-slide, .team-stage-slide img { transition: none; }
+        .team-stage-slide img { transform: none; }
       }
     </style>
 
@@ -1415,6 +1502,7 @@
     </div>
   </section>
 
+    {% if certifications %}
     <section  class="padding-outer-inline" style="background-color: var(--color-base--white); color: var(--color-base--black);">
       <div class="section_certifications" >
         <div class="padding-global padding-section-large">
@@ -1438,88 +1526,22 @@
                <div class="cert-fade cert-fade-right"></div>
                
                <div class="cert-carousel-track">
-                  
-                  <!-- Set 1 -->
-                  <div class="cert-card">
-                     <div class="cert-icon-wrapper">
-                        <img src="{% static 'website/assets/images/Shield-done.svg' %}" class="cert-icon" alt="ISO 9001"/>
-                     </div>
-                     <div class="cert-title">ISO 9001:2015</div>
-                     <div class="cert-desc">Quality Management System ensuring the highest standards of manufacturing.</div>
-                  </div>
-                  
-                  <div class="cert-card">
-                     <div class="cert-icon-wrapper">
-                        <img src="{% static 'website/assets/images/Shield-done.svg' %}" class="cert-icon" alt="ISO 14001"/>
-                     </div>
-                     <div class="cert-title">ISO 14001:2015</div>
-                     <div class="cert-desc">Environmental Management System for sustainable and eco-friendly operations.</div>
-                  </div>
-                  
-                  <div class="cert-card">
-                     <div class="cert-icon-wrapper">
-                        <img src="{% static 'website/assets/images/Shield-done.svg' %}" class="cert-icon" alt="ISO 45001"/>
-                     </div>
-                     <div class="cert-title">ISO 45001:2018</div>
-                     <div class="cert-desc">Occupational Health & Safety management protecting our workforce.</div>
-                  </div>
-
-                  <div class="cert-card">
-                     <div class="cert-icon-wrapper">
-                        <img src="{% static 'website/assets/images/Shield-done.svg' %}" class="cert-icon" alt="FSC Certified"/>
-                     </div>
-                     <div class="cert-title">FSC® Certified</div>
-                     <div class="cert-desc">Sustainable Forestry Practices ensuring responsible sourcing of materials.</div>
-                  </div>
-                  
-                  <div class="cert-card">
-                     <div class="cert-icon-wrapper">
-                        <img src="{% static 'website/assets/images/Shield-done.svg' %}" class="cert-icon" alt="Civil Defence"/>
-                     </div>
-                     <div class="cert-title">Dubai Civil Defence</div>
-                     <div class="cert-desc">Approved Contractor for executing fire-safe structural and joinery works.</div>
-                  </div>
-
-                  <!-- Set 2 (Exact Duplicate for Infinite Loop) -->
-                  <div class="cert-card">
-                     <div class="cert-icon-wrapper">
-                        <img src="{% static 'website/assets/images/Shield-done.svg' %}" class="cert-icon" alt="ISO 9001"/>
-                     </div>
-                     <div class="cert-title">ISO 9001:2015</div>
-                     <div class="cert-desc">Quality Management System ensuring the highest standards of manufacturing.</div>
-                  </div>
-                  
-                  <div class="cert-card">
-                     <div class="cert-icon-wrapper">
-                        <img src="{% static 'website/assets/images/Shield-done.svg' %}" class="cert-icon" alt="ISO 14001"/>
-                     </div>
-                     <div class="cert-title">ISO 14001:2015</div>
-                     <div class="cert-desc">Environmental Management System for sustainable and eco-friendly operations.</div>
-                  </div>
-                  
-                  <div class="cert-card">
-                     <div class="cert-icon-wrapper">
-                        <img src="{% static 'website/assets/images/Shield-done.svg' %}" class="cert-icon" alt="ISO 45001"/>
-                     </div>
-                     <div class="cert-title">ISO 45001:2018</div>
-                     <div class="cert-desc">Occupational Health & Safety management protecting our workforce.</div>
-                  </div>
-
-                  <div class="cert-card">
-                     <div class="cert-icon-wrapper">
-                        <img src="{% static 'website/assets/images/Shield-done.svg' %}" class="cert-icon" alt="FSC Certified"/>
-                     </div>
-                     <div class="cert-title">FSC® Certified</div>
-                     <div class="cert-desc">Sustainable Forestry Practices ensuring responsible sourcing of materials.</div>
-                  </div>
-                  
-                  <div class="cert-card">
-                     <div class="cert-icon-wrapper">
-                        <img src="{% static 'website/assets/images/Shield-done.svg' %}" class="cert-icon" alt="Civil Defence"/>
-                     </div>
-                     <div class="cert-title">Dubai Civil Defence</div>
-                     <div class="cert-desc">Approved Contractor for executing fire-safe structural and joinery works.</div>
-                  </div>
+                  {% comment %} Rendered twice so the CSS marquee loops seamlessly {% endcomment %}
+                  {% for set in "12" %}
+                    {% for cert in certifications %}
+                    <div class="cert-card"{% if forloop.parentloop.counter == 2 %} aria-hidden="true"{% endif %}>
+                       <div class="cert-icon-wrapper{% if cert.logo %} has-logo{% endif %}">
+                          {% if cert.logo %}
+                            <img src="{{ cert.logo.url }}" class="cert-icon" alt="{{ cert.name }}" loading="lazy"/>
+                          {% else %}
+                            <img src="{% static 'website/assets/images/Shield-done.svg' %}" class="cert-icon" alt="{{ cert.name }}"/>
+                          {% endif %}
+                       </div>
+                       <div class="cert-title">{{ cert.name }}</div>
+                       {% if cert.description %}<div class="cert-desc">{{ cert.description }}</div>{% endif %}
+                    </div>
+                    {% endfor %}
+                  {% endfor %}
 
                </div>
             </div>
@@ -1528,6 +1550,7 @@
         </div>
       </div>
     </section>
+    {% endif %}
 
  </div>
 
@@ -1564,7 +1587,7 @@
                       "
                     >
                       Japanese
-                      <span style="font-weight: 600; color: #ff6118">5S</span>
+                      <span style="font-weight: 600; color: #DD2216">5S</span>
                       System Methodology
                     </h2>
                     <p
@@ -1643,6 +1666,7 @@
           </div>
     </section>
 
+    {% if team_photos %}
     <section class="padding-outer-inline" style="background-color: var(--color-base--white); color: var(--color-base--black);">
       <div class="section_team">
         <div class="padding-global padding-section-large">
@@ -1659,42 +1683,47 @@
               </h2>
             </div>
             
-            <!-- Team Slider and Collage -->
-            <div animate="fade-up-3" class="team-gallery-wrapper" style="background-color: var(--color-base--black); padding: 5px;">
-              
-              <!-- Left Side: Autoplaying Slider -->
-              <div class="team-featured-slider">
-                 <div class="team-slide active"><img src="{% static 'website/assets/images/img/team-1.png' %}" alt="Team slide 1" loading="lazy" /></div>
-                 <div class="team-slide"><img src="{% static 'website/assets/images/img/team-2.png' %}" alt="Team slide 2" loading="lazy" /></div>
-                 <div class="team-slide"><img src="{% static 'website/assets/images/img/team-3.png' %}" alt="Team slide 3" loading="lazy" /></div>
-                 <div class="team-slide"><img src="{% static 'website/assets/images/img/team-4.jpg' %}" alt="Team slide 4" loading="lazy" /></div>
+          </div>
+
+          <!-- Team Showcase: wider than the text container -->
+          <div animate="fade-up-3" class="team-showcase" data-team-showcase>
+            <div class="team-stage">
+              {% for photo in team_photos %}
+              <figure class="team-stage-slide{% if forloop.first %} is-active{% endif %}">
+                <img src="{{ photo.image.url }}" alt="{{ photo.caption|default:'800 Retail team' }}" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}" />
+                {% if photo.caption %}<figcaption class="team-stage-caption">{{ photo.caption }}</figcaption>{% endif %}
+              </figure>
+              {% endfor %}
+
+              {% if team_photos|length > 1 %}
+              <div class="team-stage-bar">
+                <div class="team-stage-counter"><span class="is-current" data-team-current>01</span> / {{ team_photos|length|stringformat:"02d" }}</div>
+                <div class="team-stage-progress"><span data-team-progress></span></div>
+                <button type="button" class="team-stage-btn" data-team-prev aria-label="Previous photo">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <button type="button" class="team-stage-btn" data-team-next aria-label="Next photo">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
               </div>
-              
-              <!-- Right Side: Static Collage -->
-              <div class="team-static-collage">
-                 <div class="team-thumb">
-                    <img src="{% static 'website/assets/images/img/team-3.png' %}" alt="Team static 1" loading="lazy" />
-                 </div>
-                 <div class="team-thumb">
-                    <img src="{% static 'website/assets/images/img/team-5.jpg' %}" alt="Team static 2" loading="lazy" />
-                 </div>
-                 <div class="team-thumb">
-                    <img src="{% static 'website/assets/images/img/team-6.jpg' %}" alt="Team static 3" loading="lazy" />
-                 </div>
-                 <div class="team-thumb">
-                    <img src="{% static 'website/assets/images/img/team-7.jpg' %}" alt="Team static 4" loading="lazy" />
-                 </div>
-                 <!-- Wide Bottom Image spanning both columns -->
-                 <div class="team-thumb thumb-wide">
-                    <img src="{% static 'website/assets/images/img/team-1.png' %}" alt="Team static wide" loading="lazy" />
-                 </div>
-              </div>
+              {% endif %}
             </div>
 
+            {% if team_photos|length > 1 %}
+            <div class="team-strip" role="tablist" aria-label="Team photos">
+              {% for photo in team_photos %}
+              <button type="button" class="team-strip-thumb{% if forloop.first %} is-active{% endif %}" role="tab" aria-label="Show photo {{ forloop.counter }}">
+                <img src="{{ photo.image.url }}" alt="" loading="lazy" />
+              </button>
+              {% endfor %}
+            </div>
+            {% endif %}
           </div>
+
         </div>
       </div>
     </section>
+    {% endif %}
 
 
 
@@ -1705,17 +1734,6 @@
 
         <script>
           document.addEventListener("DOMContentLoaded", () => {
-            // Team Slider Auto-play
-            const teamSlides = document.querySelectorAll(".team-slide");
-            if (teamSlides.length > 0) {
-              let currentTeamSlide = 0;
-              setInterval(() => {
-                teamSlides[currentTeamSlide].classList.remove("active");
-                currentTeamSlide = (currentTeamSlide + 1) % teamSlides.length;
-                teamSlides[currentTeamSlide].classList.add("active");
-              }, 6000);
-            }
-
             // Check if gsap is available
             if (
               typeof gsap !== "undefined" &&
@@ -1768,21 +1786,82 @@
         
 
             <script>
+      // Our Team showcase: crossfade slideshow + thumbnail strip.
+      // Works with any number of photos from CMS > Data > Team Photos.
+      document.addEventListener('DOMContentLoaded', function () {
+        var root = document.querySelector('[data-team-showcase]');
+        if (!root) return;
+        var slides = root.querySelectorAll('.team-stage-slide');
+        var thumbs = root.querySelectorAll('.team-strip-thumb');
+        var strip = root.querySelector('.team-strip');
+        var current = root.querySelector('[data-team-current]');
+        var bar = root.querySelector('[data-team-progress]');
+        if (slides.length < 2) return;
 
-            // Slides 
+        var DURATION = 6000;
+        var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var index = 0, timer = null, paused = false;
 
-    document.addEventListener('DOMContentLoaded', function() {
-      const slides = document.querySelectorAll('.team-slide');
-      let currentSlide = 0;
-      
-      if (slides.length > 0) {
-        setInterval(() => {
-          slides[currentSlide].classList.remove('active');
-          currentSlide = (currentSlide + 1) % slides.length;
-          slides[currentSlide].classList.add('active');
-        }, 6000); 
-      }
-    });
+        function pad(n) { return (n < 10 ? '0' : '') + n; }
+
+        function restartProgress() {
+          if (!bar) return;
+          bar.style.transition = 'none';
+          bar.style.width = '0';
+          if (reduceMotion || paused) return;
+          void bar.offsetWidth; // reflow so the transition restarts
+          bar.style.transition = 'width ' + DURATION + 'ms linear';
+          bar.style.width = '100%';
+        }
+
+        function go(next) {
+          index = (next + slides.length) % slides.length;
+          slides.forEach(function (s, i) { s.classList.toggle('is-active', i === index); });
+          thumbs.forEach(function (t, i) {
+            t.classList.toggle('is-active', i === index);
+            t.setAttribute('aria-selected', i === index ? 'true' : 'false');
+          });
+          if (current) current.textContent = pad(index + 1);
+          var thumb = thumbs[index];
+          if (strip && thumb) {
+            var left = thumb.offsetLeft - (strip.clientWidth - thumb.clientWidth) / 2;
+            strip.scrollTo({ left: left, behavior: 'smooth' });
+          }
+          schedule();
+        }
+
+        function schedule() {
+          clearTimeout(timer);
+          restartProgress();
+          if (reduceMotion || paused) return;
+          timer = setTimeout(function () { go(index + 1); }, DURATION);
+        }
+
+        function pause(state) { paused = state; schedule(); }
+
+        var prev = root.querySelector('[data-team-prev]');
+        var next = root.querySelector('[data-team-next]');
+        if (prev) prev.addEventListener('click', function () { go(index - 1); });
+        if (next) next.addEventListener('click', function () { go(index + 1); });
+        thumbs.forEach(function (t, i) { t.addEventListener('click', function () { go(i); }); });
+
+        root.addEventListener('mouseenter', function () { pause(true); });
+        root.addEventListener('mouseleave', function () { pause(false); });
+        document.addEventListener('visibilitychange', function () { pause(document.hidden); });
+
+        // swipe on touch screens
+        var startX = null;
+        var stage = root.querySelector('.team-stage');
+        stage.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; }, { passive: true });
+        stage.addEventListener('touchend', function (e) {
+          if (startX === null) return;
+          var dx = e.changedTouches[0].clientX - startX;
+          if (Math.abs(dx) > 40) go(index + (dx < 0 ? 1 : -1));
+          startX = null;
+        });
+
+        go(0);
+      });
     </script>
 
 {% endblock script %}
